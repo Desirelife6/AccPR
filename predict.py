@@ -19,10 +19,15 @@ BATCH_SIZE = 32
 W2V_SIZE = 300000
 W2V_PATH = 'all_words_embedding/all_words_w2v_' + str(W2V_SIZE)
 
+from predict_pipeline import Pipeline
+
+ppl = Pipeline('predict_data/', w2v_path=W2V_PATH)
+ppl.run()
+
 if PREDICT_BASE:
     from base_model import BatchProgramCC
 
-    model_path = 'base_result/base_model.pth.tar'
+    model_path = 'base_result/{}/base_model_{}.pth.tar'.format(str(W2V_SIZE), str(W2V_SIZE))
 else:
     from unsupervised_model import BatchProgramCC
 
