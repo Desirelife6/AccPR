@@ -22,11 +22,11 @@ LABEL_SIZE = 1
 EPOCHS = 5
 BATCH_SIZE = 32
 USE_GPU = True if torch.cuda.is_available() else False
-W2V_SIZE = 300000
+W2V_SIZE = 30000
 W2V_PATH = 'all_words_embedding/all_words_w2v_' + str(W2V_SIZE)
 data_root = 'base_data/'
-save_dir = 'base_result/'
-save_file = save_dir + 'base_model.pth.tar'
+save_dir = 'base_result/' + str(W2V_SIZE) + '/'
+save_file = save_dir + 'base_model_{}.pth.tar'.format(str(W2V_SIZE))
 
 ppl = Pipeline('3:1:1', 'base_data/', w2v_path=W2V_PATH)
 ppl.run()

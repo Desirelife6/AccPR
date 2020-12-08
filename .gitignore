@@ -127,7 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.DS_Store
+/.DS_Store
 /__pycache__
 base_embedding/
 all_words_embedding/
