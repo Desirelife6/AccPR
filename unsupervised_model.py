@@ -2,7 +2,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch
 from torch.autograd import Variable
-import random
 
 
 class BatchTreeEncoder(nn.Module):
@@ -45,9 +44,6 @@ class BatchTreeEncoder(nn.Module):
             temp = node[i][1:]
             c_num = len(temp)
             for j in range(c_num):
-                # 使用j作为第一个轴对相同位置的children做了一个聚类，比如第一个来的有四个children
-                # e.g. 则j = 1,2，3，4都与index相等，index变为[[0],[0],[0],[0]]
-                # 很快啊！出现了一个j = 2的,那么就直接在对应维度的数组里加就好了
                 if temp[j][0] is not -1:
                     if len(children_index) <= j:
                         children_index.append([i])
@@ -64,19 +60,19 @@ class BatchTreeEncoder(nn.Module):
         for c in range(len(children)):
             zeros = self.create_tensor(Variable(torch.zeros(size, self.encode_dim)))
             batch_children_index = [batch_index[i] for i in children_index[c]]
-            tmp, tree = self.traverse_mul(children[c], batch_children_index)
+            tree = self.traverse_mul(children[c], batch_children_index)
             if tree is not None:
                 batch_current += zeros.index_copy(0, Variable(self.th.LongTensor(children_index[c])), tree)
         # batch_index = [i for i in batch_index if i is not -1]
         b_in = Variable(self.th.LongTensor(batch_index))
         self.node_list.append(self.batch_node.index_copy(0, b_in, batch_current))
-        return b_in, batch_current
+        return batch_current
 
     def forward(self, x, bs):
         self.batch_size = bs
         self.batch_node = self.create_tensor(Variable(torch.zeros(self.batch_size, self.encode_dim)))
         self.node_list = []
-        a, b = self.traverse_mul(x, list(range(self.batch_size)))
+        self.traverse_mul(x, list(range(self.batch_size)))
         self.node_list = torch.stack(self.node_list)
         return torch.max(self.node_list, 0)[0]
 

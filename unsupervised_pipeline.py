@@ -241,7 +241,7 @@ from tqdm import tqdm
 warnings.filterwarnings('ignore')
 
 
-class Pipeline:
+class UnsupervisedPipeline:
     def __init__(self, ratio, root, w2v_path):
         self.ratio = ratio
         self.root = root
@@ -263,29 +263,38 @@ class Pipeline:
         else:
             import javalang
             # def parse_program(func):
-            #     tokens = javalang.tokenizer.tokenize(func)
-            #     parser = javalang.parser.Parser(tokens)
-            #     tree = parser.parse_member_declaration()
-            #     return tree
+            #     try:
+            #         tokens = javalang.tokenizer.tokenize(func)
+            #         parser = javalang.parser.Parser(tokens)
+            #         tree = parser.parse_member_declaration()
+            #         return tree
+            #     except:
+            #         print(str(tokens))
+            #         print('Error happened while parsing')
 
-            source = pd.read_csv(self.root + 'all_words.tsv', sep='\t', header=None,
+            source = pd.read_csv(self.root + 'bcb_funcs_all.tsv', sep='\t', header=None,
                                  encoding='utf-8')
             source.columns = ['id', 'code']
-
+            tmp = []
             for code in tqdm(source['code']):
                 try:
                     tokens = javalang.tokenizer.tokenize(code)
                     parser = javalang.parser.Parser(tokens)
                     code = parser.parse_member_declaration()
-                    # print(code)
+                    tmp.append(code)
+                # print(code)
                 except:
-                    faulty_code_file = 'unsupervised_result/faulty_code.txt'
-                    out = open(faulty_code_file, 'w')
+                    faulty_code_file = 'all_words_embedding/faulty_code.txt'
+                    out = open(faulty_code_file, 'a+')
+                    out.write('Code snippet failed to pass parsing')
                     out.write(str(code))
-                    print(str(code))
+                    print('Error happened while parsing')
+                    print(code)
                     out.close()
                     code = None
+                    tmp.append(code)
 
+            source['code'] = tmp
             # source['code'] = source['code'].apply(parse_program)
             source['code'] = source['code'].fillna('null')
 
@@ -299,6 +308,7 @@ class Pipeline:
             source = source[~source['code'].isin(['null'])]
             source.to_pickle(path)
         self.sources = source
+
         return source
 
     # create clone pairs
@@ -344,37 +354,37 @@ class Pipeline:
         test.to_pickle(self.test_file_path)
 
     # construct dictionary and train word embedding
-    def dictionary_and_embedding(self, input_file, size):
-        self.size = size
-        if not input_file:
-            input_file = self.train_file_path
-        pairs = pd.read_pickle(input_file)
-        train_ids = pairs['id1'].append(pairs['id2']).unique()
-
-        trees = self.sources.set_index('id', drop=False).loc[train_ids]
-        if not os.path.exists(self.w2v_path):
-            os.mkdir(self.w2v_path)
-
-        def trans_to_sequences(ast):
-            sequence = []
-            get_sequence(ast, sequence)
-            return sequence
-
-        corpus = trees['code'].apply(trans_to_sequences)
-        str_corpus = [' '.join(c) for c in corpus]
-        trees['code'] = pd.Series(str_corpus)
-        # trees.to_csv(data_path+'train/programs_ns.tsv')
-
-        from gensim.models.word2vec import Word2Vec
-        w2v = Word2Vec(corpus, size=size, workers=16, sg=1, max_final_vocab=3000)
-        w2v.save(self.w2v_path + 'base_node_w2v_' + str(size))
+    # def dictionary_and_embedding(self, input_file, size):
+    #     self.size = size
+    #     if not input_file:
+    #         input_file = self.train_file_path
+    #     pairs = pd.read_pickle(input_file)
+    #     train_ids = pairs['id1'].append(pairs['id2']).unique()
+    #
+    #     trees = self.sources.set_index('id', drop=False).loc[train_ids]
+    #     if not os.path.exists(self.w2v_path):
+    #         os.mkdir(self.w2v_path)
+    #
+    #     def trans_to_sequences(ast):
+    #         sequence = []
+    #         get_sequence(ast, sequence)
+    #         return sequence
+    #
+    #     corpus = trees['code'].apply(trans_to_sequences)
+    #     str_corpus = [' '.join(c) for c in corpus]
+    #     trees['code'] = pd.Series(str_corpus)
+    #     # trees.to_csv(data_path+'train/programs_ns.tsv')
+    #
+    #     from gensim.models.word2vec import Word2Vec
+    #     w2v = Word2Vec(corpus, size=size, workers=16, sg=1, max_final_vocab=3000)
+    #     w2v.save(self.w2v_path + 'base_node_w2v_' + str(size))
 
     # generate block sequences with index representations
     def generate_block_seqs(self):
 
         from gensim.models.word2vec import Word2Vec
 
-        word2vec = Word2Vec.load(self.w2v_path + 'base_node_w2v_' + str(self.size)).wv
+        word2vec = Word2Vec.load(self.w2v_path).wv
         vocab = word2vec.vocab
         max_token = word2vec.syn0.shape[0]
 
@@ -421,8 +431,8 @@ class Pipeline:
         self.read_pairs('bcb_pair_ids.pkl')
         print('split data...')
         self.split_data()
-        print('train word embedding...')
-        self.dictionary_and_embedding(None, 128)
+        # print('train word embedding...')
+        # self.dictionary_and_embedding(None, 128)
         print('generate block sequences...')
         self.generate_block_seqs()
         print('merge pairs and blocks...')
@@ -431,5 +441,5 @@ class Pipeline:
         self.merge(self.test_file_path, 'test')
 
 
-ppl = Pipeline('3:1:1', 'unsupervised_data/', w2v_path='all_words_embedding/')
+ppl = UnsupervisedPipeline('base_data/', w2v_path='all_words_embedding/all_words_w2v_30000')
 ppl.run()

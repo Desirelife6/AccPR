@@ -100,7 +100,8 @@ if __name__ == '__main__':
 
         distance = float(buggy_code_encode.mm(candidate_encode.t()))
 
-        # distance = numpy.sqrt(numpy.sum(numpy.square(candidate_encode.detach().numpy() - buggy_code_encode.detach().numpy())))
+        # distance = numpy.sqrt(numpy.sum(numpy.square(candidate_encode.detach().numpy() /
+        # - buggy_code_encode.detach().numpy())))
         # distance = float(torch.cosine_similarity(buggy_code_encode, candidate_encode, dim=1)[0])
         # print(distance)
 
@@ -113,7 +114,7 @@ if __name__ == '__main__':
     # dict_result.drop([' '])
     # dict_result.drop([0])
     # dict_result.drop(['0'])
-    dict_result.to_csv('data_prediction/dict_result.csv')
+    dict_result.to_csv('predict_data/dict_result.csv')
 
     print(len(dict))
     print(sorted(dict.items(), key=lambda e: e[1], reverse=True))
