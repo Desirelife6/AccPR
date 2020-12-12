@@ -19,11 +19,6 @@ BATCH_SIZE = 32
 W2V_SIZE = 300000
 W2V_PATH = 'all_words_embedding/all_words_w2v_' + str(W2V_SIZE)
 
-from predict_pipeline import Pipeline
-
-ppl = Pipeline('predict_data/', w2v_path=W2V_PATH)
-ppl.run()
-
 if PREDICT_BASE:
     from base_model import BatchProgramCC
 
@@ -31,7 +26,7 @@ if PREDICT_BASE:
 else:
     from unsupervised_model import BatchProgramCC
 
-    model_path = 'unsupervised_result/unsupervised_model.pth.tar'
+    model_path = 'unsupervised_result/{}/unsupervised_model_{}.pth.tar'.format(str(W2V_SIZE), str(W2V_SIZE))
 
 
 def get_batch(dataset, idx, bs):
@@ -59,7 +54,7 @@ def load_model():
     parameters = model.parameters()
     optimizer = torch.optim.Adamax(parameters)
     checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
-    model.load_state_dict(checkpoint['state_dict'])
+    model.load_state_dict(checkpoint['model'])
     optimizer.load_state_dict(checkpoint['optimizer'])
     precision = checkpoint['precision']
     f1 = checkpoint['f1']
@@ -76,7 +71,8 @@ if __name__ == '__main__':
 
     i = 0
     dict = {}
-    while i < len(predict_data):
+    # pattern_res = []
+    while i < 100:
         batch = get_batch(predict_data, i, 1)
         i += 1
         predict1_inputs, predict2_inputs, predict_labels, id = batch
@@ -92,6 +88,8 @@ if __name__ == '__main__':
 
         buggy_code_encode = model.encode(predict1_inputs)
         candidate_encode = model.encode(predict2_inputs)
+
+        # pattern_res.append([str(id[0]), str(candidate_encode.detach().numpy())])
 
         import torch.nn.functional as F
 
@@ -109,11 +107,13 @@ if __name__ == '__main__':
         # print(distance)
         dict[str(id[0])] = distance
 
+    # pattern_res = pd.DataFrame(pattern_res)
     dict_result = pd.DataFrame(list(dict.items()))
 
     # dict_result.drop([' '])
     # dict_result.drop([0])
     # dict_result.drop(['0'])
+    # pattern_res.to_csv('predict_data/pattern_res.csv')
     dict_result.to_csv('predict_data/dict_result.csv')
 
     print(len(dict))

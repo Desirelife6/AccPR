@@ -24,7 +24,7 @@ BATCH_SIZE = 32
 USE_GPU = True if torch.cuda.is_available() else False
 W2V_SIZE = 30000
 W2V_PATH = 'all_words_embedding/all_words_w2v_' + str(W2V_SIZE)
-data_root = 'unsupervised_data'
+data_root = 'base_data/'
 save_dir = 'unsupervised_result/' + str(W2V_SIZE) + '/'
 save_file = save_dir + 'unsupervised_model_{}.pth.tar'.format(str(W2V_SIZE))
 
@@ -59,14 +59,15 @@ if __name__ == '__main__':
 
     categories = 5
     print("Begin Training")
-    train_data = pd.read_pickle(data_root + 'blocks.pkl').sample(frac=1)
-    test_data = pd.read_pickle(data_root + 'blocks.pkl').sample(frac=1)
+    train_data = pd.read_pickle(data_root + 'train/blocks.pkl').sample(frac=1)
+    test_data = pd.read_pickle(data_root + 'test/blocks.pkl').sample(frac=1)
 
     model = init_model().cuda() if USE_GPU else init_model()
 
     parameters = model.parameters()
     optimizer = torch.optim.Adamax(parameters)
-    loss_function = torch.nn.BCELoss()
+    # loss_function = torch.nn.BCELoss()
+    loss_function = torch.nn.MSELoss()
 
     print(train_data)
     precision, recall, f1 = 0, 0, 0
@@ -74,7 +75,7 @@ if __name__ == '__main__':
     out = open(save_dir + 'train_out.txt', 'a+')
     for t in range(1, categories + 1):
         print("Begin training for category %d..." % t)
-        out.write("Begin training for category %d..." % t)
+        out.write("Begin training for category %d...\n" % t)
         train_data_t = train_data[train_data['label'].isin([t, 0])]
         train_data_t.loc[train_data_t['label'] > 0, 'label'] = 1
 
@@ -101,9 +102,26 @@ if __name__ == '__main__':
                 model.batch_size = len(train_labels)
                 model.hidden = model.init_hidden()
                 model.hidden_decode = model.init_hidden_decode()
-                _, _, _, output = model(train1_inputs, train2_inputs)
+                encodes, gru_encode_out, gru_decode_out, output = model(train1_inputs, train2_inputs)
 
-                loss = loss_function(output, Variable(train_labels))
+                loss = loss_function(encodes, gru_decode_out)
+                loss.backward()
+                optimizer.step()
+
+            while i < len(train_data_t):
+                batch = get_batch(train_data_t, i, BATCH_SIZE)
+                i += BATCH_SIZE
+                train1_inputs, train2_inputs, train_labels = batch
+                if USE_GPU:
+                    train1_inputs, train2_inputs, train_labels = train1_inputs, train2_inputs, train_labels.cuda()
+
+                model.zero_grad()
+                model.batch_size = len(train_labels)
+                model.hidden = model.init_hidden()
+                model.hidden_decode = model.init_hidden_decode()
+                encodes, gru_encode_out, gru_decode_out, output = model(train2_inputs, train1_inputs)
+
+                loss = loss_function(encodes, gru_decode_out)
                 loss.backward()
                 optimizer.step()
             print('Finished for epoch: ' + str(epoch))
@@ -124,16 +142,18 @@ if __name__ == '__main__':
 
             model.batch_size = len(test_labels)
             model.hidden = model.init_hidden()
+            model.hidden_decode = model.init_hidden_decode()
             _, _, _, output = model(test1_inputs, test2_inputs)
 
-            loss = loss_function(output, Variable(test_labels))
+            test_loss_function = torch.nn.BCELoss()
+            test_loss = test_loss_function(output, Variable(test_labels))
 
             # calc testing acc
             predicted = (output.data > 0.5).cpu().numpy()
             predicts.extend(predicted)
             trues.extend(test_labels.cpu().numpy())
             total += len(test_labels)
-            total_loss += loss.item() * len(test_labels)
+            total_loss += test_loss.item() * len(test_labels)
 
         weights = [0, 0.005, 0.001, 0.002, 0.010, 0.982]
         p, r, f, _ = precision_recall_fscore_support(trues, predicts, average='binary')
@@ -141,10 +161,10 @@ if __name__ == '__main__':
         recall += weights[t] * r
         f1 += weights[t] * f
         print("Type-" + str(t) + ": " + str(p) + " " + str(r) + " " + str(f))
-        out.write("Type-" + str(t) + ": " + str(p) + " " + str(r) + " " + str(f))
+        out.write("Type-" + str(t) + ": " + str(p) + " " + str(r) + " " + str(f) + '\n')
 
     print("Total testing results(P,R,F1):%.3f, %.3f, %.3f" % (precision, recall, f1))
-    out.write("Total testing results(P,R,F1):%.3f, %.3f, %.3f" % (precision, recall, f1))
+    out.write("Total testing results(P,R,F1):%.3f, %.3f, %.3f \n" % (precision, recall, f1))
     out.close()
     torch.save({
         'model': model.state_dict(),

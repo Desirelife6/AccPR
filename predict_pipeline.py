@@ -273,6 +273,9 @@ class Pipeline:
         source.columns = ['id', 'code']
         tmp = []
         for code in tqdm(source['code']):
+            # code = "protected void addMoveIfValid(List<Integer[]> validMoves,int dst_x,int dst_y) throws Exception{" \
+            #        "if(isValidMove(loc_x,loc_y,dst_x,dst_y)&&board.causesCheck(this,dst_x,dst_y)){validMoves.add(new " \
+            #        "Integer{loc_x,loc_y,dst_x,dst_y});}} "
             try:
                 tokens = javalang.tokenizer.tokenize(code)
                 parser = javalang.parser.Parser(tokens)
@@ -286,8 +289,9 @@ class Pipeline:
                 out.write('\n')
                 out.write(str(code))
                 out.write('\n')
+                out.write('\n')
                 print('Code snippet failed to pass parsing')
-                print(code)
+                print(str(code))
                 out.close()
                 code = None
                 tmp.append(code)
@@ -390,70 +394,32 @@ class Pipeline:
             return tree
 
         trees = pd.DataFrame(self.sources, copy=True)
-        trees['code'] = trees['code'].apply(trans2seq)
+
+        temp = []
+        for code in tqdm(trees['code']):
+            try:
+                blocks = []
+                get_blocks_v1(code, blocks)
+                tree = []
+                for b in blocks:
+                    btree = tree_to_index(b)
+                    tree.append(btree)
+                code = tree
+                temp.append(code)
+            except:
+                code = None
+                temp.append(code)
+                print('Wooooooooooops')
+
+
+        trees['code'] = temp
+        trees['code'] = trees['code'].fillna('null')
+        trees = trees[~(trees['code'] == 'null')]
+
         if 'label' in trees.columns:
             trees.drop('label', axis=1, inplace=True)
         self.blocks = trees
 
-    # construct dictionary and train word embedding
-    # def dictionary_and_embedding(self, input_file, size):
-    #     self.size = size
-    #     if not input_file:
-    #         input_file = self.train_file_path
-    #     pairs = pd.read_pickle(input_file)
-    #     train_ids = pairs['id1'].append(pairs['id2']).unique()
-    #
-    #     trees = self.sources.set_index('id', drop=False).loc[train_ids]
-    #     if not os.path.exists(self.w2v_path):
-    #         os.mkdir(self.w2v_path)
-    #
-    #     def trans_to_sequences(ast):
-    #         sequence = []
-    #         get_sequence(ast, sequence)
-    #         return sequence
-    #
-    #     corpus = trees['code'].apply(trans_to_sequences)
-    #     str_corpus = [' '.join(c) for c in corpus]
-    #     trees['code'] = pd.Series(str_corpus)
-    #     # trees.to_csv(data_path+'train/programs_ns.tsv')
-    #
-    #     from gensim.models.word2vec import Word2Vec
-    #     w2v = Word2Vec(corpus, size=size, workers=16, sg=1, max_final_vocab=3000)
-    #     w2v.save(self.w2v_path + 'base_node_w2v_' + str(size))
-
-    # generate block sequences with index representations
-    # def generate_block_seqs(self):
-    #
-    #     from gensim.models.word2vec import Word2Vec
-    #
-    #     word2vec = Word2Vec.load(self.w2v_path).wv
-    #     vocab = word2vec.vocab
-    #     max_token = word2vec.syn0.shape[0]
-    #
-    #     def tree_to_index(node):
-    #         token = node.token
-    #         result = [vocab[token].index if token in vocab else max_token]
-    #         children = node.children
-    #         for child in children:
-    #             result.append(tree_to_index(child))
-    #         return result
-    #
-    #     def trans2seq(r):
-    #         blocks = []
-    #         get_blocks_v1(r, blocks)
-    #         tree = []
-    #         for b in blocks:
-    #             btree = tree_to_index(b)
-    #             tree.append(btree)
-    #         return tree
-    #
-    #     trees = pd.DataFrame(self.sources, copy=True)
-    #     trees['code'] = trees['code'].apply(trans2seq)
-    #     if 'label' in trees.columns:
-    #         trees.drop('label', axis=1, inplace=True)
-    #     self.blocks = trees
-
-    # merge pairs
     def merge(self, data_path):
         pairs = pd.read_pickle(data_path)
         pairs['id1'] = pairs['id1'].astype(int)
@@ -470,7 +436,7 @@ class Pipeline:
         print('parse source code...')
         self.parse_source(output_file='ast.pkl', option='existing')
         print('read id pairs...')
-        self.read_pairs('labels.csv')
+        self.read_pairs('lables.csv')
         print('split data...')
         self.split_data()
         print('generate block sequences...')
@@ -478,5 +444,6 @@ class Pipeline:
         print('merge pairs and blocks...')
         self.merge(self.train_file_path)
 
-# ppl = Pipeline('3:1:1', 'base_data/', w2v_path='all_words_embedding/all_words_w2v_300000')
-# ppl.run()
+
+ppl = Pipeline('predict_data/', w2v_path='all_words_embedding/all_words_w2v_300000')
+ppl.run()
