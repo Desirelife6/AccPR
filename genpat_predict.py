@@ -5,6 +5,7 @@ import warnings
 from gensim.models.word2vec import Word2Vec
 # from origin_model import BatchProgramCC
 import os
+from tqdm import tqdm
 
 warnings.filterwarnings('ignore')
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
@@ -68,59 +69,43 @@ if __name__ == '__main__':
     model = load_model()
 
     predict_data = pd.read_pickle('predict_data/blocks.pkl').sample(frac=1)
-    predict_data = predict_data.sort_values(['id2'], ascending=True)
-    i = 0
-    dict = {}
-    pattern_res = []
-    while i < len(predict_data):
-        batch = get_batch(predict_data, i, 1)
-        i += 1
-        predict1_inputs, predict2_inputs, predict_labels, id = batch
-        print(predict1_inputs)
-        print(predict2_inputs)
 
-        if USE_GPU:
-            predict1_inputs, predict2_inputs, predict_labels, id = predict1_inputs, predict2_inputs, predict_labels.cuda()
+    batch = get_batch(predict_data, 0, 1)
+    predict1_inputs, predict2_inputs, predict_labels, id = batch
+    print(predict1_inputs)
+    print(predict2_inputs)
 
-        model.zero_grad()
-        model.batch_size = len(predict_labels)
-        model.hidden = model.init_hidden()
+    if USE_GPU:
+        predict1_inputs, predict2_inputs, predict_labels, id = predict1_inputs, predict2_inputs, predict_labels.cuda()
 
-        buggy_code_encode = model.encode(predict1_inputs)
-        candidate_encode = model.encode(predict2_inputs)
-        tmp = candidate_encode.detach().numpy()
-        tmp = np.squeeze(tmp)
-        pattern_res.append(tmp)
-        # np.append(pattern_res, candidate_encode.detach().numpy())
+    model.zero_grad()
+    model.batch_size = len(predict_labels)
+    model.hidden = model.init_hidden()
 
-        # b = np.fromstring(a)
+    candidate_encode = model.encode(predict2_inputs)
 
-        import torch.nn.functional as F
+    patterns = np.load('genpat_data/pattern_res.npy')
 
-        buggy_code_encode = F.normalize(buggy_code_encode)
-        candidate_encode = F.normalize(candidate_encode)
 
-        distance = float(buggy_code_encode.mm(candidate_encode.t()))
+    def dotProduct(v1, v2):
+        v1 = np.mat(v1)
+        v2 = np.mat(v2)
+        z = v1 * v2.T
+        return z
 
-        # distance = numpy.sqrt(numpy.sum(numpy.square(candidate_encode.detach().numpy() /
-        # - buggy_code_encode.detach().numpy())))
-        # distance = float(torch.cosine_similarity(buggy_code_encode, candidate_encode, dim=1)[0])
-        # print(distance)
 
-        # distance = model(predict1_inputs, predict2_inputs)
-        # print(distance)
-        dict[str(id[0])] = distance
+    dic = {}
+    for index, pattern in tqdm(enumerate(patterns)):
+        buggy_code = candidate_encode.detach().numpy()
+        a_norm = np.linalg.norm(buggy_code)
+        b_norm = np.linalg.norm(pattern)
+        cosine_sim = float(np.dot(buggy_code, pattern.T) / (a_norm * b_norm))
 
-    # pattern_res = pd.DataFrame(pattern_res)
-    pattern_res = np.array(pattern_res)
-    np.save('predict_data/pattern_res', pattern_res)
-    dict_result = pd.DataFrame(list(dict.items()))
+        dic[index] = cosine_sim
 
-    # dict_result.drop([' '])
-    # dict_result.drop([0])
-    # dict_result.drop(['0'])
-    # pattern_res.to_csv('predict_data/pattern_res.csv', index=False)
-    dict_result.to_csv('predict_data/dict_result.csv')
+    dic = sorted(dic.items(), key=lambda e: e[1], reverse=True)
+    print(len(dic))
+    print(dic)
 
-    print(len(dict))
-    print(sorted(dict.items(), key=lambda e: e[1], reverse=True))
+    dict_result = pd.DataFrame(dic)
+    dict_result.to_csv('genpat_data/dict_result.csv', index=False)

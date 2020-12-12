@@ -444,5 +444,5 @@ class Pipeline:
         self.merge(self.train_file_path)
 
 
-ppl = Pipeline('predict_data/', w2v_path='all_words_embedding/all_words_w2v_300000')
+ppl = Pipeline('genpat_data/', w2v_path='all_words_embedding/all_words_w2v_300000')
 ppl.run()
