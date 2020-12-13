@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     model = load_model()
 
-    predict_data = pd.read_pickle('predict_data/blocks.pkl').sample(frac=1)
+    predict_data = pd.read_pickle('simfix_data/blocks.pkl').sample(frac=1)
     predict_data = predict_data.sort_values(['id2'], ascending=True)
     i = 0
     dict = {}
@@ -90,6 +90,8 @@ if __name__ == '__main__':
         candidate_encode = model.encode(predict2_inputs)
         tmp = candidate_encode.detach().numpy()
         tmp = np.squeeze(tmp)
+        # a = np.insert（np.append（a, [77]）, 0, 88）
+        tmp = np.insert(tmp, 0, id)
         pattern_res.append(tmp)
         # np.append(pattern_res, candidate_encode.detach().numpy())
 
@@ -113,14 +115,14 @@ if __name__ == '__main__':
 
     # pattern_res = pd.DataFrame(pattern_res)
     pattern_res = np.array(pattern_res)
-    np.save('predict_data/pattern_res', pattern_res)
+    np.save('simfix_data/pattern_res', pattern_res)
     dict_result = pd.DataFrame(list(dict.items()))
 
     # dict_result.drop([' '])
     # dict_result.drop([0])
     # dict_result.drop(['0'])
-    # pattern_res.to_csv('predict_data/pattern_res.csv', index=False)
-    dict_result.to_csv('predict_data/dict_result.csv')
+    # pattern_res.to_csv('simfix_data/pattern_res.csv', index=False)
+    dict_result.to_csv('simfix_data/dict_result.csv')
 
     print(len(dict))
     print(sorted(dict.items(), key=lambda e: e[1], reverse=True))

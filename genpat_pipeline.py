@@ -283,7 +283,7 @@ class Pipeline:
                 tmp.append(code)
             # print(code)
             except:
-                faulty_code_file = 'predict_data/faulty_code.txt'
+                faulty_code_file = 'simfix_data/faulty_code.txt'
                 out = open(faulty_code_file, 'a+')
                 out.write('Code snippet failed to pass parsing')
                 out.write('\n')

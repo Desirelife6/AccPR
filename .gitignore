@@ -135,7 +135,7 @@ base_result/
 base_data/
 unsupervised_result/
 unsupervised_data/
-predict_data/
+simfix_data/
 genpat_data/
 .idea
 /.vscode

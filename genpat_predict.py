@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import warnings
 from gensim.models.word2vec import Word2Vec
-# from origin_model import BatchProgramCC
 import os
 from tqdm import tqdm
 
@@ -68,7 +67,7 @@ if __name__ == '__main__':
 
     model = load_model()
 
-    predict_data = pd.read_pickle('predict_data/blocks.pkl').sample(frac=1)
+    predict_data = pd.read_pickle('genpat_data/blocks.pkl').sample(frac=1)
 
     batch = get_batch(predict_data, 0, 1)
     predict1_inputs, predict2_inputs, predict_labels, id = batch
@@ -98,10 +97,12 @@ if __name__ == '__main__':
     for index, pattern in tqdm(enumerate(patterns)):
         buggy_code = candidate_encode.detach().numpy()
         a_norm = np.linalg.norm(buggy_code)
+        id = int(pattern[0])
+        pattern = np.delete(pattern, 0)
         b_norm = np.linalg.norm(pattern)
         cosine_sim = float(np.dot(buggy_code, pattern.T) / (a_norm * b_norm))
 
-        dic[index] = cosine_sim
+        dic[id] = cosine_sim
 
     dic = sorted(dic.items(), key=lambda e: e[1], reverse=True)
     print(len(dic))
