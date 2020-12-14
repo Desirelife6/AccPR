@@ -137,6 +137,7 @@ unsupervised_result/
 unsupervised_data/
 simfix_data/
 genpat_data/
+OOV/simfix_all_words.tsv
 .idea
 /.vscode
 *.tar

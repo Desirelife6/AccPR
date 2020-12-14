@@ -1,11 +1,16 @@
 from javalang.ast import Node
 import re
 import warnings
+import os
+from tqdm import tqdm
 
 
 def clear_text(origin_str):
-    sub_str = re.sub(u"([^\u4e00-\u9fa5^a-z^A-Z^0-9^!^?^>^<^=^&^|^~^%^/^-^+^*])", "", origin_str)
+    sub_str = re.sub(u"([^\u4e00-\u9fa5^a-z^A-Z^!^?^>^<^=^&^|^~^%^/^+^*^_^ ^.^-^:^,^@^-])", "", origin_str)
     return sub_str
+
+
+pattern = r',|\.|;|\'|`|\[|\]|:|"|\{|\}|@|#|\$|\(|\)|\_|，|。|、|；|‘|’|【|】|·|！| |…|（|）:| |'
 
 
 class BlockNode(object):
@@ -25,11 +30,12 @@ class BlockNode(object):
 
         if isinstance(node, str):
 
-            # node = filter_str(node, node)
             node = clear_text(node)
+            temp = re.split(pattern, node)
             big_chars = re.findall(r'[A-Z]', node)
-            if node.islower() or node.isupper() or len(big_chars) == 0 or (node[0].isupper() and len(big_chars) == 1):
-                token = node
+            if (node.islower() or node.isupper() or len(big_chars) == 0 or (
+                    node[0].isupper() and len(big_chars) == 1)) and len(temp) == 1:
+                token = node.lower()
             else:
                 token = 'SEGMENTATION'
 
@@ -51,39 +57,62 @@ class BlockNode(object):
         elif isinstance(root, set):
             children = list(root)
         elif isinstance(root, str):
-            # root = filter_str(root, root)
             root = clear_text(root)
-            big_chars = re.findall(r'[A-Z]', root)
-            if root.islower() or root.isupper() or len(big_chars) == 0 or (root[0].isupper() and len(big_chars) == 1):
-                children = []
-            else:
-                big_chars = re.findall(r'[A-Z]', root)
+            root = re.split(pattern, root)
+            root = [x for x in root if x != '']
+            # print(root)
+            res = []
+            for x in root:
+                temp = re.split(pattern, x)
+                big_chars = re.findall(r'[A-Z]', x)
+                if (x.islower() or x.isupper() or len(big_chars) == 0 or (
+                        x[0].isupper() and len(big_chars) == 1)) and len(temp) == 1:
+                    # token = x.lower()
+                    children = []
+                    # res.append(token)
+                else:
+                    big_chars_copy = big_chars.copy()
 
-                big_chars_copy = big_chars.copy()
+                    for i in range(1, len(big_chars)):
+                        curr_char = big_chars[i - 1]
+                        next_char = big_chars[i]
+                        if x.index(next_char) - x.index(curr_char) == 1:
+                            if x.index(next_char) == len(x) - 1:
+                                try:
+                                    if curr_char in big_chars_copy:
+                                        big_chars_copy.remove(curr_char)
+                                    big_chars_copy.remove(next_char)
+                                except:
+                                    print('Error happened while removing some chars')
+                                    print(curr_char)
+                                    print(big_chars_copy)
+                            else:
+                                if not x[x.index(next_char) + 1].islower():
+                                    big_chars_copy.remove(next_char)
 
-                for i in range(1, len(big_chars)):
-                    curr_char = big_chars[i - 1]
-                    next_char = big_chars[i]
-                    if root.index(next_char) - root.index(curr_char) == 1:
-                        if i == len(big_chars):
-                            big_chars_copy.remove(curr_char)
-                            big_chars_copy.remove(next_char)
-                        else:
-                            big_chars_copy.remove(next_char)
+                    big_chars = big_chars_copy
 
-                big_chars = big_chars_copy
-
-                index = []
-                tmp = []
-                if len(big_chars):
-                    if root.index(big_chars[0]) != 0:
-                        index.append(0)
-                    for bigchar in big_chars:
-                        index.append(root.index(bigchar))
-                    index.append(len(root))
-                    for i in range(len(index) - 1):
-                        tmp.append(root[index[i]: index[i + 1]].lower())
-                    children = list(tmp)
+                    index = []
+                    tmp = []
+                    if len(big_chars):
+                        if x.index(big_chars[0]) != 0:
+                            index.append(0)
+                        for bigchar in big_chars:
+                            index_list = [i.start() for i in re.finditer(bigchar, x)]
+                            if len(index_list) != 1:
+                                for i in index_list:
+                                    if not (i in index):
+                                        index.append(i)
+                            else:
+                                index.append(x.index(bigchar))
+                        index.append(len(x))
+                        index = list(set(index))
+                        index.sort()
+                        for i in range(len(index) - 1):
+                            tmp.append(x[index[i]: index[i + 1]].lower())
+                        for i in list(tmp):
+                            res.append(i)
+            children = res
         else:
             children = []
 
@@ -113,12 +142,13 @@ class BlockNode(object):
 def get_token(node):
     token = ''
     if isinstance(node, str):
-        # token = node
-        # node = filter_str(node, node)
+        token = node
         node = clear_text(node)
+        temp = re.split(pattern, node)
         big_chars = re.findall(r'[A-Z]', node)
-        if node.islower() or node.isupper() or len(big_chars) == 0 or (node[0].isupper() and len(big_chars) == 1):
-            token = node
+        if (node.islower() or node.isupper() or len(big_chars) == 0 or (
+                node[0].isupper() and len(big_chars) == 1)) and len(temp) == 1:
+            token = node.lower()
         else:
             token = 'SEGMENTATION'
     elif isinstance(node, set):
@@ -135,39 +165,62 @@ def get_children(root):
         children = root.children
 
     elif isinstance(root, str):
-        # root = filter_str(root, root)
         root = clear_text(root)
-        big_chars = re.findall(r'[A-Z]', root)
-        if root.islower() or root.isupper() or len(big_chars) == 0 or (root[0].isupper() and len(big_chars) == 1):
-            children = []
-        else:
-            big_chars = re.findall(r'[A-Z]', root)
+        root = re.split(pattern, root)
+        root = [x for x in root if x != '']
+        # print(root)
+        res = []
+        for x in root:
+            temp = re.split(pattern, x)
+            big_chars = re.findall(r'[A-Z]', x)
+            if (x.islower() or x.isupper() or len(big_chars) == 0 or (
+                    x[0].isupper() and len(big_chars) == 1)) and len(temp) == 1:
+                # token = x.lower()
+                children = []
+                # res.append(token)
+            else:
+                big_chars_copy = big_chars.copy()
 
-            big_chars_copy = big_chars.copy()
+                for i in range(1, len(big_chars)):
+                    curr_char = big_chars[i - 1]
+                    next_char = big_chars[i]
+                    if x.index(next_char) - x.index(curr_char) == 1:
+                        if x.index(next_char) == len(x) - 1:
+                            try:
+                                if curr_char in big_chars_copy:
+                                    big_chars_copy.remove(curr_char)
+                                big_chars_copy.remove(next_char)
+                            except:
+                                print(curr_char)
+                                print(big_chars_copy)
+                                print(x)
+                        else:
+                            if not x[x.index(next_char) + 1].islower():
+                                big_chars_copy.remove(next_char)
 
-            for i in range(1, len(big_chars)):
-                curr_char = big_chars[i - 1]
-                next_char = big_chars[i]
-                if root.index(next_char) - root.index(curr_char) == 1:
-                    if i == len(big_chars):
-                        big_chars_copy.remove(curr_char)
-                        big_chars_copy.remove(next_char)
-                    else:
-                        big_chars_copy.remove(next_char)
+                big_chars = big_chars_copy
 
-            big_chars = big_chars_copy
-
-            index = []
-            tmp = []
-            if len(big_chars):
-                if root.index(big_chars[0]) != 0:
-                    index.append(0)
-                for bigchar in big_chars:
-                    index.append(root.index(bigchar))
-                index.append(len(root))
-                for i in range(len(index) - 1):
-                    tmp.append(root[index[i]: index[i + 1]].lower())
-                children = list(tmp)
+                index = []
+                tmp = []
+                if len(big_chars):
+                    if x.index(big_chars[0]) != 0:
+                        index.append(0)
+                    for bigchar in big_chars:
+                        index_list = [i.start() for i in re.finditer(bigchar, x)]
+                        if len(index_list) != 1:
+                            for i in index_list:
+                                if not (i in index):
+                                    index.append(i)
+                        else:
+                            index.append(x.index(bigchar))
+                    index.append(len(x))
+                    index = list(set(index))
+                    index.sort()
+                    for i in range(len(index) - 1):
+                        tmp.append(x[index[i]: index[i + 1]].lower())
+                    for i in list(tmp):
+                        res.append(i)
+        children = res
     elif isinstance(root, set):
         children = list(root)
     else:
@@ -230,6 +283,39 @@ def get_blocks_v1(node, block_seq):
     else:
         for child in children:
             get_blocks_v1(child, block_seq)
+
+
+def get_blocks_v1(node, block_seq):
+    name, children = get_token(node), get_children(node)
+    logic = ['SwitchStatement', 'IfStatement', 'ForStatement', 'WhileStatement', 'DoStatement']
+    if name in ['MethodDeclaration', 'ConstructorDeclaration']:
+        block_seq.append(BlockNode(node))
+        body = node.body
+        for child in body:
+            if get_token(child) not in logic and not hasattr(child, 'block'):
+                block_seq.append(BlockNode(child))
+            else:
+                get_blocks_v1(child, block_seq)
+    elif name in logic:
+        block_seq.append(BlockNode(node))
+        for child in children[1:]:
+            token = get_token(child)
+            if not hasattr(node, 'block') and token not in logic + ['BlockStatement']:
+                block_seq.append(BlockNode(child))
+            else:
+                get_blocks_v1(child, block_seq)
+            block_seq.append(BlockNode('End'))
+    elif name is 'BlockStatement' or hasattr(node, 'block'):
+        block_seq.append(BlockNode(name))
+        for child in children:
+            if get_token(child) not in logic:
+                block_seq.append(BlockNode(child))
+            else:
+                get_blocks_v1(child, block_seq)
+    else:
+        for child in children:
+            get_blocks_v1(child, block_seq)
+
 
 
 import pandas as pd

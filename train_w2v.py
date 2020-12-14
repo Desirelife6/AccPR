@@ -327,7 +327,8 @@ warnings.filterwarnings('ignore')
 
 
 class Pipeline:
-    def __init__(self, root, w2v_path):
+    def __init__(self, ratio, root, w2v_path):
+        self.ratio = ratio
         self.root = root
         self.sources = None
         self.blocks = None
@@ -341,6 +342,7 @@ class Pipeline:
 
     # parse source code
     def parse_source(self, output_file, option):
+        path = self.root + output_file
 
         import javalang
         # def parse_program(func):
@@ -353,56 +355,48 @@ class Pipeline:
         #         print(str(tokens))
         #         print('Error happened while parsing')
 
-        source = pd.read_csv(self.root + 'src.tsv', sep='\t', header=None,
-                             encoding='utf-8')
-        source.columns = ['id', 'code']
-        tmp = []
-        for code in tqdm(source['code']):
-            # code = "protected void addMoveIfValid(List<Integer[]> validMoves,int dst_x,int dst_y) throws Exception{" \
-            #        "if(isValidMove(loc_x,loc_y,dst_x,dst_y)&&board.causesCheck(this,dst_x,dst_y)){validMoves.add(new " \
-            #        "Integer{loc_x,loc_y,dst_x,dst_y});}} "
-            try:
-                tokens = javalang.tokenizer.tokenize(code)
-                parser = javalang.parser.Parser(tokens)
-                code = parser.parse_member_declaration()
-                tmp.append(code)
-            # print(code)
-            except:
-                faulty_code_file = 'simfix_data/faulty_code.txt'
-                out = open(faulty_code_file, 'a+')
-                out.write('Code snippet failed to pass parsing')
-                out.write('\n')
-                out.write(str(code))
-                out.write('\n')
-                out.write('\n')
-                print('Code snippet failed to pass parsing')
-                print(str(code))
-                out.close()
-                code = None
-                tmp.append(code)
-
-        source['code'] = tmp
-        # source['code'] = source['code'].apply(parse_program)
-        source['code'] = source['code'].fillna('null')
-
-        faults = source.loc[source['code'] == 'null']
-
-        self.fault_ids = faults['id']
+        # source = pd.read_csv(self.root + 'bcb_funcs_all.tsv', sep='\t', header=None,
+        #                      encoding='utf-8')
+        # source.columns = ['id', 'code']
+        # tmp = []
+        # for code in tqdm(source['code']):
+        #     try:
+        #         tokens = javalang.tokenizer.tokenize(code)
+        #         parser = javalang.parser.Parser(tokens)
+        #         code = parser.parse_member_declaration()
+        #         tmp.append(code)
+        #     # print(code)
+        #     except:
+        #         faulty_code_file = 'all_words_embedding/faulty_code.txt'
+        #         out = open(faulty_code_file, 'a+')
+        #         out.write('Code snippet failed to pass parsing')
+        #         out.write(str(code))
+        #         print('Error happened while parsing')
+        #         print(code)
+        #         out.close()
+        #         code = None
+        #         tmp.append(code)
         #
-        # for fault_id in self.fault_ids:
-        #     print(fault_id)
-
-        source = source[~source['code'].isin(['null'])]
+        # source['code'] = tmp
+        # # source['code'] = source['code'].apply(parse_program)
+        # source['code'] = source['code'].fillna('null')
+        #
+        # faults = source.loc[source['code'] == 'null']
+        #
+        # self.fault_ids = faults['id']
+        # #
+        # # for fault_id in self.fault_ids:
+        # #     print(fault_id)
+        #
+        # source = source[~source['code'].isin(['null'])]
         # source.to_pickle(path)
+        source = pd.read_pickle('base_data/ast.pkl')
         self.sources = source
-
         return source
 
-    #
     # create clone pairs
     def read_pairs(self, filename):
-        pairs = pd.read_csv(self.root + filename)
-        # pairs = pd.read_pickle(self.root + filename)
+        pairs = pd.read_pickle(self.root + filename)
         if not self.fault_ids.empty:
             for fault_id in self.fault_ids:
                 pairs = pairs[~pairs['id1'].isin([fault_id])]
@@ -413,9 +407,15 @@ class Pipeline:
     def split_data(self):
         data_path = self.root
         data = self.pairs
+        data_num = len(data)
+        ratios = [int(r) for r in self.ratio.split(':')]
+        train_split = int(ratios[0] / sum(ratios) * data_num)
+        val_split = train_split + int(ratios[1] / sum(ratios) * data_num)
 
         data = data.sample(frac=1, random_state=666)
-        train = data.iloc[:]
+        train = data.iloc[:train_split]
+        dev = data.iloc[train_split:val_split]
+        test = data.iloc[val_split:]
 
         def check_or_create(path):
             if not os.path.exists(path):
@@ -426,31 +426,41 @@ class Pipeline:
         self.train_file_path = train_path + 'train_.pkl'
         train.to_pickle(self.train_file_path)
 
-        # construct dictionary and train word embedding
-        # def dictionary_and_embedding(self, input_file, size):
-        #     self.size = size
-        #     if not input_file:
-        #         input_file = self.train_file_path
-        #     pairs = pd.read_pickle(input_file)
-        #     train_ids = pairs['id1'].append(pairs['id2']).unique()
-        #
-        #     trees = self.sources.set_index('id', drop=False).loc[train_ids]
-        #     if not os.path.exists(self.w2v_path):
-        #         os.mkdir(self.w2v_path)
-        #
-        #     def trans_to_sequences(ast):
-        #         sequence = []
-        #         get_sequence(ast, sequence)
-        #         return sequence
-        #
-        #     corpus = trees['code'].apply(trans_to_sequences)
-        #     str_corpus = [' '.join(c) for c in corpus]
-        #     trees['code'] = pd.Series(str_corpus)
-        #     # trees.to_csv(data_path+'train/programs_ns.tsv')
-        #
-        #     from gensim.models.word2vec import Word2Vec
-        #     w2v = Word2Vec(corpus, size=size, workers=16, sg=1, max_final_vocab=3000)
-        #     w2v.save(self.w2v_path + 'base_node_w2v_' + str(size))
+        dev_path = data_path + 'dev/'
+        check_or_create(dev_path)
+        self.dev_file_path = dev_path + 'dev_.pkl'
+        dev.to_pickle(self.dev_file_path)
+
+        test_path = data_path + 'test/'
+        check_or_create(test_path)
+        self.test_file_path = test_path + 'test_.pkl'
+        test.to_pickle(self.test_file_path)
+
+    # construct dictionary and train word embedding
+    def dictionary_and_embedding(self, input_file, size):
+        self.size = size
+        if not input_file:
+            input_file = self.train_file_path
+        pairs = pd.read_pickle(input_file)
+        train_ids = pairs['id1'].append(pairs['id2']).unique()
+
+        trees = self.sources.set_index('id', drop=False).loc[train_ids]
+        if not os.path.exists(self.w2v_path):
+            os.mkdir(self.w2v_path)
+
+        def trans_to_sequences(ast):
+            sequence = []
+            get_sequence(ast, sequence)
+            return sequence
+
+        corpus = trees['code'].apply(trans_to_sequences)
+        str_corpus = [' '.join(c) for c in corpus]
+        trees['code'] = pd.Series(str_corpus)
+        # trees.to_csv(data_path+'train/programs_ns.tsv')
+
+        from gensim.models.word2vec import Word2Vec
+        w2v = Word2Vec(corpus, size=size, workers=16, sg=1, max_final_vocab=3000)
+        w2v.save(self.w2v_path + 'base_node_w2v_30000')
 
     # generate block sequences with index representations
     def generate_block_seqs(self):
@@ -479,32 +489,13 @@ class Pipeline:
             return tree
 
         trees = pd.DataFrame(self.sources, copy=True)
-
-        temp = []
-        for code in tqdm(trees['code']):
-            try:
-                blocks = []
-                get_blocks_v1(code, blocks)
-                tree = []
-                for b in blocks:
-                    btree = tree_to_index(b)
-                    tree.append(btree)
-                code = tree
-                temp.append(code)
-            except:
-                code = None
-                temp.append(code)
-                print('Wooooooooooops')
-
-        trees['code'] = temp
-        trees['code'] = trees['code'].fillna('null')
-        trees = trees[~(trees['code'] == 'null')]
-
+        trees['code'] = trees['code'].apply(trans2seq)
         if 'label' in trees.columns:
             trees.drop('label', axis=1, inplace=True)
         self.blocks = trees
 
-    def merge(self, data_path):
+    # merge pairs
+    def merge(self, data_path, part):
         pairs = pd.read_pickle(data_path)
         pairs['id1'] = pairs['id1'].astype(int)
         pairs['id2'] = pairs['id2'].astype(int)
@@ -513,21 +504,26 @@ class Pipeline:
         df.drop(['id_x', 'id_y'], axis=1, inplace=True)
         df.dropna(inplace=True)
 
-        df.to_pickle(self.root + '/blocks.pkl')
+        df.to_pickle(self.root + part + '/blocks.pkl')
 
     # run for processing data to train
     def run(self):
         print('parse source code...')
         self.parse_source(output_file='ast.pkl', option='existing')
         print('read id pairs...')
-        self.read_pairs('lables.csv')
+        self.read_pairs('bcb_pair_ids.pkl')
         print('split data...')
         self.split_data()
+        print('train word embedding...')
+        self.dictionary_and_embedding(None, 128)
         print('generate block sequences...')
         self.generate_block_seqs()
         print('merge pairs and blocks...')
-        self.merge(self.train_file_path)
+        self.merge(self.train_file_path, 'train')
+        self.merge(self.dev_file_path, 'dev')
+        self.merge(self.test_file_path, 'test')
 
 
-ppl = Pipeline('simfix_data/', w2v_path='all_words_embedding/all_words_w2v_30000')
+# ppl = Pipeline('3:1:1', 'base_data/', w2v_path='all_words_embedding/all_words_w2v_300000')
+ppl = Pipeline('3:1:1', 'OOV/', w2v_path='base_embedding/')
 ppl.run()
