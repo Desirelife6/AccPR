@@ -72,6 +72,7 @@ if __name__ == '__main__':
     i = 0
     dict = {}
     pattern_res = []
+
     while i < len(predict_data):
         batch = get_batch(predict_data, i, 1)
         i += 1
@@ -82,28 +83,54 @@ if __name__ == '__main__':
         if USE_GPU:
             predict1_inputs, predict2_inputs, predict_labels, id = predict1_inputs, predict2_inputs, predict_labels.cuda()
 
-        model.zero_grad()
-        model.batch_size = len(predict_labels)
-        model.hidden = model.init_hidden()
+        if PREDICT_BASE:
+            model.zero_grad()
+            model.batch_size = len(predict_labels)
+            model.hidden = model.init_hidden()
 
-        buggy_code_encode = model.encode(predict1_inputs)
-        candidate_encode = model.encode(predict2_inputs)
-        tmp = candidate_encode.detach().numpy()
-        tmp = np.squeeze(tmp)
-        # a = np.insert（np.append（a, [77]）, 0, 88）
-        tmp = np.insert(tmp, 0, id)
-        pattern_res.append(tmp)
-        # np.append(pattern_res, candidate_encode.detach().numpy())
+            buggy_code_encode = model.encode(predict1_inputs)
+            candidate_encode = model.encode(predict2_inputs)
+            tmp = candidate_encode.detach().numpy()
+            tmp = np.squeeze(tmp)
+            # a = np.insert（np.append（a, [77]）, 0, 88）
+            tmp = np.insert(tmp, 0, id)
+            pattern_res.append(tmp)
+            # np.append(pattern_res, candidate_encode.detach().numpy())
 
-        # b = np.fromstring(a)
+            # b = np.fromstring(a)
 
-        import torch.nn.functional as F
+            import torch.nn.functional as F
 
-        buggy_code_encode = F.normalize(buggy_code_encode)
-        candidate_encode = F.normalize(candidate_encode)
+            buggy_code_encode = F.normalize(buggy_code_encode)
+            candidate_encode = F.normalize(candidate_encode)
 
-        distance = float(buggy_code_encode.mm(candidate_encode.t()))
+            distance = float(buggy_code_encode.mm(candidate_encode.t()))
+            dict[str(id[0])] = distance
 
+        else:
+            model.zero_grad()
+            model.batch_size = len(predict_labels)
+            model.hidden = model.init_hidden()
+            model.hidden_decode = model.init_hidden_decode()
+
+            _, buggy_code_encode, _, _ = model.encode(predict1_inputs)
+            _, candidate_encode, _, _ = model.encode(predict2_inputs)
+            tmp = candidate_encode.detach().numpy()
+            tmp = np.squeeze(tmp)
+            # a = np.insert（np.append（a, [77]）, 0, 88）
+            tmp = np.insert(tmp, 0, id)
+            pattern_res.append(tmp)
+            # np.append(pattern_res, candidate_encode.detach().numpy())
+
+            # b = np.fromstring(a)
+
+            import torch.nn.functional as F
+
+            buggy_code_encode = F.normalize(buggy_code_encode)
+            candidate_encode = F.normalize(candidate_encode)
+
+            distance = float(buggy_code_encode.mm(candidate_encode.t()))
+            dict[str(id[0])] = distance
         # distance = numpy.sqrt(numpy.sum(numpy.square(candidate_encode.detach().numpy() /
         # - buggy_code_encode.detach().numpy())))
         # distance = float(torch.cosine_similarity(buggy_code_encode, candidate_encode, dim=1)[0])
@@ -111,7 +138,6 @@ if __name__ == '__main__':
 
         # distance = model(predict1_inputs, predict2_inputs)
         # print(distance)
-        dict[str(id[0])] = distance
 
     # pattern_res = pd.DataFrame(pattern_res)
     pattern_res = np.array(pattern_res)

@@ -462,7 +462,7 @@ class OovPipeline:
 
 
 out = open('OOV/oov_res.txt', 'w')
-ppl = OovPipeline('base_data/', w2v_path='base_embedding/base_node_w2v_30000')
+ppl = OovPipeline('base_data/', w2v_path='all_words_embedding/all_words_w2v_30000')
 ppl.run()
 out.close()
 

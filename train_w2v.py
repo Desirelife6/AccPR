@@ -459,7 +459,7 @@ class Pipeline:
         # trees.to_csv(data_path+'train/programs_ns.tsv')
 
         from gensim.models.word2vec import Word2Vec
-        w2v = Word2Vec(corpus, size=size, workers=16, sg=1, max_final_vocab=3000)
+        w2v = Word2Vec(corpus, size=size, workers=16, sg=1, max_final_vocab=30000)
         w2v.save(self.w2v_path + 'base_node_w2v_30000')
 
     # generate block sequences with index representations
@@ -525,5 +525,5 @@ class Pipeline:
 
 
 # ppl = Pipeline('3:1:1', 'base_data/', w2v_path='all_words_embedding/all_words_w2v_300000')
-ppl = Pipeline('3:1:1', 'OOV/', w2v_path='base_embedding/')
+ppl = Pipeline('3:1:1', 'all_words_embedding/', w2v_path='base_embedding/')
 ppl.run()
