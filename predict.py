@@ -9,14 +9,14 @@ import os
 warnings.filterwarnings('ignore')
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
-PREDICT_BASE = True
+PREDICT_BASE = False
 USE_GPU = True if torch.cuda.is_available() else False
 HIDDEN_DIM = 100
 ENCODE_DIM = 128
 LABELS = 1
 EPOCHS = 5
 BATCH_SIZE = 32
-W2V_SIZE = 300000
+W2V_SIZE = 30000
 W2V_PATH = 'all_words_embedding/all_words_w2v_' + str(W2V_SIZE)
 
 if PREDICT_BASE:
@@ -56,10 +56,10 @@ def load_model():
     checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
     model.load_state_dict(checkpoint['model'])
     optimizer.load_state_dict(checkpoint['optimizer'])
-    precision = checkpoint['precision']
-    f1 = checkpoint['f1']
+    # precision = checkpoint['precision']
+    # f1 = checkpoint['f1']
     print('Checkpoint Loaded!')
-    print('precision = {}, f1 = {}'.format(precision, f1))
+    # print('precision = {}, f1 = {}'.format(precision, f1))
     return model
 
 
