@@ -481,7 +481,8 @@ public class Repair {
                                     // for debug
                                     String candidateLogFile = null;
                                     if (useOrigin) {
-                                        logFile = Constant.PROJ_LOG_BASE_PATH + "/" + projectName + "/" + bugId + "_candidates.log";
+//                                        logFile = Constant.PROJ_LOG_BASE_PATH + "/" + projectName + "/" + bugId + ".log";
+                                        candidateLogFile = Constant.PROJ_LOG_BASE_PATH + "/" + projectName + "/" + bugId + "_candidates.log";
                                     } else if (useSupervised) {
                                         candidateLogFile = HOME + "/TransASTNN/simfix_supervised_data/" + projectName + "/" + bugId + "/candidates.log";
                                     } else {
@@ -489,10 +490,10 @@ public class Repair {
                                     }
 
                                     for (int tmp = 0; tmp <= currentIndex; tmp++) {
-                                        JavaFile.writeStringToFile(candidateLogFile, "===================================================");
-                                        JavaFile.writeStringToFile(candidateLogFile, "similiar code rank: " + tmp);
-                                        JavaFile.writeStringToFile(candidateLogFile, candidates.get(tmp).getFirst().toSrcString().toString());
-                                        JavaFile.writeStringToFile(candidateLogFile, "===================================================");
+                                        JavaFile.writeStringToFile(candidateLogFile, "===================================================", true);
+                                        JavaFile.writeStringToFile(candidateLogFile, "similiar code rank: " + tmp, true);
+                                        JavaFile.writeStringToFile(candidateLogFile, candidates.get(tmp).getFirst().toSrcString().toString(), true);
+                                        JavaFile.writeStringToFile(candidateLogFile, "===================================================", true);
                                         System.out.println("===================================================");
                                         System.out.println("similiar code rank: " + tmp);
                                         System.out.println(candidates.get(tmp).getFirst());
