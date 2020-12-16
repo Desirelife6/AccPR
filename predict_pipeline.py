@@ -355,6 +355,7 @@ class Pipeline:
 
         source = pd.read_csv(self.root + 'src.tsv', sep='\t', header=None,
                              encoding='utf-8')
+
         source.columns = ['id', 'code']
         tmp = []
         for code in tqdm(source['code']):

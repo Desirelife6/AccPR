@@ -9,7 +9,35 @@ import os
 warnings.filterwarnings('ignore')
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
-PREDICT_BASE = False
+import argparse
+
+parser = argparse.ArgumentParser(description="Choose project_name and bug_id")
+parser.add_argument('--project_name')
+parser.add_argument('--bug_id')
+parser.add_argument('--predict_baseline')
+args = parser.parse_args()
+if not args.project_name:
+    print("No specified project_name")
+    exit(1)
+if not args.bug_id:
+    print("No specified bug_id")
+    exit(1)
+if not args.predict_baseline:
+    print("No specified predict type")
+    exit(1)
+
+PREDICT_BASE = True
+project_name = args.project_name
+bug_id = args.bug_id
+base_url = ''
+if args.predict_baseline == 'true':
+    base_url = 'simfix_supervised_data/' + project_name + '/' + bug_id + '/'
+    PREDICT_BASE = True
+else:
+    PREDICT_BASE = False
+    base_url = 'simfix_unsupervised_data/' + project_name + '/' + bug_id + '/'
+
+
 USE_GPU = True if torch.cuda.is_available() else False
 HIDDEN_DIM = 100
 ENCODE_DIM = 128
@@ -64,31 +92,6 @@ def load_model():
 
 
 if __name__ == '__main__':
-
-    import argparse
-
-    parser = argparse.ArgumentParser(description="Choose project_name and bug_id")
-    parser.add_argument('--project_name')
-    parser.add_argument('--bug_id')
-    parser.add_argument('--predict_baseline')
-    args = parser.parse_args()
-    if not args.project_name:
-        print("No specified project_name")
-        exit(1)
-    if not args.bug_id:
-        print("No specified bug_id")
-        exit(1)
-    if not args.predict_baseline:
-        print("No specified predict type")
-        exit(1)
-
-    project_name = args.project_name
-    bug_id = args.bug_id
-    if args.predict_baseline == 'true':
-        PREDICT_BASE = True
-    else:
-        PREDICT_BASE = False
-
     model = load_model()
 
     # predict_data = pd.read_pickle('simfix_data/blocks.pkl').sample(frac=1)
@@ -96,7 +99,7 @@ if __name__ == '__main__':
     # File is too big for pickle to load
     from sklearn.externals import joblib
 
-    predict_data = joblib.load('simfix_data/' + project_name + '/' + bug_id + '/' + 'blocks.pkl').sample(frac=1)
+    predict_data = joblib.load(base_url + 'blocks.pkl').sample(frac=1)
 
     predict_data = predict_data.sort_values(['id2'], ascending=True)
     i = 0
@@ -163,7 +166,7 @@ if __name__ == '__main__':
 
     dict_result = pd.DataFrame(list(dict.items()))
 
-    dict_result.to_csv('simfix_data/' + project_name + '/' + bug_id + '/' + 'dict_result.csv')
+    dict_result.to_csv(base_url + '/dict_result.csv')
 
     print(len(dict))
     print(sorted(dict.items(), key=lambda e: e[1], reverse=True))
