@@ -181,11 +181,11 @@ class BatchProgramCC(nn.Module):
     def forward(self, x1, x2):
         encodes, gru_encode_out, gru_decode_out = self.encode(x1)
 
-        encodes2, gru_encode_out2, gru_decode_out2 = self.encode(x2)
+        # encodes2, gru_encode_out2, gru_decode_out2 = self.encode(x2)
         # lvec, rvec = self.encode(x1), self.encode(x2)
 
-        abs_dist = torch.abs(torch.add(gru_encode_out, -gru_encode_out2))
+        # abs_dist = torch.abs(torch.add(gru_encode_out, -gru_encode_out2))
 
-        y = torch.sigmoid(self.hidden2label(abs_dist))
+        # y = torch.sigmoid(self.hidden2label(abs_dist))
 
-        return encodes, gru_encode_out, gru_decode_out, y
+        return encodes, gru_encode_out, gru_decode_out

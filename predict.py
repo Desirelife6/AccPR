@@ -65,9 +65,39 @@ def load_model():
 
 if __name__ == '__main__':
 
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Choose project_name and bug_id")
+    parser.add_argument('--project_name')
+    parser.add_argument('--bug_id')
+    parser.add_argument('--predict_baseline')
+    args = parser.parse_args()
+    if not args.project_name:
+        print("No specified project_name")
+        exit(1)
+    if not args.bug_id:
+        print("No specified bug_id")
+        exit(1)
+    if not args.predict_baseline:
+        print("No specified predict type")
+        exit(1)
+
+    project_name = args.project_name
+    bug_id = args.bug_id
+    if args.predict_baseline == 'true':
+        PREDICT_BASE = True
+    else:
+        PREDICT_BASE = False
+
     model = load_model()
 
-    predict_data = pd.read_pickle('simfix_data/blocks.pkl').sample(frac=1)
+    # predict_data = pd.read_pickle('simfix_data/blocks.pkl').sample(frac=1)
+
+    # File is too big for pickle to load
+    from sklearn.externals import joblib
+
+    predict_data = joblib.load('simfix_data/' + project_name + '/' + bug_id + '/' + 'blocks.pkl').sample(frac=1)
+
     predict_data = predict_data.sort_values(['id2'], ascending=True)
     i = 0
     dict = {}
@@ -90,14 +120,12 @@ if __name__ == '__main__':
 
             buggy_code_encode = model.encode(predict1_inputs)
             candidate_encode = model.encode(predict2_inputs)
-            tmp = candidate_encode.detach().numpy()
-            tmp = np.squeeze(tmp)
-            # a = np.insert（np.append（a, [77]）, 0, 88）
-            tmp = np.insert(tmp, 0, id)
-            pattern_res.append(tmp)
-            # np.append(pattern_res, candidate_encode.detach().numpy())
 
-            # b = np.fromstring(a)
+            # Generate embeddings of GenPat patterns
+            # tmp = candidate_encode.detach().numpy()
+            # tmp = np.squeeze(tmp)
+            # tmp = np.insert(tmp, 0, id)
+            # pattern_res.append(tmp)
 
             import torch.nn.functional as F
 
@@ -113,16 +141,14 @@ if __name__ == '__main__':
             model.hidden = model.init_hidden()
             model.hidden_decode = model.init_hidden_decode()
 
-            _, buggy_code_encode, _, _ = model.encode(predict1_inputs)
-            _, candidate_encode, _, _ = model.encode(predict2_inputs)
-            tmp = candidate_encode.detach().numpy()
-            tmp = np.squeeze(tmp)
-            # a = np.insert（np.append（a, [77]）, 0, 88）
-            tmp = np.insert(tmp, 0, id)
-            pattern_res.append(tmp)
-            # np.append(pattern_res, candidate_encode.detach().numpy())
+            _, buggy_code_encode, _ = model.encode(predict1_inputs)
+            _, candidate_encode, _ = model.encode(predict2_inputs)
 
-            # b = np.fromstring(a)
+            # Generate embeddings of GenPat patterns
+            # tmp = candidate_encode.detach().numpy()
+            # tmp = np.squeeze(tmp)
+            # tmp = np.insert(tmp, 0, id)
+            # pattern_res.append(tmp)
 
             import torch.nn.functional as F
 
@@ -131,24 +157,13 @@ if __name__ == '__main__':
 
             distance = float(buggy_code_encode.mm(candidate_encode.t()))
             dict[str(id[0])] = distance
-        # distance = numpy.sqrt(numpy.sum(numpy.square(candidate_encode.detach().numpy() /
-        # - buggy_code_encode.detach().numpy())))
-        # distance = float(torch.cosine_similarity(buggy_code_encode, candidate_encode, dim=1)[0])
-        # print(distance)
 
-        # distance = model(predict1_inputs, predict2_inputs)
-        # print(distance)
+    # pattern_res = np.array(pattern_res)
+    # np.save('simfix_data/pattern_res', pattern_res)
 
-    # pattern_res = pd.DataFrame(pattern_res)
-    pattern_res = np.array(pattern_res)
-    np.save('simfix_data/pattern_res', pattern_res)
     dict_result = pd.DataFrame(list(dict.items()))
 
-    # dict_result.drop([' '])
-    # dict_result.drop([0])
-    # dict_result.drop(['0'])
-    # pattern_res.to_csv('simfix_data/pattern_res.csv', index=False)
-    dict_result.to_csv('simfix_data/dict_result.csv')
+    dict_result.to_csv('simfix_data/' + project_name + '/' + bug_id + '/' + 'dict_result.csv')
 
     print(len(dict))
     print(sorted(dict.items(), key=lambda e: e[1], reverse=True))

@@ -393,12 +393,15 @@ class Pipeline:
         #     print(fault_id)
 
         source = source[~source['code'].isin(['null'])]
+        # Files are too big for pickle to save, so I tried joblib
+        source.to_csv(self.root + '/test.csv')
+        from sklearn.externals import joblib
+        joblib.dump(source, self.root + '/pattern.pkl')
         # source.to_pickle(path)
         self.sources = source
 
         return source
 
-    #
     # create clone pairs
     def read_pairs(self, filename):
         pairs = pd.read_csv(self.root + filename)
@@ -513,7 +516,12 @@ class Pipeline:
         df.drop(['id_x', 'id_y'], axis=1, inplace=True)
         df.dropna(inplace=True)
 
-        df.to_pickle(self.root + '/blocks.pkl')
+        df.to_csv(self.root + '/blocks.csv')
+        # Files are too big for pickle to save, so I tried joblib
+        from sklearn.externals import joblib
+        joblib.dump(df, self.root + '/blocks.pkl')
+
+        # df.to_pickle(self.root + '/blocks.pkl')
 
     # run for processing data to train
     def run(self):
@@ -529,5 +537,29 @@ class Pipeline:
         self.merge(self.train_file_path)
 
 
-ppl = Pipeline('simfix_data/', w2v_path='all_words_embedding/all_words_w2v_30000')
+import argparse
+
+parser = argparse.ArgumentParser(description="Choose project_name and bug_id")
+parser.add_argument('--project_name')
+parser.add_argument('--bug_id')
+parser.add_argument('--predict_baseline')
+args = parser.parse_args()
+if not args.project_name:
+    print("No specified project_name")
+    exit(1)
+if not args.bug_id:
+    print("No specified bug_id")
+    exit(1)
+if not args.predict_baseline:
+    print("No specified predict type")
+    exit(1)
+
+project_name = args.project_name
+bug_id = args.bug_id
+if args.predict_baseline == 'true':
+    base_url = 'simfix_supervised_data/' + project_name + '/' + bug_id + '/'
+else:
+    base_url = 'simfix_unsupervised_data/' + project_name + '/' + bug_id + '/'
+
+ppl = Pipeline(base_url, w2v_path='all_words_embedding/all_words_w2v_30000')
 ppl.run()
