@@ -126,5 +126,28 @@ plt.savefig('./visual_result/lang_result_1.jpg')
 plt.clf()
 
 math_ids = [5, 33, 35, 41, 50, 53, 57, 59, 63, 70, 71, 75, 79, 98]
-math_baseline = [4, ]
-math_super_astnn = [18, 9999, 9999, 28, 54, 3, 9, 3, 8, 2, 45, 20, 1, 9999]
+math_baseline = 50 - np.array([4, 9999, 9999, 15, 2, 1, 25, 7, 49, 1, 8, 26, 3, 9999])
+math_super_astnn = 50 - np.array([18, 9999, 9999, 28, 54, 3, 9, 3, 8, 2, 45, 20, 1, 9999])
+
+tmp = np.linspace(0, 50, 51)
+
+plt.ylim(0, 52)
+plt.yticks(tmp,
+           52 - tmp)
+
+y_major_locator = MultipleLocator(10)
+plt.gca().yaxis.set_major_locator(y_major_locator)
+x = list(range(len(math_ids)))
+total_width, n = 3.2, 14
+width = total_width / n
+a = plt.bar(x, math_baseline, width=width, label='Baseline', tick_label=math_ids, fc='hotpink')
+for i in range(len(x)):
+    x[i] = x[i] + width
+b = plt.bar(x, math_super_astnn, width=width, label='Supervised ASTNN', fc='aquamarine')
+
+autolabel(50, a)
+autolabel(50, b)
+
+plt.legend()
+plt.savefig('./visual_result/math_result_1.jpg')
+plt.clf()
