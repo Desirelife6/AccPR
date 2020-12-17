@@ -3,11 +3,28 @@ import re
 import warnings
 import os
 from tqdm import tqdm
+from nltk.corpus import wordnet
+from nltk.stem import WordNetLemmatizer
+import nltk
 
 
 def clear_text(origin_str):
     sub_str = re.sub(u"([^\u4e00-\u9fa5^a-z^A-Z^!^?^>^<^=^&^|^~^%^/^+^*^_^ ^.^-^:^,^@^-])", "", origin_str)
     return sub_str
+
+
+# 获取单词的词性
+def get_wordnet_pos(tag):
+    if tag.startswith('J'):
+        return wordnet.ADJ
+    elif tag.startswith('V'):
+        return wordnet.VERB
+    elif tag.startswith('N'):
+        return wordnet.NOUN
+    elif tag.startswith('R'):
+        return wordnet.ADV
+    else:
+        return None
 
 
 pattern = r',|\.|;|\'|`|\[|\]|:|"|\{|\}|@|#|\$|\(|\)|\_|，|。|、|；|‘|’|【|】|·|！| |…|（|）:| |'
@@ -112,6 +129,12 @@ class BlockNode(object):
                             tmp.append(x[index[i]: index[i + 1]].lower())
                         for i in list(tmp):
                             res.append(i)
+            for i in range(len(children)):
+                tokens = nltk.word_tokenize(children[i])
+                tag = nltk.pos_tag(tokens)
+                wnl = WordNetLemmatizer()
+                wordnet_pos = get_wordnet_pos(tag[0][1]) or wordnet.NOUN
+                children[i] = wnl.lemmatize(tag[0][0], pos=wordnet_pos)
             children = res
         else:
             children = []
@@ -220,6 +243,12 @@ def get_children(root):
                         tmp.append(x[index[i]: index[i + 1]].lower())
                     for i in list(tmp):
                         res.append(i)
+        for i in range(len(children)):
+            tokens = nltk.word_tokenize(children[i])
+            tag = nltk.pos_tag(tokens)
+            wnl = WordNetLemmatizer()
+            wordnet_pos = get_wordnet_pos(tag[0][1]) or wordnet.NOUN
+            children[i] = wnl.lemmatize(tag[0][0], pos=wordnet_pos)
         children = res
     elif isinstance(root, set):
         children = list(root)
@@ -315,7 +344,6 @@ def get_blocks_v1(node, block_seq):
     else:
         for child in children:
             get_blocks_v1(child, block_seq)
-
 
 
 import pandas as pd
