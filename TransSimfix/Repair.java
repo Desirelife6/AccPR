@@ -361,7 +361,7 @@ public class Repair {
                 if (useOrigin) {
                     candidates = simpleFilter.filter(src, 0.3);
                 } else {
-                    candidates = simpleFilter.vectorFilter(src, 0.3, projectName, bugId, useSupervised);
+                    candidates = simpleFilter.vectorFilter(src, projectName, bugId, useSupervised);
                 }
 
                 logMessage(logFile, "Similiar code counts for single buggyblock: " + candidates.size());

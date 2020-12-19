@@ -94,12 +94,12 @@ def load_model():
 if __name__ == '__main__':
     model = load_model()
 
-    # predict_data = pd.read_pickle('simfix_data/blocks.pkl').sample(frac=1)
+    predict_data = pd.read_pickle(base_url + 'blocks.pkl').sample(frac=1)
 
     # File is too big for pickle to load
     from sklearn.externals import joblib
 
-    predict_data = joblib.load(base_url + 'blocks.pkl').sample(frac=1)
+    # predict_data = joblib.load(base_url + 'blocks.pkl').sample(frac=1)
 
     predict_data = predict_data.sort_values(['id2'], ascending=True)
     i = 0

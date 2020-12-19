@@ -41,18 +41,15 @@ class Pipeline:
         source.columns = ['id', 'code']
         tmp = []
         for code in tqdm(source['code']):
-            # code = "protected void addMoveIfValid(List<Integer[]> validMoves,int dst_x,int dst_y) throws Exception{" \
-            #        "if(isValidMove(loc_x,loc_y,dst_x,dst_y)&&board.causesCheck(this,dst_x,dst_y)){validMoves.add(new " \
-            #        "Integer{loc_x,loc_y,dst_x,dst_y});}} "
             try:
                 tokens = javalang.tokenizer.tokenize(code)
                 parser = javalang.parser.Parser(tokens)
                 code = parser.parse_member_declaration()
                 tmp.append(code)
-            # print(code)
+                # print(code)
             except:
-                faulty_code_file = 'simfix_data/faulty_code.txt'
-                out = open(faulty_code_file, 'w')
+                faulty_code_file = self.root + 'faulty_code.txt'
+                out = open(faulty_code_file, 'a+')
                 out.write('Code snippet failed to pass parsing')
                 out.write('\n')
                 out.write(str(code))
@@ -71,15 +68,15 @@ class Pipeline:
         faults = source.loc[source['code'] == 'null']
 
         self.fault_ids = faults['id']
-        #
+
         # for fault_id in self.fault_ids:
         #     print(fault_id)
 
         source = source[~source['code'].isin(['null'])]
         # Files are too big for pickle to save, so I tried joblib
-        source.to_csv(self.root + '/test.csv')
-        from sklearn.externals import joblib
-        joblib.dump(source, self.root + '/pattern.pkl')
+        # source.to_csv(self.root + '/test.csv')
+        # from sklearn.externals import joblib
+        # joblib.dump(source, self.root + '/pattern.pkl')
         # source.to_pickle(path)
         self.sources = source
 
@@ -100,7 +97,7 @@ class Pipeline:
         data_path = self.root
         data = self.pairs
 
-        data = data.sample(frac=1)
+        # data = data.sample(frac=1)
         train = data.iloc[:]
 
         def check_or_create(path):
@@ -150,12 +147,15 @@ class Pipeline:
 
         def tree_to_index(node):
             token = node.token
-            result = [vocab[token].index if token in vocab else max_token]
             children = node.children
-            if isinstance(children, list) and len(children) == 1 and children[0] == token:
-                children = []
-            for child in children:
-                result.append(tree_to_index(child))
+            result = []
+            if token == 'SEGMENTATION':
+                for child in children:
+                    result.append(tree_to_index(child))
+            else:
+                result = [vocab[token].index if token in vocab else max_token]
+                for child in children:
+                    result.append(tree_to_index(child))
             return result
 
         def trans2seq(r):
@@ -184,6 +184,7 @@ class Pipeline:
                 code = None
                 temp.append(code)
                 print('Wooooooooooops')
+                print(str(code))
 
         trees['code'] = temp
         trees['code'] = trees['code'].fillna('null')
@@ -202,12 +203,12 @@ class Pipeline:
         df.drop(['id_x', 'id_y'], axis=1, inplace=True)
         df.dropna(inplace=True)
 
-        df.to_csv(self.root + '/blocks.csv')
+        # df.to_csv(self.root + '/blocks.csv')
         # Files are too big for pickle to save, so I tried joblib
-        from sklearn.externals import joblib
-        joblib.dump(df, self.root + '/blocks.pkl')
+        # from sklearn.externals import joblib
+        # joblib.dump(df, self.root + '/blocks.pkl')
 
-        # df.to_pickle(self.root + '/blocks.pkl')
+        df.to_pickle(self.root + '/blocks.pkl')
 
     # run for processing data to train
     def run(self):

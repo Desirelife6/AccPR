@@ -284,13 +284,13 @@ def get_children(root):
 
 def get_sequence(node, sequence):
     token, children = get_token(node), get_children(node)
-    sequence.append(token)
-    # if isinstance(token, list):
-    #     for i in token:
-    #         sequence.append(i)
-    # else:
-    #     if token != '':
-    #         sequence.append(token)
+    # sequence.append(token)
+    if isinstance(token, list):
+        for i in token:
+            sequence.append(i)
+    else:
+        if token != '':
+            sequence.append(token)
     # sequence.extend()
 
     for child in children:
