@@ -1,4 +1,8 @@
 import re
+from nltk.corpus import wordnet
+from nltk.stem import WordNetLemmatizer
+import nltk
+from nltk.corpus import stopwords
 
 
 def clear_text(origin_str):
@@ -6,9 +10,11 @@ def clear_text(origin_str):
     return sub_str
 
 
-from nltk.corpus import wordnet
-from nltk.stem import WordNetLemmatizer
-import nltk
+wnl = WordNetLemmatizer()
+
+pattern = r',|\.|;|\'|`|\[|\]|:|"|\{|\}|@|#|\$|\(|\)|\_|，|。|、|；|‘|’|【|】|·|！| |…|（|）:| |'
+operators = ['<', '>', '<=', '>=', '==', '&&', '||', '%', '!', '!=', '+', '-', '*', '/', '^', '&', '|', '~', '+=', '-=',
+             '*=', '/=', '|=', '&=', '^=', '>>', '<<']
 
 
 # 获取单词的词性
@@ -24,10 +30,12 @@ def get_wordnet_pos(tag):
     else:
         return None
 
-pattern = r',|\.|;|\'|`|\[|\]|:|"|\{|\}|@|#|\$|\(|\)|\_|，|。|、|；|‘|’|【|】|·|！| |…|（|）:| |'
 
 words = [
-    'search',
+    '-=',
+    '&&',
+    'myListener',
+    'simplified',
     'FastDateFormat',
     '-',
     '?=',
@@ -62,7 +70,7 @@ words = [
     '_condition_replace',
     'TARGET_PROP',
     'Expecting the lower bound of the range to be around -30: ""+range.getLowerBound(),range.getLowerBound()<=-30']
-#
+
 for root in words:
     # root = 'length must be valid'
     root = clear_text(root)
@@ -75,8 +83,18 @@ for root in words:
         big_chars = re.findall(r'[A-Z]', x)
         if (x.islower() or x.isupper() or len(big_chars) == 0 or (
                 x[0].isupper() and len(big_chars) == 1)) and len(tmp) == 1:
-            token = x.lower()
-            # children = []
+            if x not in stopwords.words('english'):
+                if x not in operators:
+                    tokens = nltk.word_tokenize(x.lower())
+                    tag = nltk.pos_tag(tokens)
+                    wnl = WordNetLemmatizer()
+                    if len(tag) != 0:
+                        wordnet_pos = get_wordnet_pos(tag[0][1]) or wordnet.NOUN
+                        token = wnl.lemmatize(tag[0][0], pos=wordnet_pos)
+                else:
+                    token = x.lower()
+            else:
+                token = ''
             res.append(token)
         else:
             big_chars_copy = big_chars.copy()
@@ -114,14 +132,15 @@ for root in words:
                 for i in range(len(index) - 1):
                     tmp.append(x[index[i]: index[i + 1]].lower())
                 for i in list(tmp):
-                    res.append(i)
+                    if (i not in stopwords.words('english')):
+                        if i not in operators:
+                            tokens = nltk.word_tokenize(i)
+                            tag = nltk.pos_tag(tokens)
+                            wordnet_pos = get_wordnet_pos(tag[0][1]) or wordnet.NOUN
+                            i = wnl.lemmatize(tag[0][0], pos=wordnet_pos)
+                            res.append(i)
+                        else:
+                            res.append(i)
     children = res
-    for i in range(len(children)):
-        tokens = nltk.word_tokenize(children[i])
-        tag = nltk.pos_tag(tokens)
-        wnl = WordNetLemmatizer()
-
-        wordnet_pos = get_wordnet_pos(tag[0][1]) or wordnet.NOUN
-        children[i] = wnl.lemmatize(tag[0][0], pos=wordnet_pos)
 
     print(children)
