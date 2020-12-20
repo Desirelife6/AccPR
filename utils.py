@@ -33,11 +33,15 @@ def get_wordnet_pos(tag):
 
 
 class BlockNode(object):
-    def __init__(self, node):
+    def __init__(self, node, description='Keywords'):
         self.node = node
         self.is_str = isinstance(self.node, str)
         self.token = self.get_token(node)
+        self.description = description
         self.children = self.add_children()
+
+    def get_description(self):
+        return self.description
 
     def is_leaf(self):
         if self.is_str:
@@ -65,6 +69,7 @@ class BlockNode(object):
                         token = node.lower()
                 else:
                     token = ''
+
             else:
                 token = 'SEGMENTATION'
 
@@ -97,6 +102,7 @@ class BlockNode(object):
                 if (x.islower() or x.isupper() or len(big_chars) == 0 or (
                         x[0].isupper() and len(big_chars) == 1)) and len(temp) == 1:
                     children = []
+                    # children = [x.lower()]
                 else:
                     big_chars_copy = big_chars.copy()
 
@@ -161,14 +167,22 @@ class BlockNode(object):
         #     return []
         logic = ['SwitchStatement', 'IfStatement', 'ForStatement', 'WhileStatement', 'DoStatement']
         children = self.ori_children(self.node)
-        # if isinstance(children, list) and len(children) == 1 and children[0] == self.node.token:
-        #     children = []
+
         if self.token in logic:
-            return [BlockNode(children[0])]
+            return [BlockNode(children[0], 'LOGIC')]
         elif self.token in ['MethodDeclaration', 'ConstructorDeclaration']:
-            return [BlockNode(child) for child in children]
+            return [BlockNode(child, 'MODIFIER') for child in children if self.get_token(child) not in logic]
+        elif self.token == 'SEGMENTATION':
+            return [BlockNode(child, 'SEGMENT') for child in children if self.get_token(child) not in logic]
         else:
-            return [BlockNode(child) for child in children if self.get_token(child) not in logic]
+            if self.description in ['SEGMENT', 'MODIFIER', 'NONEED']:
+                return [BlockNode(child, 'NONEED') for child in children if self.get_token(child) not in logic]
+            else:
+                if self.token.islower() and self.token not in operators:
+                    self.description = 'ORIGIN'
+                    return [BlockNode(child, 'ORIGIN') for child in children if self.get_token(child) not in logic]
+                else:
+                    return [BlockNode(child, 'Keywords') for child in children if self.get_token(child) not in logic]
 
 
 def get_token(node):
@@ -219,7 +233,6 @@ def get_children(root):
                     x[0].isupper() and len(big_chars) == 1)) and len(temp) == 1:
                 # token = x.lower()
                 children = []
-                # res.append(token)
             else:
                 big_chars_copy = big_chars.copy()
 

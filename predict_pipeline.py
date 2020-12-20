@@ -148,10 +148,8 @@ class Pipeline:
         def tree_to_index(node):
             token = node.token
             children = node.children
-            result = []
-            if token == 'SEGMENTATION':
-                for child in children:
-                    result.append(tree_to_index(child))
+            if node.description == 'ORIGIN':
+                result = [vocab['SEGMENTATION'].index, [vocab[token].index if token in vocab else max_token]]
             else:
                 result = [vocab[token].index if token in vocab else max_token]
                 for child in children:
