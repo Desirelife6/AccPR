@@ -188,7 +188,7 @@ public class SimpleFilter {
         return sorted;
     }
 
-    public List<Pair<CodeBlock, Double>> vectorFilter(String srcPath, double guard, String projectName, String bugId, boolean useSupervised) {
+    public List<Pair<CodeBlock, Double>> vectorFilter(String srcPath, String projectName, String bugId, boolean useSupervised) {
         List<String> files = JavaFile.ergodic(srcPath, new ArrayList<String>());
         String base_url = null;
         String flag = "true";
@@ -316,7 +316,9 @@ public class SimpleFilter {
 //			    if(Integer.parseInt(content[1].toString())-2>=match.size()){
 //			    	continue;
 //				}
-                sorted.add(new Pair<CodeBlock, Double>(match.get(Integer.parseInt(content[1].toString()) - 2).getFirst(), Double.valueOf(content[2].toString())));
+                if (Double.valueOf(content[2]) > 0.97) {
+                    sorted.add(new Pair<CodeBlock, Double>(match.get(Integer.parseInt(content[1].toString()) - 2).getFirst(), Double.valueOf(content[2].toString())));
+                }
             }
             if (match.size() != sorted.size()) {
                 System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
@@ -501,26 +503,25 @@ public class SimpleFilter {
             if (block.getCurrentLine() == 1 && _buggyCode.getCurrentLine() != 1) {
                 continue;
             }
-            int i = 0;
-            boolean hasIntersection = false;
-            int replace = -1;
-            for (; i < filtered.size(); i++) {
-                Pair<CodeBlock, Double> pair = filtered.get(i);
-                if (pair.getFirst().hasIntersection(block)) {
-                    hasIntersection = true;
-                    replace = i;
-                    break;
-                }
-            }
-
-            if (hasIntersection) {
-                if (replace != -1) {
-                    filtered.remove(replace);
-                    filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
-                }
-            } else {
-                filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
-            }
+//             boolean hasIntersection = false;
+//             int replace = -1;
+//             for (; i < filtered.size(); i++) {
+//                 Pair<CodeBlock, Double> pair = filtered.get(i);
+//                 if (pair.getFirst().hasIntersection(block)) {
+//                     hasIntersection = true;
+//                     replace = i;
+//                     break;
+//                 }
+//             }
+            filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
+//             if (hasIntersection) {
+//                 if (replace != -1) {
+//                     filtered.remove(replace);
+//                     filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
+//                 }
+//             } else {
+//                 filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
+//             }
 //			}
         }
         _candidates = new ArrayList<>();

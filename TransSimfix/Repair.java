@@ -309,6 +309,7 @@ public class Repair {
         Status status = Status.FAILED;
         Set<String> patches = new HashSet<>();
 
+        int allTries = 0;
         for (Pair<String, Integer> loc : locations) {
             if (timer.timeout()) {
                 return Status.TIMEOUT;
@@ -335,9 +336,6 @@ public class Repair {
             buggyBlockList.add(buggyblock);
             int candidates_count = 0;
             logMessage(logFile, "The count of buggyblocks: " + buggyBlockList.size());
-
-            int complieFailedCount = 0;
-            int modificationCount = 0;
 
             for (CodeBlock oneBuggyBlock : buggyBlockList) {
                 String currentBlockString = oneBuggyBlock.toSrcString().toString();
@@ -396,7 +394,7 @@ public class Repair {
                     list.addAll(consistentModification(modifications));
                     modifications = removeDuplicateModifications(modifications);
 
-                    modificationCount += modifications.size();
+//                    modificationCount += modifications.size();
 
                     for (int index = 0; index < modifications.size(); index++) {
                         Modification modification = modifications.get(index);
@@ -468,7 +466,7 @@ public class Repair {
                             // validate correctness of patch
                             switch (validate(logFile, oneBuggyBlock)) {
                                 case COMPILE_FAILED:
-                                    complieFailedCount++;
+//                                    complieFailedCount++;
 //								haveTryPatches.remove(replace);
                                     break;
                                 case SUCCESS:
@@ -499,6 +497,7 @@ public class Repair {
                                         System.out.println(candidates.get(tmp).getFirst());
                                         System.out.println("===================================================");
                                     }
+                                    logMessage(logFile, "Total times of Trying: " + allTries + currentIndex);
                                     dumpPatch(logFile, "Similar code block : " + similar.getSecond(), file, new Pair<Integer, Integer>(0, 0), similar.getFirst().toSrcString().toString());
                                     dumpPatch(logFile, "Similar code block index: " + currentIndex, file, new Pair<Integer, Integer>(0, 0), similar.getFirst().toSrcString().toString());
                                     dumpPatch(logFile, "Original source code", file, range, currentBlockString);
@@ -535,11 +534,13 @@ public class Repair {
                     }
                 }
             }
-            int compilePassCount = modificationCount - complieFailedCount;
-            logMessage(logFile, "Count of patches passed compliation: " + compilePassCount);
+//             int compilePassCount = modificationCount - complieFailedCount;
+//             logMessage(logFile, "Count of patches passed compliation: " + compilePassCount);
             System.out.println(candidates_count);
             logMessage(logFile, "Total count of similiar code for this loc: " + candidates_count);
+            allTries += candidates_count;
         }
+        logMessage(logFile, "Total times of Trying: " + allTries);
         return status;
     }
 
