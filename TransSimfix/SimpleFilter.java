@@ -16,15 +16,7 @@ import java.util.Set;
 
 //import mfix.common.util.JavaFiles;
 //import mfix.core.node.ast.MethDecl;
-import org.eclipse.jdt.core.dom.ASTNode;
-import org.eclipse.jdt.core.dom.ASTVisitor;
-import org.eclipse.jdt.core.dom.AnonymousClassDeclaration;
-import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.MethodInvocation;
-import org.eclipse.jdt.core.dom.SimpleName;
-import org.eclipse.jdt.core.dom.Statement;
-import org.eclipse.jdt.core.dom.Type;
+import org.eclipse.jdt.core.dom.*;
 
 import cofix.common.config.Constant;
 import cofix.common.util.JavaFile;
@@ -188,7 +180,7 @@ public class SimpleFilter {
         return sorted;
     }
 
-    public List<Pair<CodeBlock, Double>> vectorFilter(String srcPath, String projectName, String bugId, boolean useSupervised) {
+    public List<Pair<CodeBlock, Double>> vectorFilter(String srcPath, String projectName, String bugId, boolean useSupervised, Double guard) {
         List<String> files = JavaFile.ergodic(srcPath, new ArrayList<String>());
         String base_url = null;
         String flag = "true";
@@ -301,7 +293,7 @@ public class SimpleFilter {
                 e.printStackTrace();
             }
         }
-        List<Pair<CodeBlock, Double>> sorted = new ArrayList<>();
+        List<Pair<CodeBlock, Double>> tmpRes = new ArrayList<>();
         try {
             BufferedReader in = new BufferedReader(new FileReader(base_url + "/dict_result.csv"));
             String str;
@@ -313,21 +305,53 @@ public class SimpleFilter {
                     continue;
                 }
                 content = str.split(",");
-//			    if(Integer.parseInt(content[1].toString())-2>=match.size()){
-//			    	continue;
-//				}
-                if (Double.valueOf(content[2]) > 0.97) {
-                    sorted.add(new Pair<CodeBlock, Double>(match.get(Integer.parseInt(content[1].toString()) - 2).getFirst(), Double.valueOf(content[2].toString())));
+
+                if (Double.parseDouble(content[2]) > guard) {
+                    tmpRes.add(new Pair<>(match.get(Integer.parseInt(content[1].toString()) - 2).getFirst(), Double.valueOf(content[2].toString())));
                 }
-            }
-            if (match.size() != sorted.size()) {
-                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                System.out.println("=============================================================");
-//                return filter(srcPath, 0.3);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        List<Pair<CodeBlock, Double>> sorted = new ArrayList<>();
+
+        for (Pair<CodeBlock, Double> candidatesPair : tmpRes) {
+            CodeBlock block = candidatesPair.getFirst();
+            if (_otherStruct.size() + _condStruct.size() > 0) {
+                if ((block.getCondStruct().size() + block.getOtherStruct().size()) == 0) {
+                    continue;
+                }
+            }
+            Double similarity = candidatesPair.getSecond();
+
+            if (block.getCurrentLine() == 1 && _buggyCode.getCurrentLine() != 1) {
+                continue;
+            }
+            int i = 0;
+            boolean hasIntersection = false;
+            int replace = -1;
+            for (; i < tmpRes.size(); i++) {
+                Pair<CodeBlock, Double> pair = tmpRes.get(i);
+                if (pair.getFirst().hasIntersection(block)) {
+                    hasIntersection = true;
+                    if (similarity > pair.getSecond()) {
+                        replace = i;
+                    }
+                    break;
+                }
+            }
+
+            if (hasIntersection) {
+                if (replace != -1) {
+                    sorted.remove(replace);
+                    sorted.add(new Pair<>(block, similarity));
+                }
+            } else {
+                sorted.add(new Pair<>(block, similarity));
+            }
+        }
+
         Collections.sort(sorted, new Comparator<Pair<CodeBlock, Double>>() {
             @Override
             public int compare(Pair<CodeBlock, Double> o1, Pair<CodeBlock, Double> o2) {
@@ -503,26 +527,8 @@ public class SimpleFilter {
             if (block.getCurrentLine() == 1 && _buggyCode.getCurrentLine() != 1) {
                 continue;
             }
-//             boolean hasIntersection = false;
-//             int replace = -1;
-//             for (; i < filtered.size(); i++) {
-//                 Pair<CodeBlock, Double> pair = filtered.get(i);
-//                 if (pair.getFirst().hasIntersection(block)) {
-//                     hasIntersection = true;
-//                     replace = i;
-//                     break;
-//                 }
-//             }
+
             filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
-//             if (hasIntersection) {
-//                 if (replace != -1) {
-//                     filtered.remove(replace);
-//                     filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
-//                 }
-//             } else {
-//                 filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
-//             }
-//			}
         }
         _candidates = new ArrayList<>();
         if (filtered.size() > 1000) {

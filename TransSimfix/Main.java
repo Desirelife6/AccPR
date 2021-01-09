@@ -39,6 +39,7 @@ import static cofix.common.config.Constant.HOME;
 public class Main {
     static String useOrigin = null;
     static String useSupervised = null;
+    static Double guard = 0.95;
 
     public static void main(String[] args) throws IOException {
 //		String command1 = "activate";
@@ -101,7 +102,7 @@ public class Main {
 //		Process pro = Runtime.getRuntime().exec("source deactivate astnn");
     }
 
-    private static void trySplitFix(Subject subject, boolean purify, boolean useOrigin, boolean useSupervised) throws IOException {
+    private static void trySplitFix(Subject subject, boolean purify, boolean useOrigin, boolean useSupervised, Double guard) throws IOException {
         String logFile = null;
         if (useOrigin) {
             logFile = Constant.PROJ_LOG_BASE_PATH + "/" + subject.getName() + "/" + subject.getId() + ".log";
@@ -170,7 +171,7 @@ public class Main {
             Repair repair = new Repair(subject, sbfLocator);
             Timer timer = new Timer(0, timeout);
             timer.start();
-            Status status = repair.fix(timer, logFile, currentTry, subject.getName(), String.valueOf(subject.getId()), useOrigin, useSupervised);
+            Status status = repair.fix(timer, logFile, currentTry, subject.getName(), String.valueOf(subject.getId()), useOrigin, useSupervised, guard);
             //Status status = repair.fix(timer, logFile, currentTry);
             switch (status) {
                 case TIMEOUT:
@@ -243,6 +244,8 @@ public class Main {
                 useOrigin = args[i].substring("--use_origin=".length());
             } else if (args[i].startsWith("--use_supervised=")) {
                 useSupervised = args[i].substring("--use_supervised=".length());
+            } else if (args[i].startsWith("--guard=")) {
+                guard = Double.valueOf(args[i].substring("--guard=".length()));
             }
 
         }
@@ -272,7 +275,7 @@ public class Main {
         }
         for (Integer id : ids) {
             Subject subject = Configure.getSubject(projName, id);
-            trySplitFix(subject, !bugIDs.getSecond().contains(id), flag, supervisedflag);
+            trySplitFix(subject, !bugIDs.getSecond().contains(id), flag, supervisedflag, guard);
         }
     }
 
