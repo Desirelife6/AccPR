@@ -550,6 +550,9 @@ parser.add_argument('--project_name')
 parser.add_argument('--bug_id')
 parser.add_argument('--predict_baseline')
 args = parser.parse_args()
+# args.project_name = 'chart'
+# args.bug_id = '20'
+# args.predict_baseline = 'true'
 if not args.project_name:
     print("No specified project_name")
     exit(1)

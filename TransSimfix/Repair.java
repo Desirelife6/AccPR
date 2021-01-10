@@ -540,7 +540,7 @@ public class Repair {
             logMessage(logFile, "Total count of similiar code for this loc: " + candidates_count);
             allTries += candidates_count;
         }
-        logMessage(logFile, "Total times of Trying: " + allTries);
+        logMessage(logFile, "\nTotal times of Trying: " + allTries);
         return status;
     }
 

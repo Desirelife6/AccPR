@@ -16,7 +16,7 @@ ENCODE_DIM = 128
 LABELS = 1
 EPOCHS = 5
 BATCH_SIZE = 32
-W2V_SIZE = 300000
+W2V_SIZE = 30000
 W2V_PATH = 'all_words_embedding/all_words_w2v_' + str(W2V_SIZE)
 
 if PREDICT_BASE:
@@ -84,14 +84,6 @@ if __name__ == '__main__':
     candidate_encode = model.encode(predict2_inputs)
 
     patterns = np.load('genpat_data/pattern_res.npy')
-
-
-    def dotProduct(v1, v2):
-        v1 = np.mat(v1)
-        v2 = np.mat(v2)
-        z = v1 * v2.T
-        return z
-
 
     dic = {}
     for index, pattern in tqdm(enumerate(patterns)):

@@ -65,120 +65,6 @@ public class SimpleFilter {
         _max_line = _buggyCode.getCurrentLine() + DELTA_LINE;
     }
 
-    public List<Pair<CodeBlock, Double>> vectorFilter2(String srcPath, double guard) {
-        List<String> files = JavaFile.ergodic(srcPath, new ArrayList<String>());
-        List<Pair<CodeBlock, Double>> filtered = new ArrayList<>();
-        String method = "public void test(){\n";
-        CollectorVisitor collectorVisitor = new CollectorVisitor();
-
-        for (String file : files) {
-            CompilationUnit unit;
-            try {
-                unit = JavaFile.genASTFromFile(file);
-            } catch (Exception e) {
-                continue;
-            }
-            collectorVisitor.setUnit(file, unit);
-            unit.accept(collectorVisitor);
-            filtered = codefilter(filtered);
-
-        }
-        if (filtered.size() == 0) {
-            return new ArrayList<>();
-        }
-        List<String> exist = new ArrayList<>();//filter
-        List<Pair<CodeBlock, Double>> match = new ArrayList<>();
-        for (Pair<CodeBlock, Double> pair : filtered) {
-            if (exist.size() > 1000) {
-                break;
-            }
-            exist.add(pair.getFirst().toSrcString().toString());
-            match.add(pair);
-        }
-        for (int i = 0; i < exist.size(); i++) {
-            File writejava = new File(HOME + "/java/0/" + i + ".java");
-            BufferedWriter writeText = null;
-            try {
-                writeText = new BufferedWriter(new FileWriter(writejava));
-                writeText.write(method + exist.get(i) + "}");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                writeText.flush();
-                writeText.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        File wd = new File("/bin");
-        //System.out.println(wd);
-        Process proc = null;
-        try {
-            proc = Runtime.getRuntime().exec("/bin/sh", null, wd);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (proc != null) {
-            BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(proc.getOutputStream())), true);
-            out.println("conda activate treecaps");
-            out.println("pwd");
-            out.println("/home/cyt/anaconda3/envs/treecaps/bin/python /home/cyt/SimFix/generate_pb.py");
-            out.println("/home/cyt/anaconda3/envs/treecaps/bin/python /home/cyt/SimFix/clone/generate_pkl.py");
-            out.println("exit");
-            //System.out.println("match: "+match.size());
-
-            try {
-                String line;
-                while ((line = in.readLine()) != null) {
-                    System.out.println(line);
-                }
-                proc.waitFor();
-                in.close();
-                out.close();
-                proc.destroy();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        List<Pair<CodeBlock, Double>> sorted = new ArrayList<>();
-//        try {
-//            BufferedReader in = new BufferedReader(new FileReader(HOME+"/clone/data_simfixion/dict_result.csv"));
-//            String str;
-//            String[] content = new String[3];
-//            str = in.readLine();
-//            while ((str = in.readLine()) != null) {
-//                int len = str.split(",").length;
-//                if(len != 3){
-//                    continue;
-//                }
-//                content = str.split(",");
-////			    if(Integer.parseInt(content[1].toString())-2>=match.size()){
-////			    	continue;
-////				}
-//                sorted.add(new Pair<CodeBlock, Double>(match.get(Integer.parseInt(content[1].toString())-2).getFirst(), Double.valueOf(content[2].toString())));
-//            }
-//            if(match.size()!=sorted.size()){
-//                return new ArrayList<>();
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        Collections.sort(sorted, new Comparator<Pair<CodeBlock, Double>>() {
-            @Override
-            public int compare(Pair<CodeBlock, Double> o1, Pair<CodeBlock, Double> o2) {
-                if (o1.getSecond() < o2.getSecond()) {
-                    return 1;
-                } else if (o1.getSecond() > o2.getSecond()) {
-                    return -1;
-                } else {
-                    return 0;
-                }
-            }
-        });
-        return sorted;
-    }
 
     public List<Pair<CodeBlock, Double>> vectorFilter(String srcPath, String projectName, String bugId, boolean useSupervised, Double guard) {
         List<String> files = JavaFile.ergodic(srcPath, new ArrayList<String>());
@@ -331,8 +217,8 @@ public class SimpleFilter {
             int i = 0;
             boolean hasIntersection = false;
             int replace = -1;
-            for (; i < tmpRes.size(); i++) {
-                Pair<CodeBlock, Double> pair = tmpRes.get(i);
+            for (; i < sorted.size(); i++) {
+                Pair<CodeBlock, Double> pair = sorted.get(i);
                 if (pair.getFirst().hasIntersection(block)) {
                     hasIntersection = true;
                     if (similarity > pair.getSecond()) {
