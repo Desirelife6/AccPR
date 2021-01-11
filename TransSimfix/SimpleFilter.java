@@ -159,10 +159,11 @@ public class SimpleFilter {
             //out.println("cd /home/cyt/SimFix/TransASTNN");
             out.println("cd " + HOME + "/TransASTNN");
             out.println("pwd");
-            //out.println("/home/cyt/anaconda3/envs/astnn/bin/python /home/cyt/SimFix/TransASTNN/simfix_pipeline.py");
-            //out.println("/home/cyt/anaconda3/envs/astnn/bin/python /home/cyt/SimFix/TransASTNN/simfix.py");
-            out.println("/root/anaconda3/envs/genpat/bin/python " + HOME + "/TransASTNN/predict_pipeline.py --project_name=" + projectName + " --bug_id=" + bugId + " --predict_baseline=" + flag);
-            out.println("/root/anaconda3/envs/genpat/bin/python " + HOME + "/TransASTNN/predict.py --project_name " + projectName + " --bug_id " + bugId + " --predict_baseline " + flag);
+            out.println("/Users/yangchen/opt/anaconda3/envs/debug/bin/python " + HOME + "/TransASTNN/predict_pipeline.py --project_name=" + projectName + " --bug_id=" + bugId + " --predict_baseline=" + flag);
+            out.println("/Users/yangchen/opt/anaconda3/envs/debug/bin/python " + HOME + "/TransASTNN/predict.py --project_name " + projectName + " --bug_id " + bugId + " --predict_baseline " + flag);
+
+//            out.println("/root/anaconda3/envs/genpat/bin/python " + HOME + "/TransASTNN/predict_pipeline.py --project_name=" + projectName + " --bug_id=" + bugId + " --predict_baseline=" + flag);
+//            out.println("/root/anaconda3/envs/genpat/bin/python " + HOME + "/TransASTNN/predict.py --project_name " + projectName + " --bug_id " + bugId + " --predict_baseline " + flag);
             out.println("exit");
             System.out.println("match: " + match.size());
 

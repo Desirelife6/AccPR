@@ -377,10 +377,11 @@ public class Repair {
 
 
                 for (int currentIndex = 0; currentIndex < candidates.size(); currentIndex++) {
+                    allTries++;
                     Pair<CodeBlock, Double> similar = candidates.get(currentIndex);
                     // for(Pair<CodeBlock, Double> similar : candidates){
                     // try top 100 candidates
-                    if (i > 100 || timer.timeout()) {
+                    if (currentIndex > 100 || timer.timeout()) {
                         break;
                     }
 
@@ -478,11 +479,14 @@ public class Repair {
                                     correct++;
                                     // for debug
                                     String candidateLogFile = null;
+                                    String allTriesSummaryFile = null;
                                     if (useOrigin) {
 //                                        logFile = Constant.PROJ_LOG_BASE_PATH + "/" + projectName + "/" + bugId + ".log";
                                         candidateLogFile = Constant.PROJ_LOG_BASE_PATH + "/" + projectName + "/" + bugId + "_candidates.log";
+                                        allTriesSummaryFile = Constant.PROJ_LOG_BASE_PATH + "/allTries.log";
                                     } else if (useSupervised) {
                                         candidateLogFile = HOME + "/TransASTNN/simfix_supervised_data/" + projectName + "/" + bugId + "/candidates.log";
+                                        allTriesSummaryFile = HOME + "/TransASTNN/allTries.log";
                                     } else {
                                         candidateLogFile = HOME + "/TransASTNN/simfix_unsupervised_data/" + projectName + "/" + bugId + "/candidates.log";
                                     }
@@ -497,7 +501,8 @@ public class Repair {
                                         System.out.println(candidates.get(tmp).getFirst());
                                         System.out.println("===================================================");
                                     }
-                                    logMessage(logFile, "Total times of Trying: " + allTries + currentIndex);
+                                    logMessage(logFile, "\nTotal times of Trying: " + allTries + "\n");
+                                    logMessage(allTriesSummaryFile, projectName + " " + bugId + "All Tries:" + allTries + " " + "Rank:" + currentIndex + "\n");
                                     dumpPatch(logFile, "Similar code block : " + similar.getSecond(), file, new Pair<Integer, Integer>(0, 0), similar.getFirst().toSrcString().toString());
                                     dumpPatch(logFile, "Similar code block index: " + currentIndex, file, new Pair<Integer, Integer>(0, 0), similar.getFirst().toSrcString().toString());
                                     dumpPatch(logFile, "Original source code", file, range, currentBlockString);
@@ -537,8 +542,6 @@ public class Repair {
 //             int compilePassCount = modificationCount - complieFailedCount;
 //             logMessage(logFile, "Count of patches passed compliation: " + compilePassCount);
             System.out.println(candidates_count);
-            logMessage(logFile, "Total count of similiar code for this loc: " + candidates_count);
-            allTries += candidates_count;
         }
         logMessage(logFile, "\nTotal times of Trying: " + allTries);
         return status;
