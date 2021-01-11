@@ -136,7 +136,7 @@ base_data/
 unsupervised_result/
 unsupervised_data/
 simfix_data/
-genpat_data/
+genpat_supervised_data/
 OOV/simfix_all_words.tsv
 .idea
 /.vscode

@@ -114,15 +114,19 @@ if __name__ == '__main__':
     candidate_encode = model.encode(predict2_inputs)
 
     pattern_embeddings = ['2', '3', '4', '5']
-    patterns = np.load('genpat_data/pattern_res1.npy')
-    for i in pattern_embeddings:
-        tmp = np.load('genpat_data/pattern_res{}.npy'.format(i))
-        patterns = np.append(patterns, tmp)
+    patterns = np.load('genpat_supervised_data/pattern_res1.npy')
 
-    print(patterns)
+    for i in pattern_embeddings:
+        tmp = np.load('genpat_supervised_data/pattern_res{}.npy'.format(i))
+        patterns = np.row_stack((patterns, tmp))
+
+    # print(patterns.shape)
+    # for index, pattern in tqdm(enumerate(patterns)):
+    #     print(int(pattern[0]))
 
     dic = {}
     for index, pattern in tqdm(enumerate(patterns)):
+        # print(patterns)
         buggy_code = candidate_encode.detach().numpy()
         a_norm = np.linalg.norm(buggy_code)
         id = int(pattern[0])
