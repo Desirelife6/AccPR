@@ -15,6 +15,8 @@ parser = argparse.ArgumentParser(description="Choose project_name and bug_id")
 parser.add_argument('--project_name')
 parser.add_argument('--bug_id')
 parser.add_argument('--predict_baseline')
+parser.add_argument('--aggregation')
+
 args = parser.parse_args()
 if not args.project_name:
     print("No specified project_name")
@@ -36,8 +38,6 @@ if args.predict_baseline == 'true':
 else:
     PREDICT_BASE = False
     base_url = 'genpat_unsupervised_data/' + project_name + '/' + bug_id + '/'
-
-
 
 PREDICT_BASE = True
 USE_GPU = True if torch.cuda.is_available() else False
@@ -136,7 +136,21 @@ if __name__ == '__main__':
 
         dic[id] = cosine_sim
 
+    res_dic = dic.copy()
+    aggregation = args.aggregation
+
     dic = sorted(dic.items(), key=lambda e: e[1], reverse=True)
+
+    if aggregation == 'true':
+        tmp = dic[0][1]
+
+        for i in range(1, len(dic)):
+            if tmp - dic[i][1] <= 0.0001:
+                res_dic.pop(dic[i][0])
+            else:
+                tmp = dic[i][1]
+
+    dic = sorted(res_dic.items(), key=lambda e: e[1], reverse=True)
     print(len(dic))
     print(dic)
 

@@ -163,7 +163,7 @@ if __name__ == '__main__':
 
     # pattern_res = np.array(pattern_res)
     # np.save('simfix_data/pattern_res', pattern_res)
-
+    # print(dict['697'])
     dict_result = pd.DataFrame(list(dict.items()))
 
     dict_result.to_csv(base_url + '/dict_result.csv')
