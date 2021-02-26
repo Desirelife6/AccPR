@@ -234,44 +234,50 @@ public class SimpleFilter {
             //String[] content = new String[3];
             for (Pair<CodeBlock, Double> codeBlockDoublePair : match) {
                 str = in.readLine();
-                // TODO:这个地方后期可以加入guard来限制次数
-                tmpRes.add(new Pair<>(codeBlockDoublePair.getFirst(), Double.valueOf(str)));
-            }
 
-            for (Pair<CodeBlock, Double> candidatesPair : tmpRes) {
-                CodeBlock block = candidatesPair.getFirst();
-                if (_otherStruct.size() + _condStruct.size() > 0) {
-                    if ((block.getCondStruct().size() + block.getOtherStruct().size()) == 0) {
+                if(Double.valueOf(str) > guard) {
+                    tmpRes.add(new Pair<>(codeBlockDoublePair.getFirst(), Double.valueOf(str)));
+                }
+                // TODO:这个地方后期可以加入guard来限制次数
+            }
+            if(isFilter){
+                for (Pair<CodeBlock, Double> candidatesPair : tmpRes) {
+                    CodeBlock block = candidatesPair.getFirst();
+                    if (_otherStruct.size() + _condStruct.size() > 0) {
+                        if ((block.getCondStruct().size() + block.getOtherStruct().size()) == 0) {
+                            continue;
+                        }
+                    }
+                    Double similarity = candidatesPair.getSecond();
+
+                    if (block.getCurrentLine() == 1 && _buggyCode.getCurrentLine() != 1) {
                         continue;
                     }
-                }
-                Double similarity = candidatesPair.getSecond();
-
-                if (block.getCurrentLine() == 1 && _buggyCode.getCurrentLine() != 1) {
-                    continue;
-                }
-                int i = 0;
-                boolean hasIntersection = false;
-                int replace = -1;
-                for (; i < sorted.size(); i++) {
-                    Pair<CodeBlock, Double> pair = sorted.get(i);
-                    if (pair.getFirst().hasIntersection(block)) {
-                        hasIntersection = true;
-                        if (similarity > pair.getSecond()) {
-                            replace = i;
+                    int i = 0;
+                    boolean hasIntersection = false;
+                    int replace = -1;
+                    for (; i < sorted.size(); i++) {
+                        Pair<CodeBlock, Double> pair = sorted.get(i);
+                        if (pair.getFirst().hasIntersection(block)) {
+                            hasIntersection = true;
+                            if (similarity > pair.getSecond()) {
+                                replace = i;
+                            }
+                            break;
                         }
-                        break;
                     }
-                }
 
-                if (hasIntersection) {
-                    if (replace != -1) {
-                        sorted.remove(replace);
+                    if (hasIntersection) {
+                        if (replace != -1) {
+                            sorted.remove(replace);
+                            sorted.add(new Pair<>(block, similarity));
+                        }
+                    } else {
                         sorted.add(new Pair<>(block, similarity));
                     }
-                } else {
-                    sorted.add(new Pair<>(block, similarity));
                 }
+            } else {
+                sorted = tmpRes;
             }
 
         } catch (IOException e) {

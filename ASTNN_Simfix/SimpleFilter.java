@@ -66,7 +66,7 @@ public class SimpleFilter {
     }
 
 
-    public List<Pair<CodeBlock, Double>> vectorFilter(String srcPath, String projectName, String bugId, boolean useSupervised, Double guard) {
+    public List<Pair<CodeBlock, Double>> vectorFilter(String srcPath, String projectName, String bugId, boolean useSupervised, Double guard, boolean isFilter) {
         List<String> files = JavaFile.ergodic(srcPath, new ArrayList<String>());
         String base_url = null;
         String flag = "true";
@@ -159,8 +159,8 @@ public class SimpleFilter {
             //out.println("cd /home/cyt/SimFix/TransASTNN");
             out.println("cd " + HOME + "/TransASTNN");
             out.println("pwd");
-//             out.println("/Users/yangchen/opt/anaconda3/envs/debug/bin/python " + HOME + "/TransASTNN/predict_pipeline.py --project_name=" + projectName + " --bug_id=" + bugId + " --predict_baseline=" + flag);
-//             out.println("/Users/yangchen/opt/anaconda3/envs/debug/bin/python " + HOME + "/TransASTNN/predict.py --project_name " + projectName + " --bug_id " + bugId + " --predict_baseline " + flag);
+//            out.println("/Users/yangchen/opt/anaconda3/envs/debug/bin/python " + HOME + "/TransASTNN/predict_pipeline.py --project_name=" + projectName + " --bug_id=" + bugId + " --predict_baseline=" + flag);
+//            out.println("/Users/yangchen/opt/anaconda3/envs/debug/bin/python " + HOME + "/TransASTNN/predict.py --project_name " + projectName + " --bug_id " + bugId + " --predict_baseline " + flag);
 
             out.println("/root/anaconda3/envs/genpat/bin/python " + HOME + "/TransASTNN/predict_pipeline.py --project_name=" + projectName + " --bug_id=" + bugId + " --predict_baseline=" + flag);
             out.println("/root/anaconda3/envs/genpat/bin/python " + HOME + "/TransASTNN/predict.py --project_name " + projectName + " --bug_id " + bugId + " --predict_baseline " + flag);
@@ -202,41 +202,44 @@ public class SimpleFilter {
         }
 
         List<Pair<CodeBlock, Double>> sorted = new ArrayList<>();
+        if (isFilter) {
+            for (Pair<CodeBlock, Double> candidatesPair : tmpRes) {
+                CodeBlock block = candidatesPair.getFirst();
+                if (_otherStruct.size() + _condStruct.size() > 0) {
+                    if ((block.getCondStruct().size() + block.getOtherStruct().size()) == 0) {
+                        continue;
+                    }
+                }
+                Double similarity = candidatesPair.getSecond();
 
-        for (Pair<CodeBlock, Double> candidatesPair : tmpRes) {
-            CodeBlock block = candidatesPair.getFirst();
-            if (_otherStruct.size() + _condStruct.size() > 0) {
-                if ((block.getCondStruct().size() + block.getOtherStruct().size()) == 0) {
+                if (block.getCurrentLine() == 1 && _buggyCode.getCurrentLine() != 1) {
                     continue;
                 }
-            }
-            Double similarity = candidatesPair.getSecond();
-
-            if (block.getCurrentLine() == 1 && _buggyCode.getCurrentLine() != 1) {
-                continue;
-            }
-            int i = 0;
-            boolean hasIntersection = false;
-            int replace = -1;
-            for (; i < sorted.size(); i++) {
-                Pair<CodeBlock, Double> pair = sorted.get(i);
-                if (pair.getFirst().hasIntersection(block)) {
-                    hasIntersection = true;
-                    if (similarity > pair.getSecond()) {
-                        replace = i;
+                int i = 0;
+                boolean hasIntersection = false;
+                int replace = -1;
+                for (; i < sorted.size(); i++) {
+                    Pair<CodeBlock, Double> pair = sorted.get(i);
+                    if (pair.getFirst().hasIntersection(block)) {
+                        hasIntersection = true;
+                        if (similarity > pair.getSecond()) {
+                            replace = i;
+                        }
+                        break;
                     }
-                    break;
                 }
-            }
 
-            if (hasIntersection) {
-                if (replace != -1) {
-                    sorted.remove(replace);
+                if (hasIntersection) {
+                    if (replace != -1) {
+                        sorted.remove(replace);
+                        sorted.add(new Pair<>(block, similarity));
+                    }
+                } else {
                     sorted.add(new Pair<>(block, similarity));
                 }
-            } else {
-                sorted.add(new Pair<>(block, similarity));
             }
+        } else {
+            sorted = tmpRes;
         }
 
         Collections.sort(sorted, new Comparator<Pair<CodeBlock, Double>>() {
@@ -419,11 +422,11 @@ public class SimpleFilter {
             filtered.add(new Pair<CodeBlock, Double>(block, (double) 0));
         }
         _candidates = new ArrayList<>();
-        if (filtered.size() > 1000) {
-            for (int i = filtered.size() - 1; i > 1000; i--) {
-                filtered.remove(i);
-            }
-        }
+//        if (filtered.size() > 1000) {
+//            for (int i = filtered.size() - 1; i > 1000; i--) {
+//                filtered.remove(i);
+//            }
+//        }
         return filtered;
     }
 

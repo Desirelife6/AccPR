@@ -301,7 +301,7 @@ public class Repair {
     }
 
 
-    public Status fix(Timer timer, String logFile, int currentTry, String projectName, String bugId, boolean useOrigin, boolean useSupervised, Double guard) throws IOException {
+    public Status fix(Timer timer, String logFile, int currentTry, String projectName, String bugId, boolean useOrigin, boolean useSupervised, Double guard, boolean numberLimited, boolean filtered) throws IOException {
         String src = _subject.getHome() + _subject.getSsrc();
         List<Pair<String, Integer>> locations = _localization.getLocations(200);
         int correct = 0;
@@ -359,7 +359,7 @@ public class Repair {
                 if (useOrigin) {
                     candidates = simpleFilter.filter(src, 0.3);
                 } else {
-                    candidates = simpleFilter.vectorFilter(src, projectName, bugId, useSupervised, guard);
+                    candidates = simpleFilter.vectorFilter(src, projectName, bugId, useSupervised, guard, filtered);
                 }
 
                 logMessage(logFile, "Similiar code counts for single buggyblock: " + candidates.size());
@@ -381,9 +381,12 @@ public class Repair {
                     Pair<CodeBlock, Double> similar = candidates.get(currentIndex);
                     // for(Pair<CodeBlock, Double> similar : candidates){
                     // try top 100 candidates
-                    if (currentIndex > 100 || timer.timeout()) {
-                        break;
+                    if (numberLimited) {
+                        if (currentIndex > 100 || timer.timeout()) {
+                            break;
+                        }
                     }
+
 
 //					System.out.println("=====================" + (i++) +"==============================");
 //					System.out.println(similar.getFirst().toSrcString().toString());

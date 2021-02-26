@@ -39,6 +39,8 @@ import static cofix.common.config.Constant.HOME;
 public class Main {
     static String useOrigin = null;
     static String useSupervised = null;
+    static String numberLimited = null;
+    static String filter = null;
     static Double guard = 0.95;
 
     public static void main(String[] args) throws IOException {
@@ -102,7 +104,7 @@ public class Main {
 //		Process pro = Runtime.getRuntime().exec("source deactivate astnn");
     }
 
-    private static void trySplitFix(Subject subject, boolean purify, boolean useOrigin, boolean useSupervised, Double guard) throws IOException {
+    private static void trySplitFix(Subject subject, boolean purify, boolean useOrigin, boolean useSupervised, Double guard, boolean numberLimited, boolean filtered) throws IOException {
         String logFile = null;
         if (useOrigin) {
             logFile = Constant.PROJ_LOG_BASE_PATH + "/" + subject.getName() + "/" + subject.getId() + ".log";
@@ -171,7 +173,7 @@ public class Main {
             Repair repair = new Repair(subject, sbfLocator);
             Timer timer = new Timer(0, timeout);
             timer.start();
-            Status status = repair.fix(timer, logFile, currentTry, subject.getName(), String.valueOf(subject.getId()), useOrigin, useSupervised, guard);
+            Status status = repair.fix(timer, logFile, currentTry, subject.getName(), String.valueOf(subject.getId()), useOrigin, useSupervised, guard, numberLimited, filtered);
             //Status status = repair.fix(timer, logFile, currentTry);
             switch (status) {
                 case TIMEOUT:
@@ -246,6 +248,10 @@ public class Main {
                 useSupervised = args[i].substring("--use_supervised=".length());
             } else if (args[i].startsWith("--guard=")) {
                 guard = Double.valueOf(args[i].substring("--guard=".length()));
+            } else if (args[i].startsWith("--number_limit=")) {
+                numberLimited = args[i].substring("--number_limit=".length());
+            } else if (args[i].startsWith("--filter=")) {
+                filter = args[i].substring("--filter=".length());
             }
 
         }
@@ -261,21 +267,22 @@ public class Main {
 
     private static void flexibelConfigure(String projName, Set<Integer> ids, Map<String, Pair<Integer, Set<Integer>>> projInfo) throws IOException {
         Pair<Integer, Set<Integer>> bugIDs = projInfo.get(projName);
-        Boolean flag = false;
-        Boolean supervisedflag = true;
-        if (useOrigin.equals("true")) {
-            flag = true;
-        } else {
-            flag = false;
-        }
-        if (useSupervised.equals("true")) {
-            supervisedflag = true;
-        } else {
-            supervisedflag = false;
-        }
+        boolean flag;
+        boolean supervisedflag;
+        boolean numberLimit;
+        boolean filtered;
+
+        flag = useOrigin.equals("true");
+
+        supervisedflag = useSupervised.equals("true");
+
+        numberLimit = numberLimited.equals("true");
+
+        filtered = filter.equals("true");
+
         for (Integer id : ids) {
             Subject subject = Configure.getSubject(projName, id);
-            trySplitFix(subject, !bugIDs.getSecond().contains(id), flag, supervisedflag, guard);
+            trySplitFix(subject, !bugIDs.getSecond().contains(id), flag, supervisedflag, guard, numberLimit, filtered);
         }
     }
 
