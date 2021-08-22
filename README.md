@@ -2,7 +2,7 @@
 
 AccPR is an automated program repair accelerating approach, which leverages code representation to measure code similarity and employs adaptive patch filtering to accelerate redundancy-based APR techniques. The following figure is the workflow of our approach.
 
-![The workflow of this technique.\label{workflow}](./doc/figure/overview.pdf)
+![The workflow of this technique.\label{workflow}](./doc/figure/overview.png)
 
 ## Similarity Measurement
 
