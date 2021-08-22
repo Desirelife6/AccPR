@@ -141,6 +141,5 @@ OOV/simfix_all_words.tsv
 .idea
 /.vscode
 *.tar
-*.png
 *.txt
 *.out
