@@ -1,0 +1,348 @@
+1	"public void test(){if(expPos>-1){mant=str.substring(0,expPos);}else {mant=str;}}"
+2	"public void test(){if(className.charAt(0)=='L'&&className.charAt(className.length()-1)==';'){className=className.substring(1,className.length()-1);}}"
+3	"public void test(){int lastDotIdx=className.lastIndexOf(PACKAGE_SEPARATOR_CHAR);int innerIdx=className.indexOf(INNER_CLASS_SEPARATOR_CHAR,lastDotIdx==-1?0:lastDotIdx+1);String out=className.substring(lastDotIdx+1);if(innerIdx!=-1){out=out.replace(INNER_CLASS_SEPARATOR_CHAR,PACKAGE_SEPARATOR_CHAR);}return out+arrayPrefix;}"
+4	"public void test(){if(className.charAt(0)=='L'&&className.charAt(className.length()-1)==';'){className=className.substring(1);}}"
+5	"public void test(){if(className.charAt(0)=='L'&&className.charAt(className.length()-1)==';'){className=className.substring(1);}int i=className.lastIndexOf(PACKAGE_SEPARATOR_CHAR);if(i==-1){return StringUtils.EMPTY;}return className.substring(0,i);}"
+6	"public void test(){if(lastDotIndex!=-1){try{return getClass(classLoader,className.substring(0,lastDotIndex)+INNER_CLASS_SEPARATOR_CHAR,initialize);}catch (ClassNotFoundException ex2) {}}}"
+7	"public void test(){if(className.startsWith(""L"")){className=className.substring(1,className.endsWith("";"")?className.length()-1:className.length());}else {if(className.length()>0){className=reverseAbbreviationMap.get(className.substring(0,1));}}}"
+8	"public void test(){if(className.length()>0){className=reverseAbbreviationMap.get(className.substring(0,1));}}"
+9	"public void test(){if(str==""true""){return Boolean.TRUE;}}"
+10	"public void test(){if(str==null){return null;}}"
+11	"public void test(){char ch0=str.charAt(0);char ch1=str.charAt(1);if((ch0=='o'||ch0=='O')&&(ch1=='n'||ch1=='N')){return Boolean.TRUE;}if((ch0=='n'||ch0=='N')&&(ch1=='o'||ch1=='O')){return Boolean.FALSE;}}"
+12	"public void test(){char ch0=str.charAt(0);char ch1=str.charAt(1);char ch2=str.charAt(2);if((ch0=='y'||ch0=='Y')&&(ch1=='e'||ch1=='E')){return Boolean.TRUE;}}"
+13	"public void test(){char ch0=str.charAt(0);char ch1=str.charAt(1);char ch2=str.charAt(2);if((ch0=='y'||ch0=='Y')&&(ch1=='e'||ch1=='E')){return Boolean.TRUE;}if((ch0=='o'||ch0=='O')&&(ch1=='f'||ch1=='F')){return Boolean.FALSE;}}"
+14	"public void test(){char ch0=str.charAt(0);char ch1=str.charAt(1);char ch2=str.charAt(2);char ch3=str.charAt(3);if((ch0=='t'||ch0=='T')&&(ch1=='r'||ch1=='R')){return Boolean.TRUE;}}"
+15	"public void test(){char ch1=str.charAt(1);char ch2=str.charAt(2);char ch3=str.charAt(3);if((ch0=='t'||ch0=='T')&&(ch1=='r'||ch1=='R')){return Boolean.TRUE;}break;}"
+16	"public void test(){char ch1=str.charAt(1);char ch2=str.charAt(2);char ch3=str.charAt(3);char ch4=str.charAt(4);if((ch0=='f'||ch0=='F')&&(ch1=='a'||ch1=='A')){return Boolean.FALSE;}}"
+17	"public void test(){char ch2=str.charAt(2);char ch3=str.charAt(3);char ch4=str.charAt(4);if((ch0=='f'||ch0=='F')&&(ch1=='a'||ch1=='A')){return Boolean.FALSE;}break;}"
+18	"public void test(){if(str==null){if(trueString==null){return Boolean.TRUE;}else if(falseString==null){return Boolean.FALSE;}else if(nullString==null){return null;}}else if(str.equals(trueString)){return Boolean.TRUE;}else if(str.equals(falseString)){return Boolean.FALSE;}else if(str.equals(nullString)){return null;}}"
+19	"public void test(){if(str.equals(trueString)){return Boolean.TRUE;}else if(str.equals(falseString)){return Boolean.FALSE;}else if(str.equals(nullString)){return null;}}"
+20	"public void test(){if(str.equals(falseString)){return Boolean.FALSE;}else if(str.equals(nullString)){return null;}}"
+21	"public void test(){if(str.equals(nullString)){return null;}}"
+22	"public void test(){if(str==null){if(trueString==null){return true;}else if(falseString==null){return false;}}else if(str.equals(trueString)){return true;}else if(str.equals(falseString)){return false;}}"
+23	"public void test(){if(str.equals(trueString)){return true;}else if(str.equals(falseString)){return false;}}"
+24	"public void test(){if(str.equals(falseString)){return false;}}"
+25	"public void test(){if(StringUtils.isEmpty(str)||StringUtils.isEmpty(set)){return str;}}"
+26	"public void test(){if(StringUtils.isEmpty(str)||StringUtils.isEmpty(set)){return str;}String[] strs=new String[1];strs[0]=set;return squeeze(str,strs);}"
+27	"public void test(){if(StringUtils.isEmpty(str)||ArrayUtils.isEmpty(set)){return str;}}"
+28	"public void test(){if(StringUtils.isEmpty(str)||ArrayUtils.isEmpty(set)){return str;}CharSet chars=CharSet.getInstance(set);StringBuilder buffer=new StringBuilder(str.length());char[] chrs=str.toCharArray();int sz=chrs.length;}"
+29	"public void test(){if(StringUtils.isEmpty(str)||StringUtils.isEmpty(set)){return 0;}}"
+30	"public void test(){if(StringUtils.isEmpty(str)||StringUtils.isEmpty(set)){return 0;}String[] strs=new String[1];strs[0]=set;return count(str,strs);}"
+31	"public void test(){if(StringUtils.isEmpty(str)||ArrayUtils.isEmpty(set)){return 0;}}"
+32	"public void test(){CharSet chars=CharSet.getInstance(set);int count=0;char[] chrs=str.toCharArray();int sz=chrs.length;for(int i=0;i<sz;i++){if(chars.contains(chrs[i])){count++;}}}"
+33	"public void test(){if(str.length()==0||StringUtils.isEmpty(set)){return """";}}"
+34	"public void test(){if(str==null){return null;}if(str.length()==0||StringUtils.isEmpty(set)){return """";}String[] strs=new String[1];strs[0]=set;return keep(str,strs);}"
+35	"public void test(){if(str.length()==0||ArrayUtils.isEmpty(set)){return """";}}"
+36	"public void test(){if(str==null){return null;}if(str.length()==0||ArrayUtils.isEmpty(set)){return """";}return modify(str,set,true);}"
+37	"public void test(){if(StringUtils.isEmpty(str)||StringUtils.isEmpty(set)){return str;}String[] strs=new String[1];strs[0]=set;return delete(str,strs);}"
+38	"public void test(){if(StringUtils.isEmpty(str)||ArrayUtils.isEmpty(set)){return str;}return modify(str,set,false);}"
+39	"public void test(){CharSet chars=CharSet.getInstance(set);StringBuilder buffer=new StringBuilder(str.length());char[] chrs=str.toCharArray();int sz=chrs.length;for(int i=0;i<sz;i++){if(chars.contains(chrs[i])==expect){buffer.append(chrs[i]);}}return buffer.toString();}"
+40	"public void test(){if(str==null){return defaultValue;}}"
+41	"public void test(){if(str==null){return defaultValue;}try{return Integer.parseInt(str);}catch (NumberFormatException nfe) {  return defaultValue;}}"
+42	"public void test(){if(str==null){return defaultValue;}try{return Long.parseLong(str);}catch (NumberFormatException nfe) {  return defaultValue;}}"
+43	"public void test(){if(str==null){return defaultValue;}try{return Float.parseFloat(str);}catch (NumberFormatException nfe) {  return defaultValue;}}"
+44	"public void test(){if(str==null){return defaultValue;}try{return Double.parseDouble(str);}catch (NumberFormatException nfe) {  return defaultValue;}}"
+45	"public void test(){if(str==null){return defaultValue;}try{return Byte.parseByte(str);}catch (NumberFormatException nfe) {  return defaultValue;}}"
+46	"public void test(){if(str==null){return defaultValue;}try{return Short.parseShort(str);}catch (NumberFormatException nfe) {  return defaultValue;}}"
+47	"public void test(){if(StringUtils.isBlank(str)){throw new NumberFormatException(""A blank string is not a valid number"");}}"
+48	"public void test(){if(str.startsWith(""--"")){return null;}}"
+49	"public void test(){if(str.startsWith(""0x"")||str.startsWith(""-0x"")){return createInteger(str);}}"
+50	"public void test(){if(str.startsWith(""--"")){return null;}if(str.startsWith(""0x"")||str.startsWith(""-0x"")){return createInteger(str);}char lastChar=str.charAt(str.length()-1);String mant;String dec;}"
+51	"public void test(){if(str.startsWith(""0x"")||str.startsWith(""-0x"")){return createInteger(str);}char lastChar=str.charAt(str.length()-1);String mant;String dec;String exp;}"
+52	"public void test(){if(expPos>-1){if(expPos<decPos){throw new NumberFormatException(str+"" is not a valid number."");}dec=str.substring(decPos+1,expPos);}else {dec=str.substring(decPos+1);}}"
+53	"public void test(){if(expPos<decPos){throw new NumberFormatException(str+"" is not a valid number."");}}"
+54	"public void test(){if(expPos>-1){if(expPos<decPos){throw new NumberFormatException(str+"" is not a valid number."");}dec=str.substring(decPos+1,expPos);}else {dec=str.substring(decPos+1);}mant=str.substring(0,decPos);}"
+55	"public void test(){if(expPos>-1){mant=str.substring(0,expPos);}else {mant=str;}}"
+56	"public void test(){if(expPos>-1&&expPos<str.length()-1){exp=str.substring(expPos+1,str.length()-1);}else {exp=null;}}"
+57	"public void test(){if(expPos>-1&&expPos<str.length()-1){exp=str.substring(expPos+1,str.length()-1);}else {exp=null;}String numeric=str.substring(0,str.length()-1);boolean allZeros=isAllZeros(mant)&&isAllZeros(exp);}"
+58	"public void test(){if(dec==null&&exp==null&&(numeric.charAt(0)=='-'&&isDigits(numeric.substring(1))||isDigits(numeric))){try{return createLong(numeric);}catch (NumberFormatException nfe) {}return createBigInteger(numeric);}}"
+59	"public void test(){default :throw new NumberFormatException(str+"" is not a valid number."");}"
+60	"public void test(){if(expPos>-1&&expPos<str.length()-1){exp=str.substring(expPos+1,str.length());}else {exp=null;}}"
+61	"public void test(){try{return createInteger(str);}catch (NumberFormatException nfe) {}try{return createLong(str);}catch (NumberFormatException nfe) {}return createBigInteger(str);}"
+62	"public void test(){boolean allZeros=isAllZeros(mant)&&isAllZeros(exp);try{Float f=createFloat(str);if(!(f.isInfinite()||(f.floatValue()==0.0&&!allZeros))){return f;}}catch (NumberFormatException nfe) {}}"
+63	"public void test(){try{Float f=createFloat(str);if(!(f.isInfinite()||(f.floatValue()==0.0&&!allZeros))){return f;}}catch (NumberFormatException nfe) {}}"
+64	"public void test(){try{Double d=createDouble(str);if(!(d.isInfinite()||(d.doubleValue()==0.0&&!allZeros))){return d;}}catch (NumberFormatException nfe) {}}"
+65	"public void test(){try{Double d=createDouble(str);if(!(d.isInfinite()||(d.doubleValue()==0.0&&!allZeros))){return d;}}catch (NumberFormatException nfe) {}return createBigDecimal(str);}"
+66	"public void test(){if(str==null){return true;}}"
+67	"public void test(){for(int i=str.length()-1;i>=0;i--){if(str.charAt(i)!='0'){return false;}}}"
+68	"public void test(){if(str.charAt(i)!='0'){return false;}}"
+69	"public void test(){if(str==null){return true;}for(int i=str.length()-1;i>=0;i--){if(str.charAt(i)!='0'){return false;}}return str.length()>0;}"
+70	"public void test(){if(str==null){return null;}return Float.valueOf(str);}"
+71	"public void test(){if(str==null){return null;}return Double.valueOf(str);}"
+72	"public void test(){if(str==null){return null;}return Integer.decode(str);}"
+73	"public void test(){if(str==null){return null;}return Long.valueOf(str);}"
+74	"public void test(){if(str==null){return null;}return new BigInteger(str);}"
+75	"public void test(){if(str==null){return null;}if(StringUtils.isBlank(str)){throw new NumberFormatException(""A blank string is not a valid number"");}return new BigDecimal(str);}"
+76	"public void test(){if(StringUtils.isEmpty(str)){return false;}}"
+77	"public void test(){for(int i=0;i<str.length();i++){if(!Character.isDigit(str.charAt(i))){return false;}}}"
+78	"public void test(){if(!Character.isDigit(str.charAt(i))){return false;}}"
+79	"public void test(){if(StringUtils.isEmpty(str)){return false;}char[] chars=str.toCharArray();int sz=chars.length;boolean hasExp=false;}"
+80	"public void test(){if(str==null){throw new IllegalArgumentException(""The string must not be null"");}}"
+81	"public void test(){if(str==null){throw new IllegalArgumentException(""The string must not be null"");}int pos=str.indexOf('.');if(pos>=0){return getFraction(Double.parseDouble(str));}}"
+82	"public void test(){if(pos>=0){return getFraction(Double.parseDouble(str));}}"
+83	"public void test(){if(str==null){throw new IllegalArgumentException(""The string must not be null"");}int pos=str.indexOf('.');if(pos>=0){return getFraction(Double.parseDouble(str));}pos=str.indexOf(' ');}"
+84	"public void test(){int whole=Integer.parseInt(str.substring(0,pos));str=str.substring(pos+1);pos=str.indexOf('/');if(pos<0){throw new NumberFormatException(""The fraction could not be parsed as the format X Y/Z"");}else {int numer=Integer.parseInt(str.substring(0,pos));int denom=Integer.parseInt(str.substring(pos+1));return getFraction(whole,numer,denom);}}"
+85	"public void test(){str=str.substring(pos+1);pos=str.indexOf('/');if(pos<0){throw new NumberFormatException(""The fraction could not be parsed as the format X Y/Z"");}else {int numer=Integer.parseInt(str.substring(0,pos));int denom=Integer.parseInt(str.substring(pos+1));return getFraction(whole,numer,denom);}}"
+86	"public void test(){if(pos<0){throw new NumberFormatException(""The fraction could not be parsed as the format X Y/Z"");}else {int numer=Integer.parseInt(str.substring(0,pos));int denom=Integer.parseInt(str.substring(pos+1));return getFraction(whole,numer,denom);}}"
+87	"public void test(){pos=str.indexOf('/');if(pos<0){return getFraction(Integer.parseInt(str),1);}else {int numer=Integer.parseInt(str.substring(0,pos));int denom=Integer.parseInt(str.substring(pos+1));return getFraction(numer,denom);}}"
+88	"public void test(){if(pos<0){return getFraction(Integer.parseInt(str),1);}else {int numer=Integer.parseInt(str.substring(0,pos));int denom=Integer.parseInt(str.substring(pos+1));return getFraction(numer,denom);}}"
+89	"public void test(){String ts=trim(str);return isEmpty(ts)?null:ts;}"
+90	"public void test(){if(str==null){return null;}str=strip(str,null);return str.length()==0?null:str;}"
+91	"public void test(){if(isEmpty(str)){return str;}}"
+92	"public void test(){if(isEmpty(str)){return str;}str=stripStart(str,stripChars);return stripEnd(str,stripChars);}"
+93	"public void test(){if(str==null||(strLen=str.length())==0){return str;}}"
+94	"public void test(){if(stripChars.length()==0){return str;}else {while((start!=strLen)&&(stripChars.indexOf(str.charAt(start))!=INDEX_NOT_FOUND)){start++;}}}"
+95	"public void test(){if(stripChars==null){while((start!=strLen)&&Character.isWhitespace(str.charAt(start))){start++;}}else if(stripChars.length()==0){return str;}else {while((start!=strLen)&&(stripChars.indexOf(str.charAt(start))!=INDEX_NOT_FOUND)){start++;}}return str.substring(start);}"
+96	"public void test(){if(str==null||(end=str.length())==0){return str;}}"
+97	"public void test(){if(stripChars.length()==0){return str;}else {while((end!=0)&&(stripChars.indexOf(str.charAt(end-1))!=INDEX_NOT_FOUND)){end--;}}}"
+98	"public void test(){if(stripChars==null){while((end!=0)&&Character.isWhitespace(str.charAt(end-1))){end--;}}else if(stripChars.length()==0){return str;}else {while((end!=0)&&(stripChars.indexOf(str.charAt(end-1))!=INDEX_NOT_FOUND)){end--;}}return str.substring(0,end);}"
+99	"public void test(){if(isEmpty(str)){return INDEX_NOT_FOUND;}}"
+100	"public void test(){if(isEmpty(str)){return INDEX_NOT_FOUND;}return str.indexOf(searchChar);}"
+101	"public void test(){if(isEmpty(str)){return INDEX_NOT_FOUND;}return str.indexOf(searchChar,startPos);}"
+102	"public void test(){if(str==null||searchStr==null){return INDEX_NOT_FOUND;}}"
+103	"public void test(){if(str==null||searchStr==null){return INDEX_NOT_FOUND;}return str.indexOf(searchStr);}"
+104	"public void test(){if(str==null||searchStr==null){return INDEX_NOT_FOUND;}return str.indexOf(searchStr,startPos);}"
+105	"public void test(){if(str==null||searchStr==null||ordinal<=0){return INDEX_NOT_FOUND;}}"
+106	"public void test(){if(searchStr.length()==0){return lastIndex?str.length():0;}}"
+107	"public void test(){if(str==null||searchStr==null||ordinal<=0){return INDEX_NOT_FOUND;}if(searchStr.length()==0){return lastIndex?str.length():0;}int found=0;int index=lastIndex?str.length():INDEX_NOT_FOUND;}"
+108	"public void test(){if(lastIndex){index=str.lastIndexOf(searchStr,index-1);}else {index=str.indexOf(searchStr,index+1);}}"
+109	"public void test(){if(startPos<0){startPos=0;}int endLimit=(str.length()-searchStr.length())+1;if(startPos>endLimit){return INDEX_NOT_FOUND;}}"
+110	"public void test(){if(str.regionMatches(true,i,searchStr,0,searchStr.length())){return i;}}"
+111	"public void test(){if(isEmpty(str)){return INDEX_NOT_FOUND;}return str.lastIndexOf(searchChar);}"
+112	"public void test(){if(isEmpty(str)){return INDEX_NOT_FOUND;}return str.lastIndexOf(searchChar,startPos);}"
+113	"public void test(){if(str==null||searchStr==null){return INDEX_NOT_FOUND;}return str.lastIndexOf(searchStr);}"
+114	"public void test(){if(str==null||searchStr==null){return INDEX_NOT_FOUND;}return str.lastIndexOf(searchStr,startPos);}"
+115	"public void test(){if(str==null||searchStr==null){return INDEX_NOT_FOUND;}return lastIndexOfIgnoreCase(str,searchStr,str.length());}"
+116	"public void test(){if(startPos>(str.length()-searchStr.length())){startPos=str.length()-searchStr.length();}}"
+117	"public void test(){if(isEmpty(str)){return false;}}"
+118	"public void test(){if(isEmpty(str)){return false;}return str.indexOf(searchChar)>=0;}"
+119	"public void test(){if(str==null||searchStr==null){return false;}}"
+120	"public void test(){if(str==null||searchStr==null){return false;}return str.indexOf(searchStr)>=0;}"
+121	"public void test(){if(str==null||searchStr==null){return false;}int len=searchStr.length();int max=str.length()-len;for(int i=0;i<=max;i++){if(str.regionMatches(true,i,searchStr,0,len)){return true;}}return false;}"
+122	"public void test(){if(str.regionMatches(true,i,searchStr,0,len)){return true;}}"
+123	"public void test(){if(isEmpty(str)){return false;}int strLen=str.length();for(int i=0;i<strLen;i++){if(Character.isWhitespace(str.charAt(i))){return true;}}return false;}"
+124	"public void test(){if(Character.isWhitespace(str.charAt(i))){return true;}}"
+125	"public void test(){if(isEmpty(str)||isEmpty(searchChars)){return INDEX_NOT_FOUND;}}"
+126	"public void test(){char ch=str.charAt(i);boolean chFound=searchChars.indexOf(ch)>=0;if(i+1<strLen&&Character.isHighSurrogate(ch)){char ch2=str.charAt(i+1);if(chFound&&searchChars.indexOf(ch2)<0){return i;}}else {if(!chFound){return i;}}}"
+127	"public void test(){if(i+1<strLen&&Character.isHighSurrogate(ch)){char ch2=str.charAt(i+1);if(chFound&&searchChars.indexOf(ch2)<0){return i;}}else {if(!chFound){return i;}}}"
+128	"public void test(){if(str==null||searchStrs==null){return INDEX_NOT_FOUND;}}"
+129	"public void test(){if(search==null){continue;}tmp=str.indexOf(search);if(tmp==INDEX_NOT_FOUND){continue;}}"
+130	"public void test(){for(int i=0;i<sz;i++){String search=searchStrs[i];if(search==null){continue;}tmp=str.lastIndexOf(search);if(tmp>ret){ret=tmp;}}}"
+131	"public void test(){if(start<0){start=str.length()+start;}}"
+132	"public void test(){if(start>str.length()){return EMPTY;}}"
+133	"public void test(){if(start<0){start=0;}if(start>str.length()){return EMPTY;}return str.substring(start);}"
+134	"public void test(){if(end<0){end=str.length()+end;}}"
+135	"public void test(){if(end>str.length()){end=str.length();}}"
+136	"public void test(){if(start<0){start=0;}if(end<0){end=0;}return str.substring(start,end);}"
+137	"public void test(){if(str.length()<=len){return str;}}"
+138	"public void test(){if(str==null){return null;}if(len<0){return EMPTY;}if(str.length()<=len){return str;}return str.substring(0,len);}"
+139	"public void test(){if(str==null){return null;}if(len<0){return EMPTY;}if(str.length()<=len){return str;}return str.substring(str.length()-len);}"
+140	"public void test(){if(len<0||pos>str.length()){return EMPTY;}}"
+141	"public void test(){if(str.length()<=(pos+len)){return str.substring(pos);}}"
+142	"public void test(){if(pos<0){pos=0;}if(str.length()<=(pos+len)){return str.substring(pos);}return str.substring(pos,pos+len);}"
+143	"public void test(){if(isEmpty(str)||separator==null){return str;}}"
+144	"public void test(){if(isEmpty(str)||separator==null){return str;}if(separator.length()==0){return EMPTY;}int pos=str.indexOf(separator);if(pos==INDEX_NOT_FOUND){return str;}return str.substring(0,pos);}"
+145	"public void test(){if(pos==INDEX_NOT_FOUND){return str;}}"
+146	"public void test(){if(isEmpty(str)){return str;}if(separator==null){return EMPTY;}int pos=str.indexOf(separator);if(pos==INDEX_NOT_FOUND){return EMPTY;}return str.substring(pos+separator.length());}"
+147	"public void test(){if(isEmpty(str)||isEmpty(separator)){return str;}}"
+148	"public void test(){if(isEmpty(str)||isEmpty(separator)){return str;}int pos=str.lastIndexOf(separator);if(pos==INDEX_NOT_FOUND){return str;}return str.substring(0,pos);}"
+149	"public void test(){if(isEmpty(str)){return str;}if(isEmpty(separator)){return EMPTY;}int pos=str.lastIndexOf(separator);if(pos==INDEX_NOT_FOUND||pos==(str.length()-separator.length())){return EMPTY;}return str.substring(pos+separator.length());}"
+150	"public void test(){if(pos==INDEX_NOT_FOUND||pos==(str.length()-separator.length())){return EMPTY;}}"
+151	"public void test(){if(str==null||open==null||close==null){return null;}}"
+152	"public void test(){if(str==null||open==null||close==null){return null;}int start=str.indexOf(open);if(start!=INDEX_NOT_FOUND){int end=str.indexOf(close,start+open.length());if(end!=INDEX_NOT_FOUND){return str.substring(start+open.length(),end);}}return null;}"
+153	"public void test(){if(start!=INDEX_NOT_FOUND){int end=str.indexOf(close,start+open.length());if(end!=INDEX_NOT_FOUND){return str.substring(start+open.length(),end);}}}"
+154	"public void test(){if(end!=INDEX_NOT_FOUND){return str.substring(start+open.length(),end);}}"
+155	"public void test(){if(str==null||isEmpty(open)||isEmpty(close)){return null;}}"
+156	"public void test(){if(str==null||isEmpty(open)||isEmpty(close)){return null;}int strLen=str.length();if(strLen==0){return ArrayUtils.EMPTY_STRING_ARRAY;}}"
+157	"public void test(){int start=str.indexOf(open,pos);if(start<0){break;}start+=openLen;int end=str.indexOf(close,start);}"
+158	"public void test(){if(start<0){break;}start+=openLen;int end=str.indexOf(close,start);if(end<0){break;}list.add(str.substring(start,end));}"
+159	"public void test(){int end=str.indexOf(close,start);if(end<0){break;}list.add(str.substring(start,end));pos=end+closeLen;}"
+160	"public void test(){if(str==null){return null;}int len=str.length();if(len==0){return ArrayUtils.EMPTY_STRING_ARRAY;}}"
+161	"public void test(){if((separator==null)||(EMPTY.equals(separator))){return splitWorker(str,null,max,preserveAllTokens);}}"
+162	"public void test(){if(numberOfSubstrings==max){end=len;substrings.add(str.substring(beg));}else {substrings.add(str.substring(beg,end));beg=end+separatorLength;}}"
+163	"public void test(){if(numberOfSubstrings==max){end=len;substrings.add(str.substring(beg));}else {substrings.add(EMPTY);}}"
+164	"public void test(){if(str.charAt(i)==separatorChar){if(match||preserveAllTokens){list.add(str.substring(start,i));match=false;lastMatch=true;}start=++i;continue;}}"
+165	"public void test(){if(match||preserveAllTokens){list.add(str.substring(start,i));match=false;lastMatch=true;}}"
+166	"public void test(){if(match||(preserveAllTokens&&lastMatch)){list.add(str.substring(start,i));}}"
+167	"public void test(){if(Character.isWhitespace(str.charAt(i))){if(match||preserveAllTokens){lastMatch=true;if(sizePlus1++==max){i=len;lastMatch=false;}list.add(str.substring(start,i));match=false;}start=++i;continue;}}"
+168	"public void test(){if(match||preserveAllTokens){lastMatch=true;if(sizePlus1++==max){i=len;lastMatch=false;}list.add(str.substring(start,i));match=false;}}"
+169	"public void test(){if(str.charAt(i)==sep){if(match||preserveAllTokens){lastMatch=true;if(sizePlus1++==max){i=len;lastMatch=false;}list.add(str.substring(start,i));match=false;}start=++i;continue;}}"
+170	"public void test(){if(separatorChars.indexOf(str.charAt(i))>=0){if(match||preserveAllTokens){lastMatch=true;if(sizePlus1++==max){i=len;lastMatch=false;}list.add(str.substring(start,i));match=false;}start=++i;continue;}}"
+171	"public void test(){if(str.length()==0){return ArrayUtils.EMPTY_STRING_ARRAY;}}"
+172	"public void test(){if(str==null){return null;}if(str.length()==0){return ArrayUtils.EMPTY_STRING_ARRAY;}char[] c=str.toCharArray();List<String> list=new ArrayList<String>();int tokenStart=0;}"
+173	"public void test(){if(isEmpty(str)){return str;}int sz=str.length();char[] chs=new char[sz];int count=0;}"
+174	"public void test(){if(!Character.isWhitespace(str.charAt(i))){chs[count++]=str.charAt(i);}}"
+175	"public void test(){if(count==sz){return str;}}"
+176	"public void test(){if(isEmpty(str)||isEmpty(remove)){return str;}}"
+177	"public void test(){if(str.startsWith(remove)){return str.substring(remove.length());}}"
+178	"public void test(){if(isEmpty(str)||isEmpty(remove)){return str;}if(str.startsWith(remove)){return str.substring(remove.length());}return str;}"
+179	"public void test(){if(startsWithIgnoreCase(str,remove)){return str.substring(remove.length());}}"
+180	"public void test(){if(isEmpty(str)||isEmpty(remove)){return str;}if(startsWithIgnoreCase(str,remove)){return str.substring(remove.length());}return str;}"
+181	"public void test(){if(str.endsWith(remove)){return str.substring(0,str.length()-remove.length());}}"
+182	"public void test(){if(isEmpty(str)||isEmpty(remove)){return str;}if(str.endsWith(remove)){return str.substring(0,str.length()-remove.length());}return str;}"
+183	"public void test(){if(endsWithIgnoreCase(str,remove)){return str.substring(0,str.length()-remove.length());}}"
+184	"public void test(){if(isEmpty(str)||isEmpty(remove)){return str;}if(endsWithIgnoreCase(str,remove)){return str.substring(0,str.length()-remove.length());}return str;}"
+185	"public void test(){if(isEmpty(str)||isEmpty(remove)){return str;}return replace(str,remove,EMPTY,-1);}"
+186	"public void test(){if(isEmpty(str)||str.indexOf(remove)==INDEX_NOT_FOUND){return str;}}"
+187	"public void test(){if(isEmpty(str)||str.indexOf(remove)==INDEX_NOT_FOUND){return str;}char[] chars=str.toCharArray();int pos=0;for(int i=0;i<chars.length;i++){if(chars[i]!=remove){chars[pos++]=chars[i];}}return new String(chars,0,pos);}"
+188	"public void test(){while(end!=INDEX_NOT_FOUND){buf.append(text.substring(start,end)).append(replacement);start=end+replLength;if(--max==0){break;}end=text.indexOf(searchString,start);}}"
+189	"public void test(){while(end!=INDEX_NOT_FOUND){buf.append(text.substring(start,end)).append(replacement);start=end+replLength;if(--max==0){break;}end=text.indexOf(searchString,start);}buf.append(text.substring(start));return buf.toString();}"
+190	"public void test(){if(str==null){return null;}return str.replace(searchChar,replaceChar);}"
+191	"public void test(){if(isEmpty(str)||isEmpty(searchChars)){return str;}}"
+192	"public void test(){if(replaceChars==null){replaceChars=EMPTY;}boolean modified=false;int replaceCharsLength=replaceChars.length();int strLength=str.length();StringBuilder buf=new StringBuilder(strLength);}"
+193	"public void test(){char ch=str.charAt(i);int index=searchChars.indexOf(ch);if(index>=0){modified=true;if(index<replaceCharsLength){buf.append(replaceChars.charAt(index));}}else {buf.append(ch);}}"
+194	"public void test(){if(overlay==null){overlay=EMPTY;}int len=str.length();if(start<0){start=0;}}"
+195	"public void test(){if(start>end){int temp=start;start=end;end=temp;}return new StringBuilder(len+start-end+overlay.length()+1).append(str.substring(0,start)).append(overlay).append(str.substring(end)).toString();}"
+196	"public void test(){if(str.length()==1){char ch=str.charAt(0);if(ch==CharUtils.CR||ch==CharUtils.LF){return EMPTY;}return str;}}"
+197	"public void test(){if(str.length()==1){char ch=str.charAt(0);if(ch==CharUtils.CR||ch==CharUtils.LF){return EMPTY;}return str;}int lastIdx=str.length()-1;char last=str.charAt(lastIdx);}"
+198	"public void test(){int lastIdx=str.length()-1;char last=str.charAt(lastIdx);if(last==CharUtils.LF){if(str.charAt(lastIdx-1)==CharUtils.CR){lastIdx--;}}else if(last!=CharUtils.CR){lastIdx++;}}"
+199	"public void test(){if(str.charAt(lastIdx-1)==CharUtils.CR){lastIdx--;}}"
+200	"public void test(){if(last==CharUtils.LF){if(str.charAt(lastIdx-1)==CharUtils.CR){lastIdx--;}}else if(last!=CharUtils.CR){lastIdx++;}return str.substring(0,lastIdx);}"
+201	"public void test(){if(str.endsWith(separator)){return str.substring(0,str.length()-separator.length());}}"
+202	"public void test(){if(isEmpty(str)||separator==null){return str;}if(str.endsWith(separator)){return str.substring(0,str.length()-separator.length());}return str;}"
+203	"public void test(){if(str==null){return null;}int strLen=str.length();if(strLen<2){return EMPTY;}}"
+204	"public void test(){if(strLen<2){return EMPTY;}int lastIdx=strLen-1;String ret=str.substring(0,lastIdx);char last=str.charAt(lastIdx);if(last==CharUtils.LF){if(ret.charAt(lastIdx-1)==CharUtils.CR){return ret.substring(0,lastIdx-1);}}}"
+205	"public void test(){String ret=str.substring(0,lastIdx);char last=str.charAt(lastIdx);if(last==CharUtils.LF){if(ret.charAt(lastIdx-1)==CharUtils.CR){return ret.substring(0,lastIdx-1);}}}"
+206	"public void test(){if(ret.charAt(lastIdx-1)==CharUtils.CR){return ret.substring(0,lastIdx-1);}}"
+207	"public void test(){if(repeat<=0){return EMPTY;}int inputLength=str.length();if(repeat==1||inputLength==0){return str;}}"
+208	"public void test(){if(repeat==1||inputLength==0){return str;}}"
+209	"public void test(){if(inputLength==1&&repeat<=PAD_LIMIT){return padding(repeat,str.charAt(0));}}"
+210	"public void test(){if(str==null||separator==null){return repeat(str,repeat);}else {String result=repeat(str+separator,repeat);return removeEnd(result,separator);}}"
+211	"public void test(){if(str==null){return null;}int pads=size-str.length();if(pads<=0){return str;}if(pads>PAD_LIMIT){return rightPad(str,size,String.valueOf(padChar));}return str.concat(padding(pads,padChar));}"
+212	"public void test(){if(pads<=0){return str;}}"
+213	"public void test(){if(pads>PAD_LIMIT){return rightPad(str,size,String.valueOf(padChar));}}"
+214	"public void test(){if(isEmpty(padStr)){padStr="" "";}int padLen=padStr.length();int strLen=str.length();int pads=size-strLen;if(pads<=0){return str;}}"
+215	"public void test(){if(padLen==1&&pads<=PAD_LIMIT){return rightPad(str,size,padStr.charAt(0));}}"
+216	"public void test(){if(pads<padLen){return str.concat(padStr.substring(0,pads));}else {char[] padding=new char[pads];char[] padChars=padStr.toCharArray();for(int i=0;i<pads;i++){padding[i]=padChars[i%padLen];}return str.concat(new String(padding));}}"
+217	"public void test(){if(str==null){return null;}int pads=size-str.length();if(pads<=0){return str;}if(pads>PAD_LIMIT){return leftPad(str,size,String.valueOf(padChar));}return padding(pads,padChar).concat(str);}"
+218	"public void test(){if(pads>PAD_LIMIT){return leftPad(str,size,String.valueOf(padChar));}}"
+219	"public void test(){if(padLen==1&&pads<=PAD_LIMIT){return leftPad(str,size,padStr.charAt(0));}}"
+220	"public void test(){if(pads<padLen){return padStr.substring(0,pads).concat(str);}else {char[] padding=new char[pads];char[] padChars=padStr.toCharArray();for(int i=0;i<pads;i++){padding[i]=padChars[i%padLen];}return new String(padding).concat(str);}}"
+221	"public void test(){if(str==null||size<=0){return str;}}"
+222	"public void test(){if(str==null||size<=0){return str;}int strLen=str.length();int pads=size-strLen;if(pads<=0){return str;}}"
+223	"public void test(){int pads=size-strLen;if(pads<=0){return str;}str=leftPad(str,strLen+pads/2,padChar);str=rightPad(str,size,padChar);return str;}"
+224	"public void test(){if(pads<=0){return str;}str=leftPad(str,strLen+pads/2,padChar);str=rightPad(str,size,padChar);return str;}"
+225	"public void test(){{if(str==null||size<=0){return str;}int strLen=str.length();int pads=size-strLen;if(pads<=0){return str;}str=leftPad(str,strLen+pads/2,padChar);str=rightPad(str,size,padChar);return str;}}"
+226	"public void test(){if(str==null||size<=0){return str;}if(isEmpty(padStr)){padStr="" "";}int strLen=str.length();int pads=size-strLen;if(pads<=0){return str;}}"
+227	"public void test(){int pads=size-strLen;if(pads<=0){return str;}str=leftPad(str,strLen+pads/2,padStr);str=rightPad(str,size,padStr);return str;}"
+228	"public void test(){if(pads<=0){return str;}str=leftPad(str,strLen+pads/2,padStr);str=rightPad(str,size,padStr);return str;}"
+229	"public void test(){{if(str==null||size<=0){return str;}if(isEmpty(padStr)){padStr="" "";}int strLen=str.length();int pads=size-strLen;if(pads<=0){return str;}str=leftPad(str,strLen+pads/2,padStr);str=rightPad(str,size,padStr);return str;}}"
+230	"public void test(){if(str==null){return null;}return str.toUpperCase();}"
+231	"public void test(){if(str==null){return null;}return str.toUpperCase(locale);}"
+232	"public void test(){if(str==null){return null;}return str.toLowerCase();}"
+233	"public void test(){if(str==null){return null;}return str.toLowerCase(locale);}"
+234	"public void test(){ch=str.charAt(i);if(Character.isUpperCase(ch)){ch=Character.toLowerCase(ch);}else if(Character.isTitleCase(ch)){ch=Character.toLowerCase(ch);}else if(Character.isLowerCase(ch)){ch=Character.toUpperCase(ch);}}"
+235	"public void test(){if(isEmpty(str)||isEmpty(sub)){return 0;}}"
+236	"public void test(){if(str==null){return null;}return new StringBuilder(str).reverse().toString();}"
+237	"public void test(){if(str==null){return null;}String[] strs=split(str,separatorChar);ArrayUtils.reverse(strs);return join(strs,separatorChar);}"
+238	"public void test(){if(str.length()<=maxWidth){return str;}}"
+239	"public void test(){if(offset>str.length()){offset=str.length();}}"
+240	"public void test(){if((str.length()-offset)<(maxWidth-3)){offset=str.length()-(maxWidth-3);}}"
+241	"public void test(){if(offset<=4){return str.substring(0,maxWidth-3)+abrevMarker;}}"
+242	"public void test(){if((offset+(maxWidth-3))<str.length()){return abrevMarker+abbreviate(str.substring(offset),maxWidth-3);}}"
+243	"public void test(){if(maxWidth<7){throw new IllegalArgumentException(""Minimum abbreviation width with offset is 7"");}if((offset+(maxWidth-3))<str.length()){return abrevMarker+abbreviate(str.substring(offset),maxWidth-3);}return abrevMarker+str.substring(str.length()-(maxWidth-3));}"
+244	"public void test(){if(isEmpty(str)||isEmpty(middle)){return str;}}"
+245	"public void test(){if(length>=str.length()||length<(middle.length()+2)){return str;}}"
+246	"public void test(){StringBuilder builder=new StringBuilder(length);builder.append(str.substring(0,startOffset));builder.append(middle);builder.append(str.substring(endOffset));return builder.toString();}"
+247	"public void test(){if(str1==null){return str2;}if(str2==null){return str1;}int at=indexOfDifference(str1,str2);if(at==INDEX_NOT_FOUND){return EMPTY;}return str2.substring(at);}"
+248	"public void test(){if(smallestIndexOfDiff==0){return EMPTY;}else {return strs[0].substring(0,smallestIndexOfDiff);}}"
+249	"public void test(){if(str==null||prefix==null){return (str==null&&prefix==null);}}"
+250	"public void test(){if(prefix.length()>str.length()){return false;}}"
+251	"public void test(){if(str==null||prefix==null){return (str==null&&prefix==null);}if(prefix.length()>str.length()){return false;}return str.regionMatches(ignoreCase,0,prefix,0,prefix.length());}"
+252	"public void test(){if(str==null||suffix==null){return str==null&&suffix==null;}}"
+253	"public void test(){if(suffix.length()>str.length()){return false;}}"
+254	"public void test(){if(str==null||suffix==null){return str==null&&suffix==null;}if(suffix.length()>str.length()){return false;}int strOffset=str.length()-suffix.length();return str.regionMatches(ignoreCase,strOffset,suffix,0,suffix.length());}"
+255	"public void test(){if(ch>='0'&&ch<='9'){return JAVA_VERSION.substring(i);}}"
+256	"public void test(){if(pos1!=pos2&&pos1>=0&&pos2>=0){String data=toString.substring(pos1,pos2);if(fieldSeparatorAtStart){removeLastFieldSeparator(buffer);}buffer.append(data);appendFieldSeparator(buffer);}}"
+257	"public void test(){if(str==null){return null;}int len=str.length();if(len!=2&&len!=5&&len<7){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+258	"public void test(){if(len!=2&&len!=5&&len<7){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+259	"public void test(){int len=str.length();if(len!=2&&len!=5&&len<7){throw new IllegalArgumentException(""Invalid locale format: ""+str);}char ch0=str.charAt(0);char ch1=str.charAt(1);if(ch0<'a'||ch0>'z'||ch1<'a'||ch1>'z'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+260	"public void test(){if(len!=2&&len!=5&&len<7){throw new IllegalArgumentException(""Invalid locale format: ""+str);}char ch0=str.charAt(0);char ch1=str.charAt(1);if(ch0<'a'||ch0>'z'||ch1<'a'||ch1>'z'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+261	"public void test(){if(ch0<'a'||ch0>'z'||ch1<'a'||ch1>'z'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+262	"public void test(){if(str.charAt(2)!='_'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+263	"public void test(){if(str.charAt(2)!='_'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}char ch3=str.charAt(3);if(ch3=='_'){return new Locale(str.substring(0,2),"""",str.substring(4));}}"
+264	"public void test(){if(ch3=='_'){return new Locale(str.substring(0,2),"""",str.substring(4));}}"
+265	"public void test(){if(ch3=='_'){return new Locale(str.substring(0,2),"""",str.substring(4));}char ch4=str.charAt(4);if(ch3<'A'||ch3>'Z'||ch4<'A'||ch4>'Z'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+266	"public void test(){if(ch3<'A'||ch3>'Z'||ch4<'A'||ch4>'Z'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+267	"public void test(){if(len==5){return new Locale(str.substring(0,2),str.substring(3,5));}else {if(str.charAt(5)!='_'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}return new Locale(str.substring(0,2),str.substring(3,5),str.substring(6));}}"
+268	"public void test(){if(str.charAt(5)!='_'){throw new IllegalArgumentException(""Invalid locale format: ""+str);}}"
+269	"public void test(){if(str==null){return ;}}"
+270	"public void test(){if(remainder>=4&&str.charAt(pos)=='^'&&str.charAt(pos+2)=='-'){set.add(CharRange.isNotIn(str.charAt(pos+1),str.charAt(pos+3)));pos+=4;}else if(remainder>=3&&str.charAt(pos+1)=='-'){set.add(CharRange.isIn(str.charAt(pos),str.charAt(pos+2)));pos+=3;}else if(remainder>=2&&str.charAt(pos)=='^'){set.add(CharRange.isNot(str.charAt(pos+1)));pos+=2;}else {set.add(CharRange.is(str.charAt(pos)));pos+=1;}}"
+271	"public void test(){if(remainder>=3&&str.charAt(pos+1)=='-'){set.add(CharRange.isIn(str.charAt(pos),str.charAt(pos+2)));pos+=3;}else if(remainder>=2&&str.charAt(pos)=='^'){set.add(CharRange.isNot(str.charAt(pos+1)));pos+=2;}else {set.add(CharRange.is(str.charAt(pos)));pos+=1;}}"
+272	"public void test(){if(remainder>=2&&str.charAt(pos)=='^'){set.add(CharRange.isNot(str.charAt(pos+1)));pos+=2;}else {set.add(CharRange.is(str.charAt(pos)));pos+=1;}}"
+273	"public void test(){if(StringUtils.isEmpty(str)){return null;}}"
+274	"public void test(){if(StringUtils.isEmpty(str)){return null;}return toCharacterObject(str.charAt(0));}"
+275	"public void test(){if(StringUtils.isEmpty(str)){throw new IllegalArgumentException(""The String must not be empty"");}}"
+276	"public void test(){if(StringUtils.isEmpty(str)){throw new IllegalArgumentException(""The String must not be empty"");}return str.charAt(0);}"
+277	"public void test(){if(StringUtils.isEmpty(str)){return defaultValue;}}"
+278	"public void test(){if(StringUtils.isEmpty(str)){return defaultValue;}return str.charAt(0);}"
+279	"public void test(){if(at!=-1&&token.substring(0,at).trim().length()==0){traceStarted=true;list.add(token);}else if(traceStarted){break;}}"
+280	"public void test(){if(newLineStr==null){newLineStr=SystemUtils.LINE_SEPARATOR;}if(wrapLength<1){wrapLength=1;}int inputLineLength=str.length();int offset=0;StringBuilder wrappedLine=new StringBuilder(inputLineLength+32);}"
+281	"public void test(){if(str.charAt(offset)==' '){offset++;continue;}}"
+282	"public void test(){spaceToWrapAt=str.indexOf(' ',wrapLength+offset);if(spaceToWrapAt>=0){wrappedLine.append(str.substring(offset,spaceToWrapAt));wrappedLine.append(newLineStr);offset=spaceToWrapAt+1;}else {wrappedLine.append(str.substring(offset));offset=inputLineLength;}}"
+283	"public void test(){if(spaceToWrapAt>=0){wrappedLine.append(str.substring(offset,spaceToWrapAt));wrappedLine.append(newLineStr);offset=spaceToWrapAt+1;}else {wrappedLine.append(str.substring(offset));offset=inputLineLength;}}"
+284	"public void test(){if(str==null||str.length()==0||delimLen==0){return str;}}"
+285	"public void test(){int delimLen=(delimiters==null?-1:delimiters.length);if(str==null||str.length()==0||delimLen==0){return str;}int strLen=str.length();StringBuilder buffer=new StringBuilder(strLen);boolean capitalizeNext=true;}"
+286	"public void test(){char ch=str.charAt(i);if(isDelimiter(ch,delimiters)){buffer.append(ch);capitalizeNext=true;}else if(capitalizeNext){buffer.append(Character.toTitleCase(ch));capitalizeNext=false;}else {buffer.append(ch);}}"
+287	"public void test(){int delimLen=(delimiters==null?-1:delimiters.length);if(str==null||str.length()==0||delimLen==0){return str;}str=str.toLowerCase();return capitalize(str,delimiters);}"
+288	"public void test(){int delimLen=(delimiters==null?-1:delimiters.length);if(str==null||str.length()==0||delimLen==0){return str;}int strLen=str.length();StringBuilder buffer=new StringBuilder(strLen);boolean uncapitalizeNext=true;}"
+289	"public void test(){char ch=str.charAt(i);if(isDelimiter(ch,delimiters)){buffer.append(ch);uncapitalizeNext=true;}else if(uncapitalizeNext){buffer.append(Character.toLowerCase(ch));uncapitalizeNext=false;}else {buffer.append(ch);}}"
+290	"public void test(){if(str==null||str.length()==0){return str;}}"
+291	"public void test(){if(str==null||str.length()==0){return str;}if(delimiters!=null&&delimiters.length==0){return """";}int strLen=str.length();char[] buf=new char[strLen/2+1];int count=0;}"
+292	"public void test(){for(int i=0;i<strLen;i++){char ch=str.charAt(i);if(isDelimiter(ch,delimiters)){lastWasGap=true;}else if(lastWasGap){buf[count++]=ch;lastWasGap=false;}else {}}}"
+293	"public void test(){if(str.length()==0){return StringUtils.EMPTY;}}"
+294	"public void test(){if(lower>str.length()){lower=str.length();}}"
+295	"public void test(){if(upper==-1||upper>str.length()){upper=str.length();}}"
+296	"public void test(){if(upper==-1||upper>str.length()){upper=str.length();}if(upper<lower){upper=lower;}StringBuilder result=new StringBuilder();int index=StringUtils.indexOf(str,"" "",lower);}"
+297	"public void test(){{result.append(str.substring(0,upper));if(upper!=str.length()){result.append(StringUtils.defaultString(appendToEnd));}}}"
+298	"public void test(){if(upper!=str.length()){result.append(StringUtils.defaultString(appendToEnd));}}"
+299	"public void test(){if(index>upper){result.append(str.substring(0,upper));result.append(StringUtils.defaultString(appendToEnd));}else {result.append(str.substring(0,index));result.append(StringUtils.defaultString(appendToEnd));}}"
+300	"public void test(){if(substitute(buf,0,length)==false){return source.substring(offset,offset+length);}}"
+301	"public void test(){if(delimLen>0){addToken(tokens,workArea.substring(0,trimStart));return pos+delimLen;}}"
+302	"public void test(){if(str==null||str.length()==0){return NONE_MATCHER;}}"
+303	"public void test(){if(str==null||str.length()==0){return NONE_MATCHER;}return new StringMatcher(str);}"
+304	"public void test(){if(str==null){buffer=new char[CAPACITY];}else {buffer=new char[str.length()+CAPACITY];append(str);}}"
+305	"public void test(){if(str==null){return appendNull();}}"
+306	"public void test(){if(str==null){return appendNull();}int strLen=str.length();if(strLen>0){int len=length();ensureCapacity(len+strLen);str.getChars(0,strLen,buffer,len);size+=strLen;}}"
+307	"public void test(){if(strLen>0){int len=length();ensureCapacity(len+strLen);str.getChars(0,strLen,buffer,len);size+=strLen;}}"
+308	"public void test(){if(startIndex<0||startIndex>str.length()){throw new StringIndexOutOfBoundsException(""startIndex must be valid"");}}"
+309	"public void test(){if(length<0||(startIndex+length)>str.length()){throw new StringIndexOutOfBoundsException(""length must be valid"");}}"
+310	"public void test(){if(length>0){int len=length();ensureCapacity(len+length);str.getChars(startIndex,startIndex+length,buffer,len);size+=length;}}"
+311	"public void test(){String str=isEmpty()?defaultIfEmpty:standard;if(str!=null){append(str);}return this;}"
+312	"public void test(){if(str!=null){append(str);}}"
+313	"public void test(){ensureCapacity(size+width);String str=(obj==null?getNullText():obj.toString());if(str==null){str="""";}int strLen=str.length();}"
+314	"public void test(){if(str==null){str="""";}}"
+315	"public void test(){if(strLen>=width){str.getChars(strLen-width,strLen,buffer,size);}else {int padLen=width-strLen;for(int i=0;i<padLen;i++){buffer[size+i]=padChar;}str.getChars(0,strLen,buffer,size+padLen);}}"
+316	"public void test(){if(strLen>=width){str.getChars(0,width,buffer,size);}else {int padLen=width-strLen;str.getChars(0,strLen,buffer,size);for(int i=0;i<padLen;i++){buffer[size+strLen]=padChar;}}}"
+317	"public void test(){if(str==null){str=nullText;}}"
+318	"public void test(){if(str==null){str=nullText;}int strLen=(str==null?0:str.length());if(strLen>0){int newSize=size+strLen;ensureCapacity(newSize);System.arraycopy(buffer,index,buffer,index+strLen,size-index);size=newSize;str.getChars(0,strLen,buffer,index);}}"
+319	"public void test(){if(strLen>0){int newSize=size+strLen;ensureCapacity(newSize);System.arraycopy(buffer,index,buffer,index+strLen,size-index);size=newSize;str.getChars(0,strLen,buffer,index);}}"
+320	"public void test(){int len=(str==null?0:str.length());if(len>0){int index=indexOf(str,0);while(index>=0){deleteImpl(index,index+len,len);index=indexOf(str,index);}}return this;}"
+321	"public void test(){if(len>0){int index=indexOf(str,0);while(index>=0){deleteImpl(index,index+len,len);index=indexOf(str,index);}}}"
+322	"public void test(){int len=(str==null?0:str.length());if(len>0){int index=indexOf(str,0);if(index>=0){deleteImpl(index,index+len,len);}}return this;}"
+323	"public void test(){if(len>0){int index=indexOf(str,0);if(index>=0){deleteImpl(index,index+len,len);}}}"
+324	"public void test(){if(str==null){return false;}}"
+325	"public void test(){if(str==null){return false;}int len=str.length();if(len==0){return true;}}"
+326	"public void test(){if(buffer[i]!=str.charAt(i)){return false;}}"
+327	"public void test(){if(buffer[pos]!=str.charAt(i)){return false;}}"
+328	"public void test(){if(startIndex<0){throw new StringIndexOutOfBoundsException(startIndex);}if(endIndex>size){throw new StringIndexOutOfBoundsException(endIndex);}if(startIndex>endIndex){throw new StringIndexOutOfBoundsException(endIndex-startIndex);}return substring(startIndex,endIndex);}"
+329	"public void test(){if(str==null||startIndex>=size){return -1;}}"
+330	"public void test(){if(str==null||startIndex>=size){return -1;}int strLen=str.length();if(strLen==1){return indexOf(str.charAt(0),startIndex);}}"
+331	"public void test(){if(strLen==1){return indexOf(str.charAt(0),startIndex);}}"
+332	"public void test(){if(str.charAt(j)!=thisBuf[i+j]){continue outer;}}"
+333	"public void test(){if(str==null||startIndex<0){return -1;}}"
+334	"public void test(){if(strLen==1){return lastIndexOf(str.charAt(0),startIndex);}}"
+335	"public void test(){if(str.charAt(j)!=buffer[i+j]){continue outer;}}"
+336	"public void test(){String str=super.getContent();if(str==null){return this.toString();}else {return str;}}"
+337	"public void test(){if(str==null){return this.toString();}else {return str;}}"
+338	"public void test(){if(i>0){name=desc.substring(0,i).trim();args=desc.substring(i+1).trim();}}"
+339	"public void test(){if(error){throw new IllegalArgumentException(""Invalid format argument index at position ""+start);}}"
+340	"public void test(){if(depth==0){return pattern.substring(text,pos.getIndex());}}"
+341	"public void test(){if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);pos.setIndex(i+ESCAPED_QUOTE.length());lastHold=pos.getIndex();continue;}}"
+342	"public void test(){if(duration.length()!=0){duration=duration.substring(1);}}"
+343	"public void test(){if(lastOutputSeconds){milliseconds+=1000;String str=padWithZeros?StringUtils.leftPad(Integer.toString(milliseconds),count,'0'):Integer.toString(milliseconds);buffer.append(str.substring(1));}else {buffer.append(padWithZeros?StringUtils.leftPad(Integer.toString(milliseconds),count,'0'):Integer.toString(milliseconds));}}"
+344	"public void test(){if(str==null||parsePatterns==null){throw new IllegalArgumentException(""Date and Patterns must not be null"");}}"
+345	"public void test(){if(parsePatterns[i].endsWith(""ZZ"")){pattern=pattern.substring(0,pattern.length()-1);}}"
+346	"public void test(){parser.applyPattern(pattern);pos.setIndex(0);String str2=str;if(parsePatterns[i].endsWith(""ZZ"")){str2=str.replaceAll(""([-+][0-9][0-9]):([0-9][0-9])$"",""$1$2"");}Date date=parser.parse(str2,pos);}"
+347	"public void test(){if(parsePatterns[i].endsWith(""ZZ"")){str2=str.replaceAll(""([-+][0-9][0-9]):([0-9][0-9])$"",""$1$2"");}}"
+348	"public void test(){for(int i=0;i<parsePatterns.length;i++){String pattern=parsePatterns[i];if(parsePatterns[i].endsWith(""ZZ"")){pattern=pattern.substring(0,pattern.length()-1);}parser.applyPattern(pattern);pos.setIndex(0);String str2=str;if(parsePatterns[i].endsWith(""ZZ"")){str2=str.replaceAll(""([-+][0-9][0-9]):([0-9][0-9])$"",""$1$2"");}Date date=parser.parse(str2,pos);if(date!=null&&pos.getIndex()==str2.length()){return date;}}throw new ParseException(""Unable to parse the date: ""+str,-1);}"

@@ -1,0 +1,282 @@
+1	"public void test(){if(c>0x1f&&c<=0x7f){sb.append(c);}else {appendHexJavaScriptRepresentation(sb,c);}}"
+2	"public void test(){int savedOffset=getCurrentOffset();addToken(Token.FUNCTION);append((char)functionType);return savedOffset;}"
+3	"public void test(){int offset=getCurrentOffset();append((char)FUNCTION_END);return offset;}"
+4	"public void test(){if(!(0<=token&&token<=Token.LAST_TOKEN))throw new IllegalArgumentException();append((char)token);}"
+5	"public void test(){if(!(0<=token&&token<=Token.LAST_TOKEN))throw new IllegalArgumentException();append((char)token);append((char)Token.EOL);}"
+6	"public void test(){if(lbits<=Character.MAX_VALUE){append('S');append((char)lbits);}else {append('J');append((char)(lbits>>48));append((char)(lbits>>32));append((char)(lbits>>16));append((char)lbits);}}"
+7	"public void test(){if(sourceTop==sourceBuffer.length){increaseSourceCapacity(sourceTop+1);}sourceBuffer[sourceTop]=c;++sourceTop;}"
+8	"public void test(){if(!toSource){result.append('\n');for(int j=0;j<indent;j++)result.append(' ');}else {if(topFunctionType==FunctionNode.FUNCTION_EXPRESSION){result.append('(');}}}"
+9	"public void test(){if(topFunctionType==FunctionNode.FUNCTION_EXPRESSION){result.append('(');}}"
+10	"public void test(){if(newLine){result.append('\n');}}"
+11	"public void test(){if(Token.EOL!=getNext(source,length,i)){result.append(' ');}}"
+12	"public void test(){if(Token.EOL==getNext(source,length,i))result.append(':');else result.append("" : "");}"
+13	"public void test(){if(topFunctionType==FunctionNode.FUNCTION_EXPRESSION){result.append(')');}}"
+14	"public void test(){if(!asQuotedString){sb.append(str);}else {sb.append('\""');sb.append(ScriptRuntime.escapeString(str));sb.append('\""');}}"
+15	"public void test(){if(sb!=null){sb.append(ScriptRuntime.numberToString(number,10));}}"
+16	"public void test(){for(int i=1;i<length;i++){char c=s.charAt(i);if(!Character.isJavaIdentifierPart(c)){if(c=='\\'){if(!((i+5)<length)&&(s.charAt(i+1)=='u')&&0<=Kit.xDigitToInt(s.charAt(i+3),0)&&0<=Kit.xDigitToInt(s.charAt(i+4),0)&&0<=Kit.xDigitToInt(s.charAt(i+5),0)){return true;}}return false;}}}"
+17	"public void test(){if(!Character.isJavaIdentifierPart(c)){if(c=='\\'){if(!((i+5)<length)&&(s.charAt(i+1)=='u')&&0<=Kit.xDigitToInt(s.charAt(i+3),0)&&0<=Kit.xDigitToInt(s.charAt(i+4),0)&&0<=Kit.xDigitToInt(s.charAt(i+5),0)){return true;}}return false;}}"
+18	"public void test(){if(c=='\\'){if(!((i+5)<length)&&(s.charAt(i+1)=='u')&&0<=Kit.xDigitToInt(s.charAt(i+3),0)&&0<=Kit.xDigitToInt(s.charAt(i+4),0)&&0<=Kit.xDigitToInt(s.charAt(i+5),0)){return true;}}}"
+19	"public void test(){StringBuffer sb=new StringBuffer(intDigits.length()+1);sb.append(intDigits);sb.append('.');sb.append(buffer,0,p);return sb.toString();}"
+20	"public void test(){while(i!=0){--i;char c=buf.charAt(i);if(c!='9'){buf.setCharAt(i,(char)(c+1));buf.setLength(i+1);return false;}}}"
+21	"public void test(){if(c!='9'){buf.setCharAt(i,(char)(c+1));buf.setLength(i+1);return false;}}"
+22	"public void test(){if((word0(d)&Exp_mask)==Exp_mask){buf.append(((word1(d)==0)&&((word0(d)&Frac_mask)==0))?""Infinity"":""NaN"");return 9999;}}"
+23	"public void test(){if(d==0){buf.setLength(0);buf.append('0');return 1;}}"
+24	"public void test(){if(d>eps){buf.append('1');k++;return k+1;}}"
+25	"public void test(){if(d<-eps){buf.setLength(0);buf.append('0');return 1;}}"
+26	"public void test(){L=(long)d;d-=L;buf.append((char)('0'+L));if(d<eps){return k+1;}}"
+27	"public void test(){while(true){lastCh=buf.charAt(buf.length()-1);buf.setLength(buf.length()-1);if(lastCh!='9')break;if(buf.length()==0){k++;lastCh='0';break;}}buf.append((char)(lastCh+1));}"
+28	"public void test(){if(ilim<0||d<5*ds||(!biasUp&&d==5*ds)){buf.setLength(0);buf.append('0');return 1;}}"
+29	"public void test(){if(ilim<0||d<5*ds||(!biasUp&&d==5*ds)){buf.setLength(0);buf.append('0');return 1;}buf.append('1');k++;}"
+30	"public void test(){if((ilim<0)||((i=b.compareTo(S=S.multiply(BigInteger.valueOf(5))))<0)){buf.setLength(0);buf.append('0');return 1;}}"
+31	"public void test(){if(ilim<=0&&mode>2){if((ilim<0)||((i=b.compareTo(S=S.multiply(BigInteger.valueOf(5))))<0)){buf.setLength(0);buf.append('0');return 1;}buf.append('1');k++;return k+1;}}"
+32	"public void test(){if(dig=='9'){buf.append('9');if(roundOff(buf)){k++;buf.append('1');}return k+1;}}"
+33	"public void test(){if(roundOff(buf)){k++;buf.append('1');}}"
+34	"public void test(){if(dig=='9'){buf.append('9');if(roundOff(buf)){k++;buf.append('1');}return k+1;}if(j>0)dig++;buf.append(dig);return k+1;}"
+35	"public void test(){if(((j1>0)||(j1==0&&(((dig&1)==1)||biasUp)))&&(dig++=='9')){buf.append('9');if(roundOff(buf)){k++;buf.append('1');}return k+1;}}"
+36	"public void test(){if(j1>0){b=b.shiftLeft(1);j1=b.compareTo(S);if(((j1>0)||(j1==0&&(((dig&1)==1)||biasUp)))&&(dig++=='9')){buf.append('9');if(roundOff(buf)){k++;buf.append('1');}return k+1;}}buf.append(dig);return k+1;}"
+37	"public void test(){if(dig=='9'){buf.append('9');if(roundOff(buf)){k++;buf.append('1');}return k+1;}buf.append((char)(dig+1));return k+1;}"
+38	"public void test(){buf.append(dig);if(i==ilim)break;b=b.multiply(BigInteger.valueOf(10));if(mlo==mhi)mlo=mhi=mhi.multiply(BigInteger.valueOf(10));else {mlo=mlo.multiply(BigInteger.valueOf(10));mhi=mhi.multiply(BigInteger.valueOf(10));}}"
+39	"public void test(){for(i=1;;i++){BigInteger[] divResult=b.divideAndRemainder(S);b=divResult[1];dig=(char)(divResult[0].intValue()+'0');buf.append(dig);if(i>=ilim)break;b=b.multiply(BigInteger.valueOf(10));}}"
+40	"public void test(){if(roundOff(buf)){k++;buf.append('1');return k+1;}}"
+41	"public void test(){if(nDigits!=1){buffer.insert(1,'.');}buffer.append('e');if((decPt-1)>=0)buffer.append('+');buffer.append(decPt-1);}"
+42	"public void test(){if(message.length()>0){message.append('\n');}}"
+43	"public void test(){for(String error : errors){if(message.length()>0){message.append('\n');}message.append(error);}}"
+44	"public void test(){if(c=='(')open=i;else if(c==')')close=i;else if(c=='\n'&&open!=-1&&close!=-1&&colon!=-1&&open<colon&&colon<close){String fileStr=s.substring(open+1,colon);if(!fileStr.endsWith("".java"")){String lineStr=s.substring(colon+1,close);try{linep[0]=Integer.parseInt(lineStr);if(linep[0]<0){linep[0]=0;}return fileStr;}catch (NumberFormatException e) {}}open=close=colon=-1;}}"
+45	"public void test(){if(c==')')close=i;else if(c=='\n'&&open!=-1&&close!=-1&&colon!=-1&&open<colon&&colon<close){String fileStr=s.substring(open+1,colon);if(!fileStr.endsWith("".java"")){String lineStr=s.substring(colon+1,close);try{linep[0]=Integer.parseInt(lineStr);if(linep[0]<0){linep[0]=0;}return fileStr;}catch (NumberFormatException e) {}}open=close=colon=-1;}}"
+46	"public void test(){if(c=='\n'&&open!=-1&&close!=-1&&colon!=-1&&open<colon&&colon<close){String fileStr=s.substring(open+1,colon);if(!fileStr.endsWith("".java"")){String lineStr=s.substring(colon+1,close);try{linep[0]=Integer.parseInt(lineStr);if(linep[0]<0){linep[0]=0;}return fileStr;}catch (NumberFormatException e) {}}open=close=colon=-1;}}"
+47	"public void test(){if(sourceName==null||lineNumber<=0){return details;}StringBuilder buf=new StringBuilder(details);buf.append("" ("");if(sourceName!=null){buf.append(sourceName);}if(lineNumber>0){buf.append('#');buf.append(lineNumber);}}"
+48	"public void test(){if(sourceName!=null){buf.append(sourceName);}}"
+49	"public void test(){if(lineNumber>0){buf.append('#');buf.append(lineNumber);}}"
+50	"public void test(){if(lineNumber>0){buf.append('#');buf.append(lineNumber);}buf.append(')');return buf.toString();}"
+51	"public void test(){for(end=start;end<len;end++){char c=s.charAt(end);int newDigit;if('0'<=c&&c<=digitMax)newDigit=c-'0';else if('a'<=c&&c<lowerCaseBound)newDigit=c-'a'+10;else if('A'<=c&&c<upperCaseBound)newDigit=c-'A'+10;else break;sum=sum*radix+newDigit;}}"
+52	"public void test(){if('0'<=c&&c<=digitMax)newDigit=c-'0';else if('a'<=c&&c<lowerCaseBound)newDigit=c-'a'+10;else if('A'<=c&&c<upperCaseBound)newDigit=c-'A'+10;else break;}"
+53	"public void test(){if('a'<=c&&c<lowerCaseBound)newDigit=c-'a'+10;else if('A'<=c&&c<upperCaseBound)newDigit=c-'A'+10;else break;}"
+54	"public void test(){if('A'<=c&&c<upperCaseBound)newDigit=c-'A'+10;else break;}"
+55	"public void test(){if(sb!=null){sb.append((char)c);}}"
+56	"public void test(){if(sb==null){sb=new StringBuffer(L+3);sb.append(s);sb.setLength(i);}}"
+57	"public void test(){if(c<256){sb.append(""\\x"");hexSize=2;}else {sb.append(""\\u"");hexSize=4;}}"
+58	"public void test(){for(int shift=(hexSize-1)*4;shift>=0;shift-=4){int digit=0xf&(c>>shift);int hc=(digit<10)?'0'+digit:'a'-10+digit;sb.append((char)hc);}}"
+59	"public void test(){if(this==registry.getNativeType(JSTypeNative.FUNCTION_INSTANCE_TYPE)){return ""Function"";}StringBuilder b=new StringBuilder(32);b.append(""function ("");int paramNum=call.parameters.getChildCount();boolean hasKnownTypeOfThis=!typeOfThis.isUnknownType();}"
+60	"public void test(){if(isConstructor()){b.append(""new:"");}else {b.append(""this:"");}}"
+61	"public void test(){if(hasKnownTypeOfThis){if(isConstructor()){b.append(""new:"");}else {b.append(""this:"");}b.append(typeOfThis.toString());}}"
+62	"public void test(){if(hasKnownTypeOfThis){b.append("", "");}}"
+63	"public void test(){if(p.isVarArgs()){appendVarArgsString(b,p.getJSType());}else {b.append(p.getJSType().toString());}}"
+64	"public void test(){while(p!=null){b.append("", "");if(p.isVarArgs()){appendVarArgsString(b,p.getJSType());}else {b.append(p.getJSType().toString());}p=p.getNext();}}"
+65	"public void test(){if(paramType.isUnionType()){paramType=((UnionType)paramType).getRestrictedUnion(registry.getNativeType(JSTypeNative.VOID_TYPE));}builder.append(""...["").append(paramType.toString()).append(""]"");}"
+66	"public void test(){if(this==registry.getNativeType(JSTypeNative.FUNCTION_INSTANCE_TYPE)){return super.toDebugHashCodeString();}StringBuilder b=new StringBuilder(32);b.append(""function ("");int paramNum=call.parameters.getChildCount();boolean hasKnownTypeOfThis=!typeOfThis.isUnknownType();}"
+67	"public void test(){if(hasKnownTypeOfThis){b.append(""this:"");b.append(getDebugHashCodeStringOf(typeOfThis));}}"
+68	"public void test(){if(hasKnownTypeOfThis){b.append("", "");}Node p=call.parameters.getFirstChild();b.append(getDebugHashCodeStringOf(p.getJSType()));p=p.getNext();while(p!=null){b.append("", "");b.append(getDebugHashCodeStringOf(p.getJSType()));p=p.getNext();}}"
+69	"public void test(){{StringBuilder sb=new StringBuilder();sb.append(""{ "");int i=0;for(String property : properties.keySet()){if(i>0){sb.append("", "");}sb.append(property);sb.append("" : "");sb.append(properties.get(property).toString());++i;}sb.append("" }"");return sb.toString();}}"
+70	"public void test(){if(i>0){sb.append("", "");}}"
+71	"public void test(){for(String property : properties.keySet()){if(i>0){sb.append("", "");}sb.append(property);sb.append("" : "");sb.append(properties.get(property).toString());++i;}}"
+72	"public void test(){for(String property : properties.keySet()){if(i>0){sb.append("", "");}sb.append(property);sb.append("" : "");sb.append(properties.get(property).toString());++i;}sb.append("" }"");return sb.toString();}"
+73	"public void test(){if(!firstAlternate){result.append(""|"");}}"
+74	"public void test(){for(JSType t : sorted){if(!firstAlternate){result.append(""|"");}result.append(t.toString());firstAlternate=false;}}"
+75	"public void test(){for(JSType t : sorted){if(!firstAlternate){result.append(""|"");}result.append(t.toString());firstAlternate=false;}result.append("")"");return result.toString();}"
+76	"public void test(){if(i>0){sb.append("", "");}sb.append(property);sb.append("": "");sb.append(getPropertyType(property).toString());}"
+77	"public void test(){if(i>0){sb.append("", "");}sb.append(property);sb.append("": "");sb.append(getPropertyType(property).toString());++i;}"
+78	"public void test(){sb.append(property);sb.append("": "");sb.append(getPropertyType(property).toString());++i;if(i==MAX_PRETTY_PRINTED_PROPERTIES){sb.append("", ..."");break;}}"
+79	"public void test(){if(i==MAX_PRETTY_PRINTED_PROPERTIES){sb.append("", ..."");break;}}"
+80	"public void test(){for(String property : propertyNames){if(i>0){sb.append("", "");}sb.append(property);sb.append("": "");sb.append(getPropertyType(property).toString());++i;if(i==MAX_PRETTY_PRINTED_PROPERTIES){sb.append("", ..."");break;}}sb.append(""}"");return sb.toString();}"
+81	"public void test(){if(Token.printTrees){StringBuilder sb=new StringBuilder();toString(sb,printSource,printAnnotations,printType);return sb.toString();}}"
+82	"public void test(){sb.append(' ');if(first==null||first.getType()!=Token.NAME){sb.append(""<invalid>"");}else {sb.append(first.getString());}}"
+83	"public void test(){if(first==null||first.getType()!=Token.NAME){sb.append(""<invalid>"");}else {sb.append(first.getString());}}"
+84	"public void test(){if(this instanceof FunctionNode){FunctionNode fn=(FunctionNode)this;sb.append(' ');sb.append(fn.getFunctionName());}}"
+85	"public void test(){if(type==Token.NUMBER){sb.append(' ');sb.append(getDouble());}}"
+86	"public void test(){if(lineno!=-1){sb.append(' ');sb.append(lineno);}}"
+87	"public void test(){if(jsTypeString!=null){sb.append("" : "");sb.append(jsTypeString);}}"
+88	"public void test(){if(Token.printTrees){for(int i=0;i!=level;++i){sb.append(""    "");}sb.append(n.toString());sb.append('\n');for(Node cursor=n.getFirstChild();cursor!=null;cursor=cursor.getNext()){toStringTreeHelper(cursor,level+1,sb);}}}"
+89	"public void test(){builder.append(""<ul>"");if(outEdges.size()>0){builder.append(""<li>REFERS TO:<br>\n"");builder.append(""<ul>"");for(DiGraphEdge<Name,Reference> edge : outEdges){generateEdgeReport(builder,edge.getDestination().getValue(),edge);}builder.append(""</ul>\n"");}}"
+90	"public void test(){if(outEdges.size()>0){builder.append(""<li>REFERS TO:<br>\n"");builder.append(""<ul>"");for(DiGraphEdge<Name,Reference> edge : outEdges){generateEdgeReport(builder,edge.getDestination().getValue(),edge);}builder.append(""</ul>\n"");}}"
+91	"public void test(){if(inEdges.size()>0){builder.append(""<li>REFERENCED BY:<br>\n"");builder.append(""<ul>"");for(DiGraphEdge<Name,Reference> edge : inEdges){generateEdgeReport(builder,edge.getSource().getValue(),edge);}builder.append(""</ul>"");}}"
+92	"public void test(){if(inEdges.size()>0){builder.append(""<li>REFERENCED BY:<br>\n"");builder.append(""<ul>"");for(DiGraphEdge<Name,Reference> edge : inEdges){generateEdgeReport(builder,edge.getSource().getValue(),edge);}builder.append(""</ul>"");}builder.append(""</ul>\n"");}"
+93	"public void test(){if(defType==null){builder.append("" (type: null) "");}else if(defType.isUnknownType()){builder.append("" (type: unknown) "");}else {builder.append("" (type: ""+defType.toString());}}"
+94	"public void test(){if(defType.isUnknownType()){builder.append("" (type: unknown) "");}else {builder.append("" (type: ""+defType.toString());}}"
+95	"public void test(){for(Map.Entry<String,List<Replacement>> entry : idGeneratorMaps.entrySet()){sb.append(""["");sb.append(entry.getKey());sb.append(""]\n\n"");for(Replacement replacement : entry.getValue()){sb.append(replacement.toString());sb.append(""\n"");}sb.append(""\n"");}return sb.toString();}"
+96	"public void test(){StringBuilder sb=new StringBuilder(""Strings used more than once:\n"");for(String str : stringInfoMap.keySet()){StringInfo info=stringInfoMap.get(str);if(info.numOccurrences>1){sb.append(info.numOccurrences);sb.append("": "");sb.append(str);sb.append('\n');}}}"
+97	"public void test(){if(info.numOccurrences>1){sb.append(info.numOccurrences);sb.append("": "");sb.append(str);sb.append('\n');}}"
+98	"public void test(){for(String str : stringInfoMap.keySet()){StringInfo info=stringInfoMap.get(str);if(info.numOccurrences>1){sb.append(info.numOccurrences);sb.append("": "");sb.append(str);sb.append('\n');}}logger.info(sb.toString());}"
+99	"public void test(){if((ch>='0'&&ch<='9')||(ch>='a'&&ch<='f')){sb.append('_');}}"
+100	"public void test(){if((ch>='0'&&ch<='9')||(ch>='A'&&ch<='Z')){sb.append(ch);}else {sb.append('$');sb.append(Integer.toHexString(ch));protectHex=true;}}"
+101	"public void test(){if(length==limit){return sb.toString();}}"
+102	"public void test(){long hash=crc32.getValue()&unitTestHashReductionMask;sb.append('_');sb.append(Long.toHexString(hash));String encoded=sb.toString();if(!usedHashedAliases.add(encoded)){encoded+=""_""+id;}}"
+103	"public void test(){sb.append('_');sb.append(Long.toHexString(hash));String encoded=sb.toString();if(!usedHashedAliases.add(encoded)){encoded+=""_""+id;}return encoded;}"
+104	"public void test(){StringBuilder sb=new StringBuilder();for(CharSequence p : parts){sb.append(p.toString());}return sb.toString();}"
+105	"public void test(){StringBuilder sb=new StringBuilder();for(CharSequence part : messageParts){if(part instanceof JsMessage.PlaceholderReference){sb.append(part.toString());}else {sb.append(part);}}long nonnegativeHash=Long.MAX_VALUE&Hash.hash64(sb.toString());return Long.toString(nonnegativeHash,36).toUpperCase();}"
+106	"public void test(){if(part instanceof JsMessage.PlaceholderReference){sb.append(part.toString());}else {sb.append(part);}}"
+107	"public void test(){{StringBuilder out=new StringBuilder();out.append(name);if(prototypeNames.size()>0){out.append("" (CLASS)\n"");out.append("" - FUNCTIONS: "");Iterator<String> pIter=prototypeNames.iterator();while(pIter.hasNext()){out.append(pIter.next());if(pIter.hasNext()){out.append("", "");}}}return out.toString();}}"
+108	"public void test(){if(prototypeNames.size()>0){out.append("" (CLASS)\n"");out.append("" - FUNCTIONS: "");Iterator<String> pIter=prototypeNames.iterator();while(pIter.hasNext()){out.append(pIter.next());if(pIter.hasNext()){out.append("", "");}}}}"
+109	"public void test(){while(pIter.hasNext()){out.append(pIter.next());if(pIter.hasNext()){out.append("", "");}}}"
+110	"public void test(){if(pIter.hasNext()){out.append("", "");}}"
+111	"public void test(){sb.append(""<li>""+nameAnchor(node.name));if(node.prototypeNames.size()>0){sb.append(""<li>PROTOTYPES: "");Iterator<String> protoIter=node.prototypeNames.iterator();while(protoIter.hasNext()){sb.append(protoIter.next());if(protoIter.hasNext()){sb.append("", "");}}}}"
+112	"public void test(){if(node.prototypeNames.size()>0){sb.append(""<li>PROTOTYPES: "");Iterator<String> protoIter=node.prototypeNames.iterator();while(protoIter.hasNext()){sb.append(protoIter.next());if(protoIter.hasNext()){sb.append("", "");}}}}"
+113	"public void test(){while(protoIter.hasNext()){sb.append(protoIter.next());if(protoIter.hasNext()){sb.append("", "");}}}"
+114	"public void test(){if(protoIter.hasNext()){sb.append("", "");}}"
+115	"public void test(){if(refersTo.size()>0){sb.append(""<li>REFERS TO: "");Iterator<DiGraphEdge<JsName,RefType>> toIter=refersTo.iterator();while(toIter.hasNext()){sb.append(nameLink(toIter.next().getDestination().getValue().name));if(toIter.hasNext()){sb.append("", "");}}}}"
+116	"public void test(){while(toIter.hasNext()){sb.append(nameLink(toIter.next().getDestination().getValue().name));if(toIter.hasNext()){sb.append("", "");}}}"
+117	"public void test(){if(toIter.hasNext()){sb.append("", "");}}"
+118	"public void test(){if(referencedBy.size()>0){sb.append(""<li>REFERENCED BY: "");Iterator<DiGraphEdge<JsName,RefType>> fromIter=refersTo.iterator();while(fromIter.hasNext()){sb.append(nameLink(fromIter.next().getDestination().getValue().name));if(fromIter.hasNext()){sb.append("", "");}}}}"
+119	"public void test(){while(fromIter.hasNext()){sb.append(nameLink(fromIter.next().getDestination().getValue().name));if(fromIter.hasNext()){sb.append("", "");}}}"
+120	"public void test(){if(fromIter.hasNext()){sb.append("", "");}}"
+121	"public void test(){StringBuilder b=new StringBuilder(32);b.append(""function ("");boolean hasKnownTypeOfThis=!getThisSlot().getType().isNone();if(hasKnownTypeOfThis){b.append(""this:"");b.append(getThisSlot().getType().toString());}}"
+122	"public void test(){if(hasKnownTypeOfThis){b.append(""this:"");b.append(getThisSlot().getType().toString());}}"
+123	"public void test(){if(hasKnownTypeOfThis&&n!=null){b.append("", "");}}"
+124	"public void test(){for(int i=0;n!=null;++i,n=n.getNext()){String paramName=n.getString();StaticSlot<ConcreteType> var=getScope().getOwnSlot(paramName);b.append(var.getType());getParameterSlot(i).getType();if(n.getNext()!=null){b.append("", "");}}}"
+125	"public void test(){if(n.getNext()!=null){b.append("", "");}}"
+126	"public void test(){for(int i=0;n!=null;++i,n=n.getNext()){String paramName=n.getString();StaticSlot<ConcreteType> var=getScope().getOwnSlot(paramName);b.append(var.getType());getParameterSlot(i).getType();if(n.getNext()!=null){b.append("", "");}}b.append("")"");}"
+127	"public void test(){if(getReturnSlot().getType()!=null){b.append("": "");b.append(getReturnSlot().getType().toString());}}"
+128	"public void test(){if(options.closurePass){interpreter=new ClosureReverseAbstractInterpreter(getCodingConvention(),getTypeRegistry()).append(interpreter).getFirst();}}"
+129	"public void test(){if(pos>0){prefix=wrapper.substring(0,pos);out.append(prefix);}}"
+130	"public void test(){if(pos>0){prefix=wrapper.substring(0,pos);out.append(prefix);}out.append(code);int suffixStart=pos+codePlaceholder.length();}"
+131	"public void test(){if(suffixStart!=wrapper.length()){out.append(wrapper.substring(suffixStart));}}"
+132	"public void test(){if(suffixStart!=wrapper.length()){out.append(wrapper.substring(suffixStart));}out.append('\n');if(compiler!=null&&compiler.getSourceMap()!=null){compiler.getSourceMap().setWrapperPrefix(prefix);}}"
+133	"public void test(){if(compiler.getRoot()==null){return 1;}else {jsOutput.append(DotFormatter.toDot(compiler.getPassConfig().getPassGraph()));jsOutput.append('\n');return 0;}}"
+134	"public void test(){if(compiler.getRoot()==null){return 1;}else {ControlFlowGraph<Node> cfg=compiler.computeCFG();DotFormatter.appendDot(compiler.getRoot().getLastChild(),cfg,jsOutput);jsOutput.append('\n');return 0;}}"
+135	"public void test(){if(compiler.getRoot()==null){jsOutput.append(""Code contains errors; no tree was generated.\n"");return 1;}else {compiler.getRoot().appendStringTree(jsOutput);jsOutput.append(""\n"");return 0;}}"
+136	"public void test(){if(options.externExportsPath!=null){Writer eeOut=openExternExportsStream(options,options.jsOutputFile);eeOut.append(result.externExport);eeOut.close();}}"
+137	"public void test(){if(requiresNewline){out.append(""\n"");}}"
+138	"public void test(){for(JSModule module : graph.getAllModulesInDependencyOrder()){if(requiresNewline){out.append(""\n"");}String dependencies=commas.join(module.getSortedDependencyNames());out.append(String.format(""{%s%s}\n"",module.getName(),dependencies.isEmpty()?"""":"":""+dependencies));printManifestTo(module.getInputs(),out);requiresNewline=true;}}"
+139	"public void test(){int digit_width=numDigits(v);StringBuilder sb=new StringBuilder();appendSpaces(sb,digits_column_width-digit_width);sb.append(v);return sb.toString();}"
+140	"public void test(){StringBuilder sb=new StringBuilder(120);if(prevEventTime==-1){appendSpaces(sb,digitsColWidth);}else {sb.append(longToPaddedString(eventTime()-prevEventTime,digitsColWidth));}}"
+141	"public void test(){if(prevEventTime==-1){appendSpaces(sb,digitsColWidth);}else {sb.append(longToPaddedString(eventTime()-prevEventTime,digitsColWidth));}}"
+142	"public void test(){if(prevEventTime==-1){appendSpaces(sb,digitsColWidth);}else {sb.append(longToPaddedString(eventTime()-prevEventTime,digitsColWidth));}sb.append(' ');sb.append(formatTime(eventTime()));}"
+143	"public void test(){{sb.append("" Done "");long delta=tracer.stopTimeMs-tracer.startTimeMs;sb.append(longToPaddedString(delta,digitsColWidth));sb.append("" ms "");if(tracer.extraTracingValues!=null){for(int i=0;i<tracer.extraTracingValues.length;i++){delta=tracer.extraTracingValues[i];sb.append(String.format(""%4d"",delta));sb.append(extraTracingStatistics.get(i).getUnits());sb.append("";  "");}}}}"
+144	"public void test(){sb.append(longToPaddedString(delta,digitsColWidth));sb.append("" ms "");if(tracer.extraTracingValues!=null){for(int i=0;i<tracer.extraTracingValues.length;i++){delta=tracer.extraTracingValues[i];sb.append(String.format(""%4d"",delta));sb.append(extraTracingStatistics.get(i).getUnits());sb.append("";  "");}}}"
+145	"public void test(){if(prettyPrint&&!e.isStart){indent.pop();}sb.append("" "");if(prettyPrint){sb.append(e.toString(etime,Joiner.on("""").join(indent),numDigits));}else {sb.append(e.toString(etime,"""",4));}}"
+146	"public void test(){if(prettyPrint){sb.append(e.toString(etime,Joiner.on("""").join(indent),numDigits));}else {sb.append(e.toString(etime,"""",4));}}"
+147	"public void test(){if(prettyPrint){sb.append(e.toString(etime,Joiner.on("""").join(indent),numDigits));}else {sb.append(e.toString(etime,"""",4));}etime=e.eventTime();sb.append('\n');if(prettyPrint&&e.isStart){indent.push(""|  "");}}"
+148	"public void test(){if(outstandingEvents.size()!=0){long now=clock.currentTimeMillis();sb.append("" Unstopped timers:\n"");for(Tracer t : outstandingEvents){sb.append(""  "").append(t).append("" ("").append(now-t.startTimeMs).append("" ms, started at "").append(formatTime(t.startTimeMs)).append("")\n"");}}}"
+149	"public void test(){if(stat.count>1){sb.append("" TOTAL "").append(key).append("" "").append(stat.count).append("" ("").append(stat.clockTime).append("" ms"");if(stat.extraInfo!=null){for(int i=0;i<stat.extraInfo.length;i++){sb.append(""; "");sb.append(stat.extraInfo[i]).append(' ').append(extraTracingStatistics.get(i).getUnits());}}sb.append("")\n"");}}"
+150	"public void test(){for(String key : stats.keySet()){Stat stat=stats.get(key);if(stat.count>1){sb.append("" TOTAL "").append(key).append("" "").append(stat.count).append("" ("").append(stat.clockTime).append("" ms"");if(stat.extraInfo!=null){for(int i=0;i<stat.extraInfo.length;i++){sb.append(""; "");sb.append(stat.extraInfo[i]).append(' ').append(extraTracingStatistics.get(i).getUnits());}}sb.append("")\n"");}}return sb.toString();}"
+151	"public void test(){default :keyBuilder.append(placeholderToken);prefix=new Node(Token.ADD,prefix,Node.newString(placeholderToken));return new Node(Token.ADD,prefix,expr.cloneTree());}"
+152	"public void test(){Preconditions.checkState(fnNode.getType()==Token.FUNCTION);StringBuilder sb=new StringBuilder(""/**\n"");JSType type=fnNode.getJSType();if(type==null||type.isUnknownType()){return """";}}"
+153	"public void test(){for(Node n : funType.getParameters()){if(paramNode==null){break;}sb.append("" * @param {""+getParameterNodeJSDocType(n));sb.append(paramNode.getString());sb.append(""\n"");paramNode=paramNode.getNext();}}"
+154	"public void test(){if(retType!=null&&!retType.isUnknownType()&&!retType.isEmptyType()){sb.append("" * @return {""+retType);}}"
+155	"public void test(){if(!superInstance.toString().equals(""Object"")){sb.append("" * @extends {""+superInstance);}}"
+156	"public void test(){if(funType.isConstructor()){sb.append("" * @constructor\n"");}else if(funType.isInterface()){sb.append("" * @interface\n"");}}"
+157	"public void test(){if(funType.isInterface()){sb.append("" * @interface\n"");}}"
+158	"public void test(){if(fnNode!=null&&fnNode.getBooleanProp(Node.IS_DISPATCHER)){sb.append("" * @javadispatch\n"");}}"
+159	"public void test(){StringBuilder sb=new StringBuilder(""(?:^|;)\\s*("");for(String function : functions){sb.append(Pattern.quote(function)+""|"");}sb.deleteCharAt(sb.length()-1);sb.append("")\\s*\\((.*?)\\)"");return Pattern.compile(sb.toString());}"
+160	"public void test(){builder.append(formatNodeName(key));builder.append("" [label=\"""");builder.append(name(n));JSType type=n.getJSType();if(type!=null){builder.append("" : "");builder.append(type.toString());}}"
+161	"public void test(){if(type!=null){builder.append("" : "");builder.append(type.toString());}}"
+162	"public void test(){if(annotation!=null){builder.append(""\\n"");builder.append(annotation.toString());}}"
+163	"public void test(){if(printAnnotations&&cfg!=null&&cfg.hasNode(n)){Object annotation=cfg.getNode(n).getAnnotation();if(annotation!=null){builder.append(""\\n"");builder.append(annotation.toString());}}builder.append(""\"""");if(n.getJSDocInfo()!=null){builder.append("" color=\""green\"""");}}"
+164	"public void test(){if(n.getJSDocInfo()!=null){builder.append("" color=\""green\"""");}}"
+165	"public void test(){if(printAnnotations&&cfg!=null&&cfg.hasNode(n)){Object annotation=cfg.getNode(n).getAnnotation();if(annotation!=null){builder.append(""\\n"");builder.append(annotation.toString());}}builder.append(""\"""");if(n.getJSDocInfo()!=null){builder.append("" color=\""green\"""");}builder.append(""];\n"");}"
+166	"public void test(){builder.append(graph.getName());builder.append("" {\n"");builder.append(INDENT);builder.append(""node [color=lightblue2, style=filled];\n""); final String edgeSymbol=graph.isDirected()?ARROW:LINE;}"
+167	"public void test(){builder.append("" {\n"");builder.append(INDENT);builder.append(""node [color=lightblue2, style=filled];\n""); final String edgeSymbol=graph.isDirected()?ARROW:LINE;List<GraphvizNode> nodes=graph.getGraphvizNodes();}"
+168	"public void test(){for(String edgeName : edgeNames){builder.append(INDENT);builder.append(edgeName);builder.append("";\n"");}builder.append(""}\n"");return builder.toString();}"
+169	"public void test(){StringBuilder sb=new StringBuilder();toString(sb,true,true);return sb.toString();}"
+170	"public void test(){if(first){first=false;}else {sb.append("", "");}}"
+171	"public void test(){if(first){first=false;}else {sb.append("", "");}sb.append('\""');escapeStringOnto(entry.getKey().toString(),sb);}"
+172	"public void test(){if(first){first=false;}else {sb.append("", "");}sb.append('\""');escapeStringOnto(entry.getKey().toString(),sb);sb.append(""\"": "");Object value=entry.getValue();}"
+173	"public void test(){if(value==null){sb.append(""null"");}else if(value instanceof String){sb.append('\""');escapeStringOnto((String)value,sb);sb.append('\""');}else {sb.append(value);}}"
+174	"public void test(){if(value instanceof String){sb.append('\""');escapeStringOnto((String)value,sb);sb.append('\""');}else {sb.append(value);}}"
+175	"public void test(){if(printChildren){for(JsonML child : children){sb.append("", "");sb.append(child.toString());}}sb.append(']');}"
+176	"public void test(){if(list.length==1){builder.append(list[0].toString());}else if(list.length>1){builder.append('[');for(int i=0;i<list.length;++i){builder.append(list[i].toString());if(i<list.length-1){builder.append("", "");}}builder.append(""]"");}}"
+177	"public void test(){if(list.length>1){builder.append('[');for(int i=0;i<list.length;++i){builder.append(list[i].toString());if(i<list.length-1){builder.append("", "");}}builder.append(""]"");}}"
+178	"public void test(){for(int i=0;i<list.length;++i){builder.append(list[i].toString());if(i<list.length-1){builder.append("", "");}}}"
+179	"public void test(){if(i<list.length-1){builder.append("", "");}}"
+180	"public void test(){if(n!=first){result.append(',');}}"
+181	"public void test(){for(Node n=first;n!=null;n=n.getNext()){String childValue=getArrayElementStringValue(n);if(childValue==null){return null;}if(n!=first){result.append(',');}result.append(childValue);nextSlot++;}}"
+182	"public void test(){for(int index=0;index<len;index++){char c=s.charAt(index);if(c>LARGEST_BASIC_LATIN){return false;}}}"
+183	"public void test(){if(c>LARGEST_BASIC_LATIN){return false;}}"
+184	"public void test(){if(fileLevelJsDocBuilder!=null){fileLevelJsDocBuilder.append(preserve);}}"
+185	"public void test(){if(option!=WhitespaceOption.PRESERVE){line=line.trim();}StringBuilder builder=new StringBuilder();builder.append(line);state=State.SEARCHING_ANNOTATION;token=next();}"
+186	"public void test(){if(builder.length()>0){builder.append(' ');}}"
+187	"public void test(){if(!ignoreStar){if(builder.length()>0){builder.append(' ');}builder.append('*');}}"
+188	"public void test(){if(option!=WhitespaceOption.SINGLE_LINE){builder.append(""\n"");}}"
+189	"public void test(){state=State.SEARCHING_ANNOTATION;if(builder.length()>0){builder.append(' ');}builder.append(toString(token));line=stream.getRemainingJSDocLine();if(option!=WhitespaceOption.PRESERVE){line=trimEnd(line);}}"
+190	"public void test(){line=stream.getRemainingJSDocLine();if(option!=WhitespaceOption.PRESERVE){line=trimEnd(line);}builder.append(line);token=next();}"
+191	"public void test(){if(!ignoreStar&&builder.length()>0){builder.append(' ');}}"
+192	"public void test(){default :if(!ignoreStar&&builder.length()>0){builder.append(' ');}ignoreStar=false;builder.append(toString(token));String line=stream.getRemainingJSDocLine();line=trimEnd(line);}"
+193	"public void test(){String joinString=(right==null)?"","":NodeUtil.getStringValue(right);List<Node> arrayFoldedChildren=Lists.newLinkedList();StringBuilder sb=null;int foldedSize=0;Node prev=null;}"
+194	"public void test(){if(sb==null){sb=new StringBuilder();}else {sb.append(joinString);}}"
+195	"public void test(){if(sb==null){sb=new StringBuilder();}else {sb.append(joinString);}sb.append(NodeUtil.getArrayElementStringValue(elem));}"
+196	"public void test(){if(sb!=null){Preconditions.checkNotNull(prev);foldedSize+=sb.length()+2;arrayFoldedChildren.add(Node.newString(sb.toString()).copyInformationFrom(prev));sb=null;}}"
+197	"public void test(){if(sb!=null){Preconditions.checkNotNull(prev);foldedSize+=sb.length()+2;arrayFoldedChildren.add(Node.newString(sb.toString()).copyInformationFrom(prev));}}"
+198	"public void test(){default :StringBuilder sb=new StringBuilder();for(Node child=node.getFirstChild();child!=null;child=child.getNext()){if(sb.length()>0){sb.append(delimiter);}sb.append(getName(child));}}"
+199	"public void test(){if(sb.length()>0){sb.append(delimiter);}}"
+200	"public void test(){for(Node child=node.getFirstChild();child!=null;child=child.getNext()){if(sb.length()>0){sb.append(delimiter);}sb.append(getName(child));}}"
+201	"public void test(){for(Node child=node.getFirstChild();child!=null;child=child.getNext()){if(sb.length()>0){sb.append(delimiter);}sb.append(getName(child));}return sb.toString();}"
+202	"public void test(){if(lineLength==0){for(int i=0;i<indent;i++){code.append(INDENT);lineLength+=INDENT.length();}}code.append(str);lineLength+=str.length();}"
+203	"public void test(){if(lineLength>0){code.append('\n');lineIndex++;lineLength=0;}}"
+204	"public void test(){if(getLastChar()!=' '){append("" "");}}"
+205	"public void test(){if(binOp){if(getLastChar()!=' '){append("" "");}append(op);append("" "");}else {append(op);}}"
+206	"public void test(){if(lineLength>0){code.append('\n');lineLength=0;lineIndex++;lineStartPosition=code.length();}}"
+207	"public void test(){if(error.sourceName!=null){b.append(error.sourceName);if(error.lineNumber>0){b.append(':');b.append(error.lineNumber);}b.append("": "");}}"
+208	"public void test(){if(error.lineNumber>0){b.append(':');b.append(error.lineNumber);}}"
+209	"public void test(){if(error.sourceName!=null){b.append(error.sourceName);if(error.lineNumber>0){b.append(':');b.append(error.lineNumber);}b.append("": "");}b.append(getLevelName(warning?CheckLevel.WARNING:CheckLevel.ERROR));b.append("" - "");}"
+210	"public void test(){if(error.sourceName!=null){b.append(error.sourceName);if(error.lineNumber>0){b.append(':');b.append(error.lineNumber);}b.append("": "");}b.append(getLevelName(warning?CheckLevel.WARNING:CheckLevel.ERROR));b.append("" - "");b.append(error.description);}"
+211	"public void test(){if(error.sourceName!=null){b.append(error.sourceName);if(error.lineNumber>0){b.append(':');b.append(error.lineNumber);}b.append("": "");}b.append(getLevelName(warning?CheckLevel.WARNING:CheckLevel.ERROR));b.append("" - "");b.append(error.description);b.append('\n');}"
+212	"public void test(){{b.append(sourceExcerpt);b.append('\n');int charno=error.getCharno();if(excerpt.equals(LINE)&&0<=charno&&charno<sourceExcerpt.length()){for(int i=0;i<charno;i++){char c=sourceExcerpt.charAt(i);if(Character.isWhitespace(c)){b.append(c);}else {b.append(' ');}}b.append(""^\n"");}}}"
+213	"public void test(){for(int i=0;i<charno;i++){char c=sourceExcerpt.charAt(i);if(Character.isWhitespace(c)){b.append(c);}else {b.append(' ');}}}"
+214	"public void test(){if(Character.isWhitespace(c)){b.append(c);}else {b.append(' ');}}"
+215	"public void test(){if(excerpt.equals(LINE)&&0<=charno&&charno<sourceExcerpt.length()){for(int i=0;i<charno;i++){char c=sourceExcerpt.charAt(i);if(Character.isWhitespace(c)){b.append(c);}else {b.append(' ');}}b.append(""^\n"");}}"
+216	"public void test(){if(end<0){line=code.substring(start);if(line.length()==0){return builder.substring(0,builder.length()-1);}}else {line=code.substring(start,end);}builder.append(""  "");int spaces=numberLength-Integer.toString(lineNumber).length();}"
+217	"public void test(){if(end<0){builder.append(line);start=-1;}else {builder.append(line);builder.append('\n');start=end+1;end=code.indexOf('\n',start);lineNumber++;}}"
+218	"public void test(){for(int index=0;index<len;index++){char c=s.charAt(index);if(c<'0'||c>'9'){return false;}}}"
+219	"public void test(){if(c<'0'||c>'9'){return false;}}"
+220	"public void test(){if(i>=2&&((s.charAt(i-1)=='-'&&s.charAt(i-2)=='-')||(s.charAt(i-1)==']'&&s.charAt(i-2)==']'))){sb.append(""\\>"");}else {sb.append(c);}}"
+221	"public void test(){if(s.regionMatches(true,i+1,END_SCRIPT,0,END_SCRIPT.length())){sb.append(""<\\"");}else if(s.regionMatches(false,i+1,START_COMMENT,0,START_COMMENT.length())){sb.append(""<\\"");}else {sb.append(c);}}"
+222	"public void test(){if(s.regionMatches(false,i+1,START_COMMENT,0,START_COMMENT.length())){sb.append(""<\\"");}else {sb.append(c);}}"
+223	"public void test(){if(outputCharsetEncoder.canEncode(c)){sb.append(c);}else {appendHexJavaScriptRepresentation(sb,c);}}"
+224	"public void test(){if(c>0x1f&&c<=0x7f){sb.append(c);}else {appendHexJavaScriptRepresentation(sb,c);}}"
+225	"public void test(){if(NodeUtil.isLatin(s)){return s;}StringBuilder sb=new StringBuilder();for(int i=0;i<s.length();i++){char c=s.charAt(i);if(c>0x1f&&c<0x7f){sb.append(c);}else {appendHexJavaScriptRepresentation(sb,c);}}}"
+226	"public void test(){for(int i=0;i<s.length();i++){char c=s.charAt(i);if(c>0x1f&&c<0x7f){sb.append(c);}else {appendHexJavaScriptRepresentation(sb,c);}}}"
+227	"public void test(){if(c>0x1f&&c<0x7f){sb.append(c);}else {appendHexJavaScriptRepresentation(sb,c);}}"
+228	"public void test(){for(int i=0;i<s.length();i++){char c=s.charAt(i);if(c>0x1f&&c<0x7f){sb.append(c);}else {appendHexJavaScriptRepresentation(sb,c);}}return sb.toString();}"
+229	"public void test(){if(Character.isSupplementaryCodePoint(codePoint)){char[] surrogates=Character.toChars(codePoint);appendHexJavaScriptRepresentation(surrogates[0],out);appendHexJavaScriptRepresentation(surrogates[1],out);return ;}}"
+230	"public void test(){if(Character.isSupplementaryCodePoint(codePoint)){char[] surrogates=Character.toChars(codePoint);appendHexJavaScriptRepresentation(surrogates[0],out);appendHexJavaScriptRepresentation(surrogates[1],out);return ;}out.append(""\\u"").append(HEX_CHARS[(codePoint>>>12)&0xf]).append(HEX_CHARS[(codePoint>>>8)&0xf]).append(HEX_CHARS[(codePoint>>>4)&0xf]).append(HEX_CHARS[codePoint&0xf]);}"
+231	"public void test(){if(sb.length()>0){sb.append('.');}}"
+232	"public void test(){if(p!=null&&p.newName!=null){Preconditions.checkState(oldName.equals(p.oldName));replacement=p.newName;}else {replacement=oldName;}if(sb.length()>0){sb.append('.');}sb.append(replacement);}"
+233	"public void test(){for(String oldName : firstArg.getString().split(""[.]"")){Property p=propertyMap.get(oldName);String replacement;if(p!=null&&p.newName!=null){Preconditions.checkState(oldName.equals(p.oldName));replacement=p.newName;}else {replacement=oldName;}if(sb.length()>0){sb.append('.');}sb.append(replacement);}parent.replaceChild(n,Node.newString(sb.toString()));changed=true;}"
+234	"public void test(){if(null==sb){sb=new StringBuilder(s.length()+16);}}"
+235	"public void test(){if(!isEscaped&&!inCharset){if(null==sb){sb=new StringBuilder(s.length()+16);}sb.append(s,pos,i).append('\\');pos=i;}}"
+236	"public void test(){if(isEscaped){sb.append(s,pos,i-1);}else {sb.append(s,pos,i);}}"
+237	"public void test(){if(null==sb){return n.cloneTree();}}"
+238	"public void test(){if(arr[i]==c){return true;}}"
+239	"public void test(){functionNames.process(null,root);sb.append(""Pure functions:\n"");for(Map.Entry<Node,FunctionInformation> entry : functionSideEffectMap.entrySet()){Node function=entry.getKey();FunctionInformation functionInfo=entry.getValue();boolean isPure=functionInfo.mayBePure()&&!functionInfo.mayHaveSideEffects();if(isPure){sb.append(""  ""+functionNames.getFunctionName(function));}}}"
+240	"public void test(){if(isPure){sb.append(""  ""+functionNames.getFunctionName(function));}}"
+241	"public void test(){for(Map.Entry<Node,FunctionInformation> entry : functionSideEffectMap.entrySet()){Node function=entry.getKey();FunctionInformation functionInfo=entry.getValue();boolean isPure=functionInfo.mayBePure()&&!functionInfo.mayHaveSideEffects();if(isPure){sb.append(""  ""+functionNames.getFunctionName(function));}}sb.append(""\n"");}"
+242	"public void test(){for(Node callSite : functionInfo.getCallsInFunctionBody()){Collection<Definition> defs=getCallableDefinitions(definitionProvider,callSite.getFirstChild());if(defs==null){depFunctionNames.add(""<null def list>"");continue;}for(Definition def : defs){depFunctionNames.add(functionNames.getFunctionName(def.getRValue()));}}sb.append(functionNames.getFunctionName(function)+"" "");}"
+243	"public void test(){for(Map.Entry<Node,FunctionInformation> entry : functionSideEffectMap.entrySet()){Node function=entry.getKey();FunctionInformation functionInfo=entry.getValue();Set<String> depFunctionNames=Sets.newHashSet();for(Node callSite : functionInfo.getCallsInFunctionBody()){Collection<Definition> defs=getCallableDefinitions(definitionProvider,callSite.getFirstChild());if(defs==null){depFunctionNames.add(""<null def list>"");continue;}for(Definition def : defs){depFunctionNames.add(functionNames.getFunctionName(def.getRValue()));}}sb.append(functionNames.getFunctionName(function)+"" "");}return sb.toString();}"
+244	"public void test(){if(statementNeedsEnded){append("";"");maybeLineBreak();}}"
+245	"public void test(){if(needSemiColon){append("";"");maybeLineBreak();statementNeedsEnded=false;}else if(statementStarted){statementNeedsEnded=true;}}"
+246	"public void test(){if(statementNeedsEnded){append("";"");maybeLineBreak();endLine();statementNeedsEnded=false;}}"
+247	"public void test(){maybeEndStatement();if(newcode.length()==0){return ;}char c=newcode.charAt(0);if((isWordChar(c)||c=='\\')&&isWordChar(getLastChar())){append("" "");}append(newcode);}"
+248	"public void test(){if((isWordChar(c)||c=='\\')&&isWordChar(getLastChar())){append("" "");}}"
+249	"public void test(){if((first=='+'||first=='-')&&prev==first){append("" "");}else if(Character.isLetter(first)&&isWordChar(prev)){append("" "");}else if(prev=='-'&&first=='>'){append("" "");}}"
+250	"public void test(){if(Character.isLetter(first)&&isWordChar(prev)){append("" "");}else if(prev=='-'&&first=='>'){append("" "");}}"
+251	"public void test(){if(prev=='-'&&first=='>'){append("" "");}}"
+252	"public void test(){for(Property a : propsByFrequency){if(a.newName==null){a.newName=nameGen.generateNextName();reservedNames.add(a.newName);}debug.append(a.oldName).append("" => "").append(a.newName).append('\n');}}"
+253	"public void test(){if(i!=0){out.append("","");}}"
+254	"public void test(){for(Entry<String,Integer> entry : sourceFileMap.entrySet()){String key=entry.getKey();if(i!=0){out.append("","");}out.append(""\"""");out.append(key);out.append(""\"""");i++;}}"
+255	"public void test(){out.append(""["");out.append(String.valueOf(m.sourceFile));out.append("","");int line=m.originalPosition.getLine();if(line!=lastLine){lastLineString=String.valueOf(line);}}"
+256	"public void test(){if(line!=lastLine){lastLineString=String.valueOf(line);}String lineValue=lastLineString;out.append(lineValue);out.append("","");out.append(String.valueOf(m.originalPosition.getColumn()));}"
+257	"public void test(){String lineValue=lastLineString;out.append(lineValue);out.append("","");out.append(String.valueOf(m.originalPosition.getColumn()));if(m.originalName!=null){out.append("","");out.append(escapeString(m.originalName));}}"
+258	"public void test(){out.append("","");out.append(String.valueOf(m.originalPosition.getColumn()));if(m.originalName!=null){out.append("","");out.append(escapeString(m.originalName));}}"
+259	"public void test(){if(m.originalName!=null){out.append("","");out.append(escapeString(m.originalName));}}"
+260	"public void test(){out.append(String.valueOf(m.originalPosition.getColumn()));if(m.originalName!=null){out.append("","");out.append(escapeString(m.originalName));}out.append(""],\n"");}"
+261	"public void test(){if(finalEntry){out.append(""\"""");}else {out.append(""\"",\n"");}}"
+262	"public void test(){if(reps==0){return ;}StringBuilder sb=new StringBuilder();LineMapEncoder.encodeEntry(sb,id,lastId,reps);if(validate){SourceMapLineDecoder.LineEntry entry=SourceMapLineDecoder.decodeLineEntry(sb.toString(),lastId);Preconditions.checkState(entry.id==id&&entry.reps==reps,""expected (%s,%s) but got (%s,%s)"",id,reps,entry.id,entry.reps);}}"
+263	"public void test(){StringBuilder sb=new StringBuilder();LineMapEncoder.encodeEntry(sb,id,lastId,reps);if(validate){SourceMapLineDecoder.LineEntry entry=SourceMapLineDecoder.decodeLineEntry(sb.toString(),lastId);Preconditions.checkState(entry.id==id&&entry.reps==reps,""expected (%s,%s) but got (%s,%s)"",id,reps,entry.id,entry.reps);}}"
+264	"public void test(){if(validate){SourceMapLineDecoder.LineEntry entry=SourceMapLineDecoder.decodeLineEntry(sb.toString(),lastId);Preconditions.checkState(entry.id==id&&entry.reps==reps,""expected (%s,%s) but got (%s,%s)"",id,reps,entry.id,entry.reps);}}"
+265	"public void test(){if(validate){SourceMapLineDecoder.LineEntry entry=SourceMapLineDecoder.decodeLineEntry(sb.toString(),lastId);Preconditions.checkState(entry.id==id&&entry.reps==reps,""expected (%s,%s) but got (%s,%s)"",id,reps,entry.id,entry.reps);}out.append(sb);lastId=id;}"
+266	"public void test(){if(reps>16||relativeIdLength>4){String repsString=valueToBase64(reps-1,1);for(int i=0;i<repsString.length();i++){out.append('!');}String sizeId=valueToBase64(relativeIdString.length()-1,1);out.append(sizeId);out.append(repsString);}else {int prefix=((reps-1)<<2)+(relativeIdString.length()-1);Preconditions.checkState(prefix<64&&prefix>=0,""prefix (%s) reps(%s) map id size(%s)"",prefix,reps,relativeIdString.length());out.append(valueToBase64(prefix,1));}out.append(relativeIdString);}"
+267	"public void test(){while(minimumSize>size){sb.append(BASE64_MAP.charAt(0));minimumSize--;}while(size>0){sb.append(chars[--size]);}return sb.toString();}"
+268	"public void test(){if(first){first=false;}else {out.append("",\n"");}}"
+269	"public void test(){if(first){first=false;}else {out.append("",\n"");}out.append(""{\n"");appendFirstField(out,""offset"",offset.toString());}"
+270	"public void test(){for(SourceMapSection section : appSections){if(first){first=false;}else {out.append("",\n"");}out.append(""{\n"");appendFirstField(out,""offset"",offset.toString());appendField(out,""file"",escapeString(section.getSectionUrl()));out.append(""\n}"");offset+=section.getLength();}out.append(""\n]"");appendFieldEnd(out);out.append(""\n}\n"");}"
+271	"public void test(){out.append(""["");String sourceFile=m.sourceFile;String escapedSourceFile;if(lastSourceFile!=sourceFile){lastSourceFile=sourceFile;lastSourceFileEscaped=escapeString(sourceFile);}}"
+272	"public void test(){if(lastSourceFile!=sourceFile){lastSourceFile=sourceFile;lastSourceFileEscaped=escapeString(sourceFile);}escapedSourceFile=lastSourceFileEscaped;out.append(escapedSourceFile);out.append("","");int line=m.originalPosition.getLine();}"
+273	"public void test(){escapedSourceFile=lastSourceFileEscaped;out.append(escapedSourceFile);out.append("","");int line=m.originalPosition.getLine();if(line!=lastLine){lastLineString=String.valueOf(line);}}"
+274	"public void test(){out.append(String.valueOf(m.originalPosition.getColumn()));if(m.originalName!=null){out.append("","");out.append(escapeString(m.originalName));}out.append(""]\n"");}"
+275	"public void test(){if(out!=null){out.append(""["");this.firstChar=true;}}"
+276	"public void test(){if(out!=null){out.append(""]\n"");}}"
+277	"public void test(){if(firstChar){firstChar=false;}else {out.append("","");}}"
+278	"public void test(){if(out!=null){if(firstChar){firstChar=false;}else {out.append("","");}out.append(id);}}"
+279	"public void test(){if(outputCharsetEncoder.canEncode(c)){sb.append(c);}else {appendCharAsHex(sb,c);}}"
+280	"public void test(){if(c>0x1f&&c<=0x7f){sb.append(c);}else {appendCharAsHex(sb,c);}}"
+281	"public void test(){if(Character.isSupplementaryCodePoint(codePoint)){char[] surrogates=Character.toChars(codePoint);appendHexJavaScriptRepresentation(out,surrogates[0]);appendHexJavaScriptRepresentation(out,surrogates[1]);return ;}}"
+282	"public void test(){if(Character.isSupplementaryCodePoint(codePoint)){char[] surrogates=Character.toChars(codePoint);appendHexJavaScriptRepresentation(out,surrogates[0]);appendHexJavaScriptRepresentation(out,surrogates[1]);return ;}out.append(""\\u"").append(HEX_CHARS[(codePoint>>>12)&0xf]).append(HEX_CHARS[(codePoint>>>8)&0xf]).append(HEX_CHARS[(codePoint>>>4)&0xf]).append(HEX_CHARS[codePoint&0xf]);}"

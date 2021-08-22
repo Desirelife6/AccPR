@@ -1,0 +1,42 @@
+1	"public void test(){if(real==0.0&&imaginary==0.0){return NaN;}}"
+2	"public void test(){if(FastMath.abs(real)<FastMath.abs(imaginary)){if(imaginary==0.0){return FastMath.abs(real);}double q=real/imaginary;return FastMath.abs(imaginary)*FastMath.sqrt(1+q*q);}else {if(real==0.0){return FastMath.abs(imaginary);}double q=imaginary/real;return FastMath.abs(real)*FastMath.sqrt(1+q*q);}}"
+3	"public void test(){if(imaginary==0.0){return FastMath.abs(real);}}"
+4	"public void test(){if(imaginary==0.0){return FastMath.abs(real);}double q=real/imaginary;return FastMath.abs(imaginary)*FastMath.sqrt(1+q*q);}"
+5	"public void test(){if(real==0.0){return FastMath.abs(imaginary);}}"
+6	"public void test(){if(real==0.0){return FastMath.abs(imaginary);}double q=imaginary/real;return FastMath.abs(real)*FastMath.sqrt(1+q*q);}"
+7	"public void test(){MathUtils.checkNotNull(addend);if(isNaN||addend.isNaN){return NaN;}return createComplex(real+addend.getReal(),imaginary+addend.getImaginary());}"
+8	"public void test(){if(isNaN||Double.isNaN(addend)){return NaN;}return createComplex(real+addend,imaginary);}"
+9	"public void test(){if(isNaN){return NaN;}return createComplex(real,-imaginary);}"
+10	"public void test(){double q=c/d;double denominator=c*q+d;return createComplex((real*q+imaginary)/denominator,(imaginary*q-real)/denominator);}"
+11	"public void test(){double q=d/c;double denominator=d*q+c;return createComplex((imaginary*q+real)/denominator,(imaginary-real*q)/denominator);}"
+12	"public void test(){if(Double.isInfinite(divisor)){return !isInfinite()?ZERO:NaN;}return createComplex(real/divisor,imaginary/divisor);}"
+13	"public void test(){if(real==0.0&&imaginary==0.0){return NaN;}}"
+14	"public void test(){if(FastMath.abs(real)<FastMath.abs(imaginary)){double q=real/imaginary;double scale=1.0/(real*q+imaginary);return createComplex(scale*q,-scale);}else {double q=imaginary/real;double scale=1.0/(imaginary*q+real);return createComplex(scale,-scale*q);}}"
+15	"public void test(){double q=real/imaginary;double scale=1.0/(real*q+imaginary);return createComplex(scale*q,-scale);}"
+16	"public void test(){double q=imaginary/real;double scale=1.0/(imaginary*q+real);return createComplex(scale,-scale*q);}"
+17	"public void test(){if(c.isNaN){return isNaN;}else {return (real==c.real)&&(imaginary==c.imaginary);}}"
+18	"public void test(){if(isNaN){return 7;}return 37*(17*MathUtils.hash(imaginary)+MathUtils.hash(real));}"
+19	"public void test(){if(Double.isInfinite(real)||Double.isInfinite(imaginary)){return INF;}}"
+20	"public void test(){MathUtils.checkNotNull(factor);if(isNaN||factor.isNaN){return NaN;}if(Double.isInfinite(real)||Double.isInfinite(imaginary)){return INF;}return createComplex(real*factor.real-imaginary*factor.imaginary,real*factor.imaginary+imaginary*factor.real);}"
+21	"public void test(){if(isNaN){return NaN;}if(Double.isInfinite(real)||Double.isInfinite(imaginary)){return INF;}return createComplex(real*factor,imaginary*factor);}"
+22	"public void test(){if(isNaN||Double.isNaN(factor)){return NaN;}if(Double.isInfinite(real)||Double.isInfinite(imaginary)){return INF;}return createComplex(real*factor,imaginary*factor);}"
+23	"public void test(){if(isNaN){return NaN;}return createComplex(-real,-imaginary);}"
+24	"public void test(){MathUtils.checkNotNull(subtrahend);if(isNaN||subtrahend.isNaN){return NaN;}return createComplex(real-subtrahend.getReal(),imaginary-subtrahend.getImaginary());}"
+25	"public void test(){if(isNaN||Double.isNaN(subtrahend)){return NaN;}return createComplex(real-subtrahend,imaginary);}"
+26	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.cos(real)*FastMath.cosh(imaginary),-FastMath.sin(real)*FastMath.sinh(imaginary));}"
+27	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.cosh(real)*FastMath.cos(imaginary),FastMath.sinh(real)*FastMath.sin(imaginary));}"
+28	"public void test(){if(isNaN){return NaN;}double expReal=FastMath.exp(real);return createComplex(expReal*FastMath.cos(imaginary),expReal*FastMath.sin(imaginary));}"
+29	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.log(abs()),FastMath.atan2(imaginary,real));}"
+30	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.sin(real)*FastMath.cosh(imaginary),FastMath.cos(real)*FastMath.sinh(imaginary));}"
+31	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.sinh(real)*FastMath.cos(imaginary),FastMath.cosh(real)*FastMath.sin(imaginary));}"
+32	"public void test(){if(real==0.0&&imaginary==0.0){return createComplex(0.0,0.0);}}"
+33	"public void test(){if(real==0.0&&imaginary==0.0){return createComplex(0.0,0.0);}double t=FastMath.sqrt((FastMath.abs(real)+abs())/2.0);if(real>=0.0){return createComplex(t,imaginary/(2.0*t));}else {return createComplex(FastMath.abs(imaginary)/(2.0*t),FastMath.copySign(1.0,imaginary)*t);}}"
+34	"public void test(){if(real>=0.0){return createComplex(t,imaginary/(2.0*t));}else {return createComplex(FastMath.abs(imaginary)/(2.0*t),FastMath.copySign(1.0,imaginary)*t);}}"
+35	"public void test(){if(isNaN||Double.isInfinite(real)){return NaN;}}"
+36	"public void test(){if(imaginary>20.0){return createComplex(0.0,1.0);}}"
+37	"public void test(){if(imaginary<-20.0){return createComplex(0.0,-1.0);}}"
+38	"public void test(){if(imaginary<-20.0){return createComplex(0.0,-1.0);}double real2=2.0*real;double imaginary2=2.0*imaginary;}"
+39	"public void test(){if(isNaN||Double.isInfinite(imaginary)){return NaN;}}"
+40	"public void test(){if(real>20.0){return createComplex(1.0,0.0);}}"
+41	"public void test(){if(real<-20.0){return createComplex(-1.0,0.0);}}"
+42	"public void test(){if(real<-20.0){return createComplex(-1.0,0.0);}double real2=2.0*real;double imaginary2=2.0*imaginary;}"

@@ -1,0 +1,584 @@
+1	"public void test(){if(x==x1){x0=0.5*(x0+x1-FastMath.max(rtol*FastMath.abs(x1),atol));f0=computeObjectiveValue(x0);}}"
+2	"public void test(){ final double x0=x-mean; final double x1=x0/standardDeviation;return FastMath.exp(-0.5*x1)/(standardDeviation*SQRT2PI);}"
+3	"public void test(){ final double dev=x-mean;if(FastMath.abs(dev)>40*standardDeviation){return dev<0?0.0:1.0;}return 0.5*(1+Erf.erf(dev/(standardDeviation*FastMath.sqrt(2))));}"
+4	"public void test(){if(FastMath.abs(dev)>40*standardDeviation){return dev<0?0.0:1.0;}}"
+5	"public void test(){if(x<0){return 0;}}"
+6	"public void test(){if(x<0){return 0;}return FastMath.exp(-x/mean)/mean;}"
+7	"public void test(){if(x<=0.0){ret=0.0;}else {ret=1.0-FastMath.exp(-x/mean);}}"
+8	"public void test(){ final double nhalf=numeratorDegreesOfFreedom/2; final double mhalf=denominatorDegreesOfFreedom/2; final double logx=FastMath.log(x); final double logn=FastMath.log(numeratorDegreesOfFreedom); final double logm=FastMath.log(denominatorDegreesOfFreedom); final double lognxm=FastMath.log(numeratorDegreesOfFreedom*x+denominatorDegreesOfFreedom);return FastMath.exp(nhalf*logn+nhalf*logx-logx+mhalf*logm-nhalf*lognxm-mhalf*lognxm-Beta.logBeta(nhalf,mhalf));}"
+9	"public void test(){if(x<=0){ret=0;}else {double n=numeratorDegreesOfFreedom;double m=denominatorDegreesOfFreedom;ret=Beta.regularizedBeta((n*x)/(m+n*x),0.5*n,0.5*m);}}"
+10	"public void test(){if(FastMath.abs(rootFindingFunction.value(lowerBound))<getSolverAbsoluteAccuracy()){return lowerBound;}}"
+11	"public void test(){if(FastMath.abs(rootFindingFunction.value(upperBound))<getSolverAbsoluteAccuracy()){return upperBound;}}"
+12	"public void test(){if(x==0){if(alpha<1){throw new NumberIsTooSmallException(LocalizedFormats.CANNOT_COMPUTE_BETA_DENSITY_AT_0_FOR_SOME_ALPHA,alpha,1,false);}return 0;}else if(x==1){if(beta<1){throw new NumberIsTooSmallException(LocalizedFormats.CANNOT_COMPUTE_BETA_DENSITY_AT_1_FOR_SOME_BETA,beta,1,false);}return 0;}else {double logX=FastMath.log(x);double log1mX=FastMath.log1p(-x);return FastMath.exp((alpha-1)*logX+(beta-1)*log1mX-z);}}"
+13	"public void test(){if(x==1){if(beta<1){throw new NumberIsTooSmallException(LocalizedFormats.CANNOT_COMPUTE_BETA_DENSITY_AT_1_FOR_SOME_BETA,beta,1,false);}return 0;}else {double logX=FastMath.log(x);double log1mX=FastMath.log1p(-x);return FastMath.exp((alpha-1)*logX+(beta-1)*log1mX-z);}}"
+14	"public void test(){if(x<=0){return 0;}else if(x>=1){return 1;}else {return Beta.regularizedBeta(x,alpha,beta);}}"
+15	"public void test(){if(x>=1){return 1;}else {return Beta.regularizedBeta(x,alpha,beta);}}"
+16	"public void test(){if(x<=0){ret=0;}else {ret=Gamma.regularizedGammaP(alpha,x/beta);}}"
+17	"public void test(){if(x<0){return 0;}return FastMath.pow(x/beta,alpha-1)/beta*FastMath.exp(-x/beta)/FastMath.exp(Gamma.logGamma(alpha));}"
+18	"public void test(){ final double dev=x-median;return (1/FastMath.PI)*(scale/(dev*dev+scale*scale));}"
+19	"public void test(){if(x<=0.0){ret=0.0;}else {ret=1.0-FastMath.exp(-FastMath.pow(x/scale,shape));}}"
+20	"public void test(){if(x<0){return 0;} final double xscale=x/scale; final double xscalepow=FastMath.pow(xscale,shape-1); final double xscalepowshape=xscalepow*xscale;return (shape/scale)*xscalepow;}"
+21	"public void test(){if(x0>x1){throw new NumberIsTooLargeException(LocalizedFormats.LOWER_ENDPOINT_ABOVE_UPPER_ENDPOINT,x0,x1,true);}}"
+22	"public void test(){if(x0>x1){throw new NumberIsTooLargeException(LocalizedFormats.LOWER_ENDPOINT_ABOVE_UPPER_ENDPOINT,x0,x1,true);}return cumulativeProbability(x1)-cumulativeProbability(x0);}"
+23	"public void test(){ final double n=degreesOfFreedom; final double nPlus1Over2=(n+1)/2;return FastMath.exp(Gamma.logGamma(nPlus1Over2)-0.5*(FastMath.log(FastMath.PI)+FastMath.log(n))-Gamma.logGamma(n/2)-nPlus1Over2*FastMath.log(1+x*x/n));}"
+24	"public void test(){if(x==0){ret=0.5;}else {double t=Beta.regularizedBeta(degreesOfFreedom/(degreesOfFreedom+(x*x)),0.5*degreesOfFreedom,0.5);if(x<0.0){ret=0.5*t;}else {ret=1.0-0.5*t;}}}"
+25	"public void test(){double t=Beta.regularizedBeta(degreesOfFreedom/(degreesOfFreedom+(x*x)),0.5*degreesOfFreedom,0.5);if(x<0.0){ret=0.5*t;}else {ret=1.0-0.5*t;}}"
+26	"public void test(){if(x<0.0){ret=0.5*t;}else {ret=1.0-0.5*t;}}"
+27	"public void test(){if(x1<x0){throw new NumberIsTooSmallException(LocalizedFormats.LOWER_ENDPOINT_ABOVE_UPPER_ENDPOINT,x1,x0,true);}}"
+28	"public void test(){if(FastMath.floor(x0)<x0){return cumulativeProbability(((int)FastMath.floor(x0))+1,(int)FastMath.floor(x1));}else {return cumulativeProbability((int)FastMath.floor(x0),(int)FastMath.floor(x1));}}"
+29	"public void test(){double fl=FastMath.floor(x);if(fl==x){return this.probability((int)x);}else {return 0;}}"
+30	"public void test(){if(fl==x){return this.probability((int)x);}else {return 0;}}"
+31	"public void test(){if(x==0){if((bits&0x8000000000000000L)!=0){sign=-1;}return ;}}"
+32	"public void test(){if(x!=x){sign=(byte)1;nans=QNAN;}else if(x<0){sign=(byte)-1;nans=INFINITE;}else {sign=(byte)1;nans=INFINITE;}}"
+33	"public void test(){if(x<0){sign=(byte)-1;nans=INFINITE;}else {sign=(byte)1;nans=INFINITE;}}"
+34	"public void test(){trial=(min+max)/2;int rh=0;for(int i=0;i<mant.length+1;i++){int dm=(i<mant.length)?divisor.mant[i]:0; final int r=(dm*trial)+rh;rh=r/RADIX;remainder[i]=r-rh*RADIX;}}"
+35	"public void test(){if(rh==0){max=trial-1;continue;}}"
+36	"public void test(){long bits=mantissa|((exponent+1023L)<<52);double x=Double.longBitsToDouble(bits);if(negate){x=-x;}}"
+37	"public void test(){if(negate){x=-x;}}"
+38	"public void test(){if(FastMath.abs(gap)>0.001*FastMath.abs(step)){throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.HOLE_BETWEEN_MODELS_TIME_RANGES,FastMath.abs(gap));}}"
+39	"public void test(){if((FastMath.abs(tMed-tMin)<1.0E-6)||(FastMath.abs(tMax-tMed)<1.0E-6)){index=iMed;}else { final double d12=tMax-tMed; final double d23=tMed-tMin; final double d13=tMax-tMin; final double dt1=time-tMax; final double dt2=time-tMed; final double dt3=time-tMin; final double iLagrange=((dt2*dt3)*iMax-(dt1*dt3)*iMed+(dt1*dt2)*iMin)/(d12*d23);index=(int)FastMath.rint(iLagrange);}}"
+40	"public void test(){ final int low=FastMath.max(iMin+1,(9*iMin+iMax)/10); final int high=FastMath.min(iMax-1,(iMin+9*iMax)/10);if(index<low){index=low;}else if(index>high){index=high;}}"
+41	"public void test(){for(int l=1;l<STATIC_E.length;++l){errSum+=STATIC_E[l]*yDotK[l][j];} final double yScale=FastMath.max(FastMath.abs(y0[j]),FastMath.abs(y1[j])); final double tol=(vecAbsoluteTolerance==null)?(scalAbsoluteTolerance+scalRelativeTolerance*yScale):(vecAbsoluteTolerance[j]+vecRelativeTolerance[j]*yScale);}"
+42	"public void test(){for(int j=0;j<scale.length;++j){ratio=(yDot1[j]-yDot0[j])/scale[j];yDDotOnScale+=ratio*ratio;}yDDotOnScale=FastMath.sqrt(yDDotOnScale)/h; final double maxInv2=FastMath.max(FastMath.sqrt(yDotOnScale2),yDDotOnScale); final double h1=(maxInv2<1.0E-15)?FastMath.max(1.0E-6,0.001*FastMath.abs(h)):FastMath.pow(0.01/maxInv2,1.0/order);h=FastMath.min(100.0*FastMath.abs(h),h1);}"
+43	"public void test(){yDDotOnScale=FastMath.sqrt(yDDotOnScale)/h; final double maxInv2=FastMath.max(FastMath.sqrt(yDotOnScale2),yDDotOnScale); final double h1=(maxInv2<1.0E-15)?FastMath.max(1.0E-6,0.001*FastMath.abs(h)):FastMath.pow(0.01/maxInv2,1.0/order);h=FastMath.min(100.0*FastMath.abs(h),h1);h=FastMath.max(h,1.0E-12*FastMath.abs(t0));}"
+44	"public void test(){ final double maxInv2=FastMath.max(FastMath.sqrt(yDotOnScale2),yDDotOnScale); final double h1=(maxInv2<1.0E-15)?FastMath.max(1.0E-6,0.001*FastMath.abs(h)):FastMath.pow(0.01/maxInv2,1.0/order);h=FastMath.min(100.0*FastMath.abs(h),h1);h=FastMath.max(h,1.0E-12*FastMath.abs(t0));if(h<getMinStep()){h=getMinStep();}}"
+45	"public void test(){h=FastMath.min(100.0*FastMath.abs(h),h1);h=FastMath.max(h,1.0E-12*FastMath.abs(t0));if(h<getMinStep()){h=getMinStep();}}"
+46	"public void test(){if(FastMath.abs(h)<minStep){if(acceptSmall){filteredH=forward?minStep:-minStep;}else {throw new IntegratorException(LocalizedFormats.MINIMAL_STEPSIZE_REACHED_DURING_INTEGRATION,minStep,FastMath.abs(h));}}}"
+47	"public void test(){if(acceptSmall){filteredH=forward?minStep:-minStep;}else {throw new IntegratorException(LocalizedFormats.MINIMAL_STEPSIZE_REACHED_DURING_INTEGRATION,minStep,FastMath.abs(h));}}"
+48	"public void test(){ final double errSum1=E1_01*yDotK[0][j]+E1_06*yDotK[5][j]+E1_07*yDotK[6][j]+E1_08*yDotK[7][j]+E1_09*yDotK[8][j]+E1_10*yDotK[9][j]+E1_11*yDotK[10][j]+E1_12*yDotK[11][j]; final double errSum2=E2_01*yDotK[0][j]+E2_06*yDotK[5][j]+E2_07*yDotK[6][j]+E2_08*yDotK[7][j]+E2_09*yDotK[8][j]+E2_10*yDotK[9][j]+E2_11*yDotK[10][j]+E2_12*yDotK[11][j]; final double yScale=FastMath.max(FastMath.abs(y0[j]),FastMath.abs(y1[j])); final double tol=(vecAbsoluteTolerance==null)?(scalAbsoluteTolerance+scalRelativeTolerance*yScale):(vecAbsoluteTolerance[j]+vecRelativeTolerance[j]*yScale); final double ratio1=errSum1/tol;}"
+49	"public void test(){double den=error1+0.01*error2;if(den<=0.0){den=1.0;}return FastMath.abs(h)*error1/FastMath.sqrt(mainSetDimension*den);}"
+50	"public void test(){if(error>=1.0){ final double factor=FastMath.min(maxGrowth,FastMath.max(minReduction,safety*FastMath.pow(error,exp)));hNew=filterStep(stepSize*factor,forward,false);}}"
+51	"public void test(){if(fsal){System.arraycopy(yDotTmp,0,yDotK[0],0,y0.length);} final double factor=FastMath.min(maxGrowth,FastMath.max(minReduction,safety*FastMath.pow(error,exp))); final double scaledH=stepSize*factor;}"
+52	"public void test(){if(deltaNorm>4*FastMath.max(1.0E-15,initialNorm)){return false;}}"
+53	"public void test(){rescale(y,y,scale); final double tol=(vecRelativeTolerance==null)?scalRelativeTolerance:vecRelativeTolerance[0]; final double log10R=FastMath.log10(FastMath.max(1.0E-10,tol));int targetIter=FastMath.max(1,FastMath.min(sequence.length-2,(int)FastMath.floor(0.5-0.6*log10R))); final AbstractStepInterpolator interpolator=new GraggBulirschStoerStepInterpolator(y,yDot0,y1,yDot1,yMidDots,forward);}"
+54	"public void test(){ final double tol=(vecRelativeTolerance==null)?scalRelativeTolerance:vecRelativeTolerance[0]; final double log10R=FastMath.log10(FastMath.max(1.0E-10,tol));int targetIter=FastMath.max(1,FastMath.min(sequence.length-2,(int)FastMath.floor(0.5-0.6*log10R))); final AbstractStepInterpolator interpolator=new GraggBulirschStoerStepInterpolator(y,yDot0,y1,yDot1,yMidDots,forward);interpolator.storeTime(t0);}"
+55	"public void test(){if(useInterpolationError){ final double interpError=gbsInterpolator.estimateError(scale);hInt=FastMath.abs(stepSize/FastMath.max(FastMath.pow(interpError,1.0/(mu+4)),0.01));if(interpError>10.0){hNew=hInt;reject=true;}}}"
+56	"public void test(){if(i<mainSetDimension){ final double yScale=FastMath.max(FastMath.abs(previous[i]),FastMath.abs(after[i])); final double tol=(vecAbsoluteTolerance==null)?(scalAbsoluteTolerance+scalRelativeTolerance*yScale):(vecAbsoluteTolerance[i]+vecRelativeTolerance[i]*yScale); final double ratio=(after[i]-before[i])/tol;error+=ratio*ratio;}}"
+57	"public void test(){for(int i=0;i<mainSetDimension;++i){ final double yScale=FastMath.abs(y[i]); final double tol=(vecAbsoluteTolerance==null)?(scalAbsoluteTolerance+scalRelativeTolerance*yScale):(vecAbsoluteTolerance[i]+vecRelativeTolerance[i]*yScale); final double ratio=nordsieck.getEntry(lastRow,i)/tol;error+=ratio*ratio;}}"
+58	"public void test(){for(int j=0;j<mainSetDimension;++j){ final double errSum=E1*yDotK[0][j]+E3*yDotK[2][j]+E4*yDotK[3][j]+E5*yDotK[4][j]+E6*yDotK[5][j]+E7*yDotK[6][j]; final double yScale=FastMath.max(FastMath.abs(y0[j]),FastMath.abs(y1[j])); final double tol=(vecAbsoluteTolerance==null)?(scalAbsoluteTolerance+scalRelativeTolerance*yScale):(vecAbsoluteTolerance[j]+vecRelativeTolerance[j]*yScale); final double ratio=h*errSum/tol;error+=ratio*ratio;}}"
+59	"public void test(){if(FastMath.abs(t-t0)<=1.0E-12*FastMath.max(FastMath.abs(t0),FastMath.abs(t))){throw new IntegratorException(LocalizedFormats.TOO_SMALL_INTEGRATION_INTERVAL,FastMath.abs(t-t0));}}"
+60	"public void test(){if(g0==0){ final double epsilon=FastMath.max(solver.getAbsoluteAccuracy(),FastMath.abs(solver.getRelativeAccuracy()*t0)); final double tStart=t0+0.5*epsilon;interpolator.setInterpolatedTime(tStart);g0=handler.g(tStart,interpolator.getInterpolatedState());}}"
+61	"public void test(){if(FastMath.abs(dt)<convergence){return false;}}"
+62	"public void test(){if(FastMath.abs(dt)<convergence){return false;} final int n=FastMath.max(1,(int)FastMath.ceil(FastMath.abs(dt)/maxCheckInterval)); final double h=dt/n;}"
+63	"public void test(){if((!Double.isNaN(previousEventTime))&&(FastMath.abs(root-ta)<=convergence)){ta=forward?ta+convergence:ta-convergence;ga=f.value(ta);--i;}else if(Double.isNaN(previousEventTime)||(FastMath.abs(previousEventTime-root)>convergence)){pendingEventTime=root;pendingEvent=true;return true;}else {ta=tb;ga=gb;}}"
+64	"public void test(){if(Double.isNaN(previousEventTime)||(FastMath.abs(previousEventTime-root)>convergence)){pendingEventTime=root;pendingEvent=true;return true;}else {ta=tb;ga=gb;}}"
+65	"public void test(){if(pendingEvent&&(FastMath.abs(pendingEventTime-t)<=convergence)){previousEventTime=t;g0Positive=increasing;nextAction=handler.eventOccurred(t,y,!(increasing^forward));}else {g0Positive=g0>=0;nextAction=EventHandler.CONTINUE;}}"
+66	"public void test(){if(!(pendingEvent&&(FastMath.abs(pendingEventTime-t)<=convergence))){return false;}}"
+67	"public void test(){double data[]=sample(f,min,max,n);return fft(data,false);}"
+68	"public void test(){double data[]=sample(f,min,max,n);double scaling_coefficient=1.0/FastMath.sqrt(n);return scaleArray(fft(data,false),scaling_coefficient);}"
+69	"public void test(){double data[]=sample(f,min,max,n);double scaling_coefficient=1.0/n;return scaleArray(fft(data,true),scaling_coefficient);}"
+70	"public void test(){double data[]=sample(f,min,max,n);double scaling_coefficient=1.0/FastMath.sqrt(n);return scaleArray(fft(data,true),scaling_coefficient);}"
+71	"public void test(){if(n<=0){throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.NOT_POSITIVE_NUMBER_OF_SAMPLES,n);}verifyInterval(min,max);double s[]=new double[n];}"
+72	"public void test(){isForward=n>0; final int absN=FastMath.abs(n);if(absN==omegaCount){return ;}}"
+73	"public void test(){double data[]=FastFourierTransformer.sample(f,min,max,n);data[0]=0.0;return fst(data);}"
+74	"public void test(){double data[]=FastFourierTransformer.sample(f,min,max,n);data[0]=0.0;double scaling_coefficient=FastMath.sqrt(2.0/n);return FastFourierTransformer.scaleArray(fst(data),scaling_coefficient);}"
+75	"public void test(){double data[]=FastFourierTransformer.sample(f,min,max,n);data[0]=0.0;double scaling_coefficient=2.0/n;return FastFourierTransformer.scaleArray(fst(data),scaling_coefficient);}"
+76	"public void test(){double data[]=FastFourierTransformer.sample(f,min,max,n);return fct(data);}"
+77	"public void test(){double data[]=FastFourierTransformer.sample(f,min,max,n);double scaling_coefficient=FastMath.sqrt(2.0/(n-1));return FastFourierTransformer.scaleArray(fct(data),scaling_coefficient);}"
+78	"public void test(){double data[]=FastFourierTransformer.sample(f,min,max,n);double scaling_coefficient=2.0/(n-1);return FastFourierTransformer.scaleArray(fct(data),scaling_coefficient);}"
+79	"public void test(){ final double[] unscaled=fht(FastFourierTransformer.sample(f,min,max,n));return FastFourierTransformer.scaleArray(unscaled,1.0/n);}"
+80	"public void test(){ final Vector3D v3=(Vector3D)v;return new Vector3D(x+v3.x,y+v3.y,z+v3.z);}"
+81	"public void test(){ final Vector3D v3=(Vector3D)v;return new Vector3D(x-v3.x,y-v3.y,z-v3.z);}"
+82	"public void test(){if((x>=-threshold)&&(x<=threshold)){double inverse=1/FastMath.sqrt(y*y+z*z);return new Vector3D(0,inverse*z,-inverse*y);}else if((y>=-threshold)&&(y<=threshold)){double inverse=1/FastMath.sqrt(x*x+z*z);return new Vector3D(-inverse*z,0,inverse*x);}}"
+83	"public void test(){if((y>=-threshold)&&(y<=threshold)){double inverse=1/FastMath.sqrt(x*x+z*z);return new Vector3D(-inverse*z,0,inverse*x);}}"
+84	"public void test(){if((x>=-threshold)&&(x<=threshold)){double inverse=1/FastMath.sqrt(y*y+z*z);return new Vector3D(0,inverse*z,-inverse*y);}else if((y>=-threshold)&&(y<=threshold)){double inverse=1/FastMath.sqrt(x*x+z*z);return new Vector3D(-inverse*z,0,inverse*x);}double inverse=1/FastMath.sqrt(x*x+y*y);return new Vector3D(inverse*y,-inverse*x,0);}"
+85	"public void test(){if(other instanceof Vector3D){ final Vector3D rhs=(Vector3D)other;if(rhs.isNaN()){return this.isNaN();}return (x==rhs.x)&&(y==rhs.y);}}"
+86	"public void test(){if(isNaN()){return 642;}return 643*(164*MathUtils.hash(x)+3*MathUtils.hash(y)+MathUtils.hash(z));}"
+87	"public void test(){ final Vector3D v3=(Vector3D)v;return MathUtils.linearCombination(x,v3.x,y,v3.y,z,v3.z);}"
+88	"public void test(){ final Vector3D v3=(Vector3D)v;return new Vector3D(MathUtils.linearCombination(y,v3.z,-z,v3.y),MathUtils.linearCombination(z,v3.x,-x,v3.z),MathUtils.linearCombination(x,v3.y,-y,v3.x));}"
+89	"public void test(){ final Vector3D v3=(Vector3D)v; final double dx=FastMath.abs(v3.x-x); final double dy=FastMath.abs(v3.y-y); final double dz=FastMath.abs(v3.z-z);return dx+dy;}"
+90	"public void test(){ final Vector3D v3=(Vector3D)v; final double dx=v3.x-x; final double dy=v3.y-y; final double dz=v3.z-z;return FastMath.sqrt(dx*dx+dy*dy+dz*dz);}"
+91	"public void test(){ final Vector3D v3=(Vector3D)v; final double dx=FastMath.abs(v3.x-x); final double dy=FastMath.abs(v3.y-y); final double dz=FastMath.abs(v3.z-z);return FastMath.max(FastMath.max(dx,dy),dz);}"
+92	"public void test(){ final Vector3D v3=(Vector3D)v; final double dx=v3.x-x; final double dy=v3.y-y; final double dz=v3.z-z;return dx*dx+dy*dy+dz*dz;}"
+93	"public void test(){ final Vector3D normal=Vector3D.crossProduct(direction,line.direction);if(normal.getNorm()<1.0E-10){return distance(line.zero);} final Plane middle=new Plane(new Vector3D(0.5,zero,0.5,line.zero),normal);return 2*FastMath.abs(middle.getOffset(zero));}"
+94	"public void test(){ final double cross=dx1*dy2-dx2*dy1; final double dot=dx1*dx2+dy1*dy2; final double d1d2=FastMath.sqrt((dx1*dx1+dy1*dy1)*(dx2*dx2+dy2*dy2));return (FastMath.abs(cross)<=(1.0E-6*d1d2))&&(dot>=0.0);}"
+95	"public void test(){double x=u.getX();double y=u.getY();double z=u.getZ();double s=q1*x+q2*y+q3*z;return new Vector3D(2*(q0*(x*q0-(q2*z-q3*y))+s*q1)-x,2*(q0*(y*q0-(q3*x-q1*z))+s*q2)-y,2*(q0*(z*q0-(q1*y-q2*x))+s*q3)-z);}"
+96	"public void test(){double x=u.getX();double y=u.getY();double z=u.getZ();double s=q1*x+q2*y+q3*z;double m0=-q0;return new Vector3D(2*(m0*(x*m0-(q2*z-q3*y))+s*q1)-x,2*(m0*(y*m0-(q3*x-q1*z))+s*q2)-y,2*(m0*(z*m0-(q1*y-q2*x))+s*q3)-z);}"
+97	"public void test(){if(FastMath.abs(fn1-fn)<=threshold){return o;}}"
+98	"public void test(){ final double angle=Vector3D.angle(w,plane.w);return ((angle<1.0E-10)&&(FastMath.abs(originOffset-plane.originOffset)<1.0E-10))||((angle>(FastMath.PI-1.0E-10))&&(FastMath.abs(originOffset+plane.originOffset)<1.0E-10));}"
+99	"public void test(){if(FastMath.abs(dot)<1.0E-10){return null;}}"
+100	"public void test(){if(FastMath.abs(determinant)<1.0E-10){return null;}}"
+101	"public void test(){if(FastMath.abs(d)<1.0E-10){return null;}}"
+102	"public void test(){ final double x=abscissa.getX(); final double dOffset=offset-originOffset;return new Vector2D(x*cos+dOffset*sin,x*sin-dOffset*cos);}"
+103	"public void test(){if(FastMath.abs(c11)<1.0E-20){throw new MathIllegalArgumentException(LocalizedFormats.NON_INVERTIBLE_TRANSFORM);}}"
+104	"public void test(){ final Vector2D p2D=(Vector2D)point; final double x=p2D.getX(); final double y=p2D.getY();return new Vector2D(cXX*x+cXY*y+cX1,cYX*x+cYY*y+cY1);}"
+105	"public void test(){Vector2D v2=(Vector2D)v;return new Vector2D(x+v2.getX(),y+v2.getY());}"
+106	"public void test(){Vector2D v2=(Vector2D)v;return new Vector2D(x+factor*v2.getX(),y+factor*v2.getY());}"
+107	"public void test(){Vector2D p3=(Vector2D)p;return new Vector2D(x-p3.x,y-p3.y);}"
+108	"public void test(){Vector2D v2=(Vector2D)v;return new Vector2D(x-factor*v2.getX(),y-factor*v2.getY());}"
+109	"public void test(){Vector2D p3=(Vector2D)p; final double dx=FastMath.abs(p3.x-x); final double dy=FastMath.abs(p3.y-y);return dx+dy;}"
+110	"public void test(){Vector2D p3=(Vector2D)p; final double dx=p3.x-x; final double dy=p3.y-y;return FastMath.sqrt(dx*dx+dy*dy);}"
+111	"public void test(){Vector2D p3=(Vector2D)p; final double dx=FastMath.abs(p3.x-x); final double dy=FastMath.abs(p3.y-y);return FastMath.max(dx,dy);}"
+112	"public void test(){Vector2D p3=(Vector2D)p; final double dx=p3.x-x; final double dy=p3.y-y;return dx*dx+dy*dy;}"
+113	"public void test(){ final Vector2D v2=(Vector2D)v;return x*v2.x+y*v2.y;}"
+114	"public void test(){if(other instanceof Vector2D){ final Vector2D rhs=(Vector2D)other;if(rhs.isNaN()){return this.isNaN();}return (x==rhs.x)&&(y==rhs.y);}}"
+115	"public void test(){if(isNaN()){return 542;}return 122*(76*MathUtils.hash(x)+MathUtils.hash(y));}"
+116	"public void test(){if(originalIsClockwise^clockwise){int min=-1;int max=loop.length;while(++min<--max){ final Vector2D tmp=loop[min];loop[min]=loop[max];loop[max]=tmp;}}}"
+117	"public void test(){if(j==0){double x=segment.getLine().toSubSpace(segment.getEnd()).getX();x-=FastMath.max(1.0,FastMath.abs(x/2));array[j++]=null;array[j++]=segment.getLine().toSpace(new Vector1D(x));}}"
+118	"public void test(){if(j==(array.length-1)){double x=segment.getLine().toSubSpace(segment.getStart()).getX();x+=FastMath.max(1.0,FastMath.abs(x/2));array[j++]=segment.getLine().toSpace(new Vector1D(x));}}"
+119	"public void test(){Vector1D v1=(Vector1D)v;return new Vector1D(x+v1.getX());}"
+120	"public void test(){Vector1D v1=(Vector1D)v;return new Vector1D(x+factor*v1.getX());}"
+121	"public void test(){Vector1D p3=(Vector1D)p;return new Vector1D(x-p3.x);}"
+122	"public void test(){Vector1D v1=(Vector1D)v;return new Vector1D(x-factor*v1.getX());}"
+123	"public void test(){Vector1D p3=(Vector1D)p; final double dx=FastMath.abs(p3.x-x);return dx;}"
+124	"public void test(){Vector1D p3=(Vector1D)p; final double dx=p3.x-x;return FastMath.abs(dx);}"
+125	"public void test(){Vector1D p3=(Vector1D)p; final double dx=p3.x-x;return dx*dx;}"
+126	"public void test(){ final Vector1D v1=(Vector1D)v;return x*v1.x;}"
+127	"public void test(){if(other instanceof Vector1D){ final Vector1D rhs=(Vector1D)other;if(rhs.isNaN()){return this.isNaN();}return x==rhs.x;}}"
+128	"public void test(){if(isNaN()){return 7785;}return 997*MathUtils.hash(x);}"
+129	"public void test(){ final OrientedPoint op=(OrientedPoint)node.getCut().getHyperplane(); final Vector1D loc=op.getLocation();double x=loc.getX(); final BSPTree<Euclidean1D> low=op.isDirect()?node.getMinus():node.getPlus(); final BSPTree<Euclidean1D> high=op.isDirect()?node.getPlus():node.getMinus();}"
+130	"public void test(){ final BSPTree<Euclidean1D> high=op.isDirect()?node.getPlus():node.getMinus();recurseList(low,list,lower,x);if((checkPoint(low,loc)==Location.INSIDE)&&(checkPoint(high,loc)==Location.INSIDE)){x=((Interval)list.remove(list.size()-1)).getLower();}}"
+131	"public void test(){if((checkPoint(low,loc)==Location.INSIDE)&&(checkPoint(high,loc)==Location.INSIDE)){x=((Interval)list.remove(list.size()-1)).getLower();}}"
+132	"public void test(){recurseList(low,list,lower,x);if((checkPoint(low,loc)==Location.INSIDE)&&(checkPoint(high,loc)==Location.INSIDE)){x=((Interval)list.remove(list.size()-1)).getLower();}recurseList(high,list,x,upper);}"
+133	"public void test(){if(m!=0){ final int e=exponent(b);msb=FastMath.max(msb,e+computeMSB(m));lsb=FastMath.min(lsb,e+computeLSB(m));}}"
+134	"public void test(){if(FastMath.abs(offset)<1.0E-10){return this;}else if(offset<=0){return minus.getCell(point);}else {return plus.getCell(point);}}"
+135	"public void test(){if(FastMath.abs(a0-value)<epsilon){this.numerator=(int)a0;this.denominator=1;return ;}}"
+136	"public void test(){if(n<maxIterations&&FastMath.abs(convergent-value)>epsilon&&q2<maxDenominator){p0=p1;p1=p2;q0=q1;q1=q2;a0=a1;r0=r1;}else {stop=true;}}"
+137	"public void test(){if(FastMath.abs(a0-value)<epsilon){numerator=BigInteger.valueOf(a0);denominator=BigInteger.ONE;return ;}}"
+138	"public void test(){if((n<maxIterations)&&(FastMath.abs(convergent-value)>epsilon)){p0=p1;p1=p2;q0=q1;q1=q2;a0=a1;r0=r1;}else {stop=true;}}"
+139	"public void test(){if(whole!=0){getWholeFormat().format(whole,toAppendTo,pos);toAppendTo.append(' ');num=Math.abs(num);}}"
+140	"public void test(){int w=whole.intValue();int n=num.intValue();int d=den.intValue();return new Fraction(((Math.abs(w)*d)+n)*MathUtils.sign(w),d);}"
+141	"public void test(){for(int k=FastMath.max(N,seed.length);k!=0;k--){long l0=(mt[i]&0x7fffffffl)|((mt[i]<0)?0x80000000l:0x0l);long l1=(mt[i-1]&0x7fffffffl)|((mt[i-1]<0)?0x80000000l:0x0l);long l=(l0^((l1^(l1>>30))*1664525l))+seed[j];mt[i]=(int)(l&0xffffffffl);i++;j++;if(i>=N){mt[0]=mt[N-1];i=1;}if(j>=seed.length){j=0;}}}"
+142	"public void test(){min=sampleStats.getMin();max=sampleStats.getMax();delta=(max-min)/(Double.valueOf(binCount)).doubleValue();if(!binStats.isEmpty()){binStats.clear();}}"
+143	"public void test(){max=sampleStats.getMax();delta=(max-min)/(Double.valueOf(binCount)).doubleValue();if(!binStats.isEmpty()){binStats.clear();}}"
+144	"public void test(){{if(!loaded){throw MathRuntimeException.createIllegalStateException(LocalizedFormats.DISTRIBUTION_NOT_LOADED);}double x=randomData.nextUniform(0,1);for(int i=0;i<binCount;i++){if(x<=upperBounds[i]){SummaryStatistics stats=binStats.get(i);if(stats.getN()>0){if(stats.getStandardDeviation()>0){return randomData.nextGaussian(stats.getMean(),stats.getStandardDeviation());}else {return stats.getMean();}}}}throw new MathRuntimeException(LocalizedFormats.NO_BIN_SELECTED);}}"
+145	"public void test(){if(x<=upperBounds[i]){SummaryStatistics stats=binStats.get(i);if(stats.getN()>0){if(stats.getStandardDeviation()>0){return randomData.nextGaussian(stats.getMean(),stats.getStandardDeviation());}else {return stats.getMean();}}}}"
+146	"public void test(){double[] binUpperBounds=new double[binCount];binUpperBounds[0]=min+delta;for(int i=1;i<binCount-1;i++){binUpperBounds[i]=binUpperBounds[i-1]+delta;}binUpperBounds[binCount-1]=max;return binUpperBounds;}"
+147	"public void test(){ final double n=nextGaussian(0.0,1.0);x=n*FastMath.sqrt(lambda+halfDelta)-0.5;if(x>delta||x<-lambda){continue;}}"
+148	"public void test(){if(x>delta||x<-lambda){continue;}}"
+149	"public void test(){if(x>delta||x<-lambda){continue;}y=x<0?FastMath.floor(x):FastMath.ceil(x); final double e=nextExponential(1.0);}"
+150	"public void test(){if(u>p1+p2){y=lambda;break;}else {x=delta+(twolpd/delta)*nextExponential(1.0);y=FastMath.ceil(x);v=-nextExponential(1.0)-delta*(x+1)/twolpd;}}"
+151	"public void test(){a=x<0?1:0;t=y*(y+1)/(2*lambda);if(v<-t&&a==0){y=lambda+y;break;}}"
+152	"public void test(){ final double x=FastMath.pow(p,1/shape); final double u2=this.nextUniform(0.0,1);if(u2>FastMath.exp(-x)){continue;}else {return scale*x;}}"
+153	"public void test(){if(u2>FastMath.exp(-x)){continue;}else {return scale*x;}}"
+154	"public void test(){ final double x=-1*FastMath.log((bGS-p)/shape); final double u2=this.nextUniform(0,1);if(u2>FastMath.pow(x,shape-1)){continue;}else {return scale*x;}}"
+155	"public void test(){if(u2>FastMath.pow(x,shape-1)){continue;}else {return scale*x;}}"
+156	"public void test(){ final double x=generator.nextGaussian(); final double v=(1+c*x)*(1+c*x);if(v<=0){continue;}}"
+157	"public void test(){if(v<=0){continue;} final double xx=x*x; final double u=this.nextUniform(0,1);}"
+158	"public void test(){ final int maxPower=5; final double scale=FastMath.max(a,b);if(scale<=0){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);}}"
+159	"public void test(){if(scale<=0){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);}}"
+160	"public void test(){if(infinite){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);}}"
+161	"public void test(){if(Double.isNaN(r)){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);}}"
+162	"public void test(){if(Double.isNaN(r)){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);}relativeError=FastMath.abs(r/c-1.0);c=p2/q2;}"
+163	"public void test(){if(n>=maxIterations){throw new MaxCountExceededException(LocalizedFormats.NON_CONVERGENT_CONTINUED_FRACTION,maxIterations,x);}}"
+164	"public void test(){if(x!=x){return x;}}"
+165	"public void test(){if(x>20.0){return exp(x)/2.0;}}"
+166	"public void test(){if(x<-20){return exp(-x)/2.0;}}"
+167	"public void test(){if(x<0.0){x=-x;}}"
+168	"public void test(){if(x<0.0){x=-x;}exp(x,0.0,hiPrec);double ya=hiPrec[0]+hiPrec[1];}"
+169	"public void test(){if(x<-20){return -exp(-x)/2.0;}}"
+170	"public void test(){if(x==0){return x;}}"
+171	"public void test(){if(x<0.0){x=-x;negate=true;}}"
+172	"public void test(){if(x>20.0){return 1.0;}}"
+173	"public void test(){if(x<-20){return -1.0;}}"
+174	"public void test(){intVal=(int)-x;if(intVal>746){if(hiPrec!=null){hiPrec[0]=0.0;hiPrec[1]=0.0;}return 0.0;}}"
+175	"public void test(){if(intVal>709){ final double result=exp(x+40.191406,extra,hiPrec)/2.85040092E17;if(hiPrec!=null){hiPrec[0]/=2.85040092E17;hiPrec[1]/=2.85040092E17;}return result;}}"
+176	"public void test(){if(intVal==709){ final double result=exp(x+1.4941406,extra,hiPrec)/4.455506;if(hiPrec!=null){hiPrec[0]/=4.455506;hiPrec[1]/=4.455506;}return result;}}"
+177	"public void test(){intVal=(int)x;if(intVal>709){if(hiPrec!=null){hiPrec[0]=Double.POSITIVE_INFINITY;hiPrec[1]=0.0;}return Double.POSITIVE_INFINITY;}}"
+178	"public void test(){if(x!=x||x==0.0){return x;}}"
+179	"public void test(){if(x<=-1.0||x>=1.0){double hiPrec[]=new double[2];exp(x,0.0,hiPrec);if(x>0.0){return -1.0+hiPrec[0];}else { final double ra=-1.0+hiPrec[0];double rb=-(ra+1.0-hiPrec[0]);rb+=hiPrec[1];return ra+rb;}}}"
+180	"public void test(){{double hiPrec[]=new double[2];exp(x,0.0,hiPrec);if(x>0.0){return -1.0+hiPrec[0];}else { final double ra=-1.0+hiPrec[0];double rb=-(ra+1.0-hiPrec[0]);rb+=hiPrec[1];return ra+rb;}}}"
+181	"public void test(){if(x>0.0){return -1.0+hiPrec[0];}else { final double ra=-1.0+hiPrec[0];double rb=-(ra+1.0-hiPrec[0]);rb+=hiPrec[1];return ra+rb;}}"
+182	"public void test(){if(x<0.0){x=-x;negative=true;}}"
+183	"public void test(){if(x==0){return Double.NEGATIVE_INFINITY;}}"
+184	"public void test(){if(x==0){return Double.NEGATIVE_INFINITY;}long bits=Double.doubleToLongBits(x);if((bits&0x8000000000000000L)!=0||x!=x){if(x!=0.0){if(hiPrec!=null){hiPrec[0]=Double.NaN;}return Double.NaN;}}}"
+185	"public void test(){if((bits&0x8000000000000000L)!=0||x!=x){if(x!=0.0){if(hiPrec!=null){hiPrec[0]=Double.NaN;}return Double.NaN;}}}"
+186	"public void test(){if(x!=0.0){if(hiPrec!=null){hiPrec[0]=Double.NaN;}return Double.NaN;}}"
+187	"public void test(){if(x==Double.POSITIVE_INFINITY){if(hiPrec!=null){hiPrec[0]=Double.POSITIVE_INFINITY;}return Double.POSITIVE_INFINITY;}}"
+188	"public void test(){if(x==0){if(hiPrec!=null){hiPrec[0]=Double.NEGATIVE_INFINITY;}return Double.NEGATIVE_INFINITY;}}"
+189	"public void test(){if(x==-1){return x/0.0;}}"
+190	"public void test(){if(x>0&&1/x==0){return x;}}"
+191	"public void test(){if(x>1.0E-6||x<-1.0E-6){double xpa=1.0+x;double xpb=-(xpa-1.0);double hiPrec[]=new double[2]; final double lores=log(xpa,hiPrec);if(Double.isInfinite(lores)){return lores;}double fx1=xpb/xpa;double epsilon=0.5*fx1+1.0;epsilon=epsilon*fx1;return epsilon+hiPrec[1];}}"
+192	"public void test(){double y=x*0.33333334-0.5;y=y*x+1.0;y=y*x;return y;}"
+193	"public void test(){ final double hiPrec[]=new double[2]; final double lores=log(x,hiPrec);if(Double.isInfinite(lores)){return lores;}}"
+194	"public void test(){if(x==Double.POSITIVE_INFINITY){if(y!=y){return y;}if(y<0.0){return 0.0;}else {return Double.POSITIVE_INFINITY;}}}"
+195	"public void test(){if(x*x==1.0){return Double.NaN;}}"
+196	"public void test(){if(x*x>1.0){return Double.POSITIVE_INFINITY;}else {return 0.0;}}"
+197	"public void test(){if(x*x<1.0){return Double.POSITIVE_INFINITY;}else {return 0.0;}}"
+198	"public void test(){if(x<0){if(y>=TWO_POWER_52||y<=-TWO_POWER_52){return pow(-x,y);}if(y==(long)y){return ((long)y&1)==0?pow(-x,y):-pow(-x,y);}else {return Double.NaN;}}}"
+199	"public void test(){if(y>=TWO_POWER_52||y<=-TWO_POWER_52){return pow(-x,y);}}"
+200	"public void test(){if(y==(long)y){return ((long)y&1)==0?pow(-x,y):-pow(-x,y);}else {return Double.NaN;}}"
+201	"public void test(){ final double lores=log(x,lns);if(Double.isInfinite(lores)){return lores;}double lna=lns[0];}"
+202	"public void test(){double x2=x*x;double p=2.7553817E-6;p=p*x2+-1.984127E-4;p=p*x2+0.008333334;p=p*x2+-0.16666667;p=p*x2;return p;}"
+203	"public void test(){double x2=x*x;double p=2.4797735E-5;p=p*x2+-0.0013888889;p=p*x2+0.041666668;p=p*x2+-0.5;p*=x2;return p;}"
+204	"public void test(){double xb=0.0;xa=x;if(x<0){negative=true;xa=-xa;}}"
+205	"public void test(){if(x<0){negative=true;xa=-xa;}}"
+206	"public void test(){if(xa==0.0){long bits=Double.doubleToLongBits(x);if(bits<0){return -0.0;}return 0.0;}}"
+207	"public void test(){int quadrant=0;double xa=x;if(x<0){xa=-xa;}}"
+208	"public void test(){if(x<0){xa=-xa;}}"
+209	"public void test(){int quadrant=0;double xa=x;if(x<0){negative=true;xa=-xa;}}"
+210	"public void test(){if(x!=x||y!=y){return Double.NaN;}}"
+211	"public void test(){double result=x*y;double invx=1.0/x;double invy=1.0/y;if(invx==0.0){if(x>0){return y;}else {return copySign(Math.PI,y);}}}"
+212	"public void test(){if(x>0){return y;}else {return copySign(Math.PI,y);}}"
+213	"public void test(){if(x<0.0||invx<0.0){if(y<0.0||invy<0.0){return -Math.PI;}else {return Math.PI;}}else {return result;}}"
+214	"public void test(){if(x==Double.POSITIVE_INFINITY){return Math.PI/4.0;}}"
+215	"public void test(){if(x==Double.NEGATIVE_INFINITY){return Math.PI*3.0/4.0;}}"
+216	"public void test(){if(x==Double.POSITIVE_INFINITY){return -Math.PI/4.0;}}"
+217	"public void test(){if(x==Double.NEGATIVE_INFINITY){return -Math.PI*3.0/4.0;}}"
+218	"public void test(){if(x==Double.POSITIVE_INFINITY){if(y>0.0||1/y>0.0){return 0.0;}if(y<0.0||1/y<0.0){return -0.0;}}}"
+219	"public void test(){if(x==Double.NEGATIVE_INFINITY){if(y>0.0||1/y>0.0){return Math.PI;}if(y<0.0||1/y<0.0){return -Math.PI;}}}"
+220	"public void test(){if(x==0){if(y>0.0||1/y>0.0){return Math.PI/2.0;}if(y<0.0||1/y<0.0){return -Math.PI/2.0;}}}"
+221	"public void test(){if(x==0){if(y>0.0||1/y>0.0){return Math.PI/2.0;}if(y<0.0||1/y<0.0){return -Math.PI/2.0;}} final double r=y/x;if(Double.isInfinite(r)){return atan(r,0,x<0);}}"
+222	"public void test(){if(Double.isInfinite(r)){return atan(r,0,x<0);}}"
+223	"public void test(){if(ra==0){ra=copySign(0.0,y);}double result=atan(ra,rb,x<0);return result;}"
+224	"public void test(){if(x!=x){return Double.NaN;}}"
+225	"public void test(){if(x>1.0||x<-1.0){return Double.NaN;}}"
+226	"public void test(){if(x==1.0){return Math.PI/2.0;}}"
+227	"public void test(){if(x==-1.0){return -Math.PI/2.0;}}"
+228	"public void test(){if(x==0.0){return x;}}"
+229	"public void test(){if(x==0.0){return x;}double temp=x*HEX_40000000; final double xa=x+temp-temp;}"
+230	"public void test(){if(x==0.0){return x;}double temp=x*HEX_40000000; final double xa=x+temp-temp; final double xb=x-xa;double ya=xa*xa;}"
+231	"public void test(){if(x==-1.0){return Math.PI;}}"
+232	"public void test(){if(x==1.0){return 0.0;}}"
+233	"public void test(){if(x==0){return Math.PI/2.0;}}"
+234	"public void test(){if(x==0){return Math.PI/2.0;}double temp=x*HEX_40000000; final double xa=x+temp-temp;}"
+235	"public void test(){if(x==0){return Math.PI/2.0;}double temp=x*HEX_40000000; final double xa=x+temp-temp; final double xb=x-xa;double ya=xa*xa;}"
+236	"public void test(){yb=-(y-ya);double r=y/x;if(Double.isInfinite(r)){return Math.PI/2;}}"
+237	"public void test(){temp=ra+rb;rb=-(temp-ra);ra=temp;return atan(ra,rb,x<0);}"
+238	"public void test(){if(exponent==-1023){if(x==0){return x;}subnormal=true;x*=1.80143985E16;inbits=Double.doubleToLongBits(x);exponent=(int)((inbits>>52)&0x7ff)-1023;}}"
+239	"public void test(){if(exponent==1024){return x;}}"
+240	"public void test(){if(Double.isInfinite(x)||x==0.0){return x;}}"
+241	"public void test(){ final double factb=1.9978448E-9;double xa=doubleHighPart(x);double xb=x-xa;double result=xb*factb+xb*facta+xa*factb+xa*facta;if(result==0){result=result*x;}}"
+242	"public void test(){if(result==0){result=result*x;}}"
+243	"public void test(){if(Double.isInfinite(x)||x==0.0){return x;} final double facta=57.295776; final double factb=3.1458949E-6;double xa=doubleHighPart(x);double xb=x-xa;return xb*factb+xb*facta+xa*factb+xa*facta;}"
+244	"public void test(){if(Double.isInfinite(x)){return Double.POSITIVE_INFINITY;}}"
+245	"public void test(){if(Double.isInfinite(x)){return Double.POSITIVE_INFINITY;}return abs(x-Double.longBitsToDouble(Double.doubleToLongBits(x)^1));}"
+246	"public void test(){if(Float.isInfinite(x)){return Float.POSITIVE_INFINITY;}return abs(x-Float.intBitsToFloat(Float.floatToIntBits(x)^1));}"
+247	"public void test(){if(x>=TWO_POWER_52||x<=-TWO_POWER_52){return x;}}"
+248	"public void test(){if(x>=TWO_POWER_52||x<=-TWO_POWER_52){return x;}y=(long)x;if(x<0&&y!=x){y--;}}"
+249	"public void test(){if(x<0&&y!=x){y--;}}"
+250	"public void test(){if(y==0){return x*y;}}"
+251	"public void test(){if(x!=x){return x;}y=floor(x);if(y==x){return y;}}"
+252	"public void test(){if(y==x){return y;}}"
+253	"public void test(){double y=floor(x);double d=x-y;if(d>0.5){if(y==-1.0){return -0.0;}return y+1.0;}}"
+254	"public void test(){{ final int expX=getExponent(x); final int expY=getExponent(y);if(expX>expY+27){return abs(x);}else if(expY>expX+27){return abs(y);}else { final int middleExp=(expX+expY)/2; final double scaledX=scalb(x,-middleExp); final double scaledY=scalb(y,-middleExp); final double scaledH=sqrt(scaledX*scaledX+scaledY*scaledY);return scalb(scaledH,middleExp);}}}"
+255	"public void test(){if(expY>expX+27){return abs(y);}else { final int middleExp=(expX+expY)/2; final double scaledX=scalb(x,-middleExp); final double scaledY=scalb(y,-middleExp); final double scaledH=sqrt(scaledX*scaledX+scaledY*scaledY);return scalb(scaledH,middleExp);}}"
+256	"public void test(){if(equals(x,y,eps)){return 0;}else if(x<y){return -1;}}"
+257	"public void test(){if(x<y){return -1;}}"
+258	"public void test(){if(equals(x,y,maxUlps)){return 0;}else if(x<y){return -1;}}"
+259	"public void test(){if(yInt<0){yInt=SGN_MASK_FLOAT-yInt;} final boolean isEqual=FastMath.abs(xInt-yInt)<=maxUlps;return isEqual&&!Float.isNaN(x);}"
+260	"public void test(){long xInt=Double.doubleToLongBits(x);long yInt=Double.doubleToLongBits(y);if(xInt<0){xInt=SGN_MASK-xInt;}}"
+261	"public void test(){if(yInt<0){yInt=SGN_MASK-yInt;} final boolean isEqual=FastMath.abs(xInt-yInt)<=maxUlps;return isEqual&&!Double.isNaN(x);}"
+262	"public void test(){if((u==0)||(v==0)){if((u==Integer.MIN_VALUE)||(v==Integer.MIN_VALUE)){throw new MathArithmeticException(LocalizedFormats.GCD_OVERFLOW_32_BITS,p,q);}return FastMath.abs(u)+FastMath.abs(v);}}"
+263	"public void test(){if((u==0)||(v==0)){if((u==Long.MIN_VALUE)||(v==Long.MIN_VALUE)){throw new MathArithmeticException(LocalizedFormats.GCD_OVERFLOW_64_BITS,p,q);}return FastMath.abs(u)+FastMath.abs(v);}}"
+264	"public void test(){if(Double.isNaN(x)){return Double.NaN;}}"
+265	"public void test(){if(Double.isNaN(x)){return Double.NaN;}return (x>=0.0)?1.0:-1.0;}"
+266	"public void test(){if(a==0||b==0){return 0;}int lcm=FastMath.abs(mulAndCheck(a/gcd(a,b),b));if(lcm==Integer.MIN_VALUE){throw new MathArithmeticException(LocalizedFormats.LCM_OVERFLOW_32_BITS,a,b);}return lcm;}"
+267	"public void test(){if(a==0||b==0){return 0;}long lcm=FastMath.abs(mulAndCheck(a/gcd(a,b),b));if(lcm==Long.MIN_VALUE){throw new MathArithmeticException(LocalizedFormats.LCM_OVERFLOW_64_BITS,a,b);}return lcm;}"
+268	"public void test(){ final double p=FastMath.abs(period);return a-p*FastMath.floor((a-offset)/p)-offset;}"
+269	"public void test(){try{return (new BigDecimal(Double.toString(x)).setScale(scale,roundingMethod)).doubleValue();}catch (NumberFormatException ex) {  if (Double.isInfinite(x)) {    return x;  } else {    return Double.NaN;  }}}"
+270	"public void test(){if(Double.isInfinite(x)){return x;}else {return Double.NaN;}}"
+271	"public void test(){if(Double.isNaN(x)){return Double.NaN;}return (x==0.0)?0.0:(x>0.0)?1.0:-1.0;}"
+272	"public void test(){double max=0;for(int i=0;i<p1.length;i++){max=FastMath.max(max,FastMath.abs(p1[i]-p2[i]));}return max;}"
+273	"public void test(){int max=0;for(int i=0;i<p1.length;i++){max=FastMath.max(max,FastMath.abs(p1[i]-p2[i]));}return max;}"
+274	"public void test(){if(Double.isInfinite(x)||Double.isNaN(x)){throw new NotFiniteNumberException(x);}}"
+275	"public void test(){for(int i=0;i<val.length;i++){ final double x=val[i];if(Double.isInfinite(x)||Double.isNaN(x)){throw new NotFiniteNumberException(LocalizedFormats.ARRAY_ELEMENT,x,i);}}}"
+276	"public void test(){if(Double.isInfinite(x)||Double.isNaN(x)){throw new NotFiniteNumberException(LocalizedFormats.ARRAY_ELEMENT,x,i);}}"
+277	"public void test(){if(FastMath.abs(real)<FastMath.abs(imaginary)){if(imaginary==0.0){return FastMath.abs(real);}double q=real/imaginary;return FastMath.abs(imaginary)*FastMath.sqrt(1+q*q);}else {if(real==0.0){return FastMath.abs(imaginary);}double q=imaginary/real;return FastMath.abs(real)*FastMath.sqrt(1+q*q);}}"
+278	"public void test(){if(imaginary==0.0){return FastMath.abs(real);}}"
+279	"public void test(){if(imaginary==0.0){return FastMath.abs(real);}double q=real/imaginary;return FastMath.abs(imaginary)*FastMath.sqrt(1+q*q);}"
+280	"public void test(){if(real==0.0){return FastMath.abs(imaginary);}}"
+281	"public void test(){if(real==0.0){return FastMath.abs(imaginary);}double q=imaginary/real;return FastMath.abs(real)*FastMath.sqrt(1+q*q);}"
+282	"public void test(){if(FastMath.abs(c)<FastMath.abs(d)){double q=c/d;double denominator=c*q+d;return createComplex((real*q+imaginary)/denominator,(imaginary*q-real)/denominator);}else {double q=d/c;double denominator=d*q+c;return createComplex((imaginary*q+real)/denominator,(imaginary-real*q)/denominator);}}"
+283	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.log(abs()),FastMath.atan2(imaginary,real));}"
+284	"public void test(){if(real==0.0&&imaginary==0.0){return createComplex(0.0,0.0);}double t=FastMath.sqrt((FastMath.abs(real)+abs())/2.0);if(real>=0.0){return createComplex(t,imaginary/(2.0*t));}else {return createComplex(FastMath.abs(imaginary)/(2.0*t),MathUtils.indicator(imaginary)*t);}}"
+285	"public void test(){if(real>=0.0){return createComplex(t,imaginary/(2.0*t));}else {return createComplex(FastMath.abs(imaginary)/(2.0*t),MathUtils.indicator(imaginary)*t);}}"
+286	"public void test(){if(isInfinite()){result.add(INF);return result;} final double nthRootOfAbs=FastMath.pow(abs(),1.0/n); final double nthPhi=getArgument()/n;}"
+287	"public void test(){for(int i=0;i<p.length;++i){ final double pi=p[i]; final double ci=c[i]; final double difference=FastMath.abs(pi-ci); final double size=FastMath.max(FastMath.abs(pi),FastMath.abs(ci));if(difference>size*getRelativeThreshold()&&difference>getAbsoluteThreshold()){return false;}}}"
+288	"public void test(){ final double p=previous.getValue(); final double c=current.getValue(); final double difference=FastMath.abs(p-c); final double size=FastMath.max(FastMath.abs(p),FastMath.abs(c));return difference<=size*getRelativeThreshold()||difference<=getAbsoluteThreshold();}"
+289	"public void test(){if(s!=0){double sum=0;for(int i=0;i<=j;++i){sum+=weightedResidualJacobian[i][pj]*qtf[i];}maxCosine=FastMath.max(maxCosine,FastMath.abs(sum)/(s*cost));}}"
+290	"public void test(){if((FastMath.abs(actRed)<=costRelativeTolerance&&preRed<=costRelativeTolerance&&ratio<=2.0)||delta<=parRelativeTolerance*xNorm){return current;}}"
+291	"public void test(){if((FastMath.abs(actRed)<=2.2204E-16)&&(preRed<=2.2204E-16)){throw new ConvergenceException(LocalizedFormats.TOO_SMALL_COST_RELATIVE_TOLERANCE,costRelativeTolerance);}else if(delta<=2.2204E-16*xNorm){throw new ConvergenceException(LocalizedFormats.TOO_SMALL_PARAMETERS_RELATIVE_TOLERANCE,parRelativeTolerance);}else if(maxCosine<=2.2204E-16){throw new ConvergenceException(LocalizedFormats.TOO_SMALL_ORTHOGONALITY_TOLERANCE,orthoTolerance);}}"
+292	"public void test(){if(paru==0){paru=0.0/FastMath.min(delta,0.1);}lmPar=FastMath.min(paru,FastMath.max(lmPar,parl));if(lmPar==0){lmPar=gNorm/dxNorm;}}"
+293	"public void test(){if(lmPar==0){lmPar=FastMath.max(0.0,0.001*paru);}}"
+294	"public void test(){if((FastMath.abs(fp)<=0.1*delta)||((parl==0)&&(fp<=previousFP))){return ;}}"
+295	"public void test(){if(fp>0){parl=FastMath.max(parl,lmPar);}else if(fp<0){paru=FastMath.min(paru,lmPar);}}"
+296	"public void test(){if(fp>0){parl=FastMath.max(parl,lmPar);}else if(fp<0){paru=FastMath.min(paru,lmPar);}lmPar=FastMath.max(parl,lmPar+correction);}"
+297	"public void test(){if(FastMath.abs(rkk)<FastMath.abs(lmDiag[k])){ final double cotan=rkk/lmDiag[k];sin=1.0/FastMath.sqrt(1.0+cotan*cotan);cos=sin*cotan;}else { final double tan=lmDiag[k]/rkk;cos=1.0/FastMath.sqrt(1.0+tan*tan);sin=cos*tan;}}"
+298	"public void test(){for(double step=h;step<Double.MAX_VALUE;step*=FastMath.max(2,yA/yB)){ final double b=a+step;yB=f.value(b);if(yA*yB<=0){return b;}}}"
+299	"public void test(){objective=computeObjectiveValue(point);if(objective.length!=rows){throw new DimensionMismatchException(objective.length,rows);} final double[] targetValues=getTargetRef();}"
+300	"public void test(){for(int i=0;i<p.length;++i){ final double pi=p[i]; final double ci=c[i]; final double difference=Math.abs(pi-ci); final double size=Math.max(Math.abs(pi),Math.abs(ci));if(difference>size*getRelativeThreshold()&&difference>getAbsoluteThreshold()){return false;}}}"
+301	"public void test(){double tmp2=(xB-xC)*(fB-fA);double val=tmp2-tmp1;double denom=Math.abs(val)<EPS_MIN?2*EPS_MIN:2*val;double w=xB-((xB-xC)*tmp2-(xB-xA)*tmp1)/denom;double wLim=xB+growLimit*(xC-xB);}"
+302	"public void test(){try{evaluations.incrementCount();}catch (MaxCountExceededException e) {  throw new TooManyEvaluationsException(e.getMax());}return f.value(x);}"
+303	"public void test(){if(abs<=0){throw new NotStrictlyPositiveException(abs);}}"
+304	"public void test(){if(rel<MIN_RELATIVE_TOLERANCE){throw new NumberIsTooSmallException(rel,MIN_RELATIVE_TOLERANCE,true);}if(abs<=0){throw new NotStrictlyPositiveException(abs);}relativeThreshold=rel;absoluteThreshold=abs;}"
+305	"public void test(){if(lo<hi){a=lo;b=hi;}else {a=hi;b=lo;}double x=mid;double v=x;}"
+306	"public void test(){double e=0;double fx=computeObjectiveValue(x);if(!isMinim){fx=-fx;}}"
+307	"public void test(){r=(x-w)*(fx-fv);q=(x-v)*(fx-fw);p=(x-v)*q-(x-w)*r;q=2*(q-r);if(q>0){p=-p;}else {q=-q;}}"
+308	"public void test(){d=p/q;u=x+d;if(u-a<tol2||b-u<tol2){if(x<=m){d=tol1;}else {d=-tol1;}}}"
+309	"public void test(){if(x<=m){d=tol1;}else {d=-tol1;}}"
+310	"public void test(){if(x<m){e=b-x;}else {e=a-x;}}"
+311	"public void test(){if(FastMath.abs(d)<tol1){if(d>=0){u=x+tol1;}else {u=x-tol1;}}else {u=x+d;}}"
+312	"public void test(){if(d>=0){u=x+tol1;}else {u=x-tol1;}}"
+313	"public void test(){if(FastMath.abs(d)<tol1){if(d>=0){u=x+tol1;}else {u=x-tol1;}}else {u=x+d;}double fu=computeObjectiveValue(u);}"
+314	"public void test(){if(u<x){b=x;}else {a=x;}}"
+315	"public void test(){if(u<x){a=u;}else {b=u;}}"
+316	"public void test(){if(fu<=fw||MathUtils.equals(w,x)){v=w;fv=fw;w=u;fw=fu;}else if(fu<=fv||MathUtils.equals(v,x)||MathUtils.equals(v,w)){v=u;fv=fu;}}"
+317	"public void test(){if(fu<=fv||MathUtils.equals(v,x)||MathUtils.equals(v,w)){v=u;fv=fu;}}"
+318	"public void test(){previous=current;current=new UnivariateRealPointValuePair(x,isMinim?fx:-fx);if(checker!=null){if(checker.converged(iter,previous,current)){return current;}}}"
+319	"public void test(){if(goalType==null){throw new NullArgumentException();}searchMin=min;searchMax=max;searchStart=startValue;goal=goalType;}"
+320	"public void test(){try{ final double s=(i==0)?startValue:min+generator.nextDouble()*(max-min);optima[i]=optimizer.optimize(maxEval-totalEvaluations,f,goal,min,max,s);}catch (MathUserException mue) {  lastException=mue;  optima[i]=null;}}"
+321	"public void test(){for(int i=0;i<p.length;++i){ final double difference=FastMath.abs(p[i]-c[i]); final double size=FastMath.max(FastMath.abs(p[i]),FastMath.abs(c[i]));if(difference>size*getRelativeThreshold()&&difference>getAbsoluteThreshold()){return false;}}}"
+322	"public void test(){if(getEvaluations()<=nfsav+2){state=650;break;}deltaOne=Math.max(diffa,diffb);errbig=Math.max(deltaOne,diffc);}"
+323	"public void test(){if(getEvaluations()<=nfsav+2){state=650;break;}deltaOne=Math.max(diffa,diffb);errbig=Math.max(deltaOne,diffc);frhosq=rho*ONE_OVER_EIGHT;}"
+324	"public void test(){d__2=d__3*d__3;temp=Math.max(d__1,d__2);if(temp*den>scaden){scaden=temp*den;knew=k;denom=den;}}"
+325	"public void test(){f=computeObjectiveValue(currentBest.getData());if(!isMinimize)f=-f;if(ntrits==-1){fsave=f;state=720;break;}}"
+326	"public void test(){diffb=diffa;diffa=Math.abs(diff);if(dnorm>rho){nfsav=getEvaluations();}}"
+327	"public void test(){if(ratio<=0.7){d__1=HALF*delta;delta=Math.max(d__1,dnorm);}else {d__1=HALF*delta;d__2=dnorm+dnorm;delta=Math.max(d__1,d__2);}}"
+328	"public void test(){for(int i=1,max=Math.max(npt,nh);i<=max;i++){if(i<=n){gopt.setEntry(i,vlag.getEntry(npt+i));}if(i<=npt){pq.setEntry(i,work2.getEntry(i));}if(i<=nh){hq.setEntry(i,ZERO);}itest=0;}}"
+329	"public void test(){if(Math.max(delta,dnorm)>rho){state=60;break;}}"
+330	"public void test(){if(ratio<=SIXTEEN){rho=stoppingTrustRegionRadius;}else if(ratio<=TWO_HUNDRED_FIFTY){rho=Math.sqrt(ratio)*stoppingTrustRegionRadius;}else {rho=ONE_OVER_TEN*rho;}delta=Math.max(delta,rho);ntrits=0;}"
+331	"public void test(){if(subd*temp>su.getEntry(i)-xopt.getEntry(i)){d__1=sumin;d__2=(su.getEntry(i)-xopt.getEntry(i))/temp;subd=Math.max(d__1,d__2);iubd=i;}}"
+332	"public void test(){if(subd*temp<sl.getEntry(i)-xopt.getEntry(i)){d__1=sumin;d__2=(sl.getEntry(i)-xopt.getEntry(i))/temp;subd=Math.max(d__1,d__2);iubd=-i;}}"
+333	"public void test(){if(Math.abs(temp)>Math.abs(vlag)){step=subd;vlag=temp;isbd=iubd;}}"
+334	"public void test(){if(Math.abs(temp)>Math.abs(vlag)){step=tempd/diff;vlag=temp;isbd=0;}}"
+335	"public void test(){if(Math.abs(vlag)<0.25){step=HALF;vlag=ONE_OVER_FOUR;isbd=0;}}"
+336	"public void test(){d__2=glag.getEntry(i);tempb=Math.max(d__1,d__2);if(tempa>ZERO||tempb<ZERO){work1.setEntry(i,bigstp); final double d1=glag.getEntry(i);ggfree+=d1*d1;}}"
+337	"public void test(){if(su.getEntry(nfx)==ZERO){ final double d1=-TWO*initialTrustRegionRadius;stepb=Math.max(d1,sl.getEntry(nfx));}}"
+338	"public void test(){f=computeObjectiveValue(currentBest.getData());if(!isMinimize)f=-f;fval.setEntry(getEvaluations(),f);if(getEvaluations()==1){fbeg=f;trustRegionCenterInterpolationPointIndex=1;}else if(f<fval.getEntry(trustRegionCenterInterpolationPointIndex)){trustRegionCenterInterpolationPointIndex=getEvaluations();}}"
+339	"public void test(){d__2=sl.getEntry(j);ptsaux.setEntry(j,2,Math.max(d__1,d__2));if(ptsaux.getEntry(j,1)+ptsaux.getEntry(j,2)<ZERO){temp=ptsaux.getEntry(j,1);ptsaux.setEntry(j,1,ptsaux.getEntry(j,2));ptsaux.setEntry(j,2,temp);}}"
+340	"public void test(){if(Math.abs(d__2)<HALF*Math.abs(d__1)){ptsaux.setEntry(j,2,HALF*ptsaux.getEntry(j,1));}}"
+341	"public void test(){if(ptsid.getEntry(k)!=ZERO){hdiag=ZERO;for(int j=1;j<=nptm;j++){ final double d1=zmat.getEntry(k,j);hdiag+=d1*d1;} final double d1=vlag.getEntry(k);den=beta*hdiag+d1*d1;if(den>denom){kold=k;denom=den;}} final double d3=vlag.getEntry(k);vlmxsq=Math.max(vlmxsq,d3*d3);}"
+342	"public void test(){if(ip>0){int iiw=Math.max(ihp,ihq)-Math.abs(ip-iq);vquad+=xp*xq;}}"
+343	"public void test(){f=computeObjectiveValue(work2.getData());if(!isMinimize)f=-f;fval.setEntry(kpt,f);if(f<fval.getEntry(trustRegionCenterInterpolationPointIndex)){trustRegionCenterInterpolationPointIndex=kpt;}}"
+344	"public void test(){if(iq>0){ final double d2=ptsaux.getEntry(iq,1);hq.setEntry(ihq,hq.getEntry(ihq)+temp*(d2*d2));int iw=Math.max(ihp,ihq)-Math.abs(iq-ip);hq.setEntry(iw,hq.getEntry(iw)+temp*ptsaux.getEntry(ip,1));}}"
+345	"public void test(){for(int i=1;i<=n;i++){gnew.setEntry(i,gnew.getEntry(i)+stplen*hs.getEntry(i));if(xbdi.getEntry(i)==ZERO){ final double d1=gnew.getEntry(i);gredsq+=d1*d1;}d__.setEntry(i,d__.getEntry(i)+stplen*s.getEntry(i));} final double d1=stplen*(ggsav-HALF*stplen);sdec=Math.max(d1,ZERO);qred+=sdec;}"
+346	"public void test(){ final double min=Math.min(xopt.getEntry(i)+d__.getEntry(i),su.getEntry(i));xnew.setEntry(i,Math.max(min,sl.getEntry(i)));if(xbdi.getEntry(i)==MINUS_ONE){xnew.setEntry(i,sl.getEntry(i));}}"
+347	"public void test(){if(Math.abs(d__1)>ztest){d__1=zmat.getEntry(knew,1);d__2=zmat.getEntry(knew,j);temp=Math.sqrt(d__1*d__1+d__2*d__2);tempa=zmat.getEntry(knew,1)/temp;tempb=zmat.getEntry(knew,j)/temp;for(int i=1;i<=npt;i++){temp=tempa*zmat.getEntry(i,1)+tempb*zmat.getEntry(i,j);zmat.setEntry(i,j,tempa*zmat.getEntry(i,j)-tempb*zmat.getEntry(i,1));zmat.setEntry(i,1,temp);}}}"
+348	"public void test(){if(sigma*(Math.max(Math.abs(pcCol[i]),sqrtDiagC[i]))>stopTolX){break;}}"
+349	"public void test(){double historyBest=min(fitnessHistory);double historyWorst=max(fitnessHistory);if(iterations>2&&Math.max(historyWorst,worstFitness)-Math.min(historyBest,bestFitness)<stopTolFun){break;}}"
+350	"public void test(){if(iterations>2&&Math.max(historyWorst,worstFitness)-Math.min(historyBest,bestFitness)<stopTolFun){break;}}"
+351	"public void test(){if(max(diagD)/min(diagD)>1.0E7){break;}}"
+352	"public void test(){if(iterations>2&&Math.max(historyWorst,bestFitness)-Math.min(historyBest,bestFitness)==0){sigma=sigma*Math.exp(0.2+cs/damps);}}"
+353	"public void test(){for(int i=0;i<guess.length;i++){sigmaArray[i][0]=inputSigma!=null?inputSigma[i]:0.3;}RealMatrix insigma=new Array2DRowRealMatrix(sigmaArray,false);sigma=max(insigma);stopTolUpX=1000.0*max(insigma);stopTolX=1.0E-11*max(insigma);}"
+354	"public void test(){if(min(diagD)<=0){for(int i=0;i<dimension;i++){if(diagD.getEntry(i,0)<0){diagD.setEntry(i,0,0.0);}}double tfac=max(diagD)/1.0E14;C=C.add(eye(dimension,dimension).scalarMultiply(tfac));diagD=diagD.add(ones(dimension,1).scalarMultiply(tfac));}}"
+355	"public void test(){if(max(diagD)>1.0E14*min(diagD)){double tfac=max(diagD)/1.0E14-min(diagD);C=C.add(eye(dimension,dimension).scalarMultiply(tfac));diagD=diagD.add(ones(dimension,1).scalarMultiply(tfac));}}"
+356	"public void test(){if(boundaries!=null&&isRepairMode){double[] repaired=repair(point);value=this.computeObjectiveValue(decode(repaired))+penalty(point,repaired);}else {value=this.computeObjectiveValue(decode(point));}}"
+357	"public void test(){double max=-Double.MAX_VALUE;for(int r=0;r<m.getRowDimension();r++){for(int c=0;c<m.getColumnDimension();c++){double e=m.getEntry(r,c);if(max<e){max=e;}}}return max;}"
+358	"public void test(){if(max<e){max=e;}}"
+359	"public void test(){double max=-Double.MAX_VALUE;for(int r=0;r<m.length;r++){if(max<m[r]){max=m[r];}}return max;}"
+360	"public void test(){if(max<m[r]){max=m[r];}}"
+361	"public void test(){if(abs<=0){throw new NotStrictlyPositiveException(abs);}relativeThreshold=rel;absoluteThreshold=abs; final double minTol=1.0E-4; final double lsRel=Math.min(FastMath.sqrt(relativeThreshold),minTol);}"
+362	"public void test(){boolean stop=2*(fX-fVal)<=(relativeThreshold*(FastMath.abs(fX)+FastMath.abs(fVal))+absoluteThreshold); final RealPointValuePair previous=new RealPointValuePair(x1,fX); final RealPointValuePair current=new RealPointValuePair(x,fVal);if(!stop){if(checker!=null){stop=checker.converged(iter,previous,current);}}}"
+363	"public void test(){if(Double.isNaN(x)||(x<=0.0)){ret=Double.NaN;}else {double g=607.0/128.0;double sum=0.0;for(int i=LANCZOS.length-1;i>0;--i){sum=sum+(LANCZOS[i]/(x+i));}sum=sum+LANCZOS[0];double tmp=x+g;ret=((x+0.5)*FastMath.log(tmp))-tmp+HALF_LOG_2_PI+FastMath.log(sum/x);}}"
+364	"public void test(){if(Double.isInfinite(sum)){ret=1.0;}else {ret=FastMath.exp(-x+(a*FastMath.log(x))-logGamma(a))*sum;}}"
+365	"public void test(){if(x<a+1.0){ret=1.0-regularizedGammaP(a,x,epsilon,maxIterations);}else {ContinuedFraction cf=new ContinuedFraction(){  @Override protected double getA(  int n,  double x){    return ((2.0 * n) + 1.0) - a + x;  }  @Override protected double getB(  int n,  double x){    return n * (a - n);  }};ret=1.0/cf.evaluate(x,epsilon,maxIterations);ret=FastMath.exp(-x+(a*FastMath.log(x))-logGamma(a))*ret;}}"
+366	"public void test(){if(x>0&&x<=S_LIMIT){return -GAMMA-1/x;}}"
+367	"public void test(){if(x>=C_LIMIT){double inv=1/(x*x);return FastMath.log(x)-0.5/x-inv*((1.0/12)+inv*(1.0/120-inv/252));}}"
+368	"public void test(){if(x>0&&x<=S_LIMIT){return -GAMMA-1/x;}if(x>=C_LIMIT){double inv=1/(x*x);return FastMath.log(x)-0.5/x-inv*((1.0/12)+inv*(1.0/120-inv/252));}return digamma(x+1)-1/x;}"
+369	"public void test(){if(x>0&&x<=S_LIMIT){return 1/(x*x);}}"
+370	"public void test(){if(x>=C_LIMIT){double inv=1/(x*x);return 1/x+inv/2+inv/x*(1.0/6-inv*(1.0/30+inv/42));}}"
+371	"public void test(){if(x>0&&x<=S_LIMIT){return 1/(x*x);}if(x>=C_LIMIT){double inv=1/(x*x);return 1/x+inv/2+inv/x*(1.0/6-inv*(1.0/30+inv/42));}return trigamma(x+1)+1/(x*x);}"
+372	"public void test(){if(FastMath.abs(x)>40){return x>0?1:-1;}}"
+373	"public void test(){if(FastMath.abs(x)>40){return x>0?1:-1;}double ret=Gamma.regularizedGammaP(0.5,x*x,1.0E-15,10000);if(x<0){ret=-ret;}return ret;}"
+374	"public void test(){if(x<0){ret=-ret;}}"
+375	"public void test(){if(FastMath.abs(x)>40){return x>0?0:2;}}"
+376	"public void test(){if(FastMath.abs(x)>40){return x>0?0:2;} final double ret=Gamma.regularizedGammaQ(0.5,x*x,1.0E-15,10000);return x<0?2-ret:ret;}"
+377	"public void test(){setup(maxEval,f,min,max,startValue);return doSolve();}"
+378	"public void test(){ final double absoluteAccuracy=getAbsoluteAccuracy(); final double functionValueAccuracy=getFunctionValueAccuracy();double x0=min;double y0=computeObjectiveValue(x0);if(FastMath.abs(y0)<functionValueAccuracy){return x0;}}"
+379	"public void test(){double x0=min;double y0=computeObjectiveValue(x0);if(FastMath.abs(y0)<functionValueAccuracy){return x0;}}"
+380	"public void test(){if(FastMath.abs(y0)<functionValueAccuracy){return x0;}}"
+381	"public void test(){if(FastMath.abs(y0)<functionValueAccuracy){return x0;}double x1=max;double y1=computeObjectiveValue(x1);}"
+382	"public void test(){double x1=max;double y1=computeObjectiveValue(x1);if(FastMath.abs(y1)<functionValueAccuracy){return x1;}}"
+383	"public void test(){if(FastMath.abs(y1)<functionValueAccuracy){return x1;}}"
+384	"public void test(){if(y0*y1>0){throw new NoBracketingException(x0,x1,y0,y1);}}"
+385	"public void test(){if(y0*y1>0){throw new NoBracketingException(x0,x1,y0,y1);}double x2=0.5*(x0+x1);double y2=computeObjectiveValue(x2);}"
+386	"public void test(){if(y0*y1>0){throw new NoBracketingException(x0,x1,y0,y1);}double x2=0.5*(x0+x1);double y2=computeObjectiveValue(x2);double oldx=Double.POSITIVE_INFINITY;}"
+387	"public void test(){if(delta>=0.0){double dplus=b+FastMath.sqrt(delta);double dminus=b-FastMath.sqrt(delta);denominator=FastMath.abs(dplus)>FastMath.abs(dminus)?dplus:dminus;}else {denominator=FastMath.sqrt(b*b-delta);}}"
+388	"public void test(){if(denominator!=0){x=x2-2.0*c/denominator;while(x==x1||x==x2){x+=absoluteAccuracy;}}else {x=min+FastMath.random()*(max-min);oldx=Double.POSITIVE_INFINITY;}}"
+389	"public void test(){if(denominator!=0){x=x2-2.0*c/denominator;while(x==x1||x==x2){x+=absoluteAccuracy;}}else {x=min+FastMath.random()*(max-min);oldx=Double.POSITIVE_INFINITY;} final double y=computeObjectiveValue(x);}"
+390	"public void test(){ final double y=computeObjectiveValue(x); final double tolerance=FastMath.max(relativeAccuracy*FastMath.abs(x),absoluteAccuracy);if(FastMath.abs(x-oldx)<=tolerance||FastMath.abs(y)<=functionValueAccuracy){return x;}}"
+391	"public void test(){if(FastMath.abs(x-oldx)<=tolerance||FastMath.abs(y)<=functionValueAccuracy){return x;}}"
+392	"public void test(){if(FastMath.abs(x-oldx)<=tolerance||FastMath.abs(y)<=functionValueAccuracy){return x;}x0=x1;y0=y1;}"
+393	"public void test(){double x0=startValue;double x1;while(true){x1=x0-(computeObjectiveValue(x0)/computeDerivativeObjectiveValue(x0));if(FastMath.abs(x1-x0)<=absoluteAccuracy){return x1;}x0=x1;}}"
+394	"public void test(){while(true){x1=x0-(computeObjectiveValue(x0)/computeDerivativeObjectiveValue(x0));if(FastMath.abs(x1-x0)<=absoluteAccuracy){return x1;}x0=x1;}}"
+395	"public void test(){if(FastMath.abs(x1-x0)<=absoluteAccuracy){return x1;}}"
+396	"public void test(){double x1=min;double y1=computeObjectiveValue(x1);double x2=max;double y2=computeObjectiveValue(x2);if(y1==0){return min;}}"
+397	"public void test(){double x2=max;double y2=computeObjectiveValue(x2);if(y1==0){return min;}}"
+398	"public void test(){if(y2==0){return max;}}"
+399	"public void test(){if(y2==0){return max;}verifyBracketing(min,max); final double absoluteAccuracy=getAbsoluteAccuracy();}"
+400	"public void test(){ final double x3=0.5*(x1+x2); final double y3=computeObjectiveValue(x3);if(FastMath.abs(y3)<=functionValueAccuracy){return x3;}}"
+401	"public void test(){if(FastMath.abs(y3)<=functionValueAccuracy){return x3;}}"
+402	"public void test(){if(FastMath.abs(y3)<=functionValueAccuracy){return x3;} final double delta=1-(y1*y2)/(y3*y3); final double correction=(MathUtils.sign(y2)*MathUtils.sign(y3))*(x3-x1)/FastMath.sqrt(delta); final double x=x3-correction; final double y=computeObjectiveValue(x);}"
+403	"public void test(){ final double correction=(MathUtils.sign(y2)*MathUtils.sign(y3))*(x3-x1)/FastMath.sqrt(delta); final double x=x3-correction; final double y=computeObjectiveValue(x); final double tolerance=FastMath.max(relativeAccuracy*FastMath.abs(x),absoluteAccuracy);if(FastMath.abs(x-oldx)<=tolerance){return x;}}"
+404	"public void test(){ final double y=computeObjectiveValue(x); final double tolerance=FastMath.max(relativeAccuracy*FastMath.abs(x),absoluteAccuracy);if(FastMath.abs(x-oldx)<=tolerance){return x;}}"
+405	"public void test(){if(FastMath.abs(x-oldx)<=tolerance){return x;}}"
+406	"public void test(){if(FastMath.abs(y)<=functionValueAccuracy){return x;}}"
+407	"public void test(){if(MathUtils.sign(y1)+MathUtils.sign(y)==0.0){x2=x;y2=y;}else {x1=x;x2=x3;y1=y;y2=y3;}}"
+408	"public void test(){if(MathUtils.sign(y2)+MathUtils.sign(y)==0.0){x1=x;y1=y;}else {x1=x3;x2=x;y1=y3;y2=y;}}"
+409	"public void test(){this.allowed=allowedSolution;return super.solve(maxEval,f,min,max,startValue);}"
+410	"public void test(){double x0=getMin();double x1=getMax();double f0=computeObjectiveValue(x0);double f1=computeObjectiveValue(x1);if(f0==0.0){return x0;}}"
+411	"public void test(){double f0=computeObjectiveValue(x0);double f1=computeObjectiveValue(x1);if(f0==0.0){return x0;}}"
+412	"public void test(){if(f0==0.0){return x0;}}"
+413	"public void test(){if(f1==0.0){return x1;}}"
+414	"public void test(){if(f1==0.0){return x1;}verifyBracketing(x0,x1); final double ftol=getFunctionValueAccuracy();}"
+415	"public void test(){ final double x=x1-((f1*(x1-x0))/(f1-f0)); final double fx=computeObjectiveValue(x);if(fx==0.0){return x;}}"
+416	"public void test(){if(fx==0.0){return x;}}"
+417	"public void test(){if(x==x1){x0=0.5*(x0+x1-FastMath.max(rtol*FastMath.abs(x1),atol));f0=computeObjectiveValue(x0);}}"
+418	"public void test(){if(inverted){return x1;}}"
+419	"public void test(){if(!inverted){return x1;}}"
+420	"public void test(){if(f1<=0){return x1;}}"
+421	"public void test(){if(f1>=0){return x1;}}"
+422	"public void test(){m=UnivariateRealSolverUtils.midpoint(min,max);fmin=computeObjectiveValue(min);fm=computeObjectiveValue(m);if(fm*fmin>0){min=m;}else {max=m;}}"
+423	"public void test(){fmin=computeObjectiveValue(min);fm=computeObjectiveValue(m);if(fm*fmin>0){min=m;}else {max=m;}}"
+424	"public void test(){if(fm*fmin>0){min=m;}else {max=m;}}"
+425	"public void test(){if(FastMath.abs(max-min)<=absoluteAccuracy){m=UnivariateRealSolverUtils.midpoint(min,max);return m;}}"
+426	"public void test(){if(fx==0.0){return x;}x0=x1;f0=f1;}"
+427	"public void test(){if(fx==0.0){return x;}x0=x1;f0=f1;x1=x;f1=fx;}"
+428	"public void test(){x0=x1;f0=f1;x1=x;f1=fx;if(FastMath.abs(f1)<=ftol){return x1;}}"
+429	"public void test(){if(FastMath.abs(f1)<=ftol){return x1;}}"
+430	"public void test(){if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){return x1;}}"
+431	"public void test(){ final double initial=getStartValue(); final double functionValueAccuracy=getFunctionValueAccuracy();verifySequence(min,initial,max); final double fMin=computeObjectiveValue(min);if(FastMath.abs(fMin)<functionValueAccuracy){return min;}}"
+432	"public void test(){verifySequence(min,initial,max); final double fMin=computeObjectiveValue(min);if(FastMath.abs(fMin)<functionValueAccuracy){return min;}}"
+433	"public void test(){if(FastMath.abs(fMin)<functionValueAccuracy){return min;}}"
+434	"public void test(){if(FastMath.abs(fMin)<functionValueAccuracy){return min;} final double fMax=computeObjectiveValue(max);if(FastMath.abs(fMax)<functionValueAccuracy){return max;}}"
+435	"public void test(){if(FastMath.abs(fMax)<functionValueAccuracy){return max;}}"
+436	"public void test(){if(FastMath.abs(fMax)<functionValueAccuracy){return max;} final double fInitial=computeObjectiveValue(initial);if(FastMath.abs(fInitial)<functionValueAccuracy){return initial;}}"
+437	"public void test(){if(FastMath.abs(fInitial)<functionValueAccuracy){return initial;}}"
+438	"public void test(){if(FastMath.abs(fInitial)<functionValueAccuracy){return initial;}verifyBracketing(min,max);if(isBracketing(min,initial)){return solve(min,initial,fMin,fInitial);}else {return solve(initial,max,fInitial,fMax);}}"
+439	"public void test(){if(isBracketing(min,initial)){return solve(min,initial,fMin,fInitial);}else {return solve(initial,max,fInitial,fMax);}}"
+440	"public void test(){ final double c1=d01+(x1-x0)*d012; final double delta=c1*c1-4*y1; final double xplus=x1+(-2.0*y1)/(c1+FastMath.sqrt(delta)); final double xminus=x1+(-2.0*y1)/(c1-FastMath.sqrt(delta)); final double x=isSequence(x0,xplus,x2)?xplus:xminus;}"
+441	"public void test(){ final double delta=c1*c1-4*y1; final double xplus=x1+(-2.0*y1)/(c1+FastMath.sqrt(delta)); final double xminus=x1+(-2.0*y1)/(c1-FastMath.sqrt(delta)); final double x=isSequence(x0,xplus,x2)?xplus:xminus; final double y=computeObjectiveValue(x);}"
+442	"public void test(){ final double xplus=x1+(-2.0*y1)/(c1+FastMath.sqrt(delta)); final double xminus=x1+(-2.0*y1)/(c1-FastMath.sqrt(delta)); final double x=isSequence(x0,xplus,x2)?xplus:xminus; final double y=computeObjectiveValue(x); final double tolerance=FastMath.max(relativeAccuracy*FastMath.abs(x),absoluteAccuracy);}"
+443	"public void test(){ final double xminus=x1+(-2.0*y1)/(c1-FastMath.sqrt(delta)); final double x=isSequence(x0,xplus,x2)?xplus:xminus; final double y=computeObjectiveValue(x); final double tolerance=FastMath.max(relativeAccuracy*FastMath.abs(x),absoluteAccuracy);if(FastMath.abs(x-oldx)<=tolerance||FastMath.abs(y)<=functionValueAccuracy){return x;}}"
+444	"public void test(){ final double tolerance=FastMath.max(relativeAccuracy*FastMath.abs(x),absoluteAccuracy);if(FastMath.abs(x-oldx)<=tolerance||FastMath.abs(y)<=functionValueAccuracy){return x;}boolean bisect=(x<x1&&(x1-x0)>0.95*(x2-x0))||(x>x1&&(x2-x1)>0.95*(x2-x0));}"
+445	"public void test(){x0=x<x1?x0:x1;y0=x<x1?y0:y1;x2=x>x1?x2:x1;y2=x>x1?y2:y1;}"
+446	"public void test(){x0=x<x1?x0:x1;y0=x<x1?y0:y1;x2=x>x1?x2:x1;y2=x>x1?y2:y1;x1=x;}"
+447	"public void test(){y0=x<x1?y0:y1;x2=x>x1?x2:x1;y2=x>x1?y2:y1;x1=x;y1=y;}"
+448	"public void test(){x2=x>x1?x2:x1;y2=x>x1?y2:y1;x1=x;y1=y;oldx=x;}"
+449	"public void test(){y2=x>x1?y2:y1;x1=x;y1=y;oldx=x;}"
+450	"public void test(){double xm=0.5*(x0+x2);double ym=computeObjectiveValue(xm);if(MathUtils.sign(y0)+MathUtils.sign(ym)==0.0){x2=xm;y2=ym;}else {x0=xm;y0=ym;}}"
+451	"public void test(){if(MathUtils.sign(y0)+MathUtils.sign(ym)==0.0){x2=xm;y2=ym;}else {x0=xm;y0=ym;}}"
+452	"public void test(){if(MathUtils.sign(y0)+MathUtils.sign(ym)==0.0){x2=xm;y2=ym;}else {x0=xm;y0=ym;}x1=0.5*(x0+x2);y1=computeObjectiveValue(x1);}"
+453	"public void test(){if(MathUtils.sign(y0)+MathUtils.sign(ym)==0.0){x2=xm;y2=ym;}else {x0=xm;y0=ym;}x1=0.5*(x0+x2);y1=computeObjectiveValue(x1);oldx=Double.POSITIVE_INFINITY;}"
+454	"public void test(){if(function==null){throw new NullArgumentException(LocalizedFormats.FUNCTION);} final UnivariateRealSolver solver=new BrentSolver();return solver.solve(Integer.MAX_VALUE,function,x0,x1);}"
+455	"public void test(){if(function==null){throw new NullArgumentException(LocalizedFormats.FUNCTION);} final UnivariateRealSolver solver=new BrentSolver(absoluteAccuracy);return solver.solve(Integer.MAX_VALUE,function,x0,x1);}"
+456	"public void test(){if(allowedSolution==AllowedSolution.ANY_SIDE){return baseRoot;} final double step=FastMath.max(bracketing.getAbsoluteAccuracy(),FastMath.abs(baseRoot*bracketing.getRelativeAccuracy()));double xLo=FastMath.max(min,baseRoot-step);}"
+457	"public void test(){if(allowedSolution==AllowedSolution.ANY_SIDE){return baseRoot;} final double step=FastMath.max(bracketing.getAbsoluteAccuracy(),FastMath.abs(baseRoot*bracketing.getRelativeAccuracy()));double xLo=FastMath.max(min,baseRoot-step);double fLo=f.value(xLo);double xHi=FastMath.min(max,baseRoot+step);}"
+458	"public void test(){if(changeLo){xLo=FastMath.max(min,xLo-step);fLo=f.value(xLo);remainingEval--;}}"
+459	"public void test(){if(changeHi){xHi=FastMath.min(max,xHi+step);fHi=f.value(xHi);remainingEval--;}}"
+460	"public void test(){verifySequence(x[0],x[1],x[2]);y[1]=computeObjectiveValue(x[1]);if(MathUtils.equals(y[1],0.0,1)){return x[1];}}"
+461	"public void test(){if(MathUtils.equals(y[1],0.0,1)){return x[1];}y[0]=computeObjectiveValue(x[0]);if(MathUtils.equals(y[0],0.0,1)){return x[0];}}"
+462	"public void test(){y[2]=computeObjectiveValue(x[2]);if(MathUtils.equals(y[2],0.0,1)){return x[2];}if(y[1]*y[2]<0){nbPoints=3;signChangeIndex=2;}else {throw new NoBracketingException(x[0],x[2],y[0],y[2]);}}"
+463	"public void test(){if(Double.isNaN(nextX)){nextX=xA+0.5*(xB-xA);start=signChangeIndex-1;end=signChangeIndex;} final double nextY=computeObjectiveValue(nextX);if(MathUtils.equals(nextY,0.0,1)){return nextX;}}"
+464	"public void test(){{for(int i=start;i<end-1;++i){ final int delta=i+1-start;for(int j=end-1;j>i;--j){x[j]=(x[j]-x[j-1])/(y[j]-y[j-delta]);}}double x0=0;for(int j=end-1;j>=start;--j){x0=x[j]+x0*(targetY-y[j]);}return x0;}}"
+465	"public void test(){this.allowed=allowedSolution;return super.solve(maxEval,f,min,max);}"
+466	"public void test(){ final double initial=getStartValue(); final double functionValueAccuracy=getFunctionValueAccuracy();verifySequence(min,initial,max);double yInitial=computeObjectiveValue(initial);if(FastMath.abs(yInitial)<=functionValueAccuracy){return initial;}}"
+467	"public void test(){verifySequence(min,initial,max);double yInitial=computeObjectiveValue(initial);if(FastMath.abs(yInitial)<=functionValueAccuracy){return initial;}}"
+468	"public void test(){if(FastMath.abs(yInitial)<=functionValueAccuracy){return initial;}}"
+469	"public void test(){if(FastMath.abs(yInitial)<=functionValueAccuracy){return initial;}double yMin=computeObjectiveValue(min);if(FastMath.abs(yMin)<=functionValueAccuracy){return min;}}"
+470	"public void test(){if(FastMath.abs(yMin)<=functionValueAccuracy){return min;}}"
+471	"public void test(){if(yInitial*yMin<0){return brent(min,initial,yMin,yInitial);}double yMax=computeObjectiveValue(max);if(FastMath.abs(yMax)<=functionValueAccuracy){return max;}}"
+472	"public void test(){if(FastMath.abs(yMax)<=functionValueAccuracy){return max;}}"
+473	"public void test(){if(yInitial*yMax<0){return brent(initial,max,yInitial,yMax);}}"
+474	"public void test(){if(FastMath.abs(yMax)<=functionValueAccuracy){return max;}if(yInitial*yMax<0){return brent(initial,max,yInitial,yMax);}throw new NoBracketingException(min,max,yMin,yMax);}"
+475	"public void test(){if(FastMath.abs(fc)<FastMath.abs(fb)){a=b;b=c;c=a;fa=fb;fb=fc;fc=fa;}}"
+476	"public void test(){if(FastMath.abs(fc)<FastMath.abs(fb)){a=b;b=c;c=a;fa=fb;fb=fc;fc=fa;} final double tol=2*eps+t;}"
+477	"public void test(){if(FastMath.abs(m)<=tol||MathUtils.equals(fb,0)){return b;}}"
+478	"public void test(){if(p>=1.5*m-FastMath.abs(tol*q)||p>=FastMath.abs(0.5*s)){d=m;e=d;}else {d=p/q;}}"
+479	"public void test(){if(FastMath.abs(d)>tol){b+=d;}else if(m>0){b+=tol;}else {b-=tol;}}"
+480	"public void test(){if(FastMath.abs(d)>tol){b+=d;}else if(m>0){b+=tol;}else {b-=tol;}fb=computeObjectiveValue(b);}"
+481	"public void test(){double initial=getStartValue(); final double functionValueAccuracy=getFunctionValueAccuracy();verifySequence(min,initial,max);double yInitial=computeObjectiveValue(initial);if(FastMath.abs(yInitial)<=functionValueAccuracy){return initial;}}"
+482	"public void test(){if(yInitial*yMin<0){return laguerre(min,initial,yMin,yInitial);}double yMax=computeObjectiveValue(max);if(FastMath.abs(yMax)<=functionValueAccuracy){return max;}}"
+483	"public void test(){if(yInitial*yMax<0){return laguerre(initial,max,yInitial,yMax);}}"
+484	"public void test(){if(FastMath.abs(yMax)<=functionValueAccuracy){return max;}if(yInitial*yMax<0){return laguerre(initial,max,yInitial,yMax);}throw new NoBracketingException(min,max,yMin,yMax);}"
+485	"public void test(){if(isSequence(min,z.getReal(),max)){double tolerance=FastMath.max(getRelativeAccuracy()*z.abs(),getAbsoluteAccuracy());return (FastMath.abs(z.getImaginary())<=tolerance)||(z.abs()<=getFunctionValueAccuracy());}}"
+486	"public void test(){d2v=d2v.multiply(new Complex(2.0,0.0));double tolerance=FastMath.max(relativeAccuracy*z.abs(),absoluteAccuracy);if((z.subtract(oldz)).abs()<=tolerance){return z;}}"
+487	"public void test(){if((z.subtract(oldz)).abs()<=tolerance){return z;}}"
+488	"public void test(){if(pv.abs()<=functionValueAccuracy){return z;}}"
+489	"public void test(){Complex dminus=G.subtract(deltaSqrt);denominator=dplus.abs()>dminus.abs()?dplus:dminus;if(denominator.equals(new Complex(0.0,0.0))){z=z.add(new Complex(absoluteAccuracy,absoluteAccuracy));oldz=new Complex(Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY);}else {oldz=z;z=z.subtract(N.divide(denominator));}}"
+490	"public void test(){validateParameters(param);return HarmonicOscillator.value(x*param[1]+param[2],param[0]);}"
+491	"public void test(){ final double a=HarmonicOscillator.value(xTimesOmegaPlusPhase,1); final double p=-amplitude*FastMath.sin(xTimesOmegaPlusPhase); final double w=p*x;return new double[]{a,w,p};}"
+492	"public void test(){validateParameters(param);return Logistic.value(param[1]-x,param[0],param[2],param[3],param[4],1/param[5]);}"
+493	"public void test(){validateParameters(param);return Sigmoid.value(x,param[0],param[1]);}"
+494	"public void test(){validateParameters(param); final double invExp1=1/(1+FastMath.exp(-x));return new double[]{1-invExp1,invExp1};}"
+495	"public void test(){validateParameters(param);return Logit.value(x,param[0],param[1]);}"
+496	"public void test(){validateParameters(param); final double lo=param[0]; final double hi=param[1];return new double[]{1/(lo-x),1/(hi-x)};}"
+497	"public void test(){if(x<lo||x>hi){throw new OutOfRangeException(x,lo,hi);}}"
+498	"public void test(){if(x<lo||x>hi){throw new OutOfRangeException(x,lo,hi);}return FastMath.log((x-lo)/(hi-x));}"
+499	"public void test(){validateParameters(param); final double diff=x-param[1]; final double i2s2=1/(2*param[2]);return Gaussian.value(diff,param[0],i2s2);}"
+500	"public void test(){int index=Arrays.binarySearch(abscissa,x);double fx=0;if(index<-1){fx=ordinate[-index-2];}else if(index>=0){fx=ordinate[index];}else {fx=ordinate[0];}}"
+501	"public void test(){ final int lowLength=FastMath.min(coefficients.length,p.coefficients.length); final int highLength=FastMath.max(coefficients.length,p.coefficients.length);double[] newCoefficients=new double[highLength];for(int i=0;i<lowLength;++i){newCoefficients[i]=coefficients[i]+p.coefficients[i];}System.arraycopy((coefficients.length<p.coefficients.length)?p.coefficients:coefficients,lowLength,newCoefficients,lowLength,highLength-lowLength);return new PolynomialFunction(newCoefficients);}"
+502	"public void test(){double absAi=FastMath.abs(coefficients[i]);if((absAi-1)!=0){s.append(toString(absAi));s.append(' ');}}"
+503	"public void test(){for(int i=0;i<n;i++){c[i]=y[i];d[i]=y[i]; final double dist=FastMath.abs(z-x[i]);if(dist<min_dist){nearest=i;min_dist=dist;}}}"
+504	"public void test(){if(i>=minimalIterationCount){ final double delta=FastMath.abs(s-olds); final double rLimit=relativeAccuracy*(FastMath.abs(olds)+FastMath.abs(s));if((delta<=rLimit)||(delta<=absoluteAccuracy)){setResult(s,i);return result;}}}"
+505	"public void test(){ final double t=stage(f,min,max,n); final double delta=FastMath.abs(t-oldt); final double limit=FastMath.max(absoluteAccuracy,relativeAccuracy*(FastMath.abs(oldt)+FastMath.abs(t)));if((i+1>=minimalIterationCount)&&(delta<=limit)){setResult(t,i);return result;}}"
+506	"public void test(){ final double delta=FastMath.abs(t-oldt); final double limit=FastMath.max(absoluteAccuracy,relativeAccuracy*(FastMath.abs(oldt)+FastMath.abs(t)));if((i+1>=minimalIterationCount)&&(delta<=limit)){setResult(t,i);return result;}}"
+507	"public void test(){if((i+1>=minimalIterationCount)&&(delta<=limit)){setResult(t,i);return result;}double ratio=FastMath.min(4,FastMath.pow(delta/limit,0.5/abscissas.length));n=FastMath.max((int)(ratio*n),n+1);oldt=t;}"
+508	"public void test(){{s=0.5*(max-min);return s;}}"
+509	"public void test(){ final double t=stage(f,min,max,i);if(i>=minimalIterationCount){ final double delta=FastMath.abs(t-oldt); final double rLimit=relativeAccuracy*(FastMath.abs(oldt)+FastMath.abs(t));if((delta<=rLimit)||(delta<=absoluteAccuracy)){setResult(t,i);return result;}}}"
+510	"public void test(){if(i>=minimalIterationCount){ final double delta=FastMath.abs(t-oldt); final double rLimit=relativeAccuracy*(FastMath.abs(oldt)+FastMath.abs(t));if((delta<=rLimit)||(delta<=absoluteAccuracy)){setResult(t,i);return result;}}}"
+511	"public void test(){if(minimalIterationCount==1){ final double s=(4*qtrap.stage(f,min,max,1)-qtrap.stage(f,min,max,0))/3.0;setResult(s,1);return result;}}"
+512	"public void test(){if(minimalIterationCount==1){ final double s=(4*qtrap.stage(f,min,max,1)-qtrap.stage(f,min,max,0))/3.0;setResult(s,1);return result;}double olds=0;double oldt=qtrap.stage(f,min,max,0);}"
+513	"public void test(){ final double t=qtrap.stage(f,min,max,i); final double s=(4*t-oldt)/3.0;if(i>=minimalIterationCount){ final double delta=FastMath.abs(s-olds); final double rLimit=relativeAccuracy*(FastMath.abs(olds)+FastMath.abs(s));if((delta<=rLimit)||(delta<=absoluteAccuracy)){setResult(s,i);return result;}}}"
+514	"public void test(){ final int index=i+1;return index<max?index:index-1;}"
+515	"public void test(){ final int i=searchIndex(x,xval);if(i==-1){throw new OutOfRangeException(x,xval[0],xval[xval.length-1]);} final int j=searchIndex(y,yval);}"
+516	"public void test(){if(i==-1){throw new OutOfRangeException(x,xval[0],xval[xval.length-1]);}}"
+517	"public void test(){if(j==-1){throw new OutOfRangeException(y,yval[0],yval[yval.length-1]);} final double xN=(x-xval[i])/(xval[i+1]-xval[i]); final double yN=(y-yval[j])/(yval[j+1]-yval[j]);}"
+518	"public void test(){if(partialDerivatives==null){computePartialDerivatives();} final int i=searchIndex(x,xval);if(i==-1){throw new OutOfRangeException(x,xval[0],xval[xval.length-1]);}}"
+519	"public void test(){if(c<val[0]){return -1;} final int max=val.length;for(int i=1;i<max;i++){if(c<=val[i]){return i-1;}}return -1;}"
+520	"public void test(){for(int i=1;i<max;i++){if(c<=val[i]){return i-1;}}}"
+521	"public void test(){if(x<0||x>1){throw new OutOfRangeException(x,0,1);}}"
+522	"public void test(){if(y<0||y>1){throw new OutOfRangeException(y,0,1);} final double x2=x*x; final double x3=x2*x;}"
+523	"public void test(){if(y<0||y>1){throw new OutOfRangeException(y,0,1);} final double x2=x*x; final double x3=x2*x; final double[] pX={1,x,x2,x3}; final double y2=y*y;}"
+524	"public void test(){if(k==-1){throw new OutOfRangeException(z,zval[0],zval[zval.length-1]);} final double xN=(x-xval[i])/(xval[i+1]-xval[i]); final double yN=(y-yval[j])/(yval[j+1]-yval[j]);}"
+525	"public void test(){if(z<0||z>1){throw new OutOfRangeException(z,0,1);} final double x2=x*x; final double x3=x2*x;}"
+526	"public void test(){if(z<0||z>1){throw new OutOfRangeException(z,0,1);} final double x2=x*x; final double x3=x2*x; final double[] pX={1,x,x2,x3}; final double y2=y*y;}"
+527	"public void test(){if(FastMath.abs(diffNorm)<FastMath.ulp(1.0)){return sd.getValue();}}"
+528	"public void test(){ final double x=xval[i];if(i>0){updateBandwidthInterval(xval,weights,i,bandwidthInterval);} final int ileft=bandwidthInterval[0];}"
+529	"public void test(){ final double xk=xval[k]; final double yk=yval[k]; final double dist=(k<i)?x-xk:xk-x; final double w=tricube(dist*denom)*robustnessWeights[k]; final double xkw=xk*w;}"
+530	"public void test(){if(FastMath.sqrt(FastMath.abs(meanXSquared-meanX*meanX))<accuracy){beta=0;}else {beta=(meanXY-meanX*meanY)/(meanXSquared-meanX*meanX);}}"
+531	"public void test(){if(FastMath.sqrt(FastMath.abs(meanXSquared-meanX*meanX))<accuracy){beta=0;}else {beta=(meanXY-meanX*meanY)/(meanXSquared-meanX*meanX);} final double alpha=meanY-beta*meanX;res[i]=beta*x+alpha;residuals[i]=FastMath.abs(yval[i]-res[i]);}"
+532	"public void test(){if(FastMath.abs(medianResidual)<accuracy){break;}}"
+533	"public void test(){ final double absX=FastMath.abs(x);if(absX>=1.0){return 0.0;} final double tmp=1-absX*absX;return tmp*tmp;}"
+534	"public void test(){if(!entries.containsKey(key)){double delta=FastMath.abs(iter.value());max+=FastMath.abs(delta);}}"
+535	"public void test(){checkVectorDimensions(v.length);double max=0;for(int i=0;i<v.length;i++){double delta=FastMath.abs(getEntry(i)-v[i]);max+=delta;}return max;}"
+536	"public void test(){double max=0;Iterator iter=entries.iterator();while(iter.hasNext()){iter.advance();double delta=FastMath.abs(iter.value()-v.getEntry(iter.key()));if(delta>max){max=delta;}}}"
+537	"public void test(){while(iter.hasNext()){iter.advance();double delta=FastMath.abs(iter.value()-v.getEntry(iter.key()));if(delta>max){max=delta;}}}"
+538	"public void test(){if(delta>max){max=delta;}}"
+539	"public void test(){if(iter.value()>max){max=iter.value();}}"
+540	"public void test(){checkVectorDimensions(v.length);double max=0;for(int i=0;i<v.length;i++){double delta=FastMath.abs(getEntry(i)-v[i]);if(delta>max){max=delta;}}return max;}"
+541	"public void test(){for(int i=0;i<v.length;i++){double delta=FastMath.abs(getEntry(i)-v[i]);if(delta>max){max=delta;}}}"
+542	"public void test(){for(k=p-2;k>=-1;k--){if(k==-1){break;} final double threshold=TINY+EPS*(FastMath.abs(singularValues[k])+FastMath.abs(singularValues[k+1]));if(FastMath.abs(e[k])<=threshold){e[k]=0.0;break;}}}"
+543	"public void test(){if(FastMath.abs(e[k])<=threshold){e[k]=0.0;break;}}"
+544	"public void test(){for(ks=p-1;ks>=k;ks--){if(ks==k){break;} final double t=(ks!=p?FastMath.abs(e[ks]):0.0)+(ks!=k+1?FastMath.abs(e[ks-1]):0.0);if(FastMath.abs(singularValues[ks])<=TINY+EPS*t){singularValues[ks]=0.0;break;}}}"
+545	"public void test(){if(FastMath.abs(singularValues[ks])<=TINY+EPS*t){singularValues[ks]=0.0;break;}}"
+546	"public void test(){ final double lJI=lJ[i]; final double maxDelta=relativeSymmetryThreshold*FastMath.max(FastMath.abs(lIJ),FastMath.abs(lJI));if(FastMath.abs(lIJ-lJI)>maxDelta){throw new NonSymmetricMatrixException(i,j,relativeSymmetryThreshold);}}"
+547	"public void test(){if(FastMath.abs(lIJ-lJI)>maxDelta){throw new NonSymmetricMatrixException(i,j,relativeSymmetryThreshold);}}"
+548	"public void test(){if(FastMath.abs(sum)>largest){largest=FastMath.abs(sum);max=row;}}"
+549	"public void test(){if(FastMath.abs(lu[max][col])<singularityThreshold){singular=true;return ;}}"
+550	"public void test(){if(max!=col){double tmp=0; final double[] luMax=lu[max]; final double[] luCol=lu[col];for(int i=0;i<m;i++){tmp=luMax[i];luMax[i]=luCol[i];luCol[i]=tmp;}int temp=pivot[max];pivot[max]=pivot[col];pivot[col]=temp;even=!even;}}"
+551	"public void test(){if(FastMath.abs(mij-mji)>(FastMath.max(FastMath.abs(mij),FastMath.abs(mji))*eps)){if(raiseException){throw new NonSymmetricMatrixException(i,j,eps);}return false;}}"
+552	"public void test(){if(FastMath.abs(realEigenvalues[i])>maxAbsoluteValue){maxAbsoluteValue=FastMath.abs(realEigenvalues[i]);}}"
+553	"public void test(){if(FastMath.abs(e[i])>maxAbsoluteValue){maxAbsoluteValue=FastMath.abs(e[i]);}}"
+554	"public void test(){if(FastMath.abs(realEigenvalues[i])<=MathUtils.EPSILON*maxAbsoluteValue){realEigenvalues[i]=0.0;}}"
+555	"public void test(){if(FastMath.abs(e[i])<=MathUtils.EPSILON*maxAbsoluteValue){e[i]=0.0;}}"
+556	"public void test(){for(m=j;m<n-1;m++){double delta=FastMath.abs(realEigenvalues[m])+FastMath.abs(realEigenvalues[m+1]);if(FastMath.abs(e[m])+delta==delta){break;}}}"
+557	"public void test(){if(FastMath.abs(e[m])+delta==delta){break;}}"
+558	"public void test(){if(FastMath.abs(p)>=FastMath.abs(q)){c=q/p;t=FastMath.sqrt(c*c+1.0);e[i+1]=p*t;s=1.0/t;c=c*s;}else {s=p/q;t=FastMath.sqrt(s*s+1.0);e[i+1]=q*t;c=1.0/t;s=s*c;}}"
+559	"public void test(){if(FastMath.abs(realEigenvalues[i])<MathUtils.EPSILON*maxAbsoluteValue){realEigenvalues[i]=0.0;}}"
+560	"public void test(){double max=0;for(double a : data){max=FastMath.max(max,FastMath.abs(a));}return max;}"
+561	"public void test(){if(v instanceof ArrayRealVector){return getLInfDistance(((ArrayRealVector)v).data);}else {checkVectorDimensions(v);double max=0;for(int i=0;i<data.length;++i){ final double delta=data[i]-v.getEntry(i);max=FastMath.max(max,FastMath.abs(delta));}return max;}}"
+562	"public void test(){checkVectorDimensions(v.length);double max=0;for(int i=0;i<data.length;++i){ final double delta=data[i]-v[i];max=FastMath.max(max,FastMath.abs(delta));}return max;}"
+563	"public void test(){if(FastMath.abs(diag)<MathUtils.SAFE_MIN){throw new MathArithmeticException(LocalizedFormats.ZERO_DENOMINATOR);}}"
+564	"public void test(){for(int i=0;i<x.length;++i){sumRankX+=ranks[i];} final double U1=sumRankX-(x.length*(x.length+1))/2; final double U2=x.length*y.length-U1;return FastMath.max(U1,U2);}"
+565	"public void test(){double t=FastMath.abs(t(m,mu,v,n));TDistribution distribution=new TDistributionImpl(n-1);return 2.0*distribution.cumulativeProbability(-t);}"
+566	"public void test(){double t=FastMath.abs(t(m1,m2,v1,v2,n1,n2));double degreesOfFreedom=0;degreesOfFreedom=df(v1,v2,n1,n2);TDistribution distribution=new TDistributionImpl(degreesOfFreedom);return 2.0*distribution.cumulativeProbability(-t);}"
+567	"public void test(){double t=FastMath.abs(homoscedasticT(m1,m2,v1,v2,n1,n2));double degreesOfFreedom=n1+n2-2;TDistribution distribution=new TDistributionImpl(degreesOfFreedom);return 2.0*distribution.cumulativeProbability(-t);}"
+568	"public void test(){if(FastMath.abs(sumExpected-sumObserved)>1.0E-5){ratio=sumObserved/sumExpected;rescale=true;}}"
+569	"public void test(){for(int i=0;i<z.length;++i){if(z[i]>0){Wplus+=ranks[i];}} final int N=x.length; final double Wminus=(((double)(N*(N+1)))/2.0)-Wplus;return FastMath.max(Wplus,Wminus);}"
+570	"public void test(){List<Cluster<T>> clusters=chooseInitialCenters(points,k,random);int[] assignments=new int[points.size()];assignPointsToClusters(clusters,points,assignments); final int max=(maxIterations<0)?Integer.MAX_VALUE:maxIterations;}"
+571	"public void test(){if(i==j){out[i][j]=0.0;}else {double r=correlationMatrix.getEntry(i,j);double t=FastMath.abs(r*FastMath.sqrt((nObs-2)/(1-r*r)));out[i][j]=2*tDistribution.cumulativeProbability(-t);}}"
+572	"public void test(){if(FastMath.abs(tmp)>MathUtils.EPSILON){w=(di*w)/dpi;}}"
+573	"public void test(){{double _a=FastMath.abs(a);double _b=FastMath.abs(b);if(_a>_b){double eps=_a*MathUtils.EPSILON;if(_b>eps){return a+b;}return a;}else {double eps=_b*MathUtils.EPSILON;if(_a>eps){return a+b;}return b;}}}"
+574	"public void test(){if(Math.abs(r[pos])*work_sing[row]<temp){r[pos]=0.0;}}"
+575	"public void test(){if(Math.abs(X)*Math.sqrt(d1)<tol[mp1]){X=0.0;}}"
+576	"public void test(){sumX+=x;sumY+=y;n++;if(n>2){distribution=new TDistributionImpl(n-2);}}"
+577	"public void test(){double b1=getSlope();return getIntercept(b1)+b1*x;}"
+578	"public void test(){if(FastMath.abs(sumXX)<10*Double.MIN_VALUE){return Double.NaN;}}"
+579	"public void test(){double max=Double.NaN;if(test(values,begin,length)){max=values[begin];for(int i=begin;i<begin+length;i++){if(!Double.isNaN(values[i])){max=(max>values[i])?max:values[i];}}}return max;}"
+580	"public void test(){if(test(values,begin,length)){max=values[begin];for(int i=begin;i<begin+length;i++){if(!Double.isNaN(values[i])){max=(max>values[i])?max:values[i];}}}}"
+581	"public void test(){if(!Double.isNaN(values[i])){max=(max>values[i])?max:values[i];}}"
+582	"public void test(){if(source.max==source.maxImpl){dest.max=(Max)dest.maxImpl;}else {Max.copy(source.max,dest.max);}}"
+583	"public void test(){if(current.getMax()>max||Double.isNaN(max)){max=current.getMax();}}"
+584	"public void test(){if(n==0){variance=Double.NaN;}else if(n==1){variance=0.0;}else {variance=m2/(n-1);}return new StatisticalSummaryValues(mean,variance,n,max,min,sum);}"

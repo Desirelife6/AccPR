@@ -1,0 +1,566 @@
+1	"public void test(){super(paint,stroke,paint,stroke,alpha);this.value=value;}"
+2	"public void test(){}"
+3	"public void test(){this.paint=paint;this.preferredSize=new Dimension(80,12);}"
+4	"public void test(){this.paint=paint;repaint();}"
+5	"public void test(){Rectangle2D area=new Rectangle2D.Double(xx,yy,ww,hh);g2.setPaint(this.paint);g2.fill(area);}"
+6	"public void test(){this.stroke=stroke;this.preferredSize=new Dimension(80,18);}"
+7	"public void test(){this.stroke=stroke;repaint();}"
+8	"public void test(){if(this.stroke!=null){g2.setStroke(this.stroke);}else {g2.setStroke(new BasicStroke(0.0));}}"
+9	"public void test(){if(value instanceof StrokeSample){ final StrokeSample in=(StrokeSample)value;setStroke(in.getStroke());}}"
+10	"public void test(){if(key==null){throw new IllegalArgumentException(""Null \'key\' argument."");}this.store.put(key,stroke);}"
+11	"public void test(){while(iterator.hasNext()){Comparable key=(Comparable)iterator.next();stream.writeObject(key);Stroke stroke=getStroke(key);SerialUtilities.writeStroke(stroke,stream);}}"
+12	"public void test(){for(int i=0;i<keyCount;i++){Comparable key=(Comparable)stream.readObject();Stroke stroke=SerialUtilities.readStroke(stream);this.store.put(key,stroke);}}"
+13	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}}"
+14	"public void test(){if(insets==null){throw new IllegalArgumentException(""Null \'insets\' argument."");}if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.insets=insets;this.paint=paint;}"
+15	"public void test(){double h=area.getHeight();g2.setPaint(this.paint);Rectangle2D rect=new Rectangle2D.Double();}"
+16	"public void test(){if(!PaintUtilities.equal(this.paint,that.paint)){return false;}}"
+17	"public void test(){stream.defaultWriteObject();SerialUtilities.writePaint(this.paint,stream);}"
+18	"public void test(){stream.defaultReadObject();this.paint=SerialUtilities.readPaint(stream);}"
+19	"public void test(){this.text=text;this.paint=paint;this.label=TextUtilities.createTextBlock(text,font,this.paint);this.font=font;this.toolTipText=null;this.urlText=null;}"
+20	"public void test(){if(font==null){throw new IllegalArgumentException(""Null \'font\' argument."");}this.font=font;this.label=TextUtilities.createTextBlock(this.text,font,this.paint);}"
+21	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.paint=paint;this.label=TextUtilities.createTextBlock(this.text,this.font,this.paint);}"
+22	"public void test(){if(params instanceof EntityBlockParams){ebp=(EntityBlockParams)params;if(ebp.getGenerateEntities()){sec=new StandardEntityCollection();entityArea=(Shape)area.clone();}}g2.setPaint(this.paint);g2.setFont(this.font);}"
+23	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}}"
+24	"public void test(){if(insets==null){throw new IllegalArgumentException(""Null \'insets\' argument."");}this.paint=paint;this.stroke=stroke;}"
+25	"public void test(){this.paint=paint;this.stroke=stroke;this.insets=insets;}"
+26	"public void test(){if(!ObjectUtilities.equal(this.stroke,that.stroke)){return false;}}"
+27	"public void test(){stream.defaultWriteObject();SerialUtilities.writePaint(this.paint,stream);SerialUtilities.writeStroke(this.stroke,stream);}"
+28	"public void test(){stream.defaultReadObject();this.paint=SerialUtilities.readPaint(stream);this.stroke=SerialUtilities.readStroke(stream);}"
+29	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.paint=paint;setWidth(width);setHeight(height);}"
+30	"public void test(){Rectangle2D bounds=getBounds();g2.setPaint(this.paint);g2.fill(bounds);}"
+31	"public void test(){double v=Math.max(value,this.lowerBound);v=Math.min(v,this.upperBound);int g=(int)((v-this.lowerBound)/(this.upperBound-this.lowerBound)*255.0);return new Color(g,g,g);}"
+32	"public void test(){this.value=value;this.paint=paint;}"
+33	"public void test(){PaintItem that=(PaintItem)obj;double d1=this.value;double d2=that.value;}"
+34	"public void test(){double d1=this.value;double d2=that.value;if(d1>d2){return 1;}}"
+35	"public void test(){if(this.value!=that.value){return false;}}"
+36	"public void test(){PaintItem item=new PaintItem(value,paint);int index=Collections.binarySearch(this.lookupTable,item);if(index>=0){this.lookupTable.set(index,item);}else {this.lookupTable.add(-(index+1),item);}}"
+37	"public void test(){if(value<this.lowerBound){return this.defaultPaint;}}"
+38	"public void test(){if(value>this.upperBound){return this.defaultPaint;}}"
+39	"public void test(){if(value<item.value){return this.defaultPaint;}}"
+40	"public void test(){if(value>=item.value){low=current;}else {high=current;}}"
+41	"public void test(){if(value<item.value){item=(PaintItem)this.lookupTable.get(low);}}"
+42	"public void test(){this.paintList.setPaint(series,paint);if(notify){fireChangeEvent();}}"
+43	"public void test(){this.basePaint=paint;if(notify){fireChangeEvent();}}"
+44	"public void test(){this.fillPaintList.setPaint(series,paint);if(notify){fireChangeEvent();}}"
+45	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.baseFillPaint=paint;if(notify){fireChangeEvent();}}"
+46	"public void test(){this.outlinePaintList.setPaint(series,paint);if(notify){fireChangeEvent();}}"
+47	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.baseOutlinePaint=paint;if(notify){fireChangeEvent();}}"
+48	"public void test(){this.strokeList.setStroke(series,stroke);if(notify){fireChangeEvent();}}"
+49	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.baseStroke=stroke;if(notify){fireChangeEvent();}}"
+50	"public void test(){this.outlineStrokeList.setStroke(series,stroke);if(notify){fireChangeEvent();}}"
+51	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.baseOutlineStroke=stroke;if(notify){fireChangeEvent();}}"
+52	"public void test(){this.itemLabelPaintList.setPaint(series,paint);if(notify){fireChangeEvent();}}"
+53	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.baseItemLabelPaint=paint;if(notify){fireChangeEvent();}}"
+54	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.completePaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+55	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.incompletePaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+56	"public void test(){Stroke stroke=getItemOutlineStroke(row,column);Paint paint=getItemOutlinePaint(row,column);if(stroke!=null&&paint!=null){g2.setStroke(stroke);g2.setPaint(paint);g2.draw(bar);}}"
+57	"public void test(){if(stroke!=null&&paint!=null){g2.setStroke(stroke);g2.setPaint(paint);g2.draw(bar);}}"
+58	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.artifactPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+59	"public void test(){Shape shape=new Rectangle2D.Double(-4.0,-4.0,8.0,8.0);Paint paint=lookupSeriesPaint(series);Paint outlinePaint=lookupSeriesOutlinePaint(series);}"
+60	"public void test(){Stroke outlineStroke=lookupSeriesOutlineStroke(series);LegendItem result=new LegendItem(label,description,toolTipText,urlText,shape,paint,outlineStroke,outlinePaint);result.setDataset(dataset);}"
+61	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument"");}}"
+62	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument"");}this.firstBarPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+63	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument"");}this.lastBarPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+64	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument"");}this.positiveBarPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+65	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument"");}this.negativeBarPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+66	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(dataArea.getMinX(),value,dataArea.getMaxX(),value);}else if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(value,dataArea.getMinY(),value,dataArea.getMaxY());}}"
+67	"public void test(){if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(value,dataArea.getMinY(),value,dataArea.getMaxY());}}"
+68	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(dataArea.getMinX(),value,dataArea.getMaxX(),value);}else if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(value,dataArea.getMinY(),value,dataArea.getMaxY());}Paint paint=plot.getDomainGridlinePaint();if(paint==null){paint=CategoryPlot.DEFAULT_GRIDLINE_PAINT;}}"
+69	"public void test(){if(paint==null){paint=CategoryPlot.DEFAULT_GRIDLINE_PAINT;}}"
+70	"public void test(){if(paint==null){paint=CategoryPlot.DEFAULT_GRIDLINE_PAINT;}g2.setPaint(paint);Stroke stroke=plot.getDomainGridlineStroke();}"
+71	"public void test(){g2.setPaint(paint);Stroke stroke=plot.getDomainGridlineStroke();if(stroke==null){stroke=CategoryPlot.DEFAULT_GRIDLINE_STROKE;}}"
+72	"public void test(){if(stroke==null){stroke=CategoryPlot.DEFAULT_GRIDLINE_STROKE;}}"
+73	"public void test(){if(stroke==null){stroke=CategoryPlot.DEFAULT_GRIDLINE_STROKE;}g2.setStroke(stroke);g2.draw(line);}"
+74	"public void test(){if(!range.contains(value)){return ;}}"
+75	"public void test(){PlotOrientation orientation=plot.getOrientation();double v=axis.valueToJava2D(value,dataArea,plot.getRangeAxisEdge());Line2D line=null;}"
+76	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(v,dataArea.getMinY(),v,dataArea.getMaxY());}else if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(dataArea.getMinX(),v,dataArea.getMaxX(),v);}Paint paint=plot.getRangeGridlinePaint();if(paint==null){paint=CategoryPlot.DEFAULT_GRIDLINE_PAINT;}}"
+77	"public void test(){if(paint==null){paint=CategoryPlot.DEFAULT_GRIDLINE_PAINT;}g2.setPaint(paint);Stroke stroke=plot.getRangeGridlineStroke();}"
+78	"public void test(){g2.setPaint(paint);Stroke stroke=plot.getRangeGridlineStroke();if(stroke==null){stroke=CategoryPlot.DEFAULT_GRIDLINE_STROKE;}}"
+79	"public void test(){ValueMarker vm=(ValueMarker)marker;double value=vm.getValue();Range range=axis.getRange();}"
+80	"public void test(){Shape shape=lookupSeriesShape(series);Paint paint=lookupSeriesPaint(series);Paint outlinePaint=lookupSeriesOutlinePaint(series);}"
+81	"public void test(){Stroke outlineStroke=lookupSeriesOutlineStroke(series);LegendItem item=new LegendItem(label,description,toolTipText,urlText,shape,paint,outlineStroke,outlinePaint);item.setSeriesKey(dataset.getRowKey(series));}"
+82	"public void test(){Font labelFont=getItemLabelFont(row,column);Paint paint=getItemLabelPaint(row,column);g2.setFont(labelFont);}"
+83	"public void test(){g2.setFont(labelFont);g2.setPaint(paint);String label=generator.generateLabel(dataset,row,column);}"
+84	"public void test(){double uclip=getUpperClip();double barLow=Math.min(this.base,value);double barHigh=Math.max(this.base,value);}"
+85	"public void test(){double barLow=Math.min(this.base,value);double barHigh=Math.max(this.base,value);if(barHigh<lclip){return null;}}"
+86	"public void test(){Stroke outlineStroke=lookupSeriesOutlineStroke(series);LegendItem result=new LegendItem(label,description,toolTipText,urlText,true,shape,true,paint,isDrawBarOutline(),outlinePaint,outlineStroke,false,new Line2D.Float(),new BasicStroke(1.0),Color.black);result.setDataset(dataset);}"
+87	"public void test(){if(dataValue==null){return ;}double value=dataValue.doubleValue();PlotOrientation orientation=plot.getOrientation();}"
+88	"public void test(){double barW0=calculateBarW0(plot,orientation,dataArea,domainAxis,state,row,column);double[] barL0L1=calculateBarL0L1(value);if(barL0L1==null){return ;}}"
+89	"public void test(){if(generator!=null&&isItemLabelVisible(row,column)){drawItemLabel(g2,dataset,row,column,plot,generator,bar,(value<0.0));}}"
+90	"public void test(){g2.setFont(labelFont);Paint paint=getItemLabelPaint(row,column);g2.setPaint(paint);}"
+91	"public void test(){Paint paint=getItemLabelPaint(row,column);g2.setPaint(paint);ItemLabelPosition position=null;}"
+92	"public void test(){RectangleEdge edge=plot.getRangeAxisEdge();double barL=rangeAxis.valueToJava2D(value,dataArea,edge);Line2D line=null;}"
+93	"public void test(){if(generator!=null&&isItemLabelVisible(row,column)){drawItemLabel(g2,orientation,dataset,row,column,x,y,(value<0.0));}}"
+94	"public void test(){if(dataValue==null){return ;}double value=dataValue.doubleValue();Comparable group=this.seriesToGroupMap.getGroup(dataset.getRowKey(row));}"
+95	"public void test(){if(value>0.0){translatedBase=rangeAxis.valueToJava2D(positiveBase,dataArea,location);translatedValue=rangeAxis.valueToJava2D(positiveBase+value,dataArea,location);}else {translatedBase=rangeAxis.valueToJava2D(negativeBase,dataArea,location);translatedValue=rangeAxis.valueToJava2D(negativeBase+value,dataArea,location);}}"
+96	"public void test(){Shape shape=new Rectangle2D.Double(-4.0,-3.0,8.0,6.0);Paint paint=lookupSeriesPaint(series);LegendItem item=new LegendItem(label,description,toolTipText,urlText,shape,paint);}"
+97	"public void test(){Paint paint=lookupSeriesPaint(series);LegendItem item=new LegendItem(label,description,toolTipText,urlText,shape,paint);item.setSeriesKey(dataset.getRowKey(series));}"
+98	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.wallPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+99	"public void test(){double y0=value;double y1=value-getYOffset();double x0=dataArea.getMinX();}"
+100	"public void test(){double x0=value;double x1=value+getXOffset();double y0=dataArea.getMaxY();}"
+101	"public void test(){double x0=axis.valueToJava2D(value,adjusted,plot.getRangeAxisEdge());double x1=x0+getXOffset();double y0=dataArea.getMaxY();}"
+102	"public void test(){double y0=axis.valueToJava2D(value,adjusted,plot.getRangeAxisEdge());double y1=y0-getYOffset();double x0=dataArea.getMinX();}"
+103	"public void test(){float x=(float)axis.valueToJava2D(value,adjusted,plot.getRangeAxisEdge());float y=(float)adjusted.getMaxY();path=new GeneralPath();}"
+104	"public void test(){float y=(float)axis.valueToJava2D(value,adjusted,plot.getRangeAxisEdge());float x=(float)dataArea.getX();path=new GeneralPath();}"
+105	"public void test(){double x1=domainAxis.getCategoryMiddle(column,getColumnCount(),adjusted,plot.getDomainAxisEdge());double value=v.doubleValue();double y1=rangeAxis.valueToJava2D(value,adjusted,plot.getRangeAxisEdge());}"
+106	"public void test(){double value=v.doubleValue();double y1=rangeAxis.valueToJava2D(value,adjusted,plot.getRangeAxisEdge());Shape shape=getItemShape(row,column);}"
+107	"public void test(){if(isItemLabelVisible(row,column)){drawItemLabel(g2,orientation,dataset,row,column,x1,y1,(value<0.0));}}"
+108	"public void test(){this.errorIndicatorPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+109	"public void test(){this.errorIndicatorStroke=stroke;notifyListeners(new RendererChangeEvent(this));}"
+110	"public void test(){if(meanValue==null){return ;}double value=meanValue.doubleValue();double base=0.0;}"
+111	"public void test(){if(value>=uclip){return ;}}"
+112	"public void test(){if(value<=lclip){value=lclip;}}"
+113	"public void test(){if(value>=uclip){value=uclip;}else {if(value<=lclip){value=lclip;}}}"
+114	"public void test(){if(value<=lclip){return ;}}"
+115	"public void test(){if(value>=uclip){value=uclip;}}"
+116	"public void test(){double transY1=rangeAxis.valueToJava2D(base,dataArea,yAxisLocation);double transY2=rangeAxis.valueToJava2D(value,dataArea,yAxisLocation);double rectX=Math.min(transY2,transY1);}"
+117	"public void test(){double transY1=rangeAxis.valueToJava2D(base,dataArea,yAxisLocation);double transY2=rangeAxis.valueToJava2D(value,dataArea,yAxisLocation);double rectY=Math.min(transY2,transY1);}"
+118	"public void test(){if(dataValue==null){return ;}double value=dataValue.doubleValue();double base=0.0;}"
+119	"public void test(){double transX1=rangeAxis.valueToJava2D(base,dataArea,edge);double transX2=rangeAxis.valueToJava2D(value,dataArea,edge);double rectX=Math.min(transX1,transX2);}"
+120	"public void test(){int seriesCount=getRowCount();double value=dataValue.doubleValue();double base=0.0;}"
+121	"public void test(){double transY1=rangeAxis.valueToJava2D(base,dataArea,edge);double transY2=rangeAxis.valueToJava2D(value,dataArea,edge);double rectY=Math.min(transY2,transY1);}"
+122	"public void test(){double transX1=rangeAxis.valueToJava2D(base,dataArea,edge);double transX2=rangeAxis.valueToJava2D(value,dataArea,edge);CategoryItemLabelGenerator generator=getItemLabelGenerator(row,column);}"
+123	"public void test(){Paint paint=plot.getDomainGridlinePaint();Stroke stroke=plot.getDomainGridlineStroke();g2.setPaint(paint!=null?paint:Plot.DEFAULT_OUTLINE_PAINT);}"
+124	"public void test(){Stroke stroke=plot.getDomainGridlineStroke();g2.setPaint(paint!=null?paint:Plot.DEFAULT_OUTLINE_PAINT);g2.setStroke(stroke!=null?stroke:Plot.DEFAULT_OUTLINE_STROKE);}"
+125	"public void test(){g2.setPaint(paint!=null?paint:Plot.DEFAULT_OUTLINE_PAINT);g2.setStroke(stroke!=null?stroke:Plot.DEFAULT_OUTLINE_STROKE);g2.draw(line1);}"
+126	"public void test(){Paint paint=plot.getRangeGridlinePaint();Stroke stroke=plot.getRangeGridlineStroke();g2.setPaint(paint!=null?paint:Plot.DEFAULT_OUTLINE_PAINT);}"
+127	"public void test(){Stroke stroke=plot.getRangeGridlineStroke();g2.setPaint(paint!=null?paint:Plot.DEFAULT_OUTLINE_PAINT);g2.setStroke(stroke!=null?stroke:Plot.DEFAULT_OUTLINE_STROKE);}"
+128	"public void test(){if(dataValue==null){return ;}double value=dataValue.doubleValue();Rectangle2D adjusted=new Rectangle2D.Double(dataArea.getX(),dataArea.getY()+getYOffset(),dataArea.getWidth()-getXOffset(),dataArea.getHeight()-getYOffset());}"
+129	"public void test(){double barW0=calculateBarW0(plot,orientation,adjusted,domainAxis,state,row,column);double[] barL0L1=calculateBarL0L1(value);if(barL0L1==null){return ;}}"
+130	"public void test(){if(dataValue==null){return ;}double value=dataValue.doubleValue();double total=0.0;}"
+131	"public void test(){if(this.renderAsPercentages){total=DataUtilities.calculateColumnTotal(dataset,column);value=value/total;}}"
+132	"public void test(){if(value>=0.0){translatedBase=rangeAxis.valueToJava2D(positiveBase,dataArea,location);translatedValue=rangeAxis.valueToJava2D(positiveBase+value,dataArea,location);}else {translatedBase=rangeAxis.valueToJava2D(negativeBase,dataArea,location);translatedValue=rangeAxis.valueToJava2D(negativeBase+value,dataArea,location);}}"
+133	"public void test(){Shape shape=lookupSeriesShape(series);Paint paint=lookupSeriesPaint(series);Paint fillPaint=(this.useFillPaint?getItemFillPaint(series,0):paint);}"
+134	"public void test(){Paint paint=lookupSeriesPaint(series);Paint fillPaint=(this.useFillPaint?getItemFillPaint(series,0):paint);boolean shapeOutlineVisible=this.drawOutlines;}"
+135	"public void test(){boolean shapeOutlineVisible=this.drawOutlines;Paint outlinePaint=(this.useOutlinePaint?getItemOutlinePaint(series,0):paint);Stroke outlineStroke=lookupSeriesOutlineStroke(series);}"
+136	"public void test(){if(this.useSeriesOffset){x1=domainAxis.getCategorySeriesMiddle(dataset.getColumnKey(column),dataset.getRowKey(row),dataset,this.itemMargin,dataArea,plot.getDomainAxisEdge());}else {x1=domainAxis.getCategoryMiddle(column,getColumnCount(),dataArea,plot.getDomainAxisEdge());}double value=v.doubleValue();double y1=rangeAxis.valueToJava2D(value,dataArea,plot.getRangeAxisEdge());}"
+137	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){drawItemLabel(g2,orientation,dataset,row,column,y1,x1,(value<0.0));}else if(orientation==PlotOrientation.VERTICAL){drawItemLabel(g2,orientation,dataset,row,column,x1,y1,(value<0.0));}}"
+138	"public void test(){if(orientation==PlotOrientation.VERTICAL){drawItemLabel(g2,orientation,dataset,row,column,x1,y1,(value<0.0));}}"
+139	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.groupPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+140	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.groupStroke=stroke;notifyListeners(new RendererChangeEvent(this));}"
+141	"public void test(){this.upPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+142	"public void test(){this.downPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+143	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.volumePaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+144	"public void test(){if(getLegendItemURLGenerator()!=null){urlText=getLegendItemURLGenerator().generateLabel(dataset,series);}Paint paint=lookupSeriesPaint(series);result=new LegendItem(label,description,toolTipText,urlText,this.legendArea,paint);}"
+145	"public void test(){Paint paint=lookupSeriesPaint(series);result=new LegendItem(label,description,toolTipText,urlText,this.legendArea,paint);result.setDataset(dataset);}"
+146	"public void test(){PlotOrientation orientation=plot.getOrientation();Paint paint=getItemPaint(series,item);Stroke stroke=getItemStroke(series,item);}"
+147	"public void test(){Paint paint=getItemPaint(series,item);Stroke stroke=getItemStroke(series,item);g2.setPaint(paint);}"
+148	"public void test(){Stroke stroke=getItemStroke(series,item);g2.setPaint(paint);g2.setStroke(stroke);}"
+149	"public void test(){g2.setPaint(paint);g2.setStroke(stroke);Shape shape=null;}"
+150	"public void test(){this.openTickPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+151	"public void test(){this.closeTickPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+152	"public void test(){for(int i=0;i<series;i++){double value=dataset.getYValue(i,index);if(!Double.isNaN(value)){result+=value;}}}"
+153	"public void test(){if(!Double.isNaN(value)){result+=value;}}"
+154	"public void test(){this.boxPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+155	"public void test(){int itemCount=dataset.getItemCount(series);Paint paint=getItemPaint(series,item);Stroke seriesStroke=getItemStroke(series,item);}"
+156	"public void test(){Stroke seriesStroke=getItemStroke(series,item);g2.setPaint(paint);g2.setStroke(seriesStroke);}"
+157	"public void test(){if(value<min){value=min;}else if(value>max){value=max;}}"
+158	"public void test(){if(value>max){value=max;}}"
+159	"public void test(){Shape shape=lookupSeriesShape(series);Paint paint=lookupSeriesPaint(series);result=new LegendItem(label,description,toolTipText,urlText,shape,paint);}"
+160	"public void test(){Paint paint=lookupSeriesPaint(series);result=new LegendItem(label,description,toolTipText,urlText,shape,paint);result.setSeriesKey(dataset.getSeriesKey(series));}"
+161	"public void test(){Stroke outlineStroke=lookupSeriesOutlineStroke(series);result=new LegendItem(label,description,toolTipText,urlText,shape,paint,outlineStroke,outlinePaint);result.setSeriesKey(dataset.getSeriesKey(series));}"
+162	"public void test(){Rectangle2D band=new Rectangle2D.Double(x1,dataArea.getMinY(),x2-x1,dataArea.getMaxY()-dataArea.getMinY());Paint paint=plot.getDomainTickBandPaint();if(paint!=null){g2.setPaint(paint);g2.fill(band);}}"
+163	"public void test(){if(paint!=null){g2.setPaint(paint);g2.fill(band);}}"
+164	"public void test(){Rectangle2D band=new Rectangle2D.Double(dataArea.getMinX(),y2,dataArea.getWidth(),y1-y2);Paint paint=plot.getRangeTickBandPaint();if(paint!=null){g2.setPaint(paint);g2.fill(band);}}"
+165	"public void test(){Line2D line=null;double v=axis.valueToJava2D(value,dataArea,plot.getDomainAxisEdge());if(orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(dataArea.getMinX(),v,dataArea.getMaxX(),v);}else if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(v,dataArea.getMinY(),v,dataArea.getMaxY());}}"
+166	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(dataArea.getMinX(),v,dataArea.getMaxX(),v);}else if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(v,dataArea.getMinY(),v,dataArea.getMaxY());}g2.setPaint(paint);g2.setStroke(stroke);}"
+167	"public void test(){g2.setPaint(paint);g2.setStroke(stroke);g2.draw(line);}"
+168	"public void test(){Line2D line=null;double v=axis.valueToJava2D(value,dataArea,plot.getRangeAxisEdge());if(orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(v,dataArea.getMinY(),v,dataArea.getMaxY());}else if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(dataArea.getMinX(),v,dataArea.getMaxX(),v);}}"
+169	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(v,dataArea.getMinY(),v,dataArea.getMaxY());}else if(orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(dataArea.getMinX(),v,dataArea.getMaxX(),v);}g2.setPaint(paint);g2.setStroke(stroke);}"
+170	"public void test(){ValueMarker vm=(ValueMarker)marker;double value=vm.getValue();Range range=domainAxis.getRange();}"
+171	"public void test(){if(!range.contains(value)){return ;}double v=domainAxis.valueToJava2D(value,dataArea,plot.getDomainAxisEdge());PlotOrientation orientation=plot.getOrientation();}"
+172	"public void test(){ValueMarker vm=(ValueMarker)marker;double value=vm.getValue();Range range=rangeAxis.getRange();}"
+173	"public void test(){if(!range.contains(value)){return ;}double v=rangeAxis.valueToJava2D(value,dataArea,plot.getRangeAxisEdge());PlotOrientation orientation=plot.getOrientation();}"
+174	"public void test(){Font labelFont=getItemLabelFont(series,item);Paint paint=getItemLabelPaint(series,item);g2.setFont(labelFont);}"
+175	"public void test(){g2.setFont(labelFont);g2.setPaint(paint);String label=generator.generateLabel(dataset,series,item);}"
+176	"public void test(){super(lines,shapes);super.setDrawSeriesLineAsPath(true);this.alpha=0.5;}"
+177	"public void test(){if(alpha<0.0||alpha>1.0){throw new IllegalArgumentException(""Requires \'alpha\' in the range 0.0 to 1.0."");}}"
+178	"public void test(){if(alpha<0.0||alpha>1.0){throw new IllegalArgumentException(""Requires \'alpha\' in the range 0.0 to 1.0."");}this.alpha=alpha;notifyListeners(new RendererChangeEvent(this));}"
+179	"public void test(){Composite originalComposite=g2.getComposite();g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,this.alpha));g2.setPaint(getItemFillPaint(series,item));}"
+180	"public void test(){if(this.alpha!=that.alpha){return false;}}"
+181	"public void test(){IntervalXYDataset intervalDataset=(IntervalXYDataset)dataset;double value=intervalDataset.getYValue(series,item);if(Double.isNaN(value)){return ;}}"
+182	"public void test(){if(Double.isNaN(value)){return ;}}"
+183	"public void test(){if(this.renderAsPercentages){total=DatasetUtilities.calculateStackTotal((TableXYDataset)dataset,item);value=value/total;}}"
+184	"public void test(){if(value>0.0){translatedBase=rangeAxis.valueToJava2D(positiveBase,dataArea,edgeR);translatedValue=rangeAxis.valueToJava2D(positiveBase+value,dataArea,edgeR);}else {translatedBase=rangeAxis.valueToJava2D(negativeBase,dataArea,edgeR);translatedValue=rangeAxis.valueToJava2D(negativeBase+value,dataArea,edgeR);}}"
+185	"public void test(){if(isItemLabelVisible(series,item)){XYItemLabelGenerator generator=getItemLabelGenerator(series,item);drawItemLabel(g2,dataset,series,item,plot,generator,bar,value<0.0);}}"
+186	"public void test(){Shape shape=this.legendBar;Paint paint=lookupSeriesPaint(series);Paint outlinePaint=lookupSeriesOutlinePaint(series);}"
+187	"public void test(){if(this.drawBarOutline){result=new LegendItem(label,description,toolTipText,urlText,shape,paint,outlineStroke,outlinePaint);}else {result=new LegendItem(label,description,toolTipText,urlText,shape,paint);}}"
+188	"public void test(){Stroke stroke=getItemOutlineStroke(series,item);Paint paint=getItemOutlinePaint(series,item);if(stroke!=null&&paint!=null){g2.setStroke(stroke);g2.setPaint(paint);g2.draw(bar);}}"
+189	"public void test(){g2.setFont(labelFont);Paint paint=getItemLabelPaint(series,item);g2.setPaint(paint);}"
+190	"public void test(){Paint paint=getItemLabelPaint(series,item);g2.setPaint(paint);ItemLabelPosition position=null;}"
+191	"public void test(){this.errorPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+192	"public void test(){this.wallPaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+193	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.positivePaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+194	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.negativePaint=paint;notifyListeners(new RendererChangeEvent(this));}"
+195	"public void test(){if(getLegendItemURLGenerator()!=null){urlText=getLegendItemURLGenerator().generateLabel(dataset,series);}Paint paint=lookupSeriesPaint(series);Stroke stroke=lookupSeriesStroke(series);}"
+196	"public void test(){Paint paint=lookupSeriesPaint(series);Stroke stroke=lookupSeriesStroke(series);Line2D line=new Line2D.Double(-7.0,0.0,7.0,0.0);}"
+197	"public void test(){Line2D line=new Line2D.Double(-7.0,0.0,7.0,0.0);result=new LegendItem(label,description,toolTipText,urlText,line,stroke,paint);result.setDataset(dataset);}"
+198	"public void test(){Shape shape=new Ellipse2D.Double(-4.0,-4.0,8.0,8.0);Paint paint=lookupSeriesPaint(series);Paint outlinePaint=lookupSeriesOutlinePaint(series);}"
+199	"public void test(){Stroke outlineStroke=lookupSeriesOutlineStroke(series);result=new LegendItem(label,description,toolTipText,urlText,shape,paint,outlineStroke,outlinePaint);result.setDataset(dataset);}"
+200	"public void test(){boolean shapeFilled=getItemShapeFilled(series,0);Paint paint=lookupSeriesPaint(series);Paint linePaint=paint;}"
+201	"public void test(){Paint paint=lookupSeriesPaint(series);Paint linePaint=paint;Stroke lineStroke=lookupSeriesStroke(series);}"
+202	"public void test(){Stroke lineStroke=lookupSeriesStroke(series);result=new LegendItem(label,description,toolTipText,urlText,this.baseShapesVisible,shape,shapeFilled,paint,!shapeFilled,paint,lineStroke,this.plotLines,this.legendLine,lineStroke,linePaint);result.setDataset(dataset);}"
+203	"public void test(){PlotOrientation orientation=plot.getOrientation();Paint paint=getItemPaint(series,item);Stroke seriesStroke=getItemStroke(series,item);}"
+204	"public void test(){g2.setPaint(paint);g2.setStroke(stroke);g2.fill(hotspot);}"
+205	"public void test(){Stroke outlineStroke=lookupSeriesOutlineStroke(series);result=new LegendItem(label,description,null,null,shape,paint,outlineStroke,outlinePaint);result.setDataset(dataset);}"
+206	"public void test(){Shape shape=new Rectangle2D.Double(1.0,1.0,1.0,1.0);Paint paint=getSeriesPaint(((Integer)entry.getValue()).intValue());Paint outlinePaint=Color.black;}"
+207	"public void test(){Paint outlinePaint=Color.black;Stroke outlineStroke=DEFAULT_STROKE;result.add(new LegendItem(label,description,null,null,shape,paint,outlineStroke,outlinePaint));}"
+208	"public void test(){if(key==null){throw new IllegalArgumentException(""Null \'key\' argument."");}this.store.put(key,paint);}"
+209	"public void test(){while(iterator.hasNext()){Comparable key=(Comparable)iterator.next();stream.writeObject(key);Paint paint=getPaint(key);SerialUtilities.writePaint(paint,stream);}}"
+210	"public void test(){for(int i=0;i<keyCount;i++){Comparable key=(Comparable)stream.readObject();Paint paint=SerialUtilities.readPaint(stream);this.store.put(key,paint);}}"
+211	"public void test(){super(text);if(category==null){throw new IllegalArgumentException(""Null \'category\' argument."");}this.category=category;this.value=value;this.categoryAnchor=CategoryAnchor.MIDDLE;}"
+212	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){anchorY=(float)domainAxis.getCategoryJava2DCoordinate(this.categoryAnchor,catIndex,catCount,dataArea,domainEdge);anchorX=(float)rangeAxis.valueToJava2D(this.value,dataArea,rangeEdge);}else if(orientation==PlotOrientation.VERTICAL){anchorX=(float)domainAxis.getCategoryJava2DCoordinate(this.categoryAnchor,catIndex,catCount,dataArea,domainEdge);anchorY=(float)rangeAxis.valueToJava2D(this.value,dataArea,rangeEdge);}}"
+213	"public void test(){if(orientation==PlotOrientation.VERTICAL){anchorX=(float)domainAxis.getCategoryJava2DCoordinate(this.categoryAnchor,catIndex,catCount,dataArea,domainEdge);anchorY=(float)rangeAxis.valueToJava2D(this.value,dataArea,rangeEdge);}}"
+214	"public void test(){if(this.value!=that.getValue()){return false;}}"
+215	"public void test(){int result=super.hashCode();result=37*result+this.category.hashCode();result=37*result+this.categoryAnchor.hashCode();long temp=Double.doubleToLongBits(this.value);result=37*result+(int)(temp^(temp>>>32));return result;}"
+216	"public void test(){this.y1=y1;this.stroke=stroke;this.outlinePaint=outlinePaint;}"
+217	"public void test(){if(this.stroke!=null&&this.outlinePaint!=null){g2.setPaint(this.outlinePaint);g2.setStroke(this.stroke);g2.draw(box);}}"
+218	"public void test(){stream.defaultWriteObject();SerialUtilities.writeStroke(this.stroke,stream);SerialUtilities.writePaint(this.outlinePaint,stream);SerialUtilities.writePaint(this.fillPaint,stream);}"
+219	"public void test(){stream.defaultReadObject();this.stroke=SerialUtilities.readStroke(stream);this.outlinePaint=SerialUtilities.readPaint(stream);this.fillPaint=SerialUtilities.readPaint(stream);}"
+220	"public void test(){this.value2=value2;this.paint=paint;this.stroke=stroke;}"
+221	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.paint=paint;}"
+222	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.stroke=stroke;}"
+223	"public void test(){g2.setPaint(this.paint);g2.setStroke(this.stroke);g2.drawLine((int)lineX1,(int)lineY1,(int)lineX2,(int)lineY2);}"
+224	"public void test(){result=37*result+(int)(temp^(temp>>>32));result=37*result+HashUtilities.hashCodeForPaint(this.paint);result=37*result+this.stroke.hashCode();}"
+225	"public void test(){result=37*result+HashUtilities.hashCodeForPaint(this.paint);result=37*result+this.stroke.hashCode();return result;}"
+226	"public void test(){this.font=DEFAULT_FONT;this.paint=DEFAULT_PAINT;this.x=x;}"
+227	"public void test(){result=37*this.font.hashCode();result=37*result+HashUtilities.hashCodeForPaint(this.paint);long temp=Double.doubleToLongBits(this.x);}"
+228	"public void test(){this.y2=y2;this.stroke=stroke;this.paint=paint;}"
+229	"public void test(){g2.setPaint(this.paint);g2.setStroke(this.stroke);Line2D line=new Line2D.Float(j2DX1,j2DY1,j2DX2,j2DY2);}"
+230	"public void test(){if(shape==null){throw new IllegalArgumentException(""Null \'shape\' argument."");}this.shape=shape;this.stroke=stroke;this.outlinePaint=outlinePaint;this.fillPaint=fillPaint;}"
+231	"public void test(){if(this.stroke!=null&&this.outlinePaint!=null){g2.setPaint(this.outlinePaint);g2.setStroke(this.stroke);g2.draw(s);}}"
+232	"public void test(){if(this.stroke!=null){result=37*result+this.stroke.hashCode();}}"
+233	"public void test(){stream.defaultWriteObject();SerialUtilities.writeShape(this.shape,stream);SerialUtilities.writeStroke(this.stroke,stream);SerialUtilities.writePaint(this.outlinePaint,stream);SerialUtilities.writePaint(this.fillPaint,stream);}"
+234	"public void test(){stream.defaultReadObject();this.shape=SerialUtilities.readShape(stream);this.stroke=SerialUtilities.readStroke(stream);this.outlinePaint=SerialUtilities.readPaint(stream);this.fillPaint=SerialUtilities.readPaint(stream);}"
+235	"public void test(){this.polygon=(double[])polygon.clone();this.stroke=stroke;this.outlinePaint=outlinePaint;}"
+236	"public void test(){if(this.stroke!=null&&this.outlinePaint!=null){g2.setPaint(this.outlinePaint);g2.setStroke(this.stroke);g2.draw(area);}}"
+237	"public void test(){{super(label,key,value);this.angle=angle;this.tipRadius=DEFAULT_TIP_RADIUS;this.baseRadius=DEFAULT_BASE_RADIUS;this.arrowLength=DEFAULT_ARROW_LENGTH;this.arrowWidth=DEFAULT_ARROW_WIDTH;this.labelOffset=DEFAULT_LABEL_OFFSET;this.arrowStroke=new BasicStroke(1.0);this.arrowPaint=Color.black;}}"
+238	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' not permitted."");}}"
+239	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' not permitted."");}this.arrowStroke=stroke;}"
+240	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.arrowPaint=paint;}"
+241	"public void test(){this.font=DEFAULT_FONT;this.paint=DEFAULT_PAINT;this.textAnchor=DEFAULT_TEXT_ANCHOR;}"
+242	"public void test(){if(!PaintUtilities.equal(this.paint,that.getPaint())){return false;}}"
+243	"public void test(){result=37*result+this.font.hashCode();result=37*result+HashUtilities.hashCodeForPaint(this.paint);result=37*result+this.rotationAnchor.hashCode();}"
+244	"public void test(){Paint paint=getPaint(i);if(paint!=null){stream.writeInt(i);SerialUtilities.writePaint(paint,stream);}else {stream.writeInt(-1);}}"
+245	"public void test(){if(paint!=null){stream.writeInt(i);SerialUtilities.writePaint(paint,stream);}else {stream.writeInt(-1);}}"
+246	"public void test(){if(value!=null){setText(nf.format(value));}else {setText("""");}}"
+247	"public void test(){Stroke stroke=getStroke(i);if(stroke!=null){stream.writeInt(i);SerialUtilities.writeStroke(stroke,stream);}else {stream.writeInt(-1);}}"
+248	"public void test(){if(stroke!=null){stream.writeInt(i);SerialUtilities.writeStroke(stroke,stream);}else {stream.writeInt(-1);}}"
+249	"public void test(){if(paint instanceof Serializable){stream.writeObject(paint);}else if(paint instanceof GradientPaint){GradientPaint gp=(GradientPaint)paint;stream.writeFloat((float)gp.getPoint1().getX());stream.writeFloat((float)gp.getPoint1().getY());stream.writeObject(gp.getColor1());stream.writeFloat((float)gp.getPoint2().getX());stream.writeFloat((float)gp.getPoint2().getY());stream.writeObject(gp.getColor2());stream.writeBoolean(gp.isCyclic());}}"
+250	"public void test(){if(paint instanceof GradientPaint){GradientPaint gp=(GradientPaint)paint;stream.writeFloat((float)gp.getPoint1().getX());stream.writeFloat((float)gp.getPoint1().getY());stream.writeObject(gp.getColor1());stream.writeFloat((float)gp.getPoint2().getX());stream.writeFloat((float)gp.getPoint2().getY());stream.writeObject(gp.getColor2());stream.writeBoolean(gp.isCyclic());}}"
+251	"public void test(){GradientPaint gp=(GradientPaint)paint;stream.writeFloat((float)gp.getPoint1().getX());stream.writeFloat((float)gp.getPoint1().getY());}"
+252	"public void test(){BasicStroke s=(BasicStroke)stroke;stream.writeObject(BasicStroke.class);stream.writeFloat(s.getLineWidth());}"
+253	"public void test(){{stream.writeObject(stroke.getClass());stream.writeObject(stroke);}}"
+254	"public void test(){this.rangeAxis.addChangeListener(this);this.paint=Color.red;this.domainGridlinesVisible=true;}"
+255	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.paint=paint;notifyListeners(new PlotChangeEvent(this));}"
+256	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.domainGridlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+257	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.domainGridlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+258	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.rangeGridlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+259	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.rangeGridlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+260	"public void test(){{g2.setPaint(this.paint);if(this.data!=null){for(int i=0;i<this.data[0].length;i++){float x=this.data[0][i];float y=this.data[1][i];int transX=(int)this.domainAxis.valueToJava2D(x,dataArea,RectangleEdge.BOTTOM);int transY=(int)this.rangeAxis.valueToJava2D(y,dataArea,RectangleEdge.LEFT);g2.fillRect(transX,transY,1,1);}}}}"
+261	"public void test(){stream.defaultWriteObject();SerialUtilities.writePaint(this.paint,stream);SerialUtilities.writeStroke(this.domainGridlineStroke,stream);SerialUtilities.writePaint(this.domainGridlinePaint,stream);SerialUtilities.writeStroke(this.rangeGridlineStroke,stream);SerialUtilities.writePaint(this.rangeGridlinePaint,stream);}"
+262	"public void test(){stream.defaultReadObject();this.paint=SerialUtilities.readPaint(stream);this.domainGridlineStroke=SerialUtilities.readStroke(stream);}"
+263	"public void test(){this.maxValue=value;notifyListeners(new PlotChangeEvent(this));}"
+264	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.axisLinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+265	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.axisLineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+266	"public void test(){this.seriesPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+267	"public void test(){this.seriesPaintList.setPaint(series,paint);notifyListeners(new PlotChangeEvent(this));}"
+268	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.baseSeriesPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+269	"public void test(){this.seriesOutlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+270	"public void test(){this.seriesOutlinePaintList.setPaint(series,paint);notifyListeners(new PlotChangeEvent(this));}"
+271	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.baseSeriesOutlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+272	"public void test(){this.seriesOutlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+273	"public void test(){this.seriesOutlineStrokeList.setStroke(series,stroke);notifyListeners(new PlotChangeEvent(this));}"
+274	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.baseSeriesOutlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+275	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.labelPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+276	"public void test(){String description=label;Paint paint=getSeriesPaint(series);Paint outlinePaint=getSeriesOutlinePaint(series);}"
+277	"public void test(){Paint outlinePaint=getSeriesOutlinePaint(series);Stroke stroke=getSeriesOutlineStroke(series);LegendItem item=new LegendItem(label,description,null,null,shape,paint,stroke,outlinePaint);}"
+278	"public void test(){Stroke stroke=getSeriesOutlineStroke(series);LegendItem item=new LegendItem(label,description,null,null,shape,paint,stroke,outlinePaint);item.setDataset(getDataset());}"
+279	"public void test(){double angle=getStartAngle()+(getDirection().getFactor()*cat/catCount);Point2D point=getWebPoint(plotArea,angle,value/this.maxValue);polygon.addPoint((int)point.getX(),(int)point.getY());}"
+280	"public void test(){polygon.addPoint((int)point.getX(),(int)point.getY());Paint paint=getSeriesPaint(series);Paint outlinePaint=getSeriesOutlinePaint(series);}"
+281	"public void test(){Ellipse2D head=new Ellipse2D.Double(point.getX()-headW/2,point.getY()-headH/2,headW,headH);g2.setPaint(paint);g2.fill(head);}"
+282	"public void test(){Paint paint=getSeriesPaint(series);g2.setPaint(paint);g2.setStroke(getSeriesOutlineStroke(series));}"
+283	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.domainZeroBaselineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+284	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.domainZeroBaselinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+285	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.rangeZeroBaselineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+286	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.rangeZeroBaselinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+287	"public void test(){this.domainTickBandPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+288	"public void test(){this.rangeTickBandPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+289	"public void test(){if(index<0||index>3){throw new IllegalArgumentException(""The index value (""+index);}this.quadrantPaint[index]=paint;notifyListeners(new PlotChangeEvent(this));}"
+290	"public void test(){if(isDomainCrosshairVisible()){double x=getDomainCrosshairValue();Paint paint=getDomainCrosshairPaint();Stroke stroke=getDomainCrosshairStroke();drawDomainCrosshair(g2,dataArea,orient,x,xAxis,stroke,paint);}}"
+291	"public void test(){if(isRangeCrosshairVisible()){double y=getRangeCrosshairValue();Paint paint=getRangeCrosshairPaint();Stroke stroke=getRangeCrosshairStroke();drawRangeCrosshair(g2,dataArea,orient,y,yAxis,stroke,paint);}}"
+292	"public void test(){if(axis.getRange().contains(value)){double yy=axis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);Line2D line=new Line2D.Double(dataArea.getMinX(),yy,dataArea.getMaxX(),yy);g2.setStroke(stroke);g2.setPaint(paint);g2.draw(line);}}"
+293	"public void test(){if(axis.getRange().contains(value)){Line2D line=null;if(orientation==PlotOrientation.VERTICAL){double xx=axis.valueToJava2D(value,dataArea,RectangleEdge.BOTTOM);line=new Line2D.Double(xx,dataArea.getMinY(),xx,dataArea.getMaxY());}else {double yy=axis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);line=new Line2D.Double(dataArea.getMinX(),yy,dataArea.getMaxX(),yy);}g2.setStroke(stroke);g2.setPaint(paint);g2.draw(line);}}"
+294	"public void test(){if(orientation==PlotOrientation.VERTICAL){double xx=axis.valueToJava2D(value,dataArea,RectangleEdge.BOTTOM);line=new Line2D.Double(xx,dataArea.getMinY(),xx,dataArea.getMaxY());}else {double yy=axis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);line=new Line2D.Double(dataArea.getMinX(),yy,dataArea.getMaxX(),yy);}}"
+295	"public void test(){if(orientation==PlotOrientation.VERTICAL){double xx=axis.valueToJava2D(value,dataArea,RectangleEdge.BOTTOM);line=new Line2D.Double(xx,dataArea.getMinY(),xx,dataArea.getMaxY());}else {double yy=axis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);line=new Line2D.Double(dataArea.getMinX(),yy,dataArea.getMaxX(),yy);}g2.setStroke(stroke);}"
+296	"public void test(){g2.setStroke(stroke);g2.setPaint(paint);g2.draw(line);}"
+297	"public void test(){if(axis.getRange().contains(value)){double xx=axis.valueToJava2D(value,dataArea,RectangleEdge.BOTTOM);Line2D line=new Line2D.Double(xx,dataArea.getMinY(),xx,dataArea.getMaxY());g2.setStroke(stroke);g2.setPaint(paint);g2.draw(line);}}"
+298	"public void test(){if(axis.getRange().contains(value)){Line2D line=null;if(orientation==PlotOrientation.HORIZONTAL){double xx=axis.valueToJava2D(value,dataArea,RectangleEdge.BOTTOM);line=new Line2D.Double(xx,dataArea.getMinY(),xx,dataArea.getMaxY());}else {double yy=axis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);line=new Line2D.Double(dataArea.getMinX(),yy,dataArea.getMaxX(),yy);}g2.setStroke(stroke);g2.setPaint(paint);g2.draw(line);}}"
+299	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){double xx=axis.valueToJava2D(value,dataArea,RectangleEdge.BOTTOM);line=new Line2D.Double(xx,dataArea.getMinY(),xx,dataArea.getMaxY());}else {double yy=axis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);line=new Line2D.Double(dataArea.getMinX(),yy,dataArea.getMaxX(),yy);}}"
+300	"public void test(){if(orientation==PlotOrientation.HORIZONTAL){double xx=axis.valueToJava2D(value,dataArea,RectangleEdge.BOTTOM);line=new Line2D.Double(xx,dataArea.getMinY(),xx,dataArea.getMaxY());}else {double yy=axis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);line=new Line2D.Double(dataArea.getMinX(),yy,dataArea.getMaxX(),yy);}g2.setStroke(stroke);}"
+301	"public void test(){this.domainCrosshairValue=value;if(isDomainCrosshairVisible()&&notify){notifyListeners(new PlotChangeEvent(this));}}"
+302	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.domainCrosshairStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+303	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.domainCrosshairPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+304	"public void test(){this.rangeCrosshairValue=value;if(isRangeCrosshairVisible()&&notify){notifyListeners(new PlotChangeEvent(this));}}"
+305	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.rangeCrosshairStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+306	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.rangeCrosshairPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+307	"public void test(){if(paint!=null){this.thermometerPaint=paint;notifyListeners(new PlotChangeEvent(this));}}"
+308	"public void test(){if(!this.valuePaint.equals(paint)){this.valuePaint=paint;notifyListeners(new PlotChangeEvent(this));}}"
+309	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.mercuryPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+310	"public void test(){if((range>=0)&&(range<this.subrangePaint.length)){this.subrangePaint[range]=paint;notifyListeners(new PlotChangeEvent(this));}}"
+311	"public void test(){g2.setStroke(this.subrangeIndicatorStroke);Range range=this.rangeAxis.getRange();double value=this.subrangeInfo[NORMAL][RANGE_LOW];}"
+312	"public void test(){if(range.contains(value)){double x=midX+COLUMN_RADIUS;double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);Line2D line=new Line2D.Double(x,y,x+10,y);g2.setPaint(this.subrangePaint[NORMAL]);g2.draw(line);}}"
+313	"public void test(){if(range.contains(value)){double x=midX+COLUMN_RADIUS;double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);Line2D line=new Line2D.Double(x,y,x+10,y);g2.setPaint(this.subrangePaint[NORMAL]);g2.draw(line);}value=this.subrangeInfo[WARNING][RANGE_LOW];}"
+314	"public void test(){if(range.contains(value)){double x=midX+COLUMN_RADIUS;double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);Line2D line=new Line2D.Double(x,y,x+10,y);g2.setPaint(this.subrangePaint[WARNING]);g2.draw(line);}}"
+315	"public void test(){if(range.contains(value)){double x=midX+COLUMN_RADIUS;double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);Line2D line=new Line2D.Double(x,y,x+10,y);g2.setPaint(this.subrangePaint[WARNING]);g2.draw(line);}value=this.subrangeInfo[CRITICAL][RANGE_LOW];}"
+316	"public void test(){if(range.contains(value)){double x=midX+COLUMN_RADIUS;double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);Line2D line=new Line2D.Double(x,y,x+10,y);g2.setPaint(this.subrangePaint[CRITICAL]);g2.draw(line);}}"
+317	"public void test(){{double value=vn.doubleValue();if(inSubrange(NORMAL,value)){this.subrange=NORMAL;}else if(inSubrange(WARNING,value)){this.subrange=WARNING;}else if(inSubrange(CRITICAL,value)){this.subrange=CRITICAL;}else {this.subrange=-1;}setAxisRange();}}"
+318	"public void test(){if(inSubrange(NORMAL,value)){this.subrange=NORMAL;}else if(inSubrange(WARNING,value)){this.subrange=WARNING;}else if(inSubrange(CRITICAL,value)){this.subrange=CRITICAL;}else {this.subrange=-1;}}"
+319	"public void test(){if(inSubrange(WARNING,value)){this.subrange=WARNING;}else if(inSubrange(CRITICAL,value)){this.subrange=CRITICAL;}else {this.subrange=-1;}}"
+320	"public void test(){if(inSubrange(CRITICAL,value)){this.subrange=CRITICAL;}else {this.subrange=-1;}}"
+321	"public void test(){double value=this.dataset.getValue().doubleValue();if(inSubrange(NORMAL,value)){result=this.subrangePaint[NORMAL];}else if(inSubrange(WARNING,value)){result=this.subrangePaint[WARNING];}else if(inSubrange(CRITICAL,value)){result=this.subrangePaint[CRITICAL];}}"
+322	"public void test(){if(inSubrange(NORMAL,value)){result=this.subrangePaint[NORMAL];}else if(inSubrange(WARNING,value)){result=this.subrangePaint[WARNING];}else if(inSubrange(CRITICAL,value)){result=this.subrangePaint[CRITICAL];}}"
+323	"public void test(){if(inSubrange(WARNING,value)){result=this.subrangePaint[WARNING];}else if(inSubrange(CRITICAL,value)){result=this.subrangePaint[CRITICAL];}}"
+324	"public void test(){if(inSubrange(CRITICAL,value)){result=this.subrangePaint[CRITICAL];}}"
+325	"public void test(){super(paint,stroke,outlinePaint,outlineStroke,alpha);this.key=key;setLabelOffsetType(LengthAdjustmentType.EXPAND);}"
+326	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.noDataMessagePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+327	"public void test(){if(paint==null){if(this.backgroundPaint!=null){this.backgroundPaint=null;notifyListeners(new PlotChangeEvent(this));}}else {if(this.backgroundPaint!=null){if(this.backgroundPaint.equals(paint)){return ;}}this.backgroundPaint=paint;notifyListeners(new PlotChangeEvent(this));}}"
+328	"public void test(){if(this.backgroundPaint.equals(paint)){return ;}}"
+329	"public void test(){if(this.backgroundPaint!=null){if(this.backgroundPaint.equals(paint)){return ;}}this.backgroundPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+330	"public void test(){if(this.backgroundAlpha!=alpha){this.backgroundAlpha=alpha;notifyListeners(new PlotChangeEvent(this));}}"
+331	"public void test(){if(this.backgroundImageAlpha!=alpha){this.backgroundImageAlpha=alpha;this.notifyListeners(new PlotChangeEvent(this));}}"
+332	"public void test(){if(stroke==null){if(this.outlineStroke!=null){this.outlineStroke=null;notifyListeners(new PlotChangeEvent(this));}}else {if(this.outlineStroke!=null){if(this.outlineStroke.equals(stroke)){return ;}}this.outlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}}"
+333	"public void test(){if(this.outlineStroke.equals(stroke)){return ;}}"
+334	"public void test(){if(this.outlineStroke!=null){if(this.outlineStroke.equals(stroke)){return ;}}this.outlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+335	"public void test(){if(paint==null){if(this.outlinePaint!=null){this.outlinePaint=null;notifyListeners(new PlotChangeEvent(this));}}else {if(this.outlinePaint!=null){if(this.outlinePaint.equals(paint)){return ;}}this.outlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}}"
+336	"public void test(){if(this.outlinePaint.equals(paint)){return ;}}"
+337	"public void test(){if(this.outlinePaint!=null){if(this.outlinePaint.equals(paint)){return ;}}this.outlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+338	"public void test(){if(this.foregroundAlpha!=alpha){this.foregroundAlpha=alpha;notifyListeners(new PlotChangeEvent(this));}}"
+339	"public void test(){if(alpha<0.0||alpha>1.0)throw new IllegalArgumentException(""The \'alpha\' value must be in the range 0.0f to 1.0f"");this.paint=paint;this.stroke=stroke;}"
+340	"public void test(){this.paint=paint;this.stroke=stroke;this.outlinePaint=outlinePaint;}"
+341	"public void test(){this.outlineStroke=outlineStroke;this.alpha=alpha;this.labelFont=new Font(""SansSerif"",Font.PLAIN,9);}"
+342	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.paint=paint;notifyListeners(new MarkerChangeEvent(this));}"
+343	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.stroke=stroke;notifyListeners(new MarkerChangeEvent(this));}"
+344	"public void test(){this.outlinePaint=paint;notifyListeners(new MarkerChangeEvent(this));}"
+345	"public void test(){this.outlineStroke=stroke;notifyListeners(new MarkerChangeEvent(this));}"
+346	"public void test(){if(alpha<0.0||alpha>1.0)throw new IllegalArgumentException(""The \'alpha\' value must be in the range 0.0f to 1.0f"");this.alpha=alpha;notifyListeners(new MarkerChangeEvent(this));}"
+347	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.labelPaint=paint;notifyListeners(new MarkerChangeEvent(this));}"
+348	"public void test(){stream.defaultWriteObject();SerialUtilities.writePaint(this.paint,stream);SerialUtilities.writeStroke(this.stroke,stream);SerialUtilities.writePaint(this.outlinePaint,stream);SerialUtilities.writeStroke(this.outlineStroke,stream);SerialUtilities.writePaint(this.labelPaint,stream);}"
+349	"public void test(){this.paint=SerialUtilities.readPaint(stream);this.stroke=SerialUtilities.readStroke(stream);this.outlinePaint=SerialUtilities.readPaint(stream);}"
+350	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.aggregatedItemsPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+351	"public void test(){String description=label;Paint paint=(Paint)this.sectionPaints.get(key);LegendItem item=new LegendItem(label,description,null,null,Plot.DEFAULT_LEGEND_ITEM_CIRCLE,paint,Plot.DEFAULT_OUTLINE_STROKE,paint);}"
+352	"public void test(){Paint paint=(Paint)this.sectionPaints.get(key);LegendItem item=new LegendItem(label,description,null,null,Plot.DEFAULT_LEGEND_ITEM_CIRCLE,paint,Plot.DEFAULT_OUTLINE_STROKE,paint);item.setDataset(getDataset());}"
+353	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.rosePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+354	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.roseCenterPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+355	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.roseHighlightPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+356	"public void test(){if((series>=0)&&(series<this.seriesNeedle.length)){this.seriesNeedle[series].setFillPaint(paint);}}"
+357	"public void test(){if((series>=0)&&(series<this.seriesNeedle.length)){this.seriesNeedle[series].setOutlineStroke(stroke);}}"
+358	"public void test(){int current=0;double value=0;int i=(this.datasets.length-1);}"
+359	"public void test(){if(data!=null&&data.getValue()!=null){value=(data.getValue().doubleValue())%this.revolutionDistance;value=value/this.revolutionDistance*360;current=i%x;this.seriesNeedle[current].draw(g2,needleArea,value);}}"
+360	"public void test(){super(paint,stroke,outlinePaint,outlineStroke,alpha);this.startValue=start;this.endValue=end;this.gradientPaintTransformer=null;setLabelOffsetType(LengthAdjustmentType.CONTRACT);}"
+361	"public void test(){this.startValue=value;notifyListeners(new MarkerChangeEvent(this));}"
+362	"public void test(){this.endValue=value;notifyListeners(new MarkerChangeEvent(this));}"
+363	"public void test(){this.sectionPaintMap.put(key,paint);notifyListeners(new PlotChangeEvent(this));}"
+364	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.baseSectionPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+365	"public void test(){this.sectionOutlinePaintMap.put(key,paint);notifyListeners(new PlotChangeEvent(this));}"
+366	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.baseSectionOutlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+367	"public void test(){this.sectionOutlineStrokeMap.put(key,stroke);notifyListeners(new PlotChangeEvent(this));}"
+368	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.baseSectionOutlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+369	"public void test(){this.shadowPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+370	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.labelLinkPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+371	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.labelLinkStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+372	"public void test(){this.labelBackgroundPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+373	"public void test(){this.labelOutlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+374	"public void test(){this.labelOutlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+375	"public void test(){this.labelShadowPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+376	"public void test(){if(n!=null){double value=n.doubleValue();if(value>0.0){runningTotal+=value;drawItem(g2,section,explodeArea,state,pass);}}}"
+377	"public void test(){if(value>0.0){runningTotal+=value;drawItem(g2,section,explodeArea,state,pass);}}"
+378	"public void test(){if(n==null){return ;}double value=n.doubleValue();double angle1=0.0;}"
+379	"public void test(){{angle1=state.getLatestAngle();angle2=angle1-value/state.getTotal()*360.0;}}"
+380	"public void test(){if(this.direction==Rotation.ANTICLOCKWISE){angle1=state.getLatestAngle();angle2=angle1+value/state.getTotal()*360.0;}else {throw new IllegalStateException(""Rotation type not recognised."");}}"
+381	"public void test(){Comparable key=getSectionKey(section);Paint paint=lookupSectionPaint(key,true);g2.setPaint(paint);}"
+382	"public void test(){Paint paint=lookupSectionPaint(key,true);g2.setPaint(paint);g2.fill(arc);}"
+383	"public void test(){if(this.legendLabelURLGenerator!=null){urlText=this.legendLabelURLGenerator.generateURL(this.dataset,key,this.pieIndex);}Paint paint=lookupSectionPaint(key,true);Paint outlinePaint=lookupSectionOutlinePaint(key);}"
+384	"public void test(){Stroke outlineStroke=lookupSectionOutlineStroke(key);LegendItem item=new LegendItem(label,description,toolTipText,urlText,true,shape,true,paint,true,outlinePaint,outlineStroke,false,new Line2D.Float(),new BasicStroke(),Color.black);item.setDataset(getDataset());}"
+385	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.tickPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+386	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.needlePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+387	"public void test(){if(!this.tickLabelPaint.equals(paint)){this.tickLabelPaint=paint;notifyListeners(new PlotChangeEvent(this));}}"
+388	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.valuePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+389	"public void test(){this.dialBackgroundPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+390	"public void test(){this.dialOutlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+391	"public void test(){double radius=(meterArea.getWidth()/2)+DEFAULT_BORDER_SIZE;double valueAngle=valueToAngle(value);double valueP1=meterMiddleX+(radius*Math.cos(Math.PI*(valueAngle/180)));}"
+392	"public void test(){double h=area.getHeight();g2.setPaint(paint);g2.setStroke(stroke);}"
+393	"public void test(){g2.setPaint(paint);g2.setStroke(stroke);if(paint!=null&&stroke!=null){Arc2D.Double arc=new Arc2D.Double(x,y,w,h,startAngle,extent,Arc2D.OPEN);g2.setPaint(paint);g2.setStroke(stroke);g2.draw(arc);}}"
+394	"public void test(){if(paint!=null&&stroke!=null){Arc2D.Double arc=new Arc2D.Double(x,y,w,h,startAngle,extent,Arc2D.OPEN);g2.setPaint(paint);g2.setStroke(stroke);g2.draw(arc);}}"
+395	"public void test(){g2.setPaint(paint);Arc2D.Double arc=new Arc2D.Double(x,y,w,h,startAngle,extent,joinType);g2.fill(arc);}"
+396	"public void test(){value=value-this.range.getLowerBound();double baseAngle=180+((this.meterAngle-180)/2);return baseAngle-((value/this.range.getLength())*this.meterAngle);}"
+397	"public void test(){double valueAngle=valueToAngle(value);double meterMiddleX=meterArea.getCenterX();double meterMiddleY=meterArea.getCenterY();}"
+398	"public void test(){String tickLabel=this.tickLabelFormat.format(value);g2.setFont(this.tickLabelFont);g2.setPaint(this.tickLabelPaint);}"
+399	"public void test(){Arc2D.Double arc;Paint paint;Paint outlinePaint;}"
+400	"public void test(){if(dataValue==null){arcList.add(null);continue;}double value=dataValue.doubleValue();if(value<=0){arcList.add(null);continue;}}"
+401	"public void test(){if(value<=0){arcList.add(null);continue;}}"
+402	"public void test(){double angle1=startAngle+(direction*(runningTotal*360))/totalValue;double angle2=startAngle+(direction*(runningTotal+value))/totalValue;if(Math.abs(angle2-angle1)>getMinimumArcAngleToDraw()){arcList.add(new Arc2D.Double(arcX,arcY+depth,pieArea.getWidth(),pieArea.getHeight()-depth,angle1,angle2-angle1,Arc2D.PIE));}else {arcList.add(null);}}"
+403	"public void test(){if(Math.abs(angle2-angle1)>getMinimumArcAngleToDraw()){arcList.add(new Arc2D.Double(arcX,arcY+depth,pieArea.getWidth(),pieArea.getHeight()-depth,angle1,angle2-angle1,Arc2D.PIE));}else {arcList.add(null);}runningTotal+=value;}"
+404	"public void test(){Comparable key=getSectionKey(categoryIndex);paint=lookupSectionPaint(key,true);outlinePaint=lookupSectionOutlinePaint(key);}"
+405	"public void test(){outlineStroke=lookupSectionOutlineStroke(key);g2.setPaint(paint);g2.fill(arc);}"
+406	"public void test(){g2.draw(arc);g2.setPaint(paint);Point2D p1=arc.getStartPoint();}"
+407	"public void test(){g2.setStroke(outlineStroke);g2.draw(polygon);g2.setPaint(paint);}"
+408	"public void test(){if(segment!=null){Comparable key=getSectionKey(cat);paint=lookupSectionPaint(key,true);outlinePaint=lookupSectionOutlinePaint(key);outlineStroke=lookupSectionOutlineStroke(key);drawSide(g2,pieArea,segment,front,back,paint,outlinePaint,outlineStroke,false,true);}}"
+409	"public void test(){if(segment!=null){Comparable key=getSectionKey(cat);paint=lookupSectionPaint(key);outlinePaint=lookupSectionOutlinePaint(key);outlineStroke=lookupSectionOutlineStroke(key);drawSide(g2,pieArea,segment,front,back,paint,outlinePaint,outlineStroke,true,false);}}"
+410	"public void test(){Comparable currentKey=(Comparable)sectionKeys.get(sectionIndex);paint=lookupSectionPaint(currentKey,true);outlinePaint=lookupSectionOutlinePaint(currentKey);}"
+411	"public void test(){outlineStroke=lookupSectionOutlineStroke(currentKey);g2.setPaint(paint);g2.fill(upperArc);}"
+412	"public void test(){if(paint instanceof Color){Color c=(Color)paint;c=c.darker();paint=c;}}"
+413	"public void test(){side.intersect(front);g2.setPaint(paint);g2.fill(side);}"
+414	"public void test(){side2.intersect(front);g2.setPaint(paint);if(drawFront){g2.fill(side1);g2.fill(side2);}}"
+415	"public void test(){side2.intersect(back);g2.setPaint(paint);g2.fill(side2);}"
+416	"public void test(){side1.intersect(front);g2.setPaint(paint);g2.fill(side1);}"
+417	"public void test(){side.intersect(back);g2.setPaint(paint);g2.fill(side);}"
+418	"public void test(){side2.intersect(back);g2.setPaint(paint);if(drawBack){g2.fill(side1);g2.fill(side2);}}"
+419	"public void test(){side1.intersect(back);g2.setPaint(paint);g2.fill(side1);}"
+420	"public void test(){side2.intersect(front);g2.setPaint(paint);g2.fill(side2);}"
+421	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' not permitted."");}this.domainGridlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+422	"public void test(){RectangleEdge edge=Plot.resolveRangeAxisLocation(getRangeAxisLocation(),this.orientation);double value=getRangeAxis().java2DToValue(java2D,info.getDataArea(),edge);setAnchorValue(value);}"
+423	"public void test(){double value=getRangeAxis().java2DToValue(java2D,info.getDataArea(),edge);setAnchorValue(value);setRangeCrosshairValue(value);}"
+424	"public void test(){double java2D=getRangeAxis().valueToJava2D(value,dataArea,getRangeAxisEdge());Line2D line=null;if(this.orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(java2D,dataArea.getMinY(),java2D,dataArea.getMaxY());}else if(this.orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(dataArea.getMinX(),java2D,dataArea.getMaxX(),java2D);}}"
+425	"public void test(){if(this.orientation==PlotOrientation.HORIZONTAL){line=new Line2D.Double(java2D,dataArea.getMinY(),java2D,dataArea.getMaxY());}else if(this.orientation==PlotOrientation.VERTICAL){line=new Line2D.Double(dataArea.getMinX(),java2D,dataArea.getMaxX(),java2D);}g2.setStroke(stroke);g2.setPaint(paint);}"
+426	"public void test(){if(!axis.getRange().contains(value)){return ;}}"
+427	"public void test(){this.anchorValue=value;if(notify){notifyListeners(new PlotChangeEvent(this));}}"
+428	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.separatorStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+429	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.separatorPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+430	"public void test(){if(direction==Rotation.ANTICLOCKWISE){angle1=state.getLatestAngle();angle2=angle1+value/state.getTotal()*360.0;}else {throw new IllegalStateException(""Rotation type not recognised."");}}"
+431	"public void test(){Paint paint=lookupSectionPaint(key,true);g2.setPaint(paint);g2.fill(path);}"
+432	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.angleLabelPaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+433	"public void test(){this.angleGridlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+434	"public void test(){this.angleGridlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+435	"public void test(){this.radiusGridlineStroke=stroke;notifyListeners(new PlotChangeEvent(this));}"
+436	"public void test(){this.radiusGridlinePaint=paint;notifyListeners(new PlotChangeEvent(this));}"
+437	"public void test(){super();this.value=value;}"
+438	"public void test(){super(paint,stroke,paint,stroke,alpha);this.value=value;}"
+439	"public void test(){this.value=value;notifyListeners(new MarkerChangeEvent(this));}"
+440	"public void test(){this.borderStroke=stroke;fireChartChanged();}"
+441	"public void test(){this.borderPaint=paint;fireChartChanged();}"
+442	"public void test(){if(!this.backgroundPaint.equals(paint)){this.backgroundPaint=paint;fireChartChanged();}}"
+443	"public void test(){if(paint!=null){this.backgroundPaint=paint;fireChartChanged();}}"
+444	"public void test(){if(this.backgroundImageAlpha!=alpha){this.backgroundImageAlpha=alpha;fireChartChanged();}}"
+445	"public void test(){Paint paint=getBorderPaint();Stroke stroke=getBorderStroke();if(paint!=null&&stroke!=null){Rectangle2D borderArea=new Rectangle2D.Double(chartArea.getX(),chartArea.getY(),chartArea.getWidth()-1.0,chartArea.getHeight()-1.0);g2.setPaint(paint);g2.setStroke(stroke);g2.draw(borderArea);}}"
+446	"public void test(){if(paint!=null&&stroke!=null){Rectangle2D borderArea=new Rectangle2D.Double(chartArea.getX(),chartArea.getY(),chartArea.getWidth()-1.0,chartArea.getHeight()-1.0);g2.setPaint(paint);g2.setStroke(stroke);g2.draw(borderArea);}}"
+447	"public void test(){this.backgroundPaint=paint;notifyListeners(new TitleChangeEvent(this));}"
+448	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.itemPaint=paint;notifyListeners(new TitleChangeEvent(this));}"
+449	"public void test(){if(paint==null){throw new NullPointerException(""Null \'paint\' argument."");}}"
+450	"public void test(){this.font=font;this.paint=paint;this.textAlignment=horizontalAlignment;}"
+451	"public void test(){if(!this.paint.equals(paint)){this.paint=paint;notifyListeners(new TitleChangeEvent(this));}}"
+452	"public void test(){g2.setFont(this.font);this.content=TextUtilities.createTextBlock(this.text,this.font,this.paint,maxWidth,new G2TextMeasurer(g2));this.content.setLineAlignment(this.textAlignment);}"
+453	"public void test(){g2.setFont(this.font);g2.setPaint(this.paint);TextBlockAnchor anchor=null;}"
+454	"public void test(){int result=super.hashCode();result=29*result+(this.text!=null?this.text.hashCode():0);result=29*result+(this.font!=null?this.font.hashCode():0);result=29*result+(this.paint!=null?this.paint.hashCode():0);result=29*result+(this.backgroundPaint!=null?this.backgroundPaint.hashCode():0);return result;}"
+455	"public void test(){stream.defaultWriteObject();SerialUtilities.writePaint(this.paint,stream);SerialUtilities.writePaint(this.backgroundPaint,stream);}"
+456	"public void test(){stream.defaultReadObject();this.paint=SerialUtilities.readPaint(stream);this.backgroundPaint=SerialUtilities.readPaint(stream);}"
+457	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.stripOutlinePaint=paint;notifyListeners(new TitleChangeEvent(this));}"
+458	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.stripOutlineStroke=stroke;notifyListeners(new TitleChangeEvent(this));}"
+459	"public void test(){this(TickType.MAJOR,value,label,textAnchor,rotationAnchor,angle);this.value=value;}"
+460	"public void test(){super(label,textAnchor,rotationAnchor,angle);this.value=value;this.tickType=tickType;}"
+461	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.gridBandPaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+462	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.gridBandAlternatePaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+463	"public void test(){String strToReturn;try{strToReturn=(String)this.symbols.get((int)value);}catch (IndexOutOfBoundsException ex) {  strToReturn="""";}return strToReturn;}"
+464	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.subLabelPaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+465	"public void test(){super(tickType,value,label,textAnchor,rotationAnchor,angle);this.number=new Double(value);}"
+466	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.minorTickMarkStroke=stroke;notifyListeners(new AxisChangeEvent(this));}"
+467	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.minorTickMarkPaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+468	"public void test(){if(isInverted()){result=maxX+((value-axisMin)/(axisMax-axisMin))*(minX-maxX);}else {result=minX+((value-axisMin)/(axisMax-axisMin))*(maxX-minX);}}"
+469	"public void test(){if(isInverted()){result=minY+(((value-axisMin)/(axisMax-axisMin))*(maxY-minY));}else {result=maxY-(((value-axisMin)/(axisMax-axisMin))*(maxY-minY));}}"
+470	"public void test(){if(RectangleEdge.isTopOrBottom(edge)){min=plotArea.getMinX();max=plotArea.getMaxX();}else if(RectangleEdge.isLeftOrRight(edge)){min=plotArea.getMaxY();max=plotArea.getMinY();}value=switchedLog10(value);}"
+471	"public void test(){if(isInverted()){return max-(((value-axisMin)/(axisMax-axisMin))*(max-min));}else {return min+(((value-axisMin)/(axisMax-axisMin))*(max-min));}}"
+472	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.advanceLinePaint=paint;}"
+473	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.advanceLineStroke=stroke;}"
+474	"public void test(){if((value<vmin)||(value>vmax)){return Double.NaN;}}"
+475	"public void test(){if(value==vp){return this.boundMappedToLastCycle?jmin:jmax;}else if(value>vp){return jmax-(value-vp)*(jmax-jmin)/this.period;}else {return jmin+(vp-value)*(jmax-jmin)/this.period;}}"
+476	"public void test(){if(value>vp){return jmax-(value-vp)*(jmax-jmin)/this.period;}else {return jmin+(vp-value)*(jmax-jmin)/this.period;}}"
+477	"public void test(){if(value==vp){return this.boundMappedToLastCycle?jmax:jmin;}else if(value>=vp){return jmin+(value-vp)*(jmax-jmin)/this.period;}else {return jmax-(vp-value)*(jmax-jmin)/this.period;}}"
+478	"public void test(){if(value>=vp){return jmin+(value-vp)*(jmax-jmin)/this.period;}else {return jmax-(vp-value)*(jmax-jmin)/this.period;}}"
+479	"public void test(){double central=this.range.getCentralValue();Range adjusted=new Range(this.range.getLowerBound()+value-central,this.range.getUpperBound()+value-central);setRange(adjusted);}"
+480	"public void test(){value=this.timeline.toTimelineValue((long)value);DateRange range=(DateRange)getRange();double axisMin=this.timeline.toTimelineValue(range.getLowerDate());}"
+481	"public void test(){double value=date.getTime();return valueToJava2D(value,area,edge);}"
+482	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.sublabelPaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+483	"public void test(){if(isInverted()){return max-((value-this.displayStart)/(this.displayEnd-this.displayStart))*(max-min);}else {return min+((value-this.displayStart)/(this.displayEnd-this.displayStart))*(max-min);}}"
+484	"public void test(){if(isInverted()){return max-((value-this.displayStart)/(this.fixedRange.getUpperBound()-this.displayStart))*(max-min);}else {return min+((value-this.displayStart)/(this.fixedRange.getUpperBound()-this.displayStart))*(max-min);}}"
+485	"public void test(){if(isInverted()){return max-((value-this.fixedRange.getLowerBound())/(this.displayEnd-this.fixedRange.getLowerBound()))*(max-min);}else {return min+((value-this.fixedRange.getLowerBound())/(this.displayEnd-this.fixedRange.getLowerBound()))*(max-min);}}"
+486	"public void test(){if(value<lower){return lower+length;}else {return lower+((value-lower)%length);}}"
+487	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.labelPaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+488	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.axisLinePaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+489	"public void test(){if(stroke==null){throw new IllegalArgumentException(""Null \'stroke\' argument."");}this.axisLineStroke=stroke;notifyListeners(new AxisChangeEvent(this));}"
+490	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.tickLabelPaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+491	"public void test(){if(!this.tickMarkStroke.equals(stroke)){this.tickMarkStroke=stroke;notifyListeners(new AxisChangeEvent(this));}}"
+492	"public void test(){if(paint==null){throw new IllegalArgumentException(""Null \'paint\' argument."");}this.tickMarkPaint=paint;notifyListeners(new AxisChangeEvent(this));}"
+493	"public void test(){if(paint==null){this.tickLabelPaintMap.remove(category);}else {this.tickLabelPaintMap.put(category,paint);}}"
+494	"public void test(){for(int i=0;i<count;i++){Comparable category=(Comparable)in.readObject();Paint paint=SerialUtilities.readPaint(in);result.put(category,paint);}}"
+495	"public void test(){if(value<=0.0){throw new IllegalArgumentException(""Requires \'value\' > 0.0."");}}"
+496	"public void test(){if(value<=0.0){throw new IllegalArgumentException(""Requires \'value\' > 0.0."");}this.smallestValue=value;notifyListeners(new AxisChangeEvent(this));}"
+497	"public void test(){double axisMax=calculateLog(range.getUpperBound());value=calculateLog(value);double min=0.0;}"
+498	"public void test(){if(isInverted()){return max-((value-axisMin)/(axisMax-axisMin))*(max-min);}else {return min+((value-axisMin)/(axisMax-axisMin))*(max-min);}}"
+499	"public void test(){if(this.numberFormatOverride!=null){return this.numberFormatOverride.format(value);}else {return this.tickUnit.valueToString(value);}}"
+500	"public void test(){if(nb<=0){return Math.floor(value+0.5);}}"
+501	"public void test(){if(nb<=0){return Math.floor(value+0.5);}double p=Math.pow(10,nb);double tempval=Math.floor(value*p+0.5);return tempval/p;}"
+502	"public void test(){this.font=font;this.paint=paint;this.baselineOffset=baselineOffset;}"
+503	"public void test(){g2.setFont(this.font);g2.setPaint(this.paint);TextUtilities.drawRotatedString(this.text,g2,anchorX,anchorY+this.baselineOffset,anchor,angle,rotateX,rotateY);}"
+504	"public void test(){if(!this.paint.equals(tf.paint)){return false;}}"
+505	"public void test(){int result;result=(this.text!=null?this.text.hashCode():0);result=29*result+(this.font!=null?this.font.hashCode():0);result=29*result+(this.paint!=null?this.paint.hashCode():0);return result;}"
+506	"public void test(){if(index<input.length()-1){result.addLine(line,font,paint);input=input.substring(index+1);}else {moreInputToProcess=false;}}"
+507	"public void test(){{result.addLine(input,font,paint);moreInputToProcess=false;}}"
+508	"public void test(){if(next==BreakIterator.DONE){result.addLine(text.substring(current),font,paint);return result;}}"
+509	"public void test(){if(next==BreakIterator.DONE){result.addLine(text.substring(current),font,paint);return result;}result.addLine(text.substring(current,next),font,paint);lines++;}"
+510	"public void test(){this.fragments=new java.util.ArrayList();TextFragment fragment=new TextFragment(text,font,paint);this.fragments.add(fragment);}"
+511	"public void test(){if(pos>=0){this.data.remove(pos);}KeyedObject item=new KeyedObject(key,value);if(position<=this.data.size()){this.data.add(position,item);}else {this.data.add(item);}}"
+512	"public void test(){double existing=0.0;Number n=getValue(rowKey,columnKey);if(n!=null){existing=n.doubleValue();}setValue(existing+value,rowKey,columnKey);}"
+513	"public void test(){if(dataValue!=null){double value=dataValue.doubleValue();if(value/total<minimumPercent){otherKeys.add(currentKey);}}}"
+514	"public void test(){if(value/total<minimumPercent){otherKeys.add(currentKey);}}"
+515	"public void test(){double value;if(dataset instanceof IntervalXYDataset){IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getStartXValue(series,item);}else {value=dataset.getXValue(series,item);}}"
+516	"public void test(){if(dataset instanceof IntervalXYDataset){IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getStartXValue(series,item);}else {value=dataset.getXValue(series,item);}}"
+517	"public void test(){if(!Double.isNaN(value)){minimum=Math.min(minimum,value);}}"
+518	"public void test(){double value;if(dataset instanceof IntervalXYDataset){IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getEndXValue(series,item);}else {value=dataset.getXValue(series,item);}}"
+519	"public void test(){if(dataset instanceof IntervalXYDataset){IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getEndXValue(series,item);}else {value=dataset.getXValue(series,item);}}"
+520	"public void test(){if(!Double.isNaN(value)){maximum=Math.max(maximum,value);}}"
+521	"public void test(){{double value;if(dataset instanceof IntervalXYDataset){IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getStartYValue(series,item);}else if(dataset instanceof OHLCDataset){OHLCDataset highLowData=(OHLCDataset)dataset;value=highLowData.getLowValue(series,item);}else {value=dataset.getYValue(series,item);}if(!Double.isNaN(value)){minimum=Math.min(minimum,value);}}}"
+522	"public void test(){{IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getStartYValue(series,item);}}"
+523	"public void test(){if(dataset instanceof OHLCDataset){OHLCDataset highLowData=(OHLCDataset)dataset;value=highLowData.getLowValue(series,item);}else {value=dataset.getYValue(series,item);}}"
+524	"public void test(){{double value;if(dataset instanceof IntervalXYDataset){IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getEndYValue(series,item);}else if(dataset instanceof OHLCDataset){OHLCDataset highLowData=(OHLCDataset)dataset;value=highLowData.getHighValue(series,item);}else {value=dataset.getYValue(series,item);}if(!Double.isNaN(value)){maximum=Math.max(maximum,value);}}}"
+525	"public void test(){{IntervalXYDataset intervalXYData=(IntervalXYDataset)dataset;value=intervalXYData.getEndYValue(series,item);}}"
+526	"public void test(){if(dataset instanceof OHLCDataset){OHLCDataset highLowData=(OHLCDataset)dataset;value=highLowData.getHighValue(series,item);}else {value=dataset.getYValue(series,item);}}"
+527	"public void test(){if(number!=null){double value=number.doubleValue();if(value>0.0){positive=positive+value;}if(value<0.0){negative=negative+value;}}}"
+528	"public void test(){if(value>0.0){positive=positive+value;}}"
+529	"public void test(){if(value<0.0){negative=negative+value;}}"
+530	"public void test(){if(number!=null){double value=number.doubleValue();if(value>0.0){positive[groupIndex[series]]=positive[groupIndex[series]]+value;}if(value<0.0){negative[groupIndex[series]]=negative[groupIndex[series]]+value;}}}"
+531	"public void test(){if(value>0.0){positive[groupIndex[series]]=positive[groupIndex[series]]+value;}}"
+532	"public void test(){if(value<0.0){negative[groupIndex[series]]=negative[groupIndex[series]]+value;}}"
+533	"public void test(){if(number!=null){double value=number.doubleValue();if(value<0.0){total=total+value;}}}"
+534	"public void test(){if(value<0.0){total=total+value;}}"
+535	"public void test(){if(number!=null){double value=number.doubleValue();if(value>0.0){total=total+value;}}}"
+536	"public void test(){if(value>0.0){total=total+value;}}"
+537	"public void test(){for(int s=0;s<seriesCount;s++){double value=dataset.getYValue(s,item);if(!Double.isNaN(value)){total=total+value;}}}"
+538	"public void test(){if(!Double.isNaN(value)){total=total+value;}}"
+539	"public void test(){if(n!=null){allItemsNull=false;double value=n.doubleValue();runningTotal=runningTotal+value;minimum=Math.min(minimum,runningTotal);maximum=Math.max(maximum,runningTotal);}}"
+540	"public void test(){double result=value;if(!contains(value)){if(value>this.upper){result=this.upper;}else if(value<this.lower){result=this.lower;}}}"
+541	"public void test(){if(!contains(value)){if(value>this.upper){result=this.upper;}else if(value<this.lower){result=this.lower;}}}"
+542	"public void test(){if(value>this.upper){result=this.upper;}else if(value<this.lower){result=this.lower;}}"
+543	"public void test(){if(value<this.lower){result=this.lower;}}"
+544	"public void test(){if(range==null){return new Range(value,value);}}"
+545	"public void test(){if(value<range.getLowerBound()){return new Range(value,range.getUpperBound());}else if(value>range.getUpperBound()){return new Range(range.getLowerBound(),value);}else {return range;}}"
+546	"public void test(){if(value>range.getUpperBound()){return new Range(range.getLowerBound(),value);}else {return range;}}"
+547	"public void test(){if(value>0.0){return Math.max(value+delta,0.0);}else if(value<0.0){return Math.min(value+delta,0.0);}else {return value+delta;}}"
+548	"public void test(){if(value<0.0){return Math.min(value+delta,0.0);}else {return value+delta;}}"
+549	"public void test(){if(columnCount!=2){throw new SQLException(""Invalid sql generated.  PieDataSet requires 2 columns only"");}int columnType=metaData.getColumnType(2);double value=Double.NaN;}"
+550	"public void test(){value=date.getTime();setValue(key,value);break;}"
+551	"public void test(){{Number number=(Number)object;double value=number.doubleValue();if(Double.isNaN(value)){if(includeNullAndNaN){return Double.NaN;}}else {total=total+number.doubleValue();count=count+1;}}}"
+552	"public void test(){if(Double.isNaN(value)){if(includeNullAndNaN){return Double.NaN;}}else {total=total+number.doubleValue();count=count+1;}}"
+553	"public void test(){if(Double.isNaN(value)){return false;}}"
+554	"public void test(){if(value<this.lowerBound){return false;}}"
+555	"public void test(){if(value>this.upperBound){return false;}}"
+556	"public void test(){if(value==this.lowerBound){return this.includeLowerBound;}}"
+557	"public void test(){if(value==this.upperBound){return this.includeUpperBound;}}"
+558	"public void test(){if(value>upperOutlierThreshold){outliers.add(number);if(value>maxOutlier&&value<=upperFaroutThreshold){maxOutlier=value;}}else if(value<lowerOutlierThreshold){outliers.add(number);if(value<minOutlier&&value>=lowerFaroutThreshold){minOutlier=value;}}else {minRegularValue=Math.min(minRegularValue,value);maxRegularValue=Math.max(maxRegularValue,value);}}"
+559	"public void test(){if(value>maxOutlier&&value<=upperFaroutThreshold){maxOutlier=value;}}"
+560	"public void test(){if(value<lowerOutlierThreshold){outliers.add(number);if(value<minOutlier&&value>=lowerFaroutThreshold){minOutlier=value;}}else {minRegularValue=Math.min(minRegularValue,value);maxRegularValue=Math.max(maxRegularValue,value);}}"
+561	"public void test(){if(value<minOutlier&&value>=lowerFaroutThreshold){minOutlier=value;}}"
+562	"public void test(){if(bin.accepts(value)){bin.setItemCount(bin.getItemCount()+1);placed=true;}}"
+563	"public void test(){TimeSeriesDataItem item=new TimeSeriesDataItem(period,value);add(item,notify);}"
+564	"public void test(){TimePeriodValue item=new TimePeriodValue(period,value);add(item);}"
+565	"public void test(){if(column==1){try{Double v=Double.valueOf(value.toString());this.series.update(row,v);}catch (NumberFormatException nfe) {  System.err.println(""Number format exception"");}}}"
+566	"public void test(){if(column==1){this.newValue=Double.valueOf(value.toString());}}"

@@ -1,0 +1,73 @@
+1	"public void test(){return (a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);}"
+2	"public void test(){if(Double.isNaN(z)){z=Gamma.logGamma(alpha)+Gamma.logGamma(beta)-Gamma.logGamma(alpha+beta);}}"
+3	"public void test(){if(Double.isNaN(result)){throw new MathException(LocalizedFormats.DISCRETE_CUMULATIVE_PROBABILITY_RETURNED_NAN,argument);}}"
+4	"public void test(){if(a.equals(a.getZero())||a.lessThan(a.getZero())){a.getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);return a.dotrap(DfpField.FLAG_INVALID,""ln"",a,a.newInstance((byte)1,Dfp.QNAN));}}"
+5	"public void test(){if(x.isNaN()){x.getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);return x.dotrap(DfpField.FLAG_INVALID,POW_TRAP,x,x);}}"
+6	"public void test(){if(x.isNaN()||y.isNaN()){x.getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);return x.dotrap(DfpField.FLAG_INVALID,POW_TRAP,x,x.newInstance((byte)1,Dfp.QNAN));}}"
+7	"public void test(){if(isNaN()||x.isNaN()){field.setIEEEFlagsBits(DfpField.FLAG_INVALID);dotrap(DfpField.FLAG_INVALID,LESS_THAN_TRAP,x,newInstance(getZero()));return false;}}"
+8	"public void test(){if(isNaN()||x.isNaN()){field.setIEEEFlagsBits(DfpField.FLAG_INVALID);dotrap(DfpField.FLAG_INVALID,GREATER_THAN_TRAP,x,newInstance(getZero()));return false;}}"
+9	"public void test(){if(isNaN()||x.isNaN()){return false;}}"
+10	"public void test(){if(isNaN()){return newInstance(this);}}"
+11	"public void test(){if(isNaN()){return this;}}"
+12	"public void test(){if(x.isNaN()){return x;}}"
+13	"public void test(){if(divisor.isNaN()){return divisor;}}"
+14	"public void test(){if(isNaN()){return Double.NaN;}}"
+15	"public void test(){if(Double.isNaN(previousEventTime)||(FastMath.abs(previousEventTime-root)>convergence)){pendingEventTime=root;if(pendingEvent&&(FastMath.abs(t1-pendingEventTime)<=convergence)){return false;}pendingEvent=true;return true;}}"
+16	"public void test(){return Double.isNaN(x)||Double.isNaN(y);}"
+17	"public void test(){return !isNaN()&&(Double.isInfinite(x)||Double.isInfinite(y));}"
+18	"public void test(){if(rhs.isNaN()){return this.isNaN();}}"
+19	"public void test(){if(isNaN()){return 8;}}"
+20	"public void test(){if(Double.isNaN(value)){throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.NAN_VALUE_CONVERSION);}}"
+21	"public void test(){if(!Double.isNaN(cachedNormalDeviate)){double dev=cachedNormalDeviate;cachedNormalDeviate=Double.NaN;return dev;}}"
+22	"public void test(){if(Double.isNaN(nextGaussian)){ final double x=nextDouble(); final double y=nextDouble(); final double alpha=2*FastMath.PI; final double r=FastMath.sqrt(-2*FastMath.log(y));random=r*FastMath.cos(alpha);nextGaussian=r*FastMath.sin(alpha);}else {random=nextGaussian;nextGaussian=Double.NaN;}}"
+23	"public void test(){if(Double.isNaN(value)||Double.isInfinite(value)){toAppendTo.append('(');toAppendTo.append(value);toAppendTo.append(')');}else {format.format(value,toAppendTo,pos);}}"
+24	"public void test(){if(Double.isNaN(r)){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);}}"
+25	"public void test(){return (a<0.0)?-1.0:((a>0.0)?1.0:(Double.isNaN(a)?Double.NaN:0.0));}"
+26	"public void test(){if(Double.isNaN(d)||Double.isInfinite(d)){return d;}else if(d==0){return (direction<0)?-Double.MIN_VALUE:Double.MIN_VALUE;}}"
+27	"public void test(){return (a<=b)?a:(Float.isNaN(a+b)?Float.NaN:b);}"
+28	"public void test(){return (a<=b)?a:(Double.isNaN(a+b)?Double.NaN:b);}"
+29	"public void test(){return (a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);}"
+30	"public void test(){return (a<=b)?b:(Double.isNaN(a+b)?Double.NaN:a);}"
+31	"public void test(){return (Float.isNaN(x)&&Float.isNaN(y))||equals(x,y,1);}"
+32	"public void test(){return isEqual&&!Float.isNaN(x);}"
+33	"public void test(){return (Float.isNaN(x)&&Float.isNaN(y))||equals(x,y,maxUlps);}"
+34	"public void test(){return (Double.isNaN(x)&&Double.isNaN(y))||equals(x,y,1);}"
+35	"public void test(){return isEqual&&!Double.isNaN(x);}"
+36	"public void test(){return (Double.isNaN(x)&&Double.isNaN(y))||equals(x,y,maxUlps);}"
+37	"public void test(){if(Double.isNaN(x)){return Double.NaN;}}"
+38	"public void test(){if(Float.isNaN(x)){return Float.NaN;}}"
+39	"public void test(){if((d==0)||Double.isNaN(d)){return d;}}"
+40	"public void test(){if(Double.isNaN(normalizedSum)){throw new MathIllegalArgumentException(LocalizedFormats.NORMALIZE_NAN);}}"
+41	"public void test(){if(!Double.isNaN(values[i])){sum+=values[i];}}"
+42	"public void test(){if(Double.isNaN(values[i])){out[i]=Double.NaN;}else {out[i]=values[i]*normalizedSum/sum;}}"
+43	"public void test(){if(Double.isInfinite(x)||Double.isNaN(x)){throw new NotFiniteNumberException(x);}}"
+44	"public void test(){if(Double.isInfinite(x)||Double.isNaN(x)){throw new NotFiniteNumberException(LocalizedFormats.ARRAY_ELEMENT,x,i);}}"
+45	"public void test(){if(isNaN()){return NaN;}}"
+46	"public void test(){if(isNaN()||rhs.isNaN()){return NaN;}}"
+47	"public void test(){if(rhs.isNaN()){return this.isNaN();}else {return (real==rhs.real)&&(imaginary==rhs.imaginary);}}"
+48	"public void test(){if(isNaN()){return 7;}}"
+49	"public void test(){return isNaN;}"
+50	"public void test(){if(isNaN()||Double.isNaN(rhs)){return NaN;}}"
+51	"public void test(){if(isNaN()){return Complex.NaN;}}"
+52	"public void test(){if(isNaN()){result.add(Complex.NaN);return result;}}"
+53	"public void test(){if(im>0.0||Double.isNaN(im)){toAppendTo.append("" + "");CompositeFormat.formatDouble(im,getImaginaryFormat(),toAppendTo,pos);toAppendTo.append(getImaginaryCharacter());}}"
+54	"public void test(){if(Double.isInfinite(norm2)||Double.isNaN(norm2)){throw new ConvergenceException(LocalizedFormats.UNABLE_TO_PERFORM_QR_DECOMPOSITION_ON_JACOBIAN,rows,cols);}}"
+55	"public void test(){if(Double.isNaN(vertex.getValue())){simplex[i]=new RealPointValuePair(point,evaluationFunction.value(point),false);}}"
+56	"public void test(){if(Double.isNaN(x)||(x<=0.0)){ret=Double.NaN;}else {double g=607.0/128.0;double sum=0.0;for(int i=LANCZOS.length-1;i>0;--i){sum=sum+(LANCZOS[i]/(x+i));}sum=sum+LANCZOS[0];double tmp=x+g;ret=((x+0.5)*FastMath.log(tmp))-tmp+HALF_LOG_2_PI+FastMath.log(sum/x);}}"
+57	"public void test(){if(Double.isNaN(a)||Double.isNaN(b)){ret=Double.NaN;}else {ret=Gamma.logGamma(a)+Gamma.logGamma(b)-Gamma.logGamma(a+b);}}"
+58	"public void test(){if(Double.isNaN(value)){return false;}}"
+59	"public void test(){if(Double.isNaN(iter.value())){return true;}}"
+60	"public void test(){if(Double.isNaN(v)){return true;}}"
+61	"public void test(){if(isNaN()){return false;}}"
+62	"public void test(){if(isNaN()){return 9;}}"
+63	"public void test(){if(d<value||Double.isNaN(value)){value=d;}}"
+64	"public void test(){if(!Double.isNaN(values[i])){min=(min<values[i])?min:values[i];}}"
+65	"public void test(){if(d>value||Double.isNaN(value)){value=d;}}"
+66	"public void test(){if(!Double.isNaN(values[i])){max=(max>values[i])?max:values[i];}}"
+67	"public void test(){if(current.getMin()<min||Double.isNaN(min)){min=current.getMin();}}"
+68	"public void test(){if(current.getMax()>max||Double.isNaN(max)){max=current.getMax();}}"
+69	"public void test(){if(Double.isNaN(weights[i])){throw new MathIllegalArgumentException(LocalizedFormats.NAN_ELEMENT_AT_INDEX,i);}}"
+70	"public void test(){if(Double.isNaN(ranks[i].getValue())){for(int k=i+1;k<ranks.length;k++){ranks[k]=new IntDoublePair(ranks[k].getValue(),ranks[k].getPosition()-1);}}else {outRanks[j]=new IntDoublePair(ranks[i].getValue(),ranks[i].getPosition());j++;}}"
+71	"public void test(){if(Double.isNaN(ranks[i].getValue())){ranks[i]=new IntDoublePair(value,ranks[i].getPosition());}}"
+72	"public void test(){if(Double.isNaN(ranks[i].getValue())){return true;}}"
+73	"public void test(){if(Double.isNaN(ranks[i].getValue())){out.add(Integer.valueOf(i));}}"

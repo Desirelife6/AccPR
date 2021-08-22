@@ -1,0 +1,76 @@
+1	"public void test(){if(cls==null){return StringUtils.EMPTY;}return getShortClassName(cls.getName());}"
+2	"public void test(){if(object==null){throw new NullPointerException(""Cannot get the toString of a null identity"");}buffer.append(object.getClass().getName()).append('@').append(Integer.toHexString(System.identityHashCode(object)));}"
+3	"public void test(){if(null==args){args=ArrayUtils.EMPTY_OBJECT_ARRAY;}Class<?> parameterTypes[]=new Class[args.length];for(int i=0;i<args.length;i++){parameterTypes[i]=args[i].getClass();}return invokeConstructor(cls,args,parameterTypes);}"
+4	"public void test(){if(args==null){args=ArrayUtils.EMPTY_OBJECT_ARRAY;}Constructor ctor=getMatchingAccessibleConstructor(cls,parameterTypes);if(null==ctor){throw new NoSuchMethodException(""No such accessible constructor on object: ""+cls.getName());}}"
+5	"public void test(){if(null==ctor){throw new NoSuchMethodException(""No such accessible constructor on object: ""+cls.getName());}}"
+6	"public void test(){if(null==args){args=ArrayUtils.EMPTY_OBJECT_ARRAY;}int arguments=args.length;Class<?> parameterTypes[]=new Class[arguments];for(int i=0;i<arguments;i++){parameterTypes[i]=args[i].getClass();}return invokeExactConstructor(cls,args,parameterTypes);}"
+7	"public void test(){if(parameterTypes==null){parameterTypes=ArrayUtils.EMPTY_CLASS_ARRAY;}Constructor ctor=getAccessibleConstructor(cls,parameterTypes);if(null==ctor){throw new NoSuchMethodException(""No such accessible constructor on object: ""+cls.getName());}}"
+8	"public void test(){try{return getAccessibleConstructor(cls.getConstructor(parameterTypes));}catch (NoSuchMethodException e) {  return (null);}}"
+9	"public void test(){try{Constructor ctor=cls.getConstructor(parameterTypes);MemberUtils.setAccessibleWorkaround(ctor);return ctor;}catch (NoSuchMethodException e) {}}"
+10	"public void test(){try{Constructor ctor=cls.getConstructor(parameterTypes);MemberUtils.setAccessibleWorkaround(ctor);return ctor;}catch (NoSuchMethodException e) {}Constructor result=null;Constructor[] ctors=cls.getConstructors();}"
+11	"public void test(){if(method==null){throw new NoSuchMethodException(""No such accessible method: ""+methodName);}}"
+12	"public void test(){if(Modifier.isPublic(cls.getModifiers())){return method;}String methodName=method.getName();Class[] parameterTypes=method.getParameterTypes();}"
+13	"public void test(){if(methods[i].getName().equals(methodName)){if(ClassUtils.isAssignable(parameterTypes,methods[i].getParameterTypes(),true)){Method accessibleMethod=getAccessibleMethod(methods[i]);if(accessibleMethod!=null){if(bestMatch==null||MemberUtils.compareParameterTypes(accessibleMethod.getParameterTypes(),bestMatch.getParameterTypes(),parameterTypes)<0){bestMatch=accessibleMethod;}}}}}"
+14	"public void test(){Field field=getField(cls,fieldName,false);MemberUtils.setAccessibleWorkaround(field);return field;}"
+15	"public void test(){if(cls==null){throw new IllegalArgumentException(""The class must not be null"");}}"
+16	"public void test(){for(Class<?> acls=cls;acls!=null;acls=acls.getSuperclass()){try{Field field=acls.getDeclaredField(fieldName);if(!Modifier.isPublic(field.getModifiers())){if(forceAccess){field.setAccessible(true);}else {continue;}}return field;}catch (NoSuchFieldException ex) {}}}"
+17	"public void test(){for(Iterator<Class<?>> intf=ClassUtils.getAllInterfaces(cls).iterator();intf.hasNext();){try{Field test=((Class<?>)intf.next()).getField(fieldName);if(match!=null){throw new IllegalArgumentException(""Reference to field ""+fieldName);}match=test;}catch (NoSuchFieldException ex) {}}}"
+18	"public void test(){if(match!=null){throw new IllegalArgumentException(""Reference to field ""+fieldName);}}"
+19	"public void test(){Field field=cls.getDeclaredField(fieldName);if(!MemberUtils.isAccessible(field)){if(forceAccess){field.setAccessible(true);}else {return null;}}}"
+20	"public void test(){if(!Modifier.isStatic(field.getModifiers())){throw new IllegalArgumentException(""The field \'""+field.getName());}}"
+21	"public void test(){Field field=getField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate field ""+fieldName);}return readStaticField(field,false);}"
+22	"public void test(){if(field==null){throw new IllegalArgumentException(""Cannot locate field ""+fieldName);}}"
+23	"public void test(){Field field=getDeclaredField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate declared field ""+cls.getName());}return readStaticField(field,false);}"
+24	"public void test(){if(field==null){throw new IllegalArgumentException(""Cannot locate declared field ""+cls.getName());}}"
+25	"public void test(){if(target==null){throw new IllegalArgumentException(""target object must not be null"");}Class<?> cls=target.getClass();Field field=getField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate field ""+fieldName);}return readField(field,target);}"
+26	"public void test(){if(target==null){throw new IllegalArgumentException(""target object must not be null"");}Class<?> cls=target.getClass();Field field=getDeclaredField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate declared field ""+cls.getName());}return readField(field,target);}"
+27	"public void test(){Field field=getField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate field ""+fieldName);}writeStaticField(field,value);}"
+28	"public void test(){Field field=getDeclaredField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate declared field ""+cls.getName());}writeField(field,(Object)null,value);}"
+29	"public void test(){if(target==null){throw new IllegalArgumentException(""target object must not be null"");}Class<?> cls=target.getClass();Field field=getField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate declared field ""+cls.getName());}writeField(field,target,value);}"
+30	"public void test(){if(target==null){throw new IllegalArgumentException(""target object must not be null"");}Class<?> cls=target.getClass();Field field=getDeclaredField(cls,fieldName,forceAccess);if(field==null){throw new IllegalArgumentException(""Cannot locate declared field ""+cls.getName());}writeField(field,target,value);}"
+31	"public void test(){float cost=0.0;Class<?> cls=srcClass;if(!cls.isPrimitive()){cost+=0.1;cls=ClassUtils.wrapperToPrimitive(cls);}}"
+32	"public void test(){if(!cls.isPrimitive()){cost+=0.1;cls=ClassUtils.wrapperToPrimitive(cls);}}"
+33	"public void test(){for(int i=0;cls!=destClass&&i<ORDERED_PRIMITIVE_TYPES.length;i++){if(cls==ORDERED_PRIMITIVE_TYPES[i]){cost+=0.1;if(i<ORDERED_PRIMITIVE_TYPES.length-1){cls=ORDERED_PRIMITIVE_TYPES[i+1];}}}}"
+34	"public void test(){if(cls==ORDERED_PRIMITIVE_TYPES[i]){cost+=0.1;if(i<ORDERED_PRIMITIVE_TYPES.length-1){cls=ORDERED_PRIMITIVE_TYPES[i+1];}}}"
+35	"public void test(){if(i<ORDERED_PRIMITIVE_TYPES.length-1){cls=ORDERED_PRIMITIVE_TYPES[i+1];}}"
+36	"public void test(){if(object==null){return valueIfNull;}return getShortClassName(object.getClass());}"
+37	"public void test(){if(cls==null){return StringUtils.EMPTY;}}"
+38	"public void test(){if(cls==null){return StringUtils.EMPTY;}return getShortClassName(cls.getName());}"
+39	"public void test(){if(cls==null){return StringUtils.EMPTY;}return getPackageName(cls.getName());}"
+40	"public void test(){if(cls==null){return null;}}"
+41	"public void test(){if(cls==null){return null;}LinkedHashSet<Class<?>> interfacesFound=new LinkedHashSet<Class<?>>();getAllInterfaces(cls,interfacesFound);return new ArrayList<Class<?>>(interfacesFound);}"
+42	"public void test(){while(cls!=null){Class<?>[] interfaces=cls.getInterfaces();for(Class<?> i : interfaces){if(interfacesFound.add(i)){getAllInterfaces(i,interfacesFound);}}cls=cls.getSuperclass();}}"
+43	"public void test(){for(Class<?> cls : classes){if(cls==null){classNames.add(null);}else {classNames.add(cls.getName());}}}"
+44	"public void test(){if(cls==null){classNames.add(null);}else {classNames.add(cls.getName());}}"
+45	"public void test(){if(cls==null){return !(toClass.isPrimitive());}}"
+46	"public void test(){if(cls.isPrimitive()&&!toClass.isPrimitive()){cls=primitiveToWrapper(cls);if(cls==null){return false;}}}"
+47	"public void test(){if(cls==null){return false;}}"
+48	"public void test(){if(toClass.isPrimitive()&&!cls.isPrimitive()){cls=wrapperToPrimitive(cls);if(cls==null){return false;}}}"
+49	"public void test(){if(cls.equals(toClass)){return true;}}"
+50	"public void test(){if(Integer.TYPE.equals(cls)){return Long.TYPE.equals(toClass)||Float.TYPE.equals(toClass);}}"
+51	"public void test(){if(Long.TYPE.equals(cls)){return Float.TYPE.equals(toClass)||Double.TYPE.equals(toClass);}}"
+52	"public void test(){if(Boolean.TYPE.equals(cls)){return false;}}"
+53	"public void test(){if(Double.TYPE.equals(cls)){return false;}}"
+54	"public void test(){if(Float.TYPE.equals(cls)){return Double.TYPE.equals(toClass);}}"
+55	"public void test(){if(Character.TYPE.equals(cls)){return Integer.TYPE.equals(toClass)||Long.TYPE.equals(toClass);}}"
+56	"public void test(){if(Short.TYPE.equals(cls)){return Integer.TYPE.equals(toClass)||Long.TYPE.equals(toClass);}}"
+57	"public void test(){if(Byte.TYPE.equals(cls)){return Short.TYPE.equals(toClass)||Integer.TYPE.equals(toClass);}}"
+58	"public void test(){Class<?> convertedClass=cls;if(cls!=null&&cls.isPrimitive()){convertedClass=primitiveWrapperMap.get(cls);}return convertedClass;}"
+59	"public void test(){if(cls!=null&&cls.isPrimitive()){convertedClass=primitiveWrapperMap.get(cls);}}"
+60	"public void test(){if(cls==null){return false;}return cls.getName().indexOf(INNER_CLASS_SEPARATOR_CHAR)>=0;}"
+61	"public void test(){Method declaredMethod=cls.getMethod(methodName,parameterTypes);if(Modifier.isPublic(declaredMethod.getDeclaringClass().getModifiers())){return declaredMethod;}List<Class<?>> candidateClasses=new ArrayList<Class<?>>();}"
+62	"public void test(){if(Modifier.isPublic(declaredMethod.getDeclaringClass().getModifiers())){return declaredMethod;}List<Class<?>> candidateClasses=new ArrayList<Class<?>>();candidateClasses.addAll(getAllInterfaces(cls));candidateClasses.addAll(getAllSuperclasses(cls));}"
+63	"public void test(){if(object==null){return valueIfNull;}return getShortCanonicalName(object.getClass().getName());}"
+64	"public void test(){if(cls==null){return StringUtils.EMPTY;}return getShortCanonicalName(cls.getName());}"
+65	"public void test(){if(object==null){return valueIfNull;}return getPackageCanonicalName(object.getClass().getName());}"
+66	"public void test(){if(cls==null){return StringUtils.EMPTY;}return getPackageCanonicalName(cls.getName());}"
+67	"public void test(){if(array1==null||array2==null){throw new IllegalArgumentException(""The Array must not be null"");}return array1.getClass().getName().equals(array2.getClass().getName());}"
+68	"public void test(){if(clazz.isInstance(it.next())==false){throw new IllegalArgumentException(""The validated collection contains an element not of type ""+clazz.getName());}}"
+69	"public void test(){if(!excludedFieldList.contains(f.getName())&&(f.getName().indexOf('$')==-1)){try{builder.append(f.get(lhs),f.get(rhs));}catch (IllegalAccessException e) {  throw new InternalError(""Unexpected IllegalAccessException"");}}}"
+70	"public void test(){if(field.getName().indexOf(ClassUtils.INNER_CLASS_SEPARATOR_CHAR)!=-1){return false;}}"
+71	"public void test(){if(this.excludeFieldNames!=null&&Arrays.binarySearch(this.excludeFieldNames,field.getName())>=0){return false;}}"
+72	"public void test(){String fieldName=field.getName();if(this.accept(field)){try{Object fieldValue=this.getValue(field);this.append(fieldName,fieldValue);}catch (IllegalAccessException ex) {  throw new InternalError(""Unexpected IllegalAccessException: "" + ex.getMessage());}}}"
+73	"public void test(){if(useShortClassName){buffer.append(getShortClassName(object.getClass()));}else {buffer.append(object.getClass().getName());}}"
+74	"public void test(){if(!excludedFieldList.contains(field.getName())&&(field.getName().indexOf('$')==-1)){try{Object fieldValue=field.get(object);builder.append(fieldValue);}catch (IllegalAccessException e) {  throw new InternalError(""Unexpected IllegalAccessException"");}}}"
+75	"public void test(){if(th==null){return """";}String clsName=ClassUtils.getShortClassName(th,null);String msg=th.getMessage();return clsName+"": "";}"
+76	"public void test(){if(obj instanceof Long){return format(((Long)obj).longValue(),toAppendTo);}else {throw new IllegalArgumentException(""Unknown class: ""+(obj==null?""<null>"":obj.getClass().getName()));}}"

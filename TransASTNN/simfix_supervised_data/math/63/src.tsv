@@ -1,0 +1,255 @@
+1	"public void test(){return (Double.isNaN(x)&&Double.isNaN(y))||x==y;}"
+2	"public void test(){double x0=x-mean;return FastMath.exp(-x0*x0/(2*standardDeviation))/(standardDeviation*SQRT2PI);}"
+3	"public void test(){return 0.5*(1.0+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));}"
+4	"public void test(){if(x<(mean-20*standardDeviation)){return 0.0;}else if(x>(mean+20*standardDeviation)){return 1.0;}else {throw ex;}}"
+5	"public void test(){if(x>(mean+20*standardDeviation)){return 1.0;}else {throw ex;}}"
+6	"public void test(){if(x<0){return 0;}}"
+7	"public void test(){if(x<0){return 0;}return FastMath.exp(-x/mean)/mean;}"
+8	"public void test(){if(x<=0.0){ret=0.0;}else {ret=1.0-FastMath.exp(-x/mean);}}"
+9	"public void test(){if(x<=0.0){ret=0.0;}else {double n=numeratorDegreesOfFreedom;double m=denominatorDegreesOfFreedom;ret=Beta.regularizedBeta((n*x)/(m+n*x),0.5*n,0.5*m);}}"
+10	"public void test(){return gamma.density(x);}"
+11	"public void test(){return gamma.cumulativeProbability(x);}"
+12	"public void test(){if(Double.isNaN(z)){z=Gamma.logGamma(alpha)+Gamma.logGamma(beta)-Gamma.logGamma(alpha+beta);}}"
+13	"public void test(){if(x==1){if(beta<1){throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.CANNOT_COMPUTE_BETA_DENSITY_AT_1_FOR_SOME_BETA,beta);}return 0;}else {double logX=FastMath.log(x);double log1mX=FastMath.log1p(-x);return FastMath.exp((alpha-1)*logX+(beta-1)*log1mX-z);}}"
+14	"public void test(){if(x<=0){return 0;}else if(x>=1){return 1;}else {return Beta.regularizedBeta(x,alpha,beta);}}"
+15	"public void test(){if(x>=1){return 1;}else {return Beta.regularizedBeta(x,alpha,beta);}}"
+16	"public void test(){if(x<=0.0){ret=0.0;}else {ret=Gamma.regularizedGammaP(alpha,x/beta);}}"
+17	"public void test(){if(x<0)return 0;}"
+18	"public void test(){if(x<0)return 0;return FastMath.pow(x/beta,alpha-1)/beta*FastMath.exp(-x/beta)/FastMath.exp(Gamma.logGamma(alpha));}"
+19	"public void test(){return 0.5+(FastMath.atan((x-median)/scale)/FastMath.PI);}"
+20	"public void test(){ final double dev=x-median;return (1/FastMath.PI)*(scale/(dev*dev+scale*scale));}"
+21	"public void test(){if(x<=0.0){ret=0.0;}else {ret=1.0-FastMath.exp(-FastMath.pow(x/scale,shape));}}"
+22	"public void test(){ final double n=degreesOfFreedom; final double nPlus1Over2=(n+1)/2;return FastMath.exp(Gamma.logGamma(nPlus1Over2)-0.5*(FastMath.log(FastMath.PI)+FastMath.log(n))-Gamma.logGamma(n/2)-nPlus1Over2*FastMath.log(1+x*x/n));}"
+23	"public void test(){if(x==0.0){ret=0.5;}else {double t=Beta.regularizedBeta(degreesOfFreedom/(degreesOfFreedom+(x*x)),0.5*degreesOfFreedom,0.5);if(x<0.0){ret=0.5*t;}else {ret=1.0-0.5*t;}}}"
+24	"public void test(){if(x<0.0){ret=0.5*t;}else {ret=1.0-0.5*t;}}"
+25	"public void test(){return cumulativeProbability((int)FastMath.floor(x));}"
+26	"public void test(){double fl=FastMath.floor(x);if(fl==x){return this.probability((int)x);}else {return 0;}}"
+27	"public void test(){if(fl==x){return this.probability((int)x);}else {return 0;}}"
+28	"public void test(){if(Double.isNaN(result)){throw new FunctionEvaluationException(argument,LocalizedFormats.DISCRETE_CUMULATIVE_PROBABILITY_RETURNED_NAN,argument);}}"
+29	"public void test(){if(Double.isNaN(previousEventTime)||(FastMath.abs(previousEventTime-root)>convergence)){pendingEventTime=root;if(pendingEvent&&(FastMath.abs(t1-pendingEventTime)<=convergence)){return false;}pendingEvent=true;return true;}}"
+30	"public void test(){return x;}"
+31	"public void test(){return y;}"
+32	"public void test(){return FastMath.abs(x)+FastMath.abs(y);}"
+33	"public void test(){return FastMath.sqrt(x*x+y*y+z*z);}"
+34	"public void test(){return x*x+y*y+z*z;}"
+35	"public void test(){return FastMath.max(FastMath.max(FastMath.abs(x),FastMath.abs(y)),FastMath.abs(z));}"
+36	"public void test(){return FastMath.atan2(y,x);}"
+37	"public void test(){return new Vector3D(x+v.x,y+v.y,z+v.z);}"
+38	"public void test(){return new Vector3D(x+factor*v.x,y+factor*v.y,z+factor*v.z);}"
+39	"public void test(){return new Vector3D(x-v.x,y-v.y,z-v.z);}"
+40	"public void test(){return new Vector3D(x-factor*v.x,y-factor*v.y,z-factor*v.z);}"
+41	"public void test(){if((x>=-threshold)&&(x<=threshold)){double inverse=1/FastMath.sqrt(y*y+z*z);return new Vector3D(0,inverse*z,-inverse*y);}else if((y>=-threshold)&&(y<=threshold)){double inverse=1/FastMath.sqrt(x*x+z*z);return new Vector3D(-inverse*z,0,inverse*x);}}"
+42	"public void test(){return new Vector3D(0,inverse*z,-inverse*y);}"
+43	"public void test(){if((y>=-threshold)&&(y<=threshold)){double inverse=1/FastMath.sqrt(x*x+z*z);return new Vector3D(-inverse*z,0,inverse*x);}}"
+44	"public void test(){return new Vector3D(inverse*y,-inverse*x,0);}"
+45	"public void test(){return new Vector3D(-x,-y,-z);}"
+46	"public void test(){return new Vector3D(a*x,a*y,a*z);}"
+47	"public void test(){return Double.isNaN(x)||Double.isNaN(y);}"
+48	"public void test(){return !isNaN()&&(Double.isInfinite(x)||Double.isInfinite(y));}"
+49	"public void test(){if(rhs.isNaN()){return this.isNaN();}}"
+50	"public void test(){if(other instanceof Vector3D){ final Vector3D rhs=(Vector3D)other;if(rhs.isNaN()){return this.isNaN();}return (x==rhs.x)&&(y==rhs.y);}}"
+51	"public void test(){if(isNaN()){return 8;}}"
+52	"public void test(){if(isNaN()){return 8;}return 31*(23*MathUtils.hash(x)+19*MathUtils.hash(y)+MathUtils.hash(z));}"
+53	"public void test(){return v1.x*v2.x+v1.y*v2.y+v1.z*v2.z;}"
+54	"public void test(){return new Vector3D(v1.y*v2.z-v1.z*v2.y,v1.z*v2.x-v1.x*v2.z,v1.x*v2.y-v1.y*v2.x);}"
+55	"public void test(){ final double dx=FastMath.abs(v2.x-v1.x); final double dy=FastMath.abs(v2.y-v1.y); final double dz=FastMath.abs(v2.z-v1.z);return dx+dy;}"
+56	"public void test(){ final double dx=v2.x-v1.x; final double dy=v2.y-v1.y; final double dz=v2.z-v1.z;return FastMath.sqrt(dx*dx+dy*dy+dz*dz);}"
+57	"public void test(){ final double dx=FastMath.abs(v2.x-v1.x); final double dy=FastMath.abs(v2.y-v1.y); final double dz=FastMath.abs(v2.z-v1.z);return FastMath.max(FastMath.max(dx,dy),dz);}"
+58	"public void test(){ final double dx=v2.x-v1.x; final double dy=v2.y-v1.y; final double dz=v2.z-v1.z;return dx*dx+dy*dy+dz*dz;}"
+59	"public void test(){double x=u.getX();double y=u.getY();double z=u.getZ();double s=q1*x+q2*y+q3*z;return new Vector3D(2*(q0*(x*q0-(q2*z-q3*y))+s*q1)-x,2*(q0*(y*q0-(q3*x-q1*z))+s*q2)-y,2*(q0*(z*q0-(q1*y-q2*x))+s*q3)-z);}"
+60	"public void test(){return new Vector3D(2*(m0*(x*m0-(q2*z-q3*y))+s*q1)-x,2*(m0*(y*m0-(q3*x-q1*z))+s*q2)-y,2*(m0*(z*m0-(q1*y-q2*x))+s*q3)-z);}"
+61	"public void test(){if(Double.isNaN(value)){throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.NAN_VALUE_CONVERSION);}}"
+62	"public void test(){if(x<=upperBounds[i]){SummaryStatistics stats=binStats.get(i);if(stats.getN()>0){if(stats.getStandardDeviation()>0){return randomData.nextGaussian(stats.getMean(),stats.getStandardDeviation());}else {return stats.getMean();}}}}"
+63	"public void test(){if(!Double.isNaN(cachedNormalDeviate)){double dev=cachedNormalDeviate;cachedNormalDeviate=Double.NaN;return dev;}}"
+64	"public void test(){if(x>delta||x<-lambda){continue;}}"
+65	"public void test(){y=x<0?FastMath.floor(x):FastMath.ceil(x);}"
+66	"public void test(){a=x<0?1:0;}"
+67	"public void test(){if(v<-t&&a==0){y=lambda+y;break;}}"
+68	"public void test(){if(v<qa){y=lambda+y;break;}}"
+69	"public void test(){if(v<y*logLambda-MathUtils.factorialLog((int)(y+lambda))+logLambdaFactorial){y=lambda+y;break;}}"
+70	"public void test(){return y2+(long)y;}"
+71	"public void test(){if(Double.isNaN(nextGaussian)){ final double x=nextDouble(); final double y=nextDouble(); final double alpha=2*FastMath.PI; final double r=FastMath.sqrt(-2*FastMath.log(y));random=r*FastMath.cos(alpha);nextGaussian=r*FastMath.sin(alpha);}else {random=nextGaussian;nextGaussian=Double.NaN;}}"
+72	"public void test(){if(Double.isNaN(value)||Double.isInfinite(value)){toAppendTo.append('(');toAppendTo.append(value);toAppendTo.append(')');}else {format.format(value,toAppendTo,pos);}}"
+73	"public void test(){return evaluate(x,DEFAULT_EPSILON,Integer.MAX_VALUE);}"
+74	"public void test(){return evaluate(x,epsilon,Integer.MAX_VALUE);}"
+75	"public void test(){return evaluate(x,DEFAULT_EPSILON,maxIterations);}"
+76	"public void test(){if(scale<=0){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);}}"
+77	"public void test(){if(infinite){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);}}"
+78	"public void test(){if(Double.isNaN(r)){throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);}}"
+79	"public void test(){if(n>=maxIterations){throw new MaxIterationsExceededException(maxIterations,LocalizedFormats.NON_CONVERGENT_CONTINUED_FRACTION,x);}}"
+80	"public void test(){return (a<0.0)?-1.0:((a>0.0)?1.0:(Double.isNaN(a)?Double.NaN:0.0));}"
+81	"public void test(){return exp(x,0.0,null);}"
+82	"public void test(){if(x!=x||x==0.0){return x;}}"
+83	"public void test(){if(x<=-1.0||x>=1.0){double hiPrec[]=new double[2];exp(x,0.0,hiPrec);if(x>0.0){return -1.0+hiPrec[0];}else { final double ra=-1.0+hiPrec[0];double rb=-(ra+1.0-hiPrec[0]);rb+=hiPrec[1];return ra+rb;}}}"
+84	"public void test(){if(x>0.0){return -1.0+hiPrec[0];}else { final double ra=-1.0+hiPrec[0];double rb=-(ra+1.0-hiPrec[0]);rb+=hiPrec[1];return ra+rb;}}"
+85	"public void test(){if(x<0.0){x=-x;negative=true;}}"
+86	"public void test(){return log(x,null);}"
+87	"public void test(){if((bits&0x8000000000000000L)!=0||x!=x){if(x!=0.0){if(hiPrec!=null){hiPrec[0]=Double.NaN;}return Double.NaN;}}}"
+88	"public void test(){if(x!=0.0){if(hiPrec!=null){hiPrec[0]=Double.NaN;}return Double.NaN;}}"
+89	"public void test(){if(x==Double.POSITIVE_INFINITY){if(hiPrec!=null){hiPrec[0]=Double.POSITIVE_INFINITY;}return Double.POSITIVE_INFINITY;}}"
+90	"public void test(){if(x==0){if(hiPrec!=null){hiPrec[0]=Double.NEGATIVE_INFINITY;}return Double.NEGATIVE_INFINITY;}}"
+91	"public void test(){if(x>1.0E-6||x<-1.0E-6){double hiPrec[]=new double[2];log(xpa,hiPrec);double fx1=xpb/xpa;double epsilon=0.5*fx1+1.0;epsilon=epsilon*fx1;return epsilon+hiPrec[1];}}"
+92	"public void test(){if(y==0.0){return 1.0;}}"
+93	"public void test(){if(x<0){if(y==(long)y){return ((long)y&1)==0?pow(-x,y):-pow(-x,y);}else {return Double.NaN;}}}"
+94	"public void test(){if(y==(long)y){return ((long)y&1)==0?pow(-x,y):-pow(-x,y);}else {return Double.NaN;}}"
+95	"public void test(){if(x==0){long bits=Double.doubleToLongBits(x);if((bits&0x8000000000000000L)!=0){if(y<0&&y==(long)y)return Double.NEGATIVE_INFINITY;}if(y<0){return Double.POSITIVE_INFINITY;}if(y>0){return 0.0;}return Double.NaN;}}"
+96	"public void test(){if(y<0&&y==(long)y)return Double.NEGATIVE_INFINITY;}"
+97	"public void test(){if(y<0){return Double.POSITIVE_INFINITY;}}"
+98	"public void test(){if(y>0){return 0.0;}}"
+99	"public void test(){if(x==Double.POSITIVE_INFINITY){if(y<0.0){return 0.0;}else {return Double.POSITIVE_INFINITY;}}}"
+100	"public void test(){if(y<0.0){return 0.0;}else {return Double.POSITIVE_INFINITY;}}"
+101	"public void test(){if(y==Double.POSITIVE_INFINITY){if(x*x>1.0){return Double.POSITIVE_INFINITY;}else {return 0.0;}}}"
+102	"public void test(){if(x*x>1.0){return Double.POSITIVE_INFINITY;}else {return 0.0;}}"
+103	"public void test(){if(y==Double.NEGATIVE_INFINITY){if(x*x<1.0){return Double.NEGATIVE_INFINITY;}else {return 0.0;}}}"
+104	"public void test(){if(x*x<1.0){return Double.NEGATIVE_INFINITY;}else {return 0.0;}}"
+105	"public void test(){if(x<0){negative=true;xa=-xa;}}"
+106	"public void test(){if(xa==0.0){long bits=Double.doubleToLongBits(x);if(bits<0){return -0.0;}return 0.0;}}"
+107	"public void test(){if(x<0){xa=-xa;}}"
+108	"public void test(){return atan(x,0.0,false);}"
+109	"public void test(){if(x!=x||y!=y){return Double.NaN;}}"
+110	"public void test(){if(result!=result){return x/y;}}"
+111	"public void test(){if(x<0.0||invx<0.0){if(y<0.0||invy<0.0){return -Math.PI;}else {return Math.PI;}}else {return result;}}"
+112	"public void test(){if(y<0.0||invy<0.0){return -Math.PI;}else {return Math.PI;}}"
+113	"public void test(){if(y==Double.POSITIVE_INFINITY){if(x==Double.POSITIVE_INFINITY){return Math.PI/4.0;}if(x==Double.NEGATIVE_INFINITY){return Math.PI*3.0/4.0;}return Math.PI/2.0;}}"
+114	"public void test(){if(x==Double.POSITIVE_INFINITY){return Math.PI/4.0;}}"
+115	"public void test(){if(x==Double.NEGATIVE_INFINITY){return Math.PI*3.0/4.0;}}"
+116	"public void test(){if(y==Double.NEGATIVE_INFINITY){if(x==Double.POSITIVE_INFINITY){return -Math.PI/4.0;}if(x==Double.NEGATIVE_INFINITY){return -Math.PI*3.0/4.0;}return -Math.PI/2.0;}}"
+117	"public void test(){if(x==Double.POSITIVE_INFINITY){return -Math.PI/4.0;}}"
+118	"public void test(){if(x==Double.NEGATIVE_INFINITY){return -Math.PI*3.0/4.0;}}"
+119	"public void test(){if(x==Double.POSITIVE_INFINITY){if(y>0.0||1/y>0.0){return 0.0;}if(y<0.0||1/y<0.0){return -0.0;}}}"
+120	"public void test(){if(y>0.0||1/y>0.0){return 0.0;}}"
+121	"public void test(){if(y<0.0||1/y<0.0){return -0.0;}}"
+122	"public void test(){if(x==Double.NEGATIVE_INFINITY){if(y>0.0||1/y>0.0){return Math.PI;}if(y<0.0||1/y<0.0){return -Math.PI;}}}"
+123	"public void test(){if(y>0.0||1/y>0.0){return Math.PI;}}"
+124	"public void test(){if(y<0.0||1/y<0.0){return -Math.PI;}}"
+125	"public void test(){if(x==0){if(y>0.0||1/y>0.0){return Math.PI/2.0;}if(y<0.0||1/y<0.0){return -Math.PI/2.0;}}}"
+126	"public void test(){if(y>0.0||1/y>0.0){return Math.PI/2.0;}}"
+127	"public void test(){if(y<0.0||1/y<0.0){return -Math.PI/2.0;}}"
+128	"public void test(){if(x>Infinity||x<-Infinity){x*=9.313226E-10;y*=9.313226E-10;}}"
+129	"public void test(){return (x<0.0)?-x:x;}"
+130	"public void test(){return abs(x-Double.longBitsToDouble(Double.doubleToLongBits(x)^1));}"
+131	"public void test(){if(Double.isNaN(d)||Double.isInfinite(d)){return d;}else if(d==0){return (direction<0)?-Double.MIN_VALUE:Double.MIN_VALUE;}}"
+132	"public void test(){if(x>=4.5035996E15||x<=-4.5035996E15){return x;}}"
+133	"public void test(){if(x<0){y--;}}"
+134	"public void test(){double y;y=floor(x);if(y==x){return y;}return y+1.0;}"
+135	"public void test(){if(y==x){return y;}}"
+136	"public void test(){if(d>0.5){return y+1.0;}}"
+137	"public void test(){if(d<0.5){return y;}}"
+138	"public void test(){return (z&1)==0?y:y+1.0;}"
+139	"public void test(){return (long)floor(x+0.5);}"
+140	"public void test(){return (a<=b)?a:(Float.isNaN(a+b)?Float.NaN:b);}"
+141	"public void test(){return (a<=b)?a:(Double.isNaN(a+b)?Double.NaN:b);}"
+142	"public void test(){return (a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);}"
+143	"public void test(){return (a<=b)?b:(Double.isNaN(a+b)?Double.NaN:a);}"
+144	"public void test(){if(equals(x,y,eps)){return 0;}else if(x<y){return -1;}}"
+145	"public void test(){if(x<y){return -1;}}"
+146	"public void test(){return (FastMath.exp(x)+FastMath.exp(-x))/2.0;}"
+147	"public void test(){return (Double.isNaN(x)&&Double.isNaN(y))||x==y;}"
+148	"public void test(){return (Double.isNaN(x)&&Double.isNaN(y))||equals(x,y,1);}"
+149	"public void test(){return equals(x,y,1)||FastMath.abs(y-x)<=eps;}"
+150	"public void test(){return equalsIncludingNaN(x,y)||(FastMath.abs(y-x)<=eps);}"
+151	"public void test(){return isEqual&&!Double.isNaN(x);}"
+152	"public void test(){return (Double.isNaN(x)&&Double.isNaN(y))||equals(x,y,maxUlps);}"
+153	"public void test(){if(Double.isNaN(x)){return Double.NaN;}}"
+154	"public void test(){if(Double.isNaN(x)){return Double.NaN;}return (x>=0.0)?1.0:-1.0;}"
+155	"public void test(){if(Float.isNaN(x)){return Float.NaN;}}"
+156	"public void test(){return FastMath.log(x)/FastMath.log(base);}"
+157	"public void test(){if((d==0)||Double.isNaN(d)){return d;}}"
+158	"public void test(){if(Double.isNaN(normalizedSum)){throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.NORMALIZE_NAN);}}"
+159	"public void test(){if(!Double.isNaN(values[i])){sum+=values[i];}}"
+160	"public void test(){if(Double.isNaN(values[i])){out[i]=Double.NaN;}else {out[i]=values[i]*normalizedSum/sum;}}"
+161	"public void test(){return round(x,scale,BigDecimal.ROUND_HALF_UP);}"
+162	"public void test(){return (new BigDecimal(Double.toString(x)).setScale(scale,roundingMethod)).doubleValue();}"
+163	"public void test(){if(Double.isInfinite(x)){return x;}else {return Double.NaN;}}"
+164	"public void test(){if(Double.isNaN(x)){return Double.NaN;}return (x==0.0)?0.0:(x>0.0)?1.0:-1.0;}"
+165	"public void test(){return (FastMath.exp(x)-FastMath.exp(-x))/2.0;}"
+166	"public void test(){if(Double.isInfinite(norm2)||Double.isNaN(norm2)){throw new EstimationException(LocalizedFormats.UNABLE_TO_PERFORM_QR_DECOMPOSITION_ON_JACOBIAN,rows,cols);}}"
+167	"public void test(){if(isNaN()){return Double.NaN;}}"
+168	"public void test(){if(isNaN()){return NaN;}}"
+169	"public void test(){if(isNaN()||rhs.isNaN()){return NaN;}}"
+170	"public void test(){if(rhs.isNaN()){return this.isNaN();}else {return (real==rhs.real)&&(imaginary==rhs.imaginary);}}"
+171	"public void test(){if(isNaN()){return 7;}}"
+172	"public void test(){return isNaN;}"
+173	"public void test(){if(isNaN()||Double.isNaN(rhs)){return NaN;}}"
+174	"public void test(){if(isNaN()){return Complex.NaN;}}"
+175	"public void test(){if(isNaN()){result.add(Complex.NaN);return result;}}"
+176	"public void test(){if(im>0.0||Double.isNaN(im)){toAppendTo.append("" + "");formatDouble(im,getImaginaryFormat(),toAppendTo,pos);toAppendTo.append(getImaginaryCharacter());}}"
+177	"public void test(){return a*FastMath.cos(omega*x+phi);}"
+178	"public void test(){ final double xMc=x-c;return (-b/d2)*xMc;}"
+179	"public void test(){double y=0;for(int i=parameters.length-1;i>=0;--i){y=y*x+parameters[i];}return y;}"
+180	"public void test(){ final double xMc=x-c;return a+b*Math.exp(-xMc*xMc/(2.0*(d*d)));}"
+181	"public void test(){ final double a=parameters[0]; final double omega=parameters[1]; final double phi=parameters[2];return a*FastMath.cos(omega*x+phi);}"
+182	"public void test(){return new double[]{cosAlpha,-a*x,-a*sinAlpha};}"
+183	"public void test(){if(pointA.getY()==y){return pointA.getX();}}"
+184	"public void test(){if(pointB.getY()==y){return pointB.getX();}}"
+185	"public void test(){return pointA.getX()+(((y-pointA.getY())*(pointB.getX()-pointA.getX()))/(pointB.getY()-pointA.getY()));}"
+186	"public void test(){if(isBetween(y,points[i].getY(),points[i+idxStep].getY())){return (idxStep<0)?new WeightedObservedPoint[]{points[i+idxStep],points[i]}:new WeightedObservedPoint[]{points[i],points[i+idxStep]};}}"
+187	"public void test(){throw new OutOfRangeException(y,minY,maxY);}"
+188	"public void test(){if(Double.isInfinite(norm2)||Double.isNaN(norm2)){throw new ConvergenceException(LocalizedFormats.UNABLE_TO_PERFORM_QR_DECOMPOSITION_ON_JACOBIAN,rows,cols);}}"
+189	"public void test(){try{evaluations.incrementCount();}catch (MaxCountExceededException e) {  throw new TooManyEvaluationsException(e.getMax());}return f.value(x);}"
+190	"public void test(){return FastMath.abs(x-m)<=tol2-0.5*(b-a);}"
+191	"public void test(){if(x<=m){d=tol1;}else {d=-tol1;}}"
+192	"public void test(){if(x<m){e=b-x;}else {e=a-x;}}"
+193	"public void test(){if(d>=0){u=x+tol1;}else {u=x-tol1;}}"
+194	"public void test(){if(u<x){b=x;}else {a=x;}}"
+195	"public void test(){if(u<x){a=u;}else {b=u;}}"
+196	"public void test(){if(fu<=fw||w==x){v=w;fv=fw;w=u;fw=fu;}else if(fu<=fv||v==x||v==w){v=u;fv=fu;}}"
+197	"public void test(){if(fu<=fv||v==x||v==w){v=u;fv=fu;}}"
+198	"public void test(){return new UnivariateRealPointValuePair(x,(isMinim?fx:-fx));}"
+199	"public void test(){if(Double.isNaN(vertex.getValue())){simplex[i]=new RealPointValuePair(point,computeObjectiveValue(point),false);}}"
+200	"public void test(){if(Double.isNaN(x)||(x<=0.0)){ret=Double.NaN;}else {double g=607.0/128.0;double sum=0.0;for(int i=LANCZOS.length-1;i>0;--i){sum=sum+(LANCZOS[i]/(x+i));}sum=sum+LANCZOS[0];double tmp=x+g;ret=((x+0.5)*FastMath.log(tmp))-tmp+HALF_LOG_2_PI+FastMath.log(sum/x);}}"
+201	"public void test(){return regularizedGammaP(a,x,DEFAULT_EPSILON,Integer.MAX_VALUE);}"
+202	"public void test(){if(Double.isInfinite(sum)){ret=1.0;}else {ret=FastMath.exp(-x+(a*FastMath.log(x))-logGamma(a))*sum;}}"
+203	"public void test(){return regularizedGammaQ(a,x,DEFAULT_EPSILON,Integer.MAX_VALUE);}"
+204	"public void test(){if(x>0&&x<=S_LIMIT){return -GAMMA-1/x;}}"
+205	"public void test(){if(x>=C_LIMIT){double inv=1/(x*x);return FastMath.log(x)-0.5/x-inv*((1.0/12)+inv*(1.0/120-inv/252));}}"
+206	"public void test(){return digamma(x+1)-1/x;}"
+207	"public void test(){if(x>0&&x<=S_LIMIT){return 1/(x*x);}}"
+208	"public void test(){if(x>=C_LIMIT){double inv=1/(x*x);return 1/x+inv/2+inv/x*(1.0/6-inv*(1.0/30+inv/42));}}"
+209	"public void test(){return trigamma(x+1)+1/(x*x);}"
+210	"public void test(){double ret=Gamma.regularizedGammaP(0.5,x*x,1.0E-15,10000);if(x<0){ret=-ret;}return ret;}"
+211	"public void test(){if(x<0){ret=-ret;}}"
+212	"public void test(){return regularizedBeta(x,a,b,DEFAULT_EPSILON,Integer.MAX_VALUE);}"
+213	"public void test(){return regularizedBeta(x,a,b,epsilon,Integer.MAX_VALUE);}"
+214	"public void test(){return regularizedBeta(x,a,b,DEFAULT_EPSILON,maxIterations);}"
+215	"public void test(){if(Double.isNaN(a)||Double.isNaN(b)){ret=Double.NaN;}else {ret=Gamma.logGamma(a)+Gamma.logGamma(b)-Gamma.logGamma(a+b);}}"
+216	"public void test(){if(FastMath.abs(x-oldx)<=tolerance){setResult(x,i);return result;}}"
+217	"public void test(){if(FastMath.abs(y)<=functionValueAccuracy){setResult(x,i);return result;}}"
+218	"public void test(){if(MathUtils.sign(y1)+MathUtils.sign(y)==0.0){x2=x;y2=y;}else {x1=x;x2=x3;y1=y;y2=y3;}}"
+219	"public void test(){if(MathUtils.sign(y2)+MathUtils.sign(y)==0.0){x1=x;y1=y;}else {x1=x3;x2=x;y1=y3;y2=y;}}"
+220	"public void test(){ final double x=isSequence(x0,xplus,x2)?xplus:xminus;}"
+221	"public void test(){x0=x<x1?x0:x1;}"
+222	"public void test(){y0=x<x1?y0:y1;}"
+223	"public void test(){x2=x>x1?x2:x1;}"
+224	"public void test(){y2=x>x1?y2:y1;}"
+225	"public void test(){return evaluate(coefficients,x);}"
+226	"public void test(){if(i==-1){throw new OutOfRangeException(x,xval[0],xval[xval.length-1]);}}"
+227	"public void test(){if(j==-1){throw new OutOfRangeException(y,yval[0],yval[yval.length-1]);}}"
+228	"public void test(){return partialDerivative(0,x,y);}"
+229	"public void test(){return partialDerivative(1,x,y);}"
+230	"public void test(){return partialDerivative(2,x,y);}"
+231	"public void test(){return partialDerivative(3,x,y);}"
+232	"public void test(){return partialDerivative(4,x,y);}"
+233	"public void test(){if(x<0||x>1){throw new OutOfRangeException(x,0,1);}}"
+234	"public void test(){if(y<0||y>1){throw new OutOfRangeException(y,0,1);}}"
+235	"public void test(){ final double dist=(k<i)?x-xk:xk-x;}"
+236	"public void test(){ final double tmp=1-x*x;return tmp*tmp;}"
+237	"public void test(){for(int i=0;i<values.length;i++){ final double x=values[i];if(Double.isInfinite(x)||Double.isNaN(x)){throw new MathException(pattern,i,x);}}}"
+238	"public void test(){if(Double.isInfinite(x)||Double.isNaN(x)){throw new MathException(pattern,i,x);}}"
+239	"public void test(){if(Double.isNaN(value)){return false;}}"
+240	"public void test(){if(Double.isNaN(iter.value())){return true;}}"
+241	"public void test(){if(Double.isNaN(v)){return true;}}"
+242	"public void test(){if(isNaN()){return false;}}"
+243	"public void test(){if(isNaN()){return 9;}}"
+244	"public void test(){double b1=getSlope();return getIntercept(b1)+b1*x;}"
+245	"public void test(){if(d<value||Double.isNaN(value)){value=d;}}"
+246	"public void test(){if(!Double.isNaN(values[i])){min=(min<values[i])?min:values[i];}}"
+247	"public void test(){if(d>value||Double.isNaN(value)){value=d;}}"
+248	"public void test(){if(!Double.isNaN(values[i])){max=(max>values[i])?max:values[i];}}"
+249	"public void test(){if(current.getMin()<min||Double.isNaN(min)){min=current.getMin();}}"
+250	"public void test(){if(current.getMax()>max||Double.isNaN(max)){max=current.getMax();}}"
+251	"public void test(){if(Double.isNaN(weights[i])){throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.NAN_ELEMENT_AT_INDEX,i);}}"
+252	"public void test(){if(Double.isNaN(ranks[i].getValue())){for(int k=i+1;k<ranks.length;k++){ranks[k]=new IntDoublePair(ranks[k].getValue(),ranks[k].getPosition()-1);}}else {outRanks[j]=new IntDoublePair(ranks[i].getValue(),ranks[i].getPosition());j++;}}"
+253	"public void test(){if(Double.isNaN(ranks[i].getValue())){ranks[i]=new IntDoublePair(value,ranks[i].getPosition());}}"
+254	"public void test(){if(Double.isNaN(ranks[i].getValue())){return true;}}"
+255	"public void test(){if(Double.isNaN(ranks[i].getValue())){out.add(Integer.valueOf(i));}}"

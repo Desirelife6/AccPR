@@ -1,0 +1,23 @@
+1	"public void test(){if(hasSideEffects&&NodeUtil.canBeSideEffected(cArg)){return CanInlineResult.NO;}}"
+2	"public void test(){if(current.shouldRemove&&((seenUnmovableSideEffects&&current.canBeSideEffected())||(seenUnmoveableSideEfffected&&current.hasSideEffects()))){current.shouldRemove=false;}}"
+3	"public void test(){if(current.canBeSideEffected){seenUnmoveableSideEfffected=true;}}"
+4	"public void test(){if(!p.canBeSideEffected()){p.setCanBeSideEffected(NodeUtil.canBeSideEffected(value));}}"
+5	"public void test(){Node block=fnNode.getLastChild();boolean hasSideEffects=false;if(block.hasChildren()){Preconditions.checkState(block.hasOneChild());Node stmt=block.getFirstChild();if(stmt.isReturn()){hasSideEffects=NodeUtil.mayHaveSideEffects(stmt.getFirstChild(),compiler);}}}"
+6	"public void test(){if(stmt.isReturn()){hasSideEffects=NodeUtil.mayHaveSideEffects(stmt.getFirstChild(),compiler);}}"
+7	"public void test(){if(block.hasChildren()){Preconditions.checkState(block.hasOneChild());Node stmt=block.getFirstChild();if(stmt.isReturn()){hasSideEffects=NodeUtil.mayHaveSideEffects(stmt.getFirstChild(),compiler);}}Node cArg=callNode.getFirstChild().getNext();}"
+8	"public void test(){if(cArg==null||!cArg.isThis()){return CanInlineResult.NO;}}"
+9	"public void test(){if(NodeUtil.isFunctionObjectCall(callNode)){if(cArg==null||!cArg.isThis()){return CanInlineResult.NO;}cArg=cArg.getNext();}else {Preconditions.checkState(!NodeUtil.isFunctionObjectApply(callNode));}}"
+10	"public void test(){if(cArg!=null){if(hasSideEffects&&NodeUtil.canBeSideEffected(cArg)){return CanInlineResult.NO;}if(NodeUtil.mayEffectMutableState(cArg,compiler)&&NodeUtil.getNameReferenceCount(block,fnParam.getString())>1){return CanInlineResult.NO;}}}"
+11	"public void test(){if(hasSideEffects&&NodeUtil.canBeSideEffected(cArg)){return CanInlineResult.NO;}}"
+12	"public void test(){if(NodeUtil.mayEffectMutableState(cArg,compiler)&&NodeUtil.getNameReferenceCount(block,fnParam.getString())>1){return CanInlineResult.NO;}}"
+13	"public void test(){if(cArg!=null){if(NodeUtil.mayHaveSideEffects(cArg,compiler)){return CanInlineResult.NO;}cArg=cArg.getNext();}}"
+14	"public void test(){if(NodeUtil.mayHaveSideEffects(cArg,compiler)){return CanInlineResult.NO;}}"
+15	"public void test(){if(mayHaveSideEffects(rhs)||NodeUtil.canBeSideEffected(rhs)){return false;}}"
+16	"public void test(){Set<String> emptySet=Collections.emptySet();return canBeSideEffected(n,emptySet);}"
+17	"public void test(){if(canBeSideEffected(c,knownConstants)){return true;}}"
+18	"public void test(){if(cArg!=null&&NodeUtil.isFunctionObjectCall(callNode)){argMap.put(THIS_MARKER,cArg);cArg=cArg.getNext();}else {Preconditions.checkState(!NodeUtil.isFunctionObjectApply(callNode));argMap.put(THIS_MARKER,NodeUtil.newUndefinedNode(callNode));}}"
+19	"public void test(){if(cArg!=null){argMap.put(fnArg.getString(),cArg);cArg=cArg.getNext();}else {Node srcLocation=callNode;argMap.put(fnArg.getString(),NodeUtil.newUndefinedNode(srcLocation));}}"
+20	"public void test(){if(namesNeedingTemps.contains(argName)){continue;}Node cArg=entry.getValue();boolean safe=true;}"
+21	"public void test(){default :safe=NodeUtil.isImmutableValue(cArg);break;}"
+22	"public void test(){if(NodeUtil.canBeSideEffected(node)){return EVERY_LOCATION;}else {return NO_LOCATION;}}"
+23	"public void test(){if(followingSideEffectsExist){return NodeUtil.canBeSideEffected(n,this.knownConstants);}else {return NodeUtil.mayHaveSideEffects(n,compiler);}}"

@@ -1,0 +1,83 @@
+1	"public void test(){SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getDateTimeInstance(dateStyle,timeStyle,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);}"
+2	"public void test(){if(StringUtils.isEmpty(str)||ArrayUtils.isEmpty(set)){return str;}CharSet chars=CharSet.getInstance(set);StringBuffer buffer=new StringBuffer(str.length());}"
+3	"public void test(){if(StringUtils.isEmpty(str)||ArrayUtils.isEmpty(set)){return 0;}CharSet chars=CharSet.getInstance(set);int count=0;}"
+4	"public void test(){CharSet chars=CharSet.getInstance(set);StringBuffer buffer=new StringBuffer(str.length());char[] chrs=str.toCharArray();int sz=chrs.length;}"
+5	"public void test(){}"
+6	"public void test(){if(locale!=null){list.add(locale);if(locale.getVariant().length()>0){list.add(new Locale(locale.getLanguage(),locale.getCountry()));}if(locale.getCountry().length()>0){list.add(new Locale(locale.getLanguage(),""""));}if(list.contains(defaultLocale)==false){list.add(defaultLocale);}}}"
+7	"public void test(){list.add(locale);if(locale.getVariant().length()>0){list.add(new Locale(locale.getLanguage(),locale.getCountry()));}if(locale.getCountry().length()>0){list.add(new Locale(locale.getLanguage(),""""));}}"
+8	"public void test(){if(locale.getVariant().length()>0){list.add(new Locale(locale.getLanguage(),locale.getCountry()));}}"
+9	"public void test(){if(locale.getCountry().length()>0){list.add(new Locale(locale.getLanguage(),""""));}}"
+10	"public void test(){for(int i=0;i<locales.size();i++){Locale locale=(Locale)locales.get(i);if(countryCode.equals(locale.getCountry())&&locale.getVariant().length()==0){langs.add(locale);}}}"
+11	"public void test(){if(countryCode.equals(locale.getCountry())&&locale.getVariant().length()==0){langs.add(locale);}}"
+12	"public void test(){for(int i=0;i<locales.size();i++){Locale locale=(Locale)locales.get(i);if(languageCode.equals(locale.getLanguage())&&locale.getCountry().length()!=0&&locale.getVariant().length()==0){countries.add(locale);}}}"
+13	"public void test(){if(languageCode.equals(locale.getLanguage())&&locale.getCountry().length()!=0&&locale.getVariant().length()==0){countries.add(locale);}}"
+14	"public void test(){super();this.locale=locale;}"
+15	"public void test(){if(df.getDecimalFormatSymbols().equals(decimalFormatSymbols)){return toAppendTo.append(df.toPattern());}}"
+16	"public void test(){subformats=new HashMap();subformats.put(DEFAULT,NumberFormat.getInstance(getLocale()));subformats.put(INTEGER,NumberFormat.getIntegerInstance(getLocale()));subformats.put(CURRENCY,NumberFormat.getCurrencyInstance(getLocale()));}"
+17	"public void test(){if(sdf.getDateFormatSymbols().equals(dateFormatSymbols)){return toAppendTo.append(sdf.toPattern());}}"
+18	"public void test(){Format nmf=new NumberMetaFormat(locale);Format dmf=new DateMetaFormat(locale).setHandlePatterns(false);Format tmf=new TimeMetaFormat(locale).setHandlePatterns(false);return new MultiFormat(new Format[]{new OrderedNameKeyedMetaFormat(NO_SUBFORMAT_KEYS,new Format[]{getDefaultFormat(nmf),getDefaultFormat(dmf),getDefaultFormat(tmf)}),new OrderedNameKeyedMetaFormat(NO_PATTERN_KEYS,new Format[]{nmf,dmf,tmf,ChoiceMetaFormat.INSTANCE}),new OrderedNameKeyedMetaFormat(PATTERN_KEYS,new Format[]{new DateMetaFormat(locale),new TimeMetaFormat(locale)})});}"
+19	"public void test(){if(obj instanceof ChoiceFormat){return toAppendTo.append(((ChoiceFormat)obj).toPattern());}}"
+20	"public void test(){readArgumentIndex(pattern,next(pos));sb.append(pattern,start,pos.getIndex());if(pattern.charAt(pos.getIndex())==START_FMT){eatFormat(pattern,next(pos));}}"
+21	"public void test(){if(pattern.charAt(pos.getIndex())==START_FMT){eatFormat(pattern,next(pos));}}"
+22	"public void test(){if(pattern.charAt(pos.getIndex())!=END_FE){throw new IllegalArgumentException(""Unreadable format element at position ""+start);}}"
+23	"public void test(){default :sb.append(pattern.charAt(pos.getIndex()));next(pos);}"
+24	"public void test(){if(formats==null||formats.length==0){return pattern;}}"
+25	"public void test(){if(formats==null||formats.length==0){return pattern;}StringBuffer sb=new StringBuffer(pattern.length()*2);ParsePosition pos=new ParsePosition(0);}"
+26	"public void test(){if(pattern.charAt(pos.getIndex())==START_FMT){seekNonWs(pattern,next(pos));result.add(metaFormat.parseObject(pattern,pos));}}"
+27	"public void test(){if(pattern.charAt(pos.getIndex())==START_FMT){seekNonWs(pattern,next(pos));result.add(metaFormat.parseObject(pattern,pos));}seekNonWs(pattern,pos);if(pattern.charAt(pos.getIndex())!=END_FE){throw new IllegalArgumentException(""Unreadable format element at position ""+start);}}"
+28	"public void test(){int len=0;char[] buffer=pattern.toCharArray();do {len=StrMatcher.splitMatcher().isMatch(buffer,pos.getIndex());pos.setIndex(pos.getIndex()+len);} while(len>0&&pos.getIndex()<pattern.length());}"
+29	"public void test(){do {len=StrMatcher.splitMatcher().isMatch(buffer,pos.getIndex());pos.setIndex(pos.getIndex()+len);} while(len>0&&pos.getIndex()<pattern.length());}"
+30	"public void test(){for(;pos.getIndex()<pattern.length();next(pos)){char c=pattern.charAt(pos.getIndex());if(c==START_FMT||c==END_FE){return pattern.substring(start,pos.getIndex());}if(!Character.isDigit(c)){throw new IllegalArgumentException(""Invalid format argument index at position ""+start);}}}"
+31	"public void test(){if(c==START_FMT||c==END_FE){return pattern.substring(start,pos.getIndex());}}"
+32	"public void test(){if(escapingOn&&pattern.charAt(start)==QUOTE){return appendTo==null?null:appendTo.append(QUOTE);}}"
+33	"public void test(){for(int i=pos.getIndex();i<pattern.length();i++){if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){appendTo.append(pattern,lastHold,pos.getIndex()).append(QUOTE);pos.setIndex(i+ESCAPED_QUOTE.length());lastHold=pos.getIndex();continue;}swtich (pattern.charAt(pos.getIndex())){case QUOTE :next(pos);return appendTo==null?null:appendTo.append(pattern,lastHold,pos.getIndex());default :next(pos);}}}"
+34	"public void test(){if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){appendTo.append(pattern,lastHold,pos.getIndex()).append(QUOTE);pos.setIndex(i+ESCAPED_QUOTE.length());lastHold=pos.getIndex();continue;}}"
+35	"public void test(){swtich (pattern.charAt(pos.getIndex())){case QUOTE :next(pos);return appendTo==null?null:appendTo.append(pattern,lastHold,pos.getIndex());default :next(pos);}}"
+36	"public void test(){swtich (pattern.charAt(pos.getIndex())){case START_FE :depth++;break;case END_FE :depth--;if(depth==0){return ;}break;case QUOTE :getQuotedString(pattern,pos,false);break;}}"
+37	"public void test(){super(pattern);setMetaFormat(metaFormat);applyPattern(pattern);}"
+38	"public void test(){if(metaFormat==null){return ;}applyPatternPre(pattern);strippedPattern=PARSER.stripFormats(pattern);super.applyPattern(strippedPattern);setFormats(PARSER.parseFormats(pattern,metaFormat));applyPatternPost(pattern);}"
+39	"public void test(){FastDateFormat emptyFormat=new FastDateFormat(pattern,timeZone,locale);FastDateFormat format=(FastDateFormat)cInstanceCache.get(emptyFormat);if(format==null){format=emptyFormat;format.init();cInstanceCache.put(format,format);}return format;}"
+40	"public void test(){if(format==null){format=emptyFormat;format.init();cInstanceCache.put(format,format);}}"
+41	"public void test(){if(timeZone!=null){key=new Pair(key,timeZone);}}"
+42	"public void test(){if(locale!=null){key=new Pair(key,locale);}}"
+43	"public void test(){if(timeZone!=null){key=new Pair(key,timeZone);}if(locale!=null){key=new Pair(key,locale);}FastDateFormat format=(FastDateFormat)cDateInstanceCache.get(key);}"
+44	"public void test(){if(format==null){if(locale==null){locale=Locale.getDefault();}try{SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getDateInstance(style,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cDateInstanceCache.put(key,format);}catch (ClassCastException ex) {  throw new IllegalArgumentException(""No date pattern for locale: "" + locale);}}}"
+45	"public void test(){if(locale==null){locale=Locale.getDefault();}}"
+46	"public void test(){SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getDateInstance(style,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cDateInstanceCache.put(key,format);}"
+47	"public void test(){{if(locale==null){locale=Locale.getDefault();}try{SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getDateInstance(style,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cDateInstanceCache.put(key,format);}catch (ClassCastException ex) {  throw new IllegalArgumentException(""No date pattern for locale: "" + locale);}}}"
+48	"public void test(){if(timeZone!=null){key=new Pair(key,timeZone);}if(locale!=null){key=new Pair(key,locale);}FastDateFormat format=(FastDateFormat)cTimeInstanceCache.get(key);}"
+49	"public void test(){if(format==null){if(locale==null){locale=Locale.getDefault();}try{SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getTimeInstance(style,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cTimeInstanceCache.put(key,format);}catch (ClassCastException ex) {  throw new IllegalArgumentException(""No date pattern for locale: "" + locale);}}}"
+50	"public void test(){SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getTimeInstance(style,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cTimeInstanceCache.put(key,format);}"
+51	"public void test(){{if(locale==null){locale=Locale.getDefault();}try{SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getTimeInstance(style,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cTimeInstanceCache.put(key,format);}catch (ClassCastException ex) {  throw new IllegalArgumentException(""No date pattern for locale: "" + locale);}}}"
+52	"public void test(){Object key=new Pair(new Integer(dateStyle),new Integer(timeStyle));if(timeZone!=null){key=new Pair(key,timeZone);}if(locale!=null){key=new Pair(key,locale);}}"
+53	"public void test(){if(timeZone!=null){key=new Pair(key,timeZone);}if(locale!=null){key=new Pair(key,locale);}FastDateFormat format=(FastDateFormat)cDateTimeInstanceCache.get(key);}"
+54	"public void test(){if(format==null){if(locale==null){locale=Locale.getDefault();}try{SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getDateTimeInstance(dateStyle,timeStyle,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cDateTimeInstanceCache.put(key,format);}catch (ClassCastException ex) {  throw new IllegalArgumentException(""No date time pattern for locale: "" + locale);}}}"
+55	"public void test(){SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getDateTimeInstance(dateStyle,timeStyle,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cDateTimeInstanceCache.put(key,format);}"
+56	"public void test(){{if(locale==null){locale=Locale.getDefault();}try{SimpleDateFormat formatter=(SimpleDateFormat)DateFormat.getDateTimeInstance(dateStyle,timeStyle,locale);String pattern=formatter.toPattern();format=getInstance(pattern,timeZone,locale);cDateTimeInstanceCache.put(key,format);}catch (ClassCastException ex) {  throw new IllegalArgumentException(""No date time pattern for locale: "" + locale);}}}"
+57	"public void test(){Object key=new TimeZoneDisplayKey(tz,daylight,style,locale);String value=(String)cTimeZoneDisplayCache.get(key);if(value==null){value=tz.getDisplayName(daylight,style,locale);cTimeZoneDisplayCache.put(key,value);}return value;}"
+58	"public void test(){if(value==null){value=tz.getDisplayName(daylight,style,locale);cTimeZoneDisplayCache.put(key,value);}}"
+59	"public void test(){if(cDefaultPattern==null){cDefaultPattern=new SimpleDateFormat().toPattern();}}"
+60	"public void test(){if(pattern==null){throw new IllegalArgumentException(""The pattern must not be null"");}}"
+61	"public void test(){if(pattern==null){throw new IllegalArgumentException(""The pattern must not be null"");}mPattern=pattern;mTimeZoneForced=(timeZone!=null);}"
+62	"public void test(){mPattern=pattern;mTimeZoneForced=(timeZone!=null);if(timeZone==null){timeZone=TimeZone.getDefault();}}"
+63	"public void test(){if(timeZone==null){timeZone=TimeZone.getDefault();}}"
+64	"public void test(){if(timeZone==null){timeZone=TimeZone.getDefault();}mTimeZone=timeZone;mLocaleForced=(locale!=null);}"
+65	"public void test(){mTimeZone=timeZone;mLocaleForced=(locale!=null);if(locale==null){locale=Locale.getDefault();}}"
+66	"public void test(){mLocaleForced=(locale!=null);if(locale==null){locale=Locale.getDefault();}mLocale=locale;}"
+67	"public void test(){StringBuffer buf=new StringBuffer();int i=indexRef[0];int length=pattern.length();char c=pattern.charAt(i);}"
+68	"public void test(){while(i+1<length){char peek=pattern.charAt(i+1);if(peek==c){buf.append(c);i++;}else {break;}}}"
+69	"public void test(){{c=pattern.charAt(i);if(c=='\''){if(i+1<length&&pattern.charAt(i+1)=='\''){i++;buf.append(c);}else {inLiteral=!inLiteral;}}else if(!inLiteral&&(c>='A'&&c<='Z'||c>='a'&&c<='z')){i--;break;}else {buf.append(c);}}}"
+70	"public void test(){if(i+1<length&&pattern.charAt(i+1)=='\''){i++;buf.append(c);}else {inLiteral=!inLiteral;}}"
+71	"public void test(){mTimeZone=timeZone;mTimeZoneForced=timeZoneForced;mLocale=locale;mStyle=style;}"
+72	"public void test(){if(timeZoneForced){mStandard=getTimeZoneDisplay(timeZone,false,style,locale);mDaylight=getTimeZoneDisplay(timeZone,true,style,locale);}else {mStandard=null;mDaylight=null;}}"
+73	"public void test(){TimeZone timeZone=calendar.getTimeZone();if(timeZone.useDaylightTime()&&calendar.get(Calendar.DST_OFFSET)!=0){buffer.append(getTimeZoneDisplay(timeZone,true,mStyle,mLocale));}else {buffer.append(getTimeZoneDisplay(timeZone,false,mStyle,mLocale));}}"
+74	"public void test(){if(timeZone.useDaylightTime()&&calendar.get(Calendar.DST_OFFSET)!=0){buffer.append(getTimeZoneDisplay(timeZone,true,mStyle,mLocale));}else {buffer.append(getTimeZoneDisplay(timeZone,false,mStyle,mLocale));}}"
+75	"public void test(){mTimeZone=timeZone;if(daylight){style|=0x80000000;}mStyle=style;mLocale=locale;}"
+76	"public void test(){Token[] tokens=lexx(format);Calendar start=Calendar.getInstance(timezone);start.setTime(new Date(startMillis));Calendar end=Calendar.getInstance(timezone);}"
+77	"public void test(){Calendar start=Calendar.getInstance(timezone);start.setTime(new Date(startMillis));Calendar end=Calendar.getInstance(timezone);end.setTime(new Date(endMillis));int milliseconds=end.get(Calendar.MILLISECOND)-start.get(Calendar.MILLISECOND);}"
+78	"public void test(){if(date1==null||date2==null){throw new IllegalArgumentException(""The date must not be null"");}Calendar cal1=Calendar.getInstance();cal1.setTime(date1);Calendar cal2=Calendar.getInstance();cal2.setTime(date2);return isSameDay(cal1,cal2);}"
+79	"public void test(){if(date==null){throw new IllegalArgumentException(""The date must not be null"");}Calendar c=Calendar.getInstance();c.setTime(date);c.add(calendarField,amount);return c.getTime();}"
+80	"public void test(){if(date==null){throw new IllegalArgumentException(""The date must not be null"");}Calendar gval=Calendar.getInstance();gval.setTime(date);modify(gval,field,true);return gval.getTime();}"
+81	"public void test(){if(date==null){throw new IllegalArgumentException(""The date must not be null"");}Calendar gval=Calendar.getInstance();gval.setTime(date);modify(gval,field,false);return gval.getTime();}"
+82	"public void test(){if(focus==null){throw new IllegalArgumentException(""The date must not be null"");}Calendar gval=Calendar.getInstance();gval.setTime(focus);return iterator(gval,rangeStyle);}"
+83	"public void test(){FastDateFormat df=FastDateFormat.getInstance(pattern,timeZone,locale);return df.format(date);}"

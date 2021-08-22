@@ -1,0 +1,50 @@
+1	"public void test(){MathUtils.checkNotNull(rhs);return createComplex(real+rhs.getReal(),imaginary+rhs.getImaginary());}"
+2	"public void test(){for(int i=1;i<(n>>1);i++){transformed[2*i]=y[i].getReal();transformed[2*i+1]=transformed[2*i-1]-y[i].getImaginary();}transformed[n]=y[n>>1].getReal();return transformed;}"
+3	"public void test(){MathUtils.checkNotNull(bg);return new BigFraction(numerator.add(denominator.multiply(bg)),denominator);}"
+4	"public void test(){RealMatrix measNoise=measurementModel.getMeasurementNoise();MathUtils.checkNotNull(measNoise);if(processModel.getInitialStateEstimate()==null){stateEstimation=new ArrayRealVector(transitionMatrix.getColumnDimension());}else {stateEstimation=processModel.getInitialStateEstimate();}}"
+5	"public void test(){MathUtils.checkNotNull(z);if(z.getDimension()!=measurementMatrix.getRowDimension()){throw new DimensionMismatchException(z.getDimension(),measurementMatrix.getRowDimension());}}"
+6	"public void test(){if(FastMath.abs(real)<FastMath.abs(imaginary)){if(imaginary==0.0){return FastMath.abs(real);}double q=real/imaginary;return FastMath.abs(imaginary)*FastMath.sqrt(1+q*q);}else {if(real==0.0){return FastMath.abs(imaginary);}double q=imaginary/real;return FastMath.abs(real)*FastMath.sqrt(1+q*q);}}"
+7	"public void test(){if(imaginary==0.0){return FastMath.abs(real);}}"
+8	"public void test(){if(imaginary==0.0){return FastMath.abs(real);}double q=real/imaginary;return FastMath.abs(imaginary)*FastMath.sqrt(1+q*q);}"
+9	"public void test(){if(real==0.0){return FastMath.abs(imaginary);}}"
+10	"public void test(){if(real==0.0){return FastMath.abs(imaginary);}double q=imaginary/real;return FastMath.abs(real)*FastMath.sqrt(1+q*q);}"
+11	"public void test(){MathUtils.checkNotNull(rhs);return createComplex(real+rhs.getReal(),imaginary+rhs.getImaginary());}"
+12	"public void test(){if(isNaN){return NaN;}return createComplex(real,-imaginary);}"
+13	"public void test(){MathUtils.checkNotNull(rhs);if(isNaN||rhs.isNaN){return NaN;}}"
+14	"public void test(){if(isNaN||rhs.isNaN){return NaN;}}"
+15	"public void test(){if(isNaN||rhs.isNaN){return NaN;}double c=rhs.getReal();double d=rhs.getImaginary();}"
+16	"public void test(){double c=rhs.getReal();double d=rhs.getImaginary();if(c==0.0&&d==0.0){return NaN;}}"
+17	"public void test(){if(rhs.isInfinite()&&!isInfinite()){return ZERO;}}"
+18	"public void test(){double q=c/d;double denominator=c*q+d;return createComplex((real*q+imaginary)/denominator,(imaginary*q-real)/denominator);}"
+19	"public void test(){double q=d/c;double denominator=d*q+c;return createComplex((imaginary*q+real)/denominator,(imaginary-real*q)/denominator);}"
+20	"public void test(){if(other instanceof Complex){Complex rhs=(Complex)other;if(rhs.isNaN){return isNaN;}else {return (real==rhs.real)&&(imaginary==rhs.imaginary);}}}"
+21	"public void test(){if(rhs.isNaN){return isNaN;}else {return (real==rhs.real)&&(imaginary==rhs.imaginary);}}"
+22	"public void test(){if(isNaN){return 7;}return 37*(17*MathUtils.hash(imaginary)+MathUtils.hash(real));}"
+23	"public void test(){MathUtils.checkNotNull(rhs);if(isNaN||rhs.isNaN){return NaN;}if(Double.isInfinite(real)||Double.isInfinite(imaginary)){return INF;}return createComplex(real*rhs.real-imaginary*rhs.imaginary,real*rhs.imaginary+imaginary*rhs.real);}"
+24	"public void test(){if(Double.isInfinite(real)||Double.isInfinite(imaginary)){return INF;}}"
+25	"public void test(){if(isNaN||Double.isNaN(rhs)){return NaN;}if(Double.isInfinite(real)||Double.isInfinite(imaginary)){return INF;}return createComplex(real*rhs,imaginary*rhs);}"
+26	"public void test(){if(isNaN){return NaN;}return createComplex(-real,-imaginary);}"
+27	"public void test(){MathUtils.checkNotNull(rhs);if(isNaN||rhs.isNaN){return NaN;}return createComplex(real-rhs.getReal(),imaginary-rhs.getImaginary());}"
+28	"public void test(){if(isNaN){return NaN;}return this.add(Complex.I).divide(Complex.I.subtract(this)).log().multiply(Complex.I.divide(createComplex(2.0,0.0)));}"
+29	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.cos(real)*MathUtils.cosh(imaginary),-FastMath.sin(real)*MathUtils.sinh(imaginary));}"
+30	"public void test(){if(isNaN){return NaN;}return createComplex(MathUtils.cosh(real)*FastMath.cos(imaginary),MathUtils.sinh(real)*FastMath.sin(imaginary));}"
+31	"public void test(){if(isNaN){return NaN;}double expReal=FastMath.exp(real);return createComplex(expReal*FastMath.cos(imaginary),expReal*FastMath.sin(imaginary));}"
+32	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.log(abs()),FastMath.atan2(imaginary,real));}"
+33	"public void test(){MathUtils.checkNotNull(x);return this.log().multiply(x).exp();}"
+34	"public void test(){if(isNaN){return NaN;}return createComplex(FastMath.sin(real)*MathUtils.cosh(imaginary),FastMath.cos(real)*MathUtils.sinh(imaginary));}"
+35	"public void test(){if(isNaN){return NaN;}return createComplex(MathUtils.sinh(real)*FastMath.cos(imaginary),MathUtils.cosh(real)*FastMath.sin(imaginary));}"
+36	"public void test(){if(real==0.0&&imaginary==0.0){return createComplex(0.0,0.0);}}"
+37	"public void test(){if(real==0.0&&imaginary==0.0){return createComplex(0.0,0.0);}double t=FastMath.sqrt((FastMath.abs(real)+abs())/2.0);if(real>=0.0){return createComplex(t,imaginary/(2.0*t));}else {return createComplex(FastMath.abs(imaginary)/(2.0*t),MathUtils.indicator(imaginary)*t);}}"
+38	"public void test(){if(real>=0.0){return createComplex(t,imaginary/(2.0*t));}else {return createComplex(FastMath.abs(imaginary)/(2.0*t),MathUtils.indicator(imaginary)*t);}}"
+39	"public void test(){if(isNaN){return NaN;}double real2=2.0*real;double imaginary2=2.0*imaginary;double d=FastMath.cos(real2)+MathUtils.cosh(imaginary2);return createComplex(FastMath.sin(real2)/d,MathUtils.sinh(imaginary2)/d);}"
+40	"public void test(){if(isNaN){return NaN;}double real2=2.0*real;double imaginary2=2.0*imaginary;double d=MathUtils.cosh(real2)+FastMath.cos(imaginary2);return createComplex(MathUtils.sinh(real2)/d,FastMath.sin(imaginary2)/d);}"
+41	"public void test(){if(complexSolver.isRoot(lo,hi,root[i])){r=root[i].getReal();break;}}"
+42	"public void test(){if(isSequence(min,z.getReal(),max)){double tolerance=FastMath.max(getRelativeAccuracy()*z.abs(),getAbsoluteAccuracy());return (FastMath.abs(z.getImaginary())<=tolerance)||(z.abs()<=getFunctionValueAccuracy());}}"
+43	"public void test(){MathUtils.checkNotNull(coefficients);int n=coefficients.length;if(n==0){throw new NoDataException(LocalizedFormats.EMPTY_POLYNOMIALS_COEFFICIENTS_ARRAY);}}"
+44	"public void test(){if(column>0){throw new MathIllegalStateException(LocalizedFormats.FIRST_COLUMNS_NOT_INITIALIZED_YET,column);}MathUtils.checkNotNull(subMatrix); final int nRows=subMatrix.length;}"
+45	"public void test(){MathUtils.checkNotNull(subMatrix); final int refLength=subMatrix[0].length;if(refLength==0){throw new NoDataException(LocalizedFormats.AT_LEAST_ONE_COLUMN);}}"
+46	"public void test(){MathUtils.checkNotNull(subMatrix); final int nRows=subMatrix.length;if(nRows==0){throw new NoDataException(LocalizedFormats.AT_LEAST_ONE_ROW);}}"
+47	"public void test(){MathUtils.checkNotNull(d); final int nRows=d.length;if(nRows==0){throw new NoDataException(LocalizedFormats.AT_LEAST_ONE_ROW);}}"
+48	"public void test(){MathUtils.checkNotNull(in);for(int i=1;i<in.length;i++){if(in[i].length!=in[0].length){throw new DimensionMismatchException(LocalizedFormats.DIFFERENT_ROWS_LENGTHS,in[i].length,in[0].length);}}}"
+49	"public void test(){MathUtils.checkNotNull(points);if(points.size()<k){throw new NumberIsTooSmallException(points.size(),k,false);}}"
+50	"public void test(){MathUtils.checkNotNull(source);MathUtils.checkNotNull(dest);dest.setData(source.getDataRef());if(source.cachedPivots!=null){System.arraycopy(source.cachedPivots,0,dest.cachedPivots,0,source.cachedPivots.length);}dest.quantile=source.quantile;}"
